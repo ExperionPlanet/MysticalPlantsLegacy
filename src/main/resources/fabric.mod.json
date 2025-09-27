@@ -1,0 +1,44 @@
+{
+	"schemaVersion": 1,
+	"id": "mysticalplantslg",
+	"version": "${version}",
+	"name": "Mystical Plants Legacy",
+	"description": "Adds 5 types of magical plants that can be useful or dangerous",
+	"authors": [
+		"ExperionPlanet"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/mysticalplantslg/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"io.github.experionplanet.MPLMain"
+		],
+		"client": [
+			"io.github.experionplanet.MPLClient"
+		],
+		"fabric-datagen": [
+			"io.github.experionplanet.MPLDataGen"
+		]
+	},
+	"mixins": [
+		"mysticalplantslg.mixins.json",
+		{
+			"config": "mysticalplantslg.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.17.2",
+		"minecraft": "~1.21.5",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
