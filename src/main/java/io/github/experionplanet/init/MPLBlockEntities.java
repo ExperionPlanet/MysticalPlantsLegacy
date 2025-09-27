@@ -17,10 +17,10 @@ public class MPLBlockEntities {
 
     private static <T extends BlockEntity> BlockEntityType<T> register(
             String name,
-            FabricBlockEntityTypeBuilder.Factory<? extends T> entityFactory,
+            BlockEntityType.BlockEntityFactory<? extends T> entityFactory,
             Block... blocks
     ) {
         Identifier id = ExperionUtils.newId(name);
-        return Registry.register(Registries.BLOCK_ENTITY_TYPE, id, FabricBlockEntityTypeBuilder.<T>create(entityFactory, blocks).build());
+        return Registry.register(Registries.BLOCK_ENTITY_TYPE, id, BlockEntityType.Builder.<T>create(entityFactory, blocks).build());
     }
 }

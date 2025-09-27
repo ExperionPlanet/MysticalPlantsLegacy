@@ -6,15 +6,14 @@ import io.github.experionplanet.utils.ExperionLogger;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.model.Model;
-import net.minecraft.client.render.OverlayTexture;
-import net.minecraft.client.render.RenderLayers;
-import net.minecraft.client.render.VertexConsumerProvider;
+import net.minecraft.client.render.*;
 import net.minecraft.client.render.block.BlockRenderManager;
 import net.minecraft.client.render.block.entity.BlockEntityRenderer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactory;
-import net.minecraft.client.render.model.BlockStateModel;
+import net.minecraft.client.render.model.BakedModel;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 
 public class ExpMushroomBlockEntityRenderer implements BlockEntityRenderer<ExpMushroomBlockEntity> {
@@ -27,7 +26,7 @@ public class ExpMushroomBlockEntityRenderer implements BlockEntityRenderer<ExpMu
     }
 
     @Override
-    public void render(ExpMushroomBlockEntity entity, float tickProgress, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay, Vec3d cameraPos) {
+    public void render(ExpMushroomBlockEntity entity, float tickProgress, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay) {
         matrices.push();
 
 
@@ -57,9 +56,9 @@ public class ExpMushroomBlockEntityRenderer implements BlockEntityRenderer<ExpMu
 
 
         BlockState cacheState = entity.getCachedState();
-        BlockStateModel model = this.rendManager.getModel(cacheState);
-        this.rendManager.getModelRenderer().render(entity.getWorld(), model, cacheState, entity.getPos(), matrices, vertexConsumers, false, cacheState.getRenderingSeed(entity.getPos()), overlay);
-
+        BakedModel model = this.rendManager.getModel(cacheState);
+        VertexConsumer vertexConsumer = vertexConsumers.getBuffer(RenderLayer.getCutout());
+        rendManager.getModelRenderer().render(world,model,cacheState,entity.getPos(),matrices,vertexConsumer, false, Random.create(entity.getPos().asLong()), cacheState.getRenderingSeed(entity.getPos()), overlay);
         matrices.pop();
 
     }

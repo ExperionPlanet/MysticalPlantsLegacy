@@ -8,7 +8,6 @@ import io.github.experionplanet.utils.ExperionUtils;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityCollisionHandler;
 import net.minecraft.entity.ExperienceOrbEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -23,6 +22,7 @@ import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
@@ -67,13 +67,13 @@ public class ExpMushroomBlock extends PlantBlockWithEntity {
     }
 
     @Override
-    protected void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity, EntityCollisionHandler handler) {
+    protected void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
         if (!world.isClient()) {
             if (!state.get(STEPPED) && entity instanceof LivingEntity) {
                 world.scheduleBlockTick(pos, this, 0);
             }
         }
-        super.onEntityCollision(state, world, pos, entity, handler);
+        super.onEntityCollision(state, world, pos, entity);
     }
 
     @Override
@@ -117,7 +117,8 @@ public class ExpMushroomBlock extends PlantBlockWithEntity {
 
     @Override
     protected VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return this.CHOSEN_SHAPE.offset(state.getModelOffset(pos));
+        Vec3d vec3d = state.getModelOffset(world, pos);
+        return this.CHOSEN_SHAPE.offset(vec3d.x, vec3d.y, vec3d.z);
     }
 
     @Override
