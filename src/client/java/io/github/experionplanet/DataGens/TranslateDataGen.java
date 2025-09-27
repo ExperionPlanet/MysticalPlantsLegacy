@@ -18,5 +18,6 @@ public class TranslateDataGen extends FabricLanguageProvider {
         gen.add(MPLBlocks.SMALL_EXP_MUSHROOMS, "Small Exp Mushrooms");
         gen.add(MPLBlocks.MEDIUM_EXP_MUSHROOMS, "Medium Exp Mushrooms");
         gen.add(MPLBlocks.LARGE_EXP_MUSHROOMS, "Large Exp Mushrooms");
+        gen.add(MPLBlocks.BLEEDING_EXP, "Bleeding Exp");
     }
 }

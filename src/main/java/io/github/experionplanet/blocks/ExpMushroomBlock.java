@@ -1,9 +1,8 @@
 package io.github.experionplanet.blocks;
 
 import com.mojang.serialization.MapCodec;
-import io.github.experionplanet.blocks.baseclass.PlantBlockWithEntity;
+import io.github.experionplanet.blocks.baseclass.MysticalPlantBlockWithEntity;
 import io.github.experionplanet.blocks.entity.ExpMushroomBlockEntity;
-import io.github.experionplanet.utils.ExperionLogger;
 import io.github.experionplanet.utils.ExperionUtils;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
@@ -29,7 +28,7 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-public class ExpMushroomBlock extends PlantBlockWithEntity {
+public class ExpMushroomBlock extends MysticalPlantBlockWithEntity {
     public static final BooleanProperty STEPPED = BooleanProperty.of("stepped");
     private static final VoxelShape SHAPE_2 = Block.createCuboidShape(0, 0, 0, 16, 4, 16);
     private final int SHAPE_NUM;

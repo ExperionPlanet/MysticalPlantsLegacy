@@ -1,4 +1,5 @@
-// 1.21.1	2025-09-28T05:26:50.2668977	Mystical Plants Legacy/Block Loot Tables
+// 1.21.1	2025-09-28T05:44:37.7355467	Mystical Plants Legacy/Block Loot Tables
 7f1c9b5522a6ed7c6326fe4862685f652c226bd0 data\mysticalplantslg\loot_table\blocks\small_exp_mushrooms.json
+5481f43609cb88ed0188818dbc9d8e542cb313c4 data\mysticalplantslg\loot_table\blocks\bleeding_exp.json
 5f477e7881197f95b53df5b8ade32b0b50fd8165 data\mysticalplantslg\loot_table\blocks\large_exp_mushroom.json
 b59a971cf03df4a85b264c03cebc0f24f23ddfbc data\mysticalplantslg\loot_table\blocks\medium_exp_mushroom.json

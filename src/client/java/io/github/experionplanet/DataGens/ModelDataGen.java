@@ -20,6 +20,7 @@ public class ModelDataGen extends FabricModelProvider {
         registerVariantRotational(MPLBlocks.SMALL_EXP_MUSHROOMS, gen);
         registerSingleModel(MPLBlocks.MEDIUM_EXP_MUSHROOMS, gen);
         registerSingleModel(MPLBlocks.LARGE_EXP_MUSHROOMS, gen);
+        registerSingleModel(MPLBlocks.BLEEDING_EXP, gen);
 
     }
 
@@ -28,6 +29,7 @@ public class ModelDataGen extends FabricModelProvider {
         gen.register(MPLBlocks.SMALL_EXP_MUSHROOMS.asItem(), Models.GENERATED);
         gen.register(MPLBlocks.MEDIUM_EXP_MUSHROOMS.asItem(), Models.GENERATED);
         gen.register(MPLBlocks.LARGE_EXP_MUSHROOMS.asItem(), Models.GENERATED);
+        gen.register(MPLBlocks.BLEEDING_EXP.asItem(), Models.GENERATED);
     }
 
     private void registerSingleModel(Block block, BlockStateModelGenerator gen) {
