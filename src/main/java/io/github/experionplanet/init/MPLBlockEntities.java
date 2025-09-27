@@ -11,7 +11,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
 public class MPLBlockEntities {
-    public static final BlockEntityType<ExpMushroomBlockEntity> EXP_MUSHROOMS = register("exp_mushrooms", ExpMushroomBlockEntity::new, MPLBlocks.SMALL_EXP_MUSHROOMS);
+    public static final BlockEntityType<ExpMushroomBlockEntity> EXP_MUSHROOMS = register("exp_mushrooms", ExpMushroomBlockEntity::new, MPLBlocks.SMALL_EXP_MUSHROOMS, MPLBlocks.MEDIUM_EXP_MUSHROOMS, MPLBlocks.LARGE_EXP_MUSHROOMS);
 
     public static void init() {}
 

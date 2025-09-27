@@ -12,7 +12,7 @@ public class MPLClient implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
 		// This entrypoint is suitable for setting up client-specific logic, such as rendering.
-		BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getTranslucent(), MPLBlocks.SMALL_EXP_MUSHROOMS);
+		BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getTranslucent(), MPLBlocks.SMALL_EXP_MUSHROOMS, MPLBlocks.MEDIUM_EXP_MUSHROOMS, MPLBlocks.LARGE_EXP_MUSHROOMS);
 
 		BlockEntityRendererFactories.register(MPLBlockEntities.EXP_MUSHROOMS, ExpMushroomBlockEntityRenderer::new);
 	}

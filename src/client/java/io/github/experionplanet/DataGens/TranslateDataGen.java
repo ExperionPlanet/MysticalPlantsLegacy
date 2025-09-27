@@ -16,5 +16,7 @@ public class TranslateDataGen extends FabricLanguageProvider {
     @Override
     public void generateTranslations(RegistryWrapper.WrapperLookup wrapperLookup, TranslationBuilder gen) {
         gen.add(MPLBlocks.SMALL_EXP_MUSHROOMS, "Small Exp Mushrooms");
+        gen.add(MPLBlocks.MEDIUM_EXP_MUSHROOMS, "Medium Exp Mushrooms");
+        gen.add(MPLBlocks.LARGE_EXP_MUSHROOMS, "Large Exp Mushrooms");
     }
 }

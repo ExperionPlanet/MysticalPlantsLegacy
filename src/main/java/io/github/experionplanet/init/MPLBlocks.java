@@ -23,6 +23,9 @@ public class MPLBlocks {
     }
 
     public static final Block SMALL_EXP_MUSHROOMS = register("small_exp_mushrooms", (v) -> new ExpMushroomBlock(v, 2, 5), AbstractBlock.Settings.create().sounds(BlockSoundGroup.WET_GRASS).noCollision().luminance((v) -> {if(v.get(ExpMushroomBlock.STEPPED)){return 10;}return 5;}).emissiveLighting((v1, v2, v3) -> true), true);
+    public static final Block MEDIUM_EXP_MUSHROOMS = register("medium_exp_mushroom", (v) -> new ExpMushroomBlock(v, 1, 15), AbstractBlock.Settings.create().sounds(BlockSoundGroup.WET_GRASS).noCollision().luminance((v) -> {if(v.get(ExpMushroomBlock.STEPPED)){return 10;}return 5;}).emissiveLighting((v1, v2, v3) -> true).offset(AbstractBlock.OffsetType.XZ), true);
+    public static final Block LARGE_EXP_MUSHROOMS = register("large_exp_mushroom", (v) -> new ExpMushroomBlock(v, 1, 40), AbstractBlock.Settings.create().sounds(BlockSoundGroup.WET_GRASS).noCollision().luminance((v) -> {if(v.get(ExpMushroomBlock.STEPPED)){return 10;}return 5;}).emissiveLighting((v1, v2, v3) -> true).offset(AbstractBlock.OffsetType.XZ), true);
+
 
     public static void init() {}
 

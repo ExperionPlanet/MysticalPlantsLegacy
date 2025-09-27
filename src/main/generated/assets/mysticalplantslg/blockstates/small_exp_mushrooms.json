@@ -1,7 +1,21 @@
 {
   "variants": {
-    "": {
-      "model": "mysticalplantslg:block/small_exp_mushrooms"
-    }
+    "": [
+      {
+        "model": "mysticalplantslg:block/small_exp_mushrooms"
+      },
+      {
+        "model": "mysticalplantslg:block/small_exp_mushrooms",
+        "y": 90
+      },
+      {
+        "model": "mysticalplantslg:block/small_exp_mushrooms",
+        "y": 180
+      },
+      {
+        "model": "mysticalplantslg:block/small_exp_mushrooms",
+        "y": 270
+      }
+    ]
   }
 }

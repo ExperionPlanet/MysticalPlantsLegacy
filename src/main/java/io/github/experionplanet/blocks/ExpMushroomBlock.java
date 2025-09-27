@@ -1,19 +1,25 @@
 package io.github.experionplanet.blocks;
 
 import com.mojang.serialization.MapCodec;
+import io.github.experionplanet.blocks.baseclass.PlantBlockWithEntity;
 import io.github.experionplanet.blocks.entity.ExpMushroomBlockEntity;
 import io.github.experionplanet.utils.ExperionLogger;
+import io.github.experionplanet.utils.ExperionUtils;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityCollisionHandler;
+import net.minecraft.entity.ExperienceOrbEntity;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Direction;
@@ -23,9 +29,8 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-public class ExpMushroomBlock extends BlockWithEntity {
+public class ExpMushroomBlock extends PlantBlockWithEntity {
     public static final BooleanProperty STEPPED = BooleanProperty.of("stepped");
-    private static final VoxelShape SHAPE_1 = Block.createColumnShape((double)6.0F, (double)0.0F, (double)10.0F);
     private static final VoxelShape SHAPE_2 = Block.createCuboidShape(0, 0, 0, 16, 4, 16);
     private final int SHAPE_NUM;
     private final int AMOUNT_EXP;
@@ -36,7 +41,7 @@ public class ExpMushroomBlock extends BlockWithEntity {
         this.setDefaultState(this.getStateManager().getDefaultState().with(STEPPED, false));
 
         if (shapenum == 1) {
-            this.CHOSEN_SHAPE = SHAPE_1;
+            this.CHOSEN_SHAPE = PLANT_SHAPE;
         }else {
             this.CHOSEN_SHAPE = SHAPE_2;
         }
@@ -113,5 +118,14 @@ public class ExpMushroomBlock extends BlockWithEntity {
     @Override
     protected VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
         return this.CHOSEN_SHAPE.offset(state.getModelOffset(pos));
+    }
+
+    @Override
+    protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
+        if (!world.isClient()) {
+            world.breakBlock(pos, false, player);
+            ExperienceOrbEntity.spawn((ServerWorld) world, ExperionUtils.v3dConvert(pos, true), this.AMOUNT_EXP);
+        }
+        return ActionResult.SUCCESS;
     }
 }
