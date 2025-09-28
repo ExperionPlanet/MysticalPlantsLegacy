@@ -1,5 +1,6 @@
 package io.github.experionplanet.init;
 
+import io.github.experionplanet.blocks.entity.ExbiscusBlockEntity;
 import io.github.experionplanet.blocks.entity.ExpMushroomBlockEntity;
 import io.github.experionplanet.utils.ExperionUtils;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
@@ -12,6 +13,7 @@ import net.minecraft.util.Identifier;
 
 public class MPLBlockEntities {
     public static final BlockEntityType<ExpMushroomBlockEntity> EXP_MUSHROOMS = register("exp_mushrooms", ExpMushroomBlockEntity::new, MPLBlocks.SMALL_EXP_MUSHROOMS, MPLBlocks.MEDIUM_EXP_MUSHROOMS, MPLBlocks.LARGE_EXP_MUSHROOMS);
+    public static final BlockEntityType<ExbiscusBlockEntity> EXBISCUS = register("exbiscus", ExbiscusBlockEntity::new, MPLBlocks.EXBISCUS);
 
     public static void init() {}
 

@@ -26,6 +26,9 @@ public class MPLItemGroup {
             itemGroup.add(MPLBlocks.MEDIUM_EXP_MUSHROOMS);
             itemGroup.add(MPLBlocks.LARGE_EXP_MUSHROOMS);
             itemGroup.add(MPLBlocks.BLEEDING_EXP);
+            itemGroup.add(MPLBlocks.EXBISCUS);
+
+            itemGroup.add(MPLItems.EXP_ORB);
         });
     }
 }

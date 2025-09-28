@@ -1,9 +1,11 @@
-// 1.21.1	2025-09-28T05:44:37.7355467	Mystical Plants Legacy/Model Definitions
+// 1.21.1	2025-09-28T08:48:34.4832755	Mystical Plants Legacy/Model Definitions
+496fd4af36d15be3fb50c42756cf7cbfdd38bbd8 assets\mysticalplantslg\blockstates\exbiscus.json
 74b537673b14044ee4b15aca1bcb7ea547b8177b assets\mysticalplantslg\blockstates\bleeding_exp.json
 d5e5a0807f5314a04c714d80fdba232295c6ff04 assets\mysticalplantslg\models\item\medium_exp_mushroom.json
 cd1ea13f361a978e59d3d58bf384d21b7e447b92 assets\mysticalplantslg\models\item\small_exp_mushrooms.json
 ade65ee009bdc450e5019def7ea7e511429427dd assets\mysticalplantslg\blockstates\small_exp_mushrooms.json
 5a9ebebb64bbdef604213b4957d093b1597ecb3e assets\mysticalplantslg\blockstates\medium_exp_mushroom.json
-43d2af859aaf5dbf2c922fcafcbad3f3aac00e7c assets\mysticalplantslg\models\item\large_exp_mushroom.json
 6f19fc1b23068a56d2dcc9b319b82606b01f2ce3 assets\mysticalplantslg\models\item\bleeding_exp.json
+43d2af859aaf5dbf2c922fcafcbad3f3aac00e7c assets\mysticalplantslg\models\item\large_exp_mushroom.json
 ce5e9e32fa47d18c76a06fa26eb929458b64ea7c assets\mysticalplantslg\blockstates\large_exp_mushroom.json
+c244fb5326cddb674c56eeff2d0220e69ed13988 assets\mysticalplantslg\models\item\exbiscus.json
