@@ -1,32 +1,27 @@
 package io.github.experionplanet.renderer.blockentity;
 
-import io.github.experionplanet.entitymodel.MPLEntityModelLayers;
-import io.github.experionplanet.blocks.entity.ExbiscusBlockEntity;
-import io.github.experionplanet.entitymodel.models.ExpRingModel;
+import io.github.experionplanet.init.MPLEntityModelLayers;
+import io.github.experionplanet.blocks.entity.custom.ExbiscusBlockEntity;
+import io.github.experionplanet.entitymodel.models.SquarePlaneModel;
 import io.github.experionplanet.init.MPLBlockProperties;
-import io.github.experionplanet.utils.ExperionLogger;
 import io.github.experionplanet.utils.ExperionUtils;
-import net.minecraft.client.model.ModelPart;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.block.BlockRenderManager;
 import net.minecraft.client.render.block.entity.BlockEntityRenderer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactory;
-import net.minecraft.client.render.model.BakedModel;
-import net.minecraft.client.texture.SpriteAtlasTexture;
-import net.minecraft.client.util.SpriteIdentifier;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.math.RotationAxis;
 import net.minecraft.util.math.random.Random;
 
 public class ExbiscusBlockEntityRenderer implements BlockEntityRenderer<ExbiscusBlockEntity> {
     private final BlockRenderManager rendManager;
-    private final ExpRingModel expRing;
+    private final SquarePlaneModel expRing;
 
     public ExbiscusBlockEntityRenderer(BlockEntityRendererFactory.Context context) {
         this.rendManager = context.getRenderManager();
-        this.expRing = new ExpRingModel(context.getLayerModelPart(MPLEntityModelLayers.SMALL_EXP_RING));
+        this.expRing = new SquarePlaneModel(context.getLayerModelPart(MPLEntityModelLayers.FULL_PLANE));
     }
 
 

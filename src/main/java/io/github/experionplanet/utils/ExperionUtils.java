@@ -24,4 +24,16 @@ public class ExperionUtils {
     public static float floatInRange(Random random, float min, float max) {
         return min + random.nextFloat() * (max - min);
     }
+
+    public static double doubleInRange(Random random, double min, double max) {
+        return min + random.nextDouble() * (max - min);
+    }
+
+    public static float alphaHandling(float progress, float target) {
+        return Math.min(progress / target, 1);
+    }
+
+    public static float tweenHandling(float start, float target, float alpha) {
+        return start + (target - start) * alpha;
+    }
 }

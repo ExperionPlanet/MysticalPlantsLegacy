@@ -1,7 +1,14 @@
 {
+  "block.mysticalplantslg.binding_rock": "Binding Rock",
   "block.mysticalplantslg.bleeding_exp": "Bleeding Exp",
+  "block.mysticalplantslg.debug_translate": "D3bug Tr4nsl4t3!1",
   "block.mysticalplantslg.exbiscus": "Exbiscus",
   "block.mysticalplantslg.large_exp_mushroom": "Large Exp Mushrooms",
   "block.mysticalplantslg.medium_exp_mushroom": "Medium Exp Mushrooms",
-  "block.mysticalplantslg.small_exp_mushrooms": "Small Exp Mushrooms"
+  "block.mysticalplantslg.pedestal": "Mossy Pedestal",
+  "block.mysticalplantslg.permafrost_shroom": "Permafrost Shroom",
+  "block.mysticalplantslg.small_exp_mushrooms": "Small Exp Mushrooms",
+  "item.mysticalplantslg.broken_experience_pickaxe": "Broken Experience Pickaxe",
+  "item.mysticalplantslg.experience_essence": "Experience Essence",
+  "item.mysticalplantslg.experience_pickaxe": "Experience Pickaxe"
 }

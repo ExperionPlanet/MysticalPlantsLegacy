@@ -1,8 +1,7 @@
 package io.github.experionplanet.init;
 
-import io.github.experionplanet.blocks.BleedingExpBlock;
-import io.github.experionplanet.blocks.ExbiscusBlock;
-import io.github.experionplanet.blocks.ExpMushroomBlock;
+import io.github.experionplanet.blocks.custom.*;
+import io.github.experionplanet.utils.ExperionLogger;
 import io.github.experionplanet.utils.ExperionUtils;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
@@ -11,8 +10,6 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
-import net.minecraft.registry.RegistryKey;
-import net.minecraft.registry.RegistryKeys;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.BlockView;
@@ -31,16 +28,18 @@ public class MPLBlocks {
     public static final Block BLEEDING_EXP = register("bleeding_exp", BleedingExpBlock::new, AbstractBlock.Settings.create().sounds(BlockSoundGroup.GRASS).noCollision().luminance((v) -> 5).emissiveLighting(MPLBlocks::emissiveLightning), true);
     public static final Block EXBISCUS = register("exbiscus", ExbiscusBlock::new, AbstractBlock.Settings.create().sounds(BlockSoundGroup.GRASS).noCollision().luminance((v) -> 5).emissiveLighting(MPLBlocks::emissiveLightning), true);
 
+    public static final Block PERMAFROST_SHROOM = register("permafrost_shroom", PermafrostShroomBlock::new, AbstractBlock.Settings.create().nonOpaque().sounds(BlockSoundGroup.MOSS_CARPET).noCollision(),true);
+
+    public static final Block BINDING_ROCK = register("binding_rock", BindingRockBlock::new, AbstractBlock.Settings.create().sounds(BlockSoundGroup.STONE).nonOpaque(), true);
+    public static final Block PEDESTAL = register("pedestal", PedestalBlock::new, AbstractBlock.Settings.create().sounds(BlockSoundGroup.STONE).nonOpaque(), true);
+
+    public static final Block DEBUG_TRANSLATE = register("debug_translate", DebugTranslateBlock::new, AbstractBlock.Settings.create().sounds(BlockSoundGroup.BASALT).nonOpaque(), true);
+
     public static void init() {}
 
-    // Making it alternate so it will easier upgrade to future version again
-    private static Block register(String name, Function<AbstractBlock.Settings, Block> blockFactory, AbstractBlock.Settings settings, boolean regItem) {
-        Block block = blockFactory.apply(settings);
-
-        return register(name, block, regItem);
-    }
-
     private static Block register(String name, Block block, boolean regItem) {
+        ExperionLogger.Print("Registering " + name);
+
         Block res = Registry.register(Registries.BLOCK, ExperionUtils.newId(name), block);
 
         if (regItem) {
@@ -51,4 +50,13 @@ public class MPLBlocks {
 
         return res;
     }
+
+    // Making it alternate so it will easier upgrade to future version again
+    private static Block register(String name, Function<AbstractBlock.Settings, Block> blockFactory, AbstractBlock.Settings settings, boolean regItem) {
+        Block block = blockFactory.apply(settings);
+
+        return register(name, block, regItem);
+    }
+
+
 }

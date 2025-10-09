@@ -19,5 +19,6 @@ public class BlockLootableDataGen extends FabricBlockLootTableProvider {
         addDrop(MPLBlocks.LARGE_EXP_MUSHROOMS);
         addDrop(MPLBlocks.BLEEDING_EXP);
         addDrop(MPLBlocks.EXBISCUS);
+        addDrop(MPLBlocks.PERMAFROST_SHROOM);
     }
 }

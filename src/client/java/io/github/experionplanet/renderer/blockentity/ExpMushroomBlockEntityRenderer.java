@@ -1,18 +1,14 @@
 package io.github.experionplanet.renderer.blockentity;
 
-import io.github.experionplanet.blocks.entity.ExpMushroomBlockEntity;
+import io.github.experionplanet.blocks.entity.custom.ExpMushroomBlockEntity;
 import io.github.experionplanet.utils.EasingsList;
-import io.github.experionplanet.utils.ExperionLogger;
 import net.minecraft.block.BlockState;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.model.Model;
 import net.minecraft.client.render.*;
 import net.minecraft.client.render.block.BlockRenderManager;
 import net.minecraft.client.render.block.entity.BlockEntityRenderer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactory;
 import net.minecraft.client.render.model.BakedModel;
 import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 
@@ -28,8 +24,6 @@ public class ExpMushroomBlockEntityRenderer implements BlockEntityRenderer<ExpMu
     @Override
     public void render(ExpMushroomBlockEntity entity, float tickProgress, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay) {
         matrices.push();
-
-
 
         World world = entity.getWorld();
 

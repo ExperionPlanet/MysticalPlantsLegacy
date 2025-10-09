@@ -27,8 +27,16 @@ public class MPLItemGroup {
             itemGroup.add(MPLBlocks.LARGE_EXP_MUSHROOMS);
             itemGroup.add(MPLBlocks.BLEEDING_EXP);
             itemGroup.add(MPLBlocks.EXBISCUS);
+            itemGroup.add(MPLBlocks.PERMAFROST_SHROOM);
 
-            itemGroup.add(MPLItems.EXP_ORB);
+            itemGroup.add(MPLItems.EXPERIENCE_ESSENCE);
+
+            itemGroup.add(MPLItems.EXPERIENCE_PICKAXE);
+
+            itemGroup.add(MPLBlocks.BINDING_ROCK);
+            itemGroup.add(MPLBlocks.PEDESTAL);
+
+            itemGroup.add(MPLItems.BROKEN_EXPERIENCE_PICKAXE);
         });
     }
 }

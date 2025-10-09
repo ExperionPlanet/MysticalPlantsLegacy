@@ -1,0 +1,14 @@
+{
+  "type":"mysticalplantslg:mystical_pedestal",
+  "last_ingredient":{"item":"minecraft:emerald"},
+  "binded":{"id":"mysticalplantslg:broken_experience_pickaxe","count":1},
+  "result_item":{"id":"mysticalplantslg:experience_pickaxe","count":1},
+  "input1":{"item":"mysticalplantslg:experience_essence"},
+  "input2":{"item":"mysticalplantslg:experience_essence"},
+  "input3":{"item":"minecraft:experience_bottle"},
+  "input4":{"item":"minecraft:experience_bottle"},
+  "input5":{"item":"minecraft:experience_bottle"},
+  "input6":{"item":"minecraft:diamond_pickaxe"},
+  "input7":[],
+  "input8":[]
+}

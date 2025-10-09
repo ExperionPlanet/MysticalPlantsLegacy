@@ -1,0 +1,6 @@
+{
+  "parent": "mysticalplantslg:item/experience_pickaxe_world",
+  "textures": {
+    "0": "mysticalplantslg:item/experience_pickaxe_broken"
+  }
+}

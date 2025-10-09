@@ -1,0 +1,52 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "mysticalplantslg:block/permafrost_shroom"
+      },
+      "when": {
+        "cap_remaining": "5"
+      }
+    },
+    {
+      "apply": {
+        "model": "mysticalplantslg:block/permafrost_shroom_1"
+      },
+      "when": {
+        "cap_remaining": "4"
+      }
+    },
+    {
+      "apply": {
+        "model": "mysticalplantslg:block/permafrost_shroom_2"
+      },
+      "when": {
+        "cap_remaining": "3"
+      }
+    },
+    {
+      "apply": {
+        "model": "mysticalplantslg:block/permafrost_shroom_3"
+      },
+      "when": {
+        "cap_remaining": "2"
+      }
+    },
+    {
+      "apply": {
+        "model": "mysticalplantslg:block/permafrost_shroom_4"
+      },
+      "when": {
+        "cap_remaining": "1"
+      }
+    },
+    {
+      "apply": {
+        "model": "mysticalplantslg:block/permafrost_shroom_5"
+      },
+      "when": {
+        "cap_remaining": "0"
+      }
+    }
+  ]
+}
