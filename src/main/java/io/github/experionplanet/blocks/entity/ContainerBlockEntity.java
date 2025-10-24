@@ -20,24 +20,36 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.event.GameEvent;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.List;
+
 
 public class ContainerBlockEntity extends BlockEntity {
+    private final int slotsize;
     private final DefaultedList<ItemStack> storedItems;
     public ContainerBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state, int slotSize) {
         super(type, pos, state);
         this.storedItems = DefaultedList.ofSize(slotSize, ItemStack.EMPTY);
+        this.slotsize = slotSize;
     }
 
     // FOR SINGLE SLOT
     public void emptyStack() {
-        this.storedItems.set(0, new ItemStack(Items.BARRIER));
+       emptyStack(0);
+    }
+
+    public void emptyStack(int slot) {
+        this.storedItems.set(slot, new ItemStack(Items.BARRIER));
         markDirty();
         world.updateListeners(pos, getCachedState(), getCachedState(), Block.NOTIFY_ALL);
         world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(getCachedState()));
     }
 
     public void setStack(ItemStack stack) {
-        this.storedItems.set(0, stack);
+        setStack(0, stack);
+    }
+
+    public void setStack(int slot, ItemStack stack) {
+        this.storedItems.set(slot, stack);
         markDirty();
         world.updateListeners(pos, getCachedState(), getCachedState(), Block.NOTIFY_ALL);
         world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(getCachedState()));
@@ -49,6 +61,10 @@ public class ContainerBlockEntity extends BlockEntity {
             return ItemStack.EMPTY;
         }
         return resStack;
+    }
+
+    public List<ItemStack> getAllStack() {
+        return List.copyOf(this.storedItems);
     }
 
     // FOR MULTIPLES

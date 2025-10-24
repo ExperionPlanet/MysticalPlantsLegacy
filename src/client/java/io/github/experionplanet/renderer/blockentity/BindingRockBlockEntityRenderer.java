@@ -1,9 +1,9 @@
 package io.github.experionplanet.renderer.blockentity;
 
 import io.github.experionplanet.blocks.entity.custom.BindingRockBlockEntity;
-import io.github.experionplanet.registry.MysticIdMapping;
-import io.github.experionplanet.init.MysticalContents;
-import io.github.experionplanet.registry.TrxContent;
+import io.github.experionplanet.mysticalcontents.MysticalContentsClient;
+import io.github.experionplanet.mysticalcontent.MysticIdMapping;
+import io.github.experionplanet.mysticalcontents.content.TrxContent;
 import io.github.experionplanet.utils.ExperionUtils;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.block.BlockRenderManager;
@@ -22,7 +22,7 @@ public class BindingRockBlockEntityRenderer implements BlockEntityRenderer<Bindi
     private final ItemRenderer itemRenderer;
     private final BlockRenderManager rendManager;
     private Identifier currentID = MysticIdMapping.DEFAULT_ID;
-    private TrxContent trx = MysticalContents.BINDING_ROCK.get(MysticIdMapping.DEFAULT_ID);
+    private TrxContent trx = MysticalContentsClient.BINDING_ROCK.get(MysticIdMapping.DEFAULT_ID);
 
     public BindingRockBlockEntityRenderer(BlockEntityRendererFactory.Context context) {
         this.itemRenderer = context.getItemRenderer();
@@ -42,7 +42,7 @@ public class BindingRockBlockEntityRenderer implements BlockEntityRenderer<Bindi
 
             if (!itemID.equals(currentID)) {
                 currentID = itemID;
-                trx = MysticalContents.BINDING_ROCK.get(currentID);
+                trx = MysticalContentsClient.BINDING_ROCK.get(currentID);
             }
 
             matrices.translate(trx.translate.x, trx.translate.y, trx.translate.z);

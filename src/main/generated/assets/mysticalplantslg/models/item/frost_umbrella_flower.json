@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "mysticalplantslg:item/frost_umbrella_flower"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "multipart": [
+    {
+      "apply": [
+        {
+          "model": "mysticalplantslg:block/glacier_passion_flower0"
+        },
+        {
+          "model": "mysticalplantslg:block/glacier_passion_flower0",
+          "y": 90
+        },
+        {
+          "model": "mysticalplantslg:block/glacier_passion_flower0",
+          "y": 180
+        },
+        {
+          "model": "mysticalplantslg:block/glacier_passion_flower0",
+          "y": 270
+        }
+      ],
+      "when": {
+        "blooming": "false"
+      }
+    },
+    {
+      "apply": [
+        {
+          "model": "mysticalplantslg:block/glacier_passion_flower1"
+        },
+        {
+          "model": "mysticalplantslg:block/glacier_passion_flower1",
+          "y": 90
+        },
+        {
+          "model": "mysticalplantslg:block/glacier_passion_flower1",
+          "y": 180
+        },
+        {
+          "model": "mysticalplantslg:block/glacier_passion_flower1",
+          "y": 270
+        }
+      ],
+      "when": {
+        "blooming": "true"
+      }
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "minecraft:block/blue_orchid"
+      },
+      "when": {
+        "revealed": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "mysticalplantslg:block/disguise_orchid"
+      },
+      "when": {
+        "revealed": "true"
+      }
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "mysticalplantslg:item/frost_axe_world",
+  "textures": {
+    "0": "mysticalplantslg:item/frost_axe_broken"
+  }
+}

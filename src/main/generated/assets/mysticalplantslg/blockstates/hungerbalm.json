@@ -1,0 +1,20 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "mysticalplantslg:block/hungerbalm0"
+      },
+      "when": {
+        "blooming": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "mysticalplantslg:block/hungerbalm1"
+      },
+      "when": {
+        "blooming": "true"
+      }
+    }
+  ]
+}

@@ -11,8 +11,10 @@ import io.github.experionplanet.utils.ExperionLogger;
 import io.github.experionplanet.utils.MysticalNbt;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.recipe.RecipeEntry;
 import net.minecraft.registry.RegistryWrapper;
@@ -29,6 +31,7 @@ public class BindingRockBlockEntity extends ContainerBlockEntity {
 
     public BindingRockBlockEntity(BlockPos pos, BlockState state) {
         super(MPLBlockEntities.BINDING_ROCK, pos, state, 1);
+
     }
 
     public Optional<RecipeEntry<MysticalPedestalRecipe>> getCurrentRecipe(List<ItemStack> list, ItemStack lastStack) {

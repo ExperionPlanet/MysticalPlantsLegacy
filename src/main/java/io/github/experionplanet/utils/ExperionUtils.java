@@ -1,6 +1,9 @@
 package io.github.experionplanet.utils;
 
 import io.github.experionplanet.MPLMain;
+import net.minecraft.block.Block;
+import net.minecraft.item.Item;
+import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
@@ -35,5 +38,13 @@ public class ExperionUtils {
 
     public static float tweenHandling(float start, float target, float alpha) {
         return start + (target - start) * alpha;
+    }
+
+    public static Identifier getItemID(Item item) {
+        return Registries.ITEM.getId(item);
+    }
+
+    public static Identifier getBlockID(Block block) {
+        return Registries.BLOCK.getId(block);
     }
 }

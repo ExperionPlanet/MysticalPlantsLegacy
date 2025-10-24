@@ -1,0 +1,14 @@
+{
+  "type":"mysticalplantslg:mystical_pedestal",
+  "last_ingredient":{"item":"mysticalplantslg:permafrost_shroom"},
+  "binded":{"id":"mysticalplantslg:broken_frost_axe","count":1},
+  "result_item":{"id":"mysticalplantslg:frost_axe","count":1},
+  "input1":{"item":"mysticalplantslg:frost_essence"},
+  "input2":{"item":"mysticalplantslg:frost_essence"},
+  "input3":{"item":"minecraft:ice"},
+  "input4":{"item":"minecraft:blue_ice"},
+  "input5":{"item":"minecraft:blue_ice"},
+  "input6":{"item":"minecraft:diamond_axe"},
+  "input7":[],
+  "input8":[]
+}

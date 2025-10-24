@@ -10,13 +10,25 @@
   "permafrost_shroom_explode_last": {
     "subtitle": "sound.mysticalplantslg.permafrost_shroom_explode_last",
     "sounds": [
-      "mysticalplantslg:permafrost_shroom_last"
+      "mysticalplantslg:permafrost_shroom_explode_last"
     ]
   },
   "exbiscus_blooming_pick": {
     "subtitle": "sound.mysticalplantslg.exbiscus_blooming_pick",
     "sounds": [
       "mysticalplantslg:exbiscus_blooming_pick"
+    ]
+  },
+  "exbiscus_blooming_pick_essence": {
+    "subtitle": "sound.mysticalplantslg.exbiscus_blooming_pick_essence",
+    "sounds": [
+      "mysticalplantslg:exbiscus_blooming_pick_essence"
+    ]
+  },
+  "frost_umbrella_flower_boink": {
+    "subtitle": "sound.mysticalplantslg.frost_umbrella_flower_boink",
+    "sounds": [
+      "mysticalplantslg:frost_umbrella_flower_boink"
     ]
   }
 }

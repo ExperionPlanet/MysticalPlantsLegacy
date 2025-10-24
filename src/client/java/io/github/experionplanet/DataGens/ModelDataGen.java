@@ -1,12 +1,15 @@
 package io.github.experionplanet.DataGens;
 
-import io.github.experionplanet.blocks.custom.PermafrostShroomBlock;
+import io.github.experionplanet.blocks.custom.DisguiseOrchidBlock;
 import io.github.experionplanet.init.MPLBlockProperties;
 import io.github.experionplanet.init.MPLBlocks;
+import io.github.experionplanet.init.MPLItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.data.client.*;
+import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.util.Identifier;
 
@@ -21,11 +24,20 @@ public class ModelDataGen extends FabricModelProvider {
         registerSingleModel(MPLBlocks.MEDIUM_EXP_MUSHROOMS, gen);
         registerSingleModel(MPLBlocks.LARGE_EXP_MUSHROOMS, gen);
         registerSingleModel(MPLBlocks.BLEEDING_EXP, gen);
-        registerBloomingVariantRotational(MPLBlocks.EXBISCUS, gen);
+        registerBlooming(MPLBlocks.EXBISCUS, gen, true);
+
+        registerBlooming(MPLBlocks.GLACIER_PASSION_FLOWER, gen, true);
+        registerSingleModel(MPLBlocks.FROST_UMBRELLA_FLOWER, gen);
+        registerMultiShroom(MPLBlocks.PERMAFROST_SHROOM, gen, 5, false);
+        registerMultiShroom(MPLBlocks.BOGSPORE_CAP, gen, 3, true);
+
+        registerBlockShifting(MPLBlocks.DISGUISE_ORCHID, gen, ModelIds.getBlockModelId(Blocks.BLUE_ORCHID), ModelIds.getBlockModelId(MPLBlocks.DISGUISE_ORCHID), DisguiseOrchidBlock.REVEALED);
+        registerBlooming(MPLBlocks.HUNGERBALM, gen, false);
+
         registerSingleModel(MPLBlocks.BINDING_ROCK, gen);
         registerSingleModel(MPLBlocks.DEBUG_TRANSLATE, gen);
         registerSingleModel(MPLBlocks.PEDESTAL, gen);
-        registerPermafrostShroom(MPLBlocks.PERMAFROST_SHROOM, gen);
+        gen.registerSimpleCubeAll(MPLBlocks.PERMAFROSTED_LOG);
     }
 
     @Override
@@ -36,31 +48,34 @@ public class ModelDataGen extends FabricModelProvider {
         gen.register(MPLBlocks.BLEEDING_EXP.asItem(), Models.GENERATED);
         gen.register(MPLBlocks.EXBISCUS.asItem(), Models.GENERATED);
         gen.register(MPLBlocks.PERMAFROST_SHROOM.asItem(), Models.GENERATED);
+        gen.register(MPLBlocks.GLACIER_PASSION_FLOWER.asItem(), Models.GENERATED);
+        gen.register(MPLBlocks.FROST_UMBRELLA_FLOWER.asItem(), Models.GENERATED);
+        gen.register(MPLItems.GUIDE_BOOK, Models.GENERATED);
+        gen.register(MPLBlocks.BOGSPORE_CAP.asItem(), Models.GENERATED);
+        gen.register(MPLBlocks.DISGUISE_ORCHID.asItem(), Models.GENERATED);
+        gen.register(MPLBlocks.HUNGERBALM.asItem(), Models.GENERATED);
 
+    }
+
+    private void registerBlockShifting(Block block, BlockStateModelGenerator gen, Identifier model0, Identifier model1, BooleanProperty prop) {
+
+        gen.blockStateCollector.accept(MultipartBlockStateSupplier.create(block)
+                .with(When.create().set(prop, false), BlockStateVariant.create().put(VariantSettings.MODEL, model0))
+                .with(When.create().set(prop, true), BlockStateVariant.create().put(VariantSettings.MODEL, model1))
+        );
     }
 
     private void registerSingleModel(Block block, BlockStateModelGenerator gen) {
         gen.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(block, ModelIds.getBlockModelId(block)));
     }
 
-    private void registerBloomingVariantRotational(Block block, BlockStateModelGenerator gen) {
+    private void registerBlooming(Block block, BlockStateModelGenerator gen, boolean rotational) {
         Identifier myModel0 = ModelIds.getBlockSubModelId(block, "0");
         Identifier myModel1 = ModelIds.getBlockSubModelId(block, "1");
 
         gen.blockStateCollector.accept(MultipartBlockStateSupplier.create(block)
-                .with(When.create().set(MPLBlockProperties.BLOOMING, false),
-                        BlockStateVariant.create().put(VariantSettings.MODEL, myModel0),
-                        BlockStateVariant.create().put(VariantSettings.MODEL, myModel0).put(VariantSettings.Y, VariantSettings.Rotation.R90),
-                        BlockStateVariant.create().put(VariantSettings.MODEL, myModel0).put(VariantSettings.Y, VariantSettings.Rotation.R180),
-                        BlockStateVariant.create().put(VariantSettings.MODEL, myModel0).put(VariantSettings.Y, VariantSettings.Rotation.R270)
-                )
-                .with(When.create().set(MPLBlockProperties.BLOOMING, true),
-                        BlockStateVariant.create().put(VariantSettings.MODEL, myModel1),
-                        BlockStateVariant.create().put(VariantSettings.MODEL, myModel1).put(VariantSettings.Y, VariantSettings.Rotation.R90),
-                        BlockStateVariant.create().put(VariantSettings.MODEL, myModel1).put(VariantSettings.Y, VariantSettings.Rotation.R180),
-                        BlockStateVariant.create().put(VariantSettings.MODEL, myModel1).put(VariantSettings.Y, VariantSettings.Rotation.R270)
-                )
-
+                .with(When.create().set(MPLBlockProperties.BLOOMING, false), getRotationalOrNot(myModel0, rotational))
+                .with(When.create().set(MPLBlockProperties.BLOOMING, true), getRotationalOrNot(myModel1, rotational))
         );
 
     }
@@ -68,53 +83,33 @@ public class ModelDataGen extends FabricModelProvider {
     private void registerVariantRotational(Block block, BlockStateModelGenerator gen) {
         Identifier myModel = ModelIds.getBlockModelId(block);
 
-        gen.blockStateCollector.accept(VariantsBlockStateSupplier.create(block, new BlockStateVariant[]
-                        {
-                                BlockStateVariant.create().put(VariantSettings.MODEL, myModel),
-                                BlockStateVariant.create().put(VariantSettings.MODEL, myModel).put(VariantSettings.Y, VariantSettings.Rotation.R90),
-                                BlockStateVariant.create().put(VariantSettings.MODEL, myModel).put(VariantSettings.Y, VariantSettings.Rotation.R180),
-                                BlockStateVariant.create().put(VariantSettings.MODEL, myModel).put(VariantSettings.Y, VariantSettings.Rotation.R270),
-
-                        }
-                )
-        );
+        gen.blockStateCollector.accept(VariantsBlockStateSupplier.create(block, getRotationalOrNot(myModel, true)));
     }
 
-    private void registerPermafrostShroom(Block block, BlockStateModelGenerator gen) {
-        Identifier model0 = ModelIds.getBlockModelId(block);
-        Identifier model1 = ModelIds.getBlockSubModelId(block, "_1");
-        Identifier model2 = ModelIds.getBlockSubModelId(block, "_2");
-        Identifier model3 = ModelIds.getBlockSubModelId(block, "_3");
-        Identifier model4 = ModelIds.getBlockSubModelId(block, "_4");
-        Identifier model5 = ModelIds.getBlockSubModelId(block, "_5");
-
-        final IntProperty prop = PermafrostShroomBlock.CAP_REMAINING;
-
-        gen.blockStateCollector.accept(MultipartBlockStateSupplier.create(block)
-                .with(
-                        When.create().set(prop, 5),
-                        BlockStateVariant.create().put(VariantSettings.MODEL, model0)
-                )
-                .with(
-                        When.create().set(prop, 4),
-                        BlockStateVariant.create().put(VariantSettings.MODEL, model1)
-                )
-                .with(
-                        When.create().set(prop, 3),
-                        BlockStateVariant.create().put(VariantSettings.MODEL, model2)
-                )
-                .with(
-                        When.create().set(prop, 2),
-                        BlockStateVariant.create().put(VariantSettings.MODEL, model3)
-                )
-                .with(
-                        When.create().set(prop, 1),
-                        BlockStateVariant.create().put(VariantSettings.MODEL, model4)
-                )
-                .with(
-                        When.create().set(prop, 0),
-                        BlockStateVariant.create().put(VariantSettings.MODEL, model5)
-                )
+    private void registerMultiShroom(Block block, BlockStateModelGenerator gen, int capAmount, boolean rotational) {
+        Identifier mainModel = ModelIds.getBlockModelId(block);
+        final IntProperty prop = MPLBlockProperties.CAP_REMAINING;
+        MultipartBlockStateSupplier supply = MultipartBlockStateSupplier.create(block).with(
+                When.create().set(prop, capAmount), getRotationalOrNot(mainModel, rotational)
         );
+
+        for (int i = 1; i <= capAmount; i++) {
+            Identifier model = ModelIds.getBlockSubModelId(block, "_" + i);
+            supply = supply.with(When.create().set(prop, capAmount - i), getRotationalOrNot(model, rotational));
+        }
+
+        gen.blockStateCollector.accept(supply);
+    }
+
+    private BlockStateVariant[] getRotationalOrNot(Identifier myModel, boolean on) {
+        if (!on) {
+            return new BlockStateVariant[]{BlockStateVariant.create().put(VariantSettings.MODEL, myModel)};
+        }
+        return new BlockStateVariant[] {
+                BlockStateVariant.create().put(VariantSettings.MODEL, myModel),
+                BlockStateVariant.create().put(VariantSettings.MODEL, myModel).put(VariantSettings.Y, VariantSettings.Rotation.R90),
+                BlockStateVariant.create().put(VariantSettings.MODEL, myModel).put(VariantSettings.Y, VariantSettings.Rotation.R180),
+                BlockStateVariant.create().put(VariantSettings.MODEL, myModel).put(VariantSettings.Y, VariantSettings.Rotation.R270)
+        };
     }
 }

@@ -1,7 +1,8 @@
 package io.github.experionplanet.mixin;
 
 import com.llamalad7.mixinextras.sugar.Local;
-import io.github.experionplanet.init.MysticalHoldableContentClient;
+import io.github.experionplanet.compat.MPLMidnightConfig;
+import io.github.experionplanet.mysticalcontents.MysticalHoldableContentClient;
 import net.minecraft.client.render.item.ItemModels;
 import net.minecraft.client.render.item.ItemRenderer;
 import net.minecraft.client.render.model.BakedModel;
@@ -34,11 +35,20 @@ public abstract class ItemModelRendererMixin {
     public BakedModel renderItem(BakedModel bakedModel, @Local(argsOnly = true) ItemStack stack, @Local(argsOnly = true) ModelTransformationMode renderMode) {
         Identifier id = Registries.ITEM.getId(stack.getItem());
         if (MysticalHoldableContentClient.ITEM_3D_ABLE.containsKey(id)) {
-            if (renderMode == ModelTransformationMode.GUI || renderMode == ModelTransformationMode.GROUND) {
-                return getModels().getModelManager().getModel(ModelIdentifier.ofInventoryVariant(id));
-            }else if (renderMode == ModelTransformationMode.FIXED) {
-                return getModels().getModelManager().getModel(ModelIdentifier.ofInventoryVariant(MysticalHoldableContentClient.ITEM_3D_ABLE.get(id)));
+            if (MPLMidnightConfig.tool_model_type == MPLMidnightConfig.TOOL_MODEL_TYPE.DEFAULT) {
+                if (renderMode == ModelTransformationMode.GUI || renderMode == ModelTransformationMode.GROUND) {
+                    return getModels().getModelManager().getModel(ModelIdentifier.ofInventoryVariant(id));
+                }else if (renderMode == ModelTransformationMode.FIXED) {
+                    return getModels().getModelManager().getModel(ModelIdentifier.ofInventoryVariant(MysticalHoldableContentClient.ITEM_3D_ABLE.get(id)));
+                }
+            }else {
+                if (MPLMidnightConfig.tool_model_type == MPLMidnightConfig.TOOL_MODEL_TYPE.OPTION2) {
+                    return getModels().getModelManager().getModel(ModelIdentifier.ofInventoryVariant(id));
+                } else if (MPLMidnightConfig.tool_model_type == MPLMidnightConfig.TOOL_MODEL_TYPE.OPTION3) {
+
+                }return getModels().getModelManager().getModel(ModelIdentifier.ofInventoryVariant(MysticalHoldableContentClient.ITEM_3D_ABLE.get(id)));
             }
+
         }
         return bakedModel;
     }

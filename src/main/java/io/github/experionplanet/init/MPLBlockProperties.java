@@ -1,7 +1,9 @@
 package io.github.experionplanet.init;
 
 import net.minecraft.state.property.BooleanProperty;
+import net.minecraft.state.property.IntProperty;
 
 public class MPLBlockProperties {
     public static final BooleanProperty BLOOMING = BooleanProperty.of("blooming");
+    public static final IntProperty CAP_REMAINING = IntProperty.of("cap_remaining", 0, 8);
 }

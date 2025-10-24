@@ -1,0 +1,92 @@
+{
+  "multipart": [
+    {
+      "apply": [
+        {
+          "model": "mysticalplantslg:block/bogspore_cap"
+        },
+        {
+          "model": "mysticalplantslg:block/bogspore_cap",
+          "y": 90
+        },
+        {
+          "model": "mysticalplantslg:block/bogspore_cap",
+          "y": 180
+        },
+        {
+          "model": "mysticalplantslg:block/bogspore_cap",
+          "y": 270
+        }
+      ],
+      "when": {
+        "cap_remaining": "3"
+      }
+    },
+    {
+      "apply": [
+        {
+          "model": "mysticalplantslg:block/bogspore_cap_1"
+        },
+        {
+          "model": "mysticalplantslg:block/bogspore_cap_1",
+          "y": 90
+        },
+        {
+          "model": "mysticalplantslg:block/bogspore_cap_1",
+          "y": 180
+        },
+        {
+          "model": "mysticalplantslg:block/bogspore_cap_1",
+          "y": 270
+        }
+      ],
+      "when": {
+        "cap_remaining": "2"
+      }
+    },
+    {
+      "apply": [
+        {
+          "model": "mysticalplantslg:block/bogspore_cap_2"
+        },
+        {
+          "model": "mysticalplantslg:block/bogspore_cap_2",
+          "y": 90
+        },
+        {
+          "model": "mysticalplantslg:block/bogspore_cap_2",
+          "y": 180
+        },
+        {
+          "model": "mysticalplantslg:block/bogspore_cap_2",
+          "y": 270
+        }
+      ],
+      "when": {
+        "cap_remaining": "1"
+      }
+    },
+    {
+      "apply": [
+        {
+          "model": "mysticalplantslg:block/bogspore_cap_3"
+        },
+        {
+          "model": "mysticalplantslg:block/bogspore_cap_3",
+          "y": 90
+        },
+        {
+          "model": "mysticalplantslg:block/bogspore_cap_3",
+          "y": 180
+        },
+        {
+          "model": "mysticalplantslg:block/bogspore_cap_3",
+          "y": 270
+        }
+      ],
+      "when": {
+        "cap_remaining": "0"
+      }
+    }
+  ]
+}

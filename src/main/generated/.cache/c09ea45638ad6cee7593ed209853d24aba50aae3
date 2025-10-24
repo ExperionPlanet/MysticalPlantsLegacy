@@ -1,7 +1,9 @@
-// 1.21.1	2025-10-08T13:35:20.4454775	Mystical Plants Legacy/Block Loot Tables
+// 1.21.1	2025-10-24T18:13:09.179971	Mystical Plants Legacy/Block Loot Tables
 7f1c9b5522a6ed7c6326fe4862685f652c226bd0 data\mysticalplantslg\loot_table\blocks\small_exp_mushrooms.json
 5481f43609cb88ed0188818dbc9d8e542cb313c4 data\mysticalplantslg\loot_table\blocks\bleeding_exp.json
 5f477e7881197f95b53df5b8ade32b0b50fd8165 data\mysticalplantslg\loot_table\blocks\large_exp_mushroom.json
+16ac22bcb2dbf1ff45b469086c20e9f5918c391c data\mysticalplantslg\loot_table\blocks\glacier_passion_flower.json
 3fba3b3f68f879adf38cadac3bc38621d727b039 data\mysticalplantslg\loot_table\blocks\exbiscus.json
+ba9509eaae66fd50fa53382f77ac7fcddc6565d9 data\mysticalplantslg\loot_table\blocks\frost_umbrella_flower.json
 b59a971cf03df4a85b264c03cebc0f24f23ddfbc data\mysticalplantslg\loot_table\blocks\medium_exp_mushroom.json
 7dd63f59702e5472a16bc13e9d39156e1ffbd47d data\mysticalplantslg\loot_table\blocks\permafrost_shroom.json

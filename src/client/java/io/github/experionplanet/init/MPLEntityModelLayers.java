@@ -9,7 +9,7 @@ import net.minecraft.client.render.entity.model.EntityModelLayer;
 public class MPLEntityModelLayers {
     public static final EntityModelLayer FULL_PLANE = register("full_plane");
     public static final EntityModelLayer PLANE_13 = register("plane_13");
-    public static final EntityModelLayer EXP_ORB = register("exp_orb");
+    public static final EntityModelLayer RING_ORB = register("ring_orb");
 
     private static EntityModelLayer register(String str) {
 
@@ -20,7 +20,7 @@ public class MPLEntityModelLayers {
     public static void init() {
         EntityModelLayerRegistry.registerModelLayer(FULL_PLANE, () -> SquarePlaneModel.getTexturedModelData(16));
         EntityModelLayerRegistry.registerModelLayer(PLANE_13, () -> SquarePlaneModel.getTexturedModelData(13));
-        EntityModelLayerRegistry.registerModelLayer(EXP_ORB, CubeOrbModel::getTexturedModelData);
+        EntityModelLayerRegistry.registerModelLayer(RING_ORB, CubeOrbModel::getTexturedModelData);
 
     }
 

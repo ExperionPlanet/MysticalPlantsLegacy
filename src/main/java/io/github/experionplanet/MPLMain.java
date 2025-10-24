@@ -1,7 +1,10 @@
 package io.github.experionplanet;
 
 import com.mojang.serialization.JsonOps;
+import eu.midnightdust.lib.config.MidnightConfig;
+import io.github.experionplanet.compat.MPLMidnightConfig;
 import io.github.experionplanet.init.*;
+import io.github.experionplanet.mysticalcontent.MysticalContents;
 import io.github.experionplanet.utils.ExperionLogger;
 import io.github.experionplanet.recipe.MysticalPedestalRecipe;
 import net.fabricmc.api.ModInitializer;
@@ -23,23 +26,30 @@ public class MPLMain implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+		// Initializes
 		MPLItems.init();
 		MPLComponentTypes.init();
 		MPLItemGroup.init();
 		MPLBlocks.init();
 		MPLBlockEntities.init();
-		MPLParticles.bootstrap();
-		MPLRecipes.bootstrap();
 		MPLStatusEffects.init();
 		MPLDamageTypes.init();
+		MPLSoundEvents.init();
+		MPLPotions.init();
+		MPLEntities.init();
+
+		// Bootstraps
+		MPLParticles.bootstrap();
+		MPLRecipes.bootstrap();
 		MysticalContents.bootstrap();
 		MysticalContents.build();
 
 		if (FabricLoader.getInstance().isDevelopmentEnvironment()) {
 			onDev = true;
 			ExperionLogger.Print("Development Enviroment Detected!");
-			//testJson();
 		}
+
+		MidnightConfig.init(MOD_ID, MPLMidnightConfig.class);
 
 		ExperionLogger.Print("Fully Initiated!");
 	}
@@ -61,5 +71,7 @@ public class MPLMain implements ModInitializer {
 		MysticalPedestalRecipe recipe = new MysticalPedestalRecipe(list, last, binded,output);
 		String json = recipe.CODEC.encodeStart(JsonOps.INSTANCE, recipe).getOrThrow().toString();
 		ExperionLogger.Print("JSON CREATED: " + json);
+
+
 	}
 }

@@ -1,6 +1,6 @@
 package io.github.experionplanet.mixin;
 
-import io.github.experionplanet.init.MysticalHoldableContentClient;
+import io.github.experionplanet.mysticalcontents.MysticalHoldableContentClient;
 import net.minecraft.client.render.model.ModelLoader;
 import net.minecraft.client.util.ModelIdentifier;
 import net.minecraft.util.Identifier;

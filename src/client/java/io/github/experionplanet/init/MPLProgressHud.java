@@ -1,7 +1,7 @@
 package io.github.experionplanet.init;
 
-import io.github.experionplanet.misc.HudProgressItem;
-import io.github.experionplanet.utils.ExperionLogger;
+import io.github.experionplanet.mysticalcontents.content.HudProgressItem;
+import io.github.experionplanet.mysticalcontents.MysticalContentsClient;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
