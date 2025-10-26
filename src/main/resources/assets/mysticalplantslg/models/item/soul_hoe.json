@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "mysticalplantslg:item/soul_hoe_item"
+  }
+}

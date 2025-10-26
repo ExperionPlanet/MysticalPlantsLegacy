@@ -11,11 +11,11 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 
-public class MPLItemGroup {
+public class  MPLItemGroup {
     public static final RegistryKey<ItemGroup> CUSTOM_ITEM_GROUP_KEY = RegistryKey.of(Registries.ITEM_GROUP.getKey(), ExperionUtils.newId("mystical_plants_tab"));
     public static final ItemGroup CUSTOM_ITEM_GROUP = FabricItemGroup.builder()
             .icon(() -> new ItemStack(MPLBlocks.SMALL_EXP_MUSHROOMS))
-            .displayName(Text.literal("Mystical Plants ").append(Text.literal("(Legacy)").formatted(Formatting.BOLD).formatted(Formatting.DARK_PURPLE)))
+            .displayName(Text.literal("Mystical Plants Legacy"))
             .build();
 
 
@@ -38,10 +38,12 @@ public class MPLItemGroup {
             itemGroup.add(MPLItems.EXPERIENCE_ESSENCE);
             itemGroup.add(MPLItems.FROST_ESSENCE);
             itemGroup.add(MPLItems.BOGGED_ESSENCE);
+            itemGroup.add(MPLItems.SOUL_ESSENCE);
 
             itemGroup.add(MPLItems.EXPERIENCE_PICKAXE);
             itemGroup.add(MPLItems.FROST_AXE);
             itemGroup.add(MPLItems.BOGGED_SHOVEL);
+            itemGroup.add(MPLItems.SOUL_HOE);
 
             itemGroup.add(MPLBlocks.BINDING_ROCK);
             itemGroup.add(MPLBlocks.PEDESTAL);

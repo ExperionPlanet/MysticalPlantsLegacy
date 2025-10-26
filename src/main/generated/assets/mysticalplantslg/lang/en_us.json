@@ -24,6 +24,8 @@
   "item.mysticalplantslg.experience_pickaxe": "Experience Pickaxe",
   "item.mysticalplantslg.frost_axe": "Frost Axe",
   "item.mysticalplantslg.frost_essence": "Frost Essence",
+  "item.mysticalplantslg.soul_essence": "Soul Essence",
+  "item.mysticalplantslg.soul_hoe": "Soul Hoe",
   "mysticalplantslg.midnightconfig.animated_rings": "Animate flower rings (ex: Exbiscus's ring is floating), Turn off this might increase the performance",
   "mysticalplantslg.midnightconfig.enum.TOOL_MODEL_TYPE.DEFAULT": "default",
   "mysticalplantslg.midnightconfig.enum.TOOL_MODEL_TYPE.OPTION2": "2D",

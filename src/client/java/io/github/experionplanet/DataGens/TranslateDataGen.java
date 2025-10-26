@@ -37,6 +37,8 @@ public class TranslateDataGen extends FabricLanguageProvider {
         mainTr.trBlock(MPLBlocks.FROST_UMBRELLA_FLOWER);
         mainTr.trBlock(MPLBlocks.DISGUISE_ORCHID);
         mainTr.trBlock(MPLBlocks.HUNGERBALM);
+        mainTr.trItem(MPLItems.SOUL_ESSENCE);
+        mainTr.trItem(MPLItems.SOUL_HOE);
 
         mainTr.trBlock(MPLBlocks.PERMAFROSTED_LOG);
 
