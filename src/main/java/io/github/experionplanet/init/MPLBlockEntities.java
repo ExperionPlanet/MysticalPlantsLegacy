@@ -1,5 +1,6 @@
 package io.github.experionplanet.init;
 
+import io.github.experionplanet.blocks.entity.SoulPossessionIrisBlockEntity;
 import io.github.experionplanet.blocks.entity.custom.*;
 import io.github.experionplanet.utils.ExperionUtils;
 import net.minecraft.block.Block;
@@ -17,7 +18,10 @@ public class MPLBlockEntities {
     public static final BlockEntityType<PermafrostLogBlockEntity> PERMAFROST_LOG = register("permafrost_log",PermafrostLogBlockEntity::new, MPLBlocks.PERMAFROSTED_LOG);
 
     public static final BlockEntityType<BindingRockBlockEntity> BINDING_ROCK = register("binding_rock", BindingRockBlockEntity::new, MPLBlocks.BINDING_ROCK);
+
     public static final BlockEntityType<PedestalBlockEntity> PEDESTAL = register("pedestal", PedestalBlockEntity::new, MPLBlocks.PEDESTAL);
+
+    public static final BlockEntityType<SoulPossessionIrisBlockEntity> SOUL_POSSESSION_IRIS = register("soul_possesion_iris", SoulPossessionIrisBlockEntity::new, MPLBlocks.SOUL_POSSESSION_IRIS);
 
     public static final BlockEntityType<DebugTranslateBlockEntity> DEBUG_TRANSLATE = register("debug_translate", DebugTranslateBlockEntity::new, MPLBlocks.DEBUG_TRANSLATE);
 

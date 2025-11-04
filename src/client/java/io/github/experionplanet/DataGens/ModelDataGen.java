@@ -31,6 +31,9 @@ public class ModelDataGen extends FabricModelProvider {
         registerMultiShroom(MPLBlocks.PERMAFROST_SHROOM, gen, 5, false);
         registerMultiShroom(MPLBlocks.BOGSPORE_CAP, gen, 3, true);
 
+        registerSingleModel(MPLBlocks.SOUL_POSSESSION_IRIS, gen);
+        registerBlooming(MPLBlocks.SOUL_PITCHER, gen, true);
+
         registerBlockShifting(MPLBlocks.DISGUISE_ORCHID, gen, ModelIds.getBlockModelId(Blocks.BLUE_ORCHID), ModelIds.getBlockModelId(MPLBlocks.DISGUISE_ORCHID), DisguiseOrchidBlock.REVEALED);
         registerBlooming(MPLBlocks.HUNGERBALM, gen, false);
 
@@ -54,6 +57,11 @@ public class ModelDataGen extends FabricModelProvider {
         gen.register(MPLBlocks.BOGSPORE_CAP.asItem(), Models.GENERATED);
         gen.register(MPLBlocks.DISGUISE_ORCHID.asItem(), Models.GENERATED);
         gen.register(MPLBlocks.HUNGERBALM.asItem(), Models.GENERATED);
+        gen.register(MPLBlocks.SOUL_POSSESSION_IRIS.asItem(), Models.GENERATED);
+        gen.register(MPLItems.SOUL, Models.GENERATED);
+        gen.register(MPLItems.SOUL_POLLEN, Models.GENERATED);
+        gen.register(MPLBlocks.SOUL_PITCHER.asItem(), Models.GENERATED);
+        gen.register(MPLItems.EXP_SPORE, Models.GENERATED);
 
     }
 

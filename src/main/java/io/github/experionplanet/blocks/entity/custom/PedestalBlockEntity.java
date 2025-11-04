@@ -7,7 +7,6 @@ import net.minecraft.util.math.BlockPos;
 
 public class PedestalBlockEntity extends ContainerBlockEntity {
     public PedestalBlockEntity(BlockPos pos, BlockState state) {
-        super(MPLBlockEntities.PEDESTAL, pos, state, 1);
+        super(MPLBlockEntities.PEDESTAL,pos, state,1);
     }
-
 }

@@ -1,12 +1,10 @@
 package io.github.experionplanet.init;
 
 import io.github.experionplanet.blocks.custom.*;
-import io.github.experionplanet.utils.ExperionLogger;
 import io.github.experionplanet.utils.ExperionUtils;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.PillarBlock;
 import net.minecraft.block.enums.NoteBlockInstrument;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -14,7 +12,6 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
 import net.minecraft.world.BlockView;
 
 import java.util.function.Function;
@@ -41,6 +38,14 @@ public class MPLBlocks {
     public static final Block BOGSPORE_CAP = register("bogspore_cap", BogsporeCapBlock::new, AbstractBlock.Settings.create().nonOpaque().noCollision().sounds(BlockSoundGroup.WET_GRASS), true);
     public static final Block HUNGERBALM = register("hungerbalm", HungerbalmBlock::new, AbstractBlock.Settings.create().nonOpaque().noCollision().sounds(BlockSoundGroup.WET_GRASS), true);
 
+    // SOUL
+    public static final Block SOUL_POSSESSION_IRIS = register("soul_possession_iris", SoulPossessionIrisBlock::new, AbstractBlock.Settings.create().sounds(BlockSoundGroup.WART_BLOCK).noCollision().nonOpaque(), true);
+    public static final Block SOUL_PITCHER = register("soul_pitcher", SoulPitcherBlock::new, AbstractBlock.Settings.create().sounds(BlockSoundGroup.WET_GRASS).nonOpaque().noCollision(), true);
+    // MISSING: Soul Bell
+
+    // VOID
+    public static final Block VOID_CAP = register();
+
     // OTHER
     public static final Block BINDING_ROCK = register("binding_rock", BindingRockBlock::new, AbstractBlock.Settings.create().sounds(BlockSoundGroup.STONE).nonOpaque(), true);
     public static final Block PEDESTAL = register("pedestal", PedestalBlock::new, AbstractBlock.Settings.create().sounds(BlockSoundGroup.STONE).nonOpaque(), true);
@@ -59,7 +64,6 @@ public class MPLBlocks {
         Block res = Registry.register(Registries.BLOCK, ExperionUtils.newId(name), block);
 
         if (regItem) {
-
             BlockItem blockItem = new BlockItem(block, new Item.Settings());
             Registry.register(Registries.ITEM, ExperionUtils.newId(name), blockItem);
         }

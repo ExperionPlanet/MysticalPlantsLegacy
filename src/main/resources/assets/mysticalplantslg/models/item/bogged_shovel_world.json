@@ -3,6 +3,7 @@
 	"credit": "Made with Blockbench",
 	"ambientocclusion": false,
 	"texture_size": [32, 32],
+	"gui_light": "front",
 	"textures": {
 		"0": "mysticalplantslg:item/bogged_shovel",
 		"particle": "mysticalplantslg:item/bogged_shovel"

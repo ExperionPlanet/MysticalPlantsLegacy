@@ -17,6 +17,7 @@ public class MysticalHoldableContentClient {
         register("frost_axe");
         register("bogged_shovel");
         register("soul_hoe");
+        register("void_sword");
     }
 
     public static void build() {

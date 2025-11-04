@@ -1,8 +1,6 @@
 package io.github.experionplanet;
 
-import io.github.experionplanet.DataGens.BlockLootableDataGen;
-import io.github.experionplanet.DataGens.ModelDataGen;
-import io.github.experionplanet.DataGens.TranslateDataGen;
+import io.github.experionplanet.DataGens.*;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 
@@ -13,5 +11,8 @@ public class MPLDataGen implements DataGeneratorEntrypoint {
 		pack.addProvider(ModelDataGen::new);
 		pack.addProvider(TranslateDataGen::new);
 		pack.addProvider(BlockLootableDataGen::new);
+		pack.addProvider(ItemTagsDataGen::new);
+		pack.addProvider(BlockTagsDataGen::new);
+		pack.addProvider(BiomeTagsDataGen::new);
 	}
 }

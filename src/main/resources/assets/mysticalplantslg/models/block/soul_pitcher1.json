@@ -1,0 +1,7 @@
+{
+  "parent": "mysticalplantslg:block/soul_pitcher0",
+  "textures": {
+    "0": "mysticalplantslg:block/soul_pitcher_filled",
+    "particle": "mysticalplantslg:block/soul_pitcher_filled"
+  }
+}

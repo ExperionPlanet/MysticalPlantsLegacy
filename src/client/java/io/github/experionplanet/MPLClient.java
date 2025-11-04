@@ -1,11 +1,11 @@
 package io.github.experionplanet;
 
-import eu.midnightdust.lib.config.MidnightConfig;
 import io.github.experionplanet.init.*;
 import io.github.experionplanet.mysticalcontents.MysticalContentsClient;
 import io.github.experionplanet.particle.BasicGlowingParticle;
 import io.github.experionplanet.particle.SporeParticle;
 import io.github.experionplanet.renderer.blockentity.*;
+import io.github.experionplanet.soul_zombie.SoulZombieEntityRenderer;
 import io.github.experionplanet.utils.ExperionLogger;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
@@ -14,7 +14,7 @@ import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
 import net.minecraft.client.render.entity.EmptyEntityRenderer;
-import net.minecraft.client.render.entity.EntityRendererFactory;
+import net.minecraft.client.render.entity.model.EntityModelLayers;
 
 public class MPLClient implements ClientModInitializer {
 	@Override
@@ -38,7 +38,10 @@ public class MPLClient implements ClientModInitializer {
 				MPLBlocks.FROST_UMBRELLA_FLOWER,
 				MPLBlocks.DISGUISE_ORCHID,
 				MPLBlocks.BOGSPORE_CAP,
-				MPLBlocks.HUNGERBALM
+				MPLBlocks.HUNGERBALM,
+				MPLBlocks.SOUL_POSSESSION_IRIS,
+				MPLBlocks.SOUL_PITCHER
+
 		);
 
 		renderer();
@@ -59,6 +62,7 @@ public class MPLClient implements ClientModInitializer {
 		BlockEntityRendererFactories.register(MPLBlockEntities.BINDING_ROCK, BindingRockBlockEntityRenderer::new);
 		BlockEntityRendererFactories.register(MPLBlockEntities.DEBUG_TRANSLATE, DebugTranslateBlockEntityRenderer::new);
 		BlockEntityRendererFactories.register(MPLBlockEntities.PEDESTAL, PedestalBlockEntityRenderer::new);
+		BlockEntityRendererFactories.register(MPLBlockEntities.SOUL_POSSESSION_IRIS, SoulPossessionIrisBlockEntityRenderer::new);
 
 	}
 
@@ -74,5 +78,6 @@ public class MPLClient implements ClientModInitializer {
 
 	private void entities() {
 		EntityRendererRegistry.register(MPLEntities.SPORES, EmptyEntityRenderer::new);
+		//EntityRendererRegistry.register(MPLEntities.SOUL_ZOMBIE, (ctx) -> new SoulZombieEntityRenderer(ctx, SoulZombieEntityRenderer.MODEL_LAYER, EntityModelLayers.ZOMBIE_INNER_ARMOR, EntityModelLayers.ZOMBIE_OUTER_ARMOR));
 	}
 }

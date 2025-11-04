@@ -3,12 +3,14 @@ package io.github.experionplanet;
 import com.mojang.serialization.JsonOps;
 import eu.midnightdust.lib.config.MidnightConfig;
 import io.github.experionplanet.compat.MPLMidnightConfig;
+import io.github.experionplanet.entities.SoulZombieEntity;
 import io.github.experionplanet.init.*;
 import io.github.experionplanet.mysticalcontent.MysticalContents;
 import io.github.experionplanet.utils.ExperionLogger;
 import io.github.experionplanet.recipe.MysticalPedestalRecipe;
 import net.fabricmc.api.ModInitializer;
 
+import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -21,6 +23,8 @@ import java.util.List;
 public class MPLMain implements ModInitializer {
 	public static final String MOD_ID = "mysticalplantslg";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+
+	public static boolean showInfo = false;
 
 	public static boolean onDev = false;
 
@@ -38,6 +42,8 @@ public class MPLMain implements ModInitializer {
 		MPLPotions.init();
 		MPLEntities.init();
 
+		entityAttributes();
+
 		// Bootstraps
 		MPLParticles.bootstrap();
 		MPLRecipes.bootstrap();
@@ -53,8 +59,11 @@ public class MPLMain implements ModInitializer {
 
 		ExperionLogger.Print("Fully Initiated!");
 	}
+	private void entityAttributes() {
+		//FabricDefaultAttributeRegistry.register(MPLEntities.SOUL_ZOMBIE, SoulZombieEntity.createAttributes());
+	}
 
-	public void testJson() {
+	private void testJson() {
 		ItemStack output = new ItemStack(MPLItems.EXPERIENCE_PICKAXE);
 		ItemStack binded = new ItemStack(MPLItems.BROKEN_EXPERIENCE_PICKAXE);
 		Ingredient last = Ingredient.ofItems(Items.STICK);

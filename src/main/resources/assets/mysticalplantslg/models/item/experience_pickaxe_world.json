@@ -3,6 +3,7 @@
 	"credit": "Made with Blockbench",
 	"ambientocclusion": false,
 	"texture_size": [32, 32],
+	 "gui_light": "front",
 	"textures": {
 		"0": "mysticalplantslg:item/experience_pickaxe",
 		"1": "mysticalplantslg:item/experience_pickaxe_core",

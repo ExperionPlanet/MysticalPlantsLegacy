@@ -22,6 +22,10 @@ public class ExperionTranslate {
         gen.add(baseName + "." + name, translate);
     }
 
+    public void trRaw(String name, String translate) {
+        gen.add(name, translate);
+    }
+
     public void trBase(String name) {
         trBase(name, quickTranslate(name));
     }

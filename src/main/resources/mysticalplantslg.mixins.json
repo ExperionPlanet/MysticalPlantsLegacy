@@ -3,7 +3,10 @@
 	"package": "io.github.experionplanet.mixin",
 	"compatibilityLevel": "JAVA_21",
 	"mixins": [
-		"EntityMixin"
+		"EntityMixin",
+		"FarmlandBlockSoulMixin",
+		"ActionStackonSlotMixin",
+		"ProsperityMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

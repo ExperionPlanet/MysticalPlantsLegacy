@@ -1,7 +1,10 @@
 package io.github.experionplanet.items.tool.custom;
 
+import io.github.experionplanet.MPLMain;
 import io.github.experionplanet.init.MPLComponentTypes;
 import io.github.experionplanet.init.MPLBlockTags;
+import io.github.experionplanet.utils.ExperionLogger;
+import io.github.experionplanet.utils.ExperionUtils;
 import net.minecraft.block.BlockState;
 import net.minecraft.component.ComponentType;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -40,30 +43,31 @@ public class ExperiencePickaxeItem extends PickaxeItem {
 
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-        int totalBars = getEXP_FILLS(stack) / 10;
-        int whiteBars = 10 - totalBars;
+        if (MPLMain.showInfo) {
+            tooltip.add(Text.literal("YEEEEEHAAAAAWWWWWW"));
+        }else {
+            int totalBars = getEXP_FILLS(stack) / 10;
+            int whiteBars = 10 - totalBars;
+            String str = "";
 
-        String str = "";
+            if (totalBars > 0) {
+                for (int i = 1; i <= totalBars; i++) {
+                    str = str + "▮";
+                }
+            }
 
-        if (totalBars > 0) {
-            for (int i = 1; i <= totalBars; i++) {
+            Text greenBar = Text.literal(str).formatted(Formatting.GREEN).formatted(Formatting.BOLD);
+            str = "";
+
+            for (int i = 1; i <= whiteBars; i++) {
                 str = str + "▮";
             }
+
+            Text whiteBar = Text.literal(str).formatted(Formatting.GRAY).formatted(Formatting.BOLD);
+            Text ResText = Text.literal("EXP: ").append(greenBar).append(whiteBar);
+            tooltip.add(ResText);
         }
 
-        Text greenBar = Text.literal(str).formatted(Formatting.GREEN).formatted(Formatting.BOLD);
-
-        str = "";
-
-        for (int i = 1; i <= whiteBars; i++) {
-            str = str + "▮";
-        }
-
-        Text whiteBar = Text.literal(str).formatted(Formatting.GRAY).formatted(Formatting.BOLD);
-
-        Text ResText = Text.literal("EXP: ").append(greenBar).append(whiteBar);
-
-        tooltip.add(ResText);
         super.appendTooltip(stack, context, tooltip, type);
     }
 

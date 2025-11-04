@@ -13,7 +13,6 @@ import net.minecraft.item.ItemStack;
 public class MPLProgressHud {
     private static final int FrameMaxWidth = 29;
     private static final int FrameHeight = 6;
-    private static final int FrameCount = 20;
     private static final int FrameTime = 3;
     public static void render(DrawContext drawContext, RenderTickCounter delta) {
         ItemStack holdingStack = MinecraftClient.getInstance().player.getMainHandStack();
@@ -47,7 +46,7 @@ public class MPLProgressHud {
 
 
                 long totalTicks = MinecraftClient.getInstance().world.getTime();
-                int frame = (int) ((totalTicks / FrameTime) % FrameCount);
+                int frame = (int) ((totalTicks / FrameTime) % progressHud.frames);
 
                 drawContext.drawTexture(
                         progressHud.fluid,
@@ -58,7 +57,7 @@ public class MPLProgressHud {
                         FrameWidth,
                         FrameHeight,
                         FrameMaxWidth,
-                        FrameHeight * FrameCount
+                        FrameHeight * progressHud.frames
                 );
 
                 matrice.pop();

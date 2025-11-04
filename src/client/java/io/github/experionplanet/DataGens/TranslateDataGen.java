@@ -2,6 +2,7 @@ package io.github.experionplanet.DataGens;
 
 import io.github.experionplanet.init.MPLBlocks;
 import io.github.experionplanet.init.MPLItems;
+import io.github.experionplanet.init.MPLPotions;
 import io.github.experionplanet.utils.ExperionTranslate;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
@@ -39,6 +40,13 @@ public class TranslateDataGen extends FabricLanguageProvider {
         mainTr.trBlock(MPLBlocks.HUNGERBALM);
         mainTr.trItem(MPLItems.SOUL_ESSENCE);
         mainTr.trItem(MPLItems.SOUL_HOE);
+        mainTr.trBlock(MPLBlocks.SOUL_POSSESSION_IRIS);
+        mainTr.trItem(MPLItems.SOUL_POLLEN);
+        mainTr.trItem(MPLItems.SOUL);
+        mainTr.trItem(MPLItems.VOID_SWORD);
+        mainTr.trBlock(MPLBlocks.SOUL_PITCHER);
+        mainTr.trItem(MPLItems.EXP_SPORE);
+        mainTr.trItem(MPLItems.VOID_ESSENCE);
 
         mainTr.trBlock(MPLBlocks.PERMAFROSTED_LOG);
 
@@ -49,9 +57,11 @@ public class TranslateDataGen extends FabricLanguageProvider {
 
         gen.add(MPLBlocks.DEBUG_TRANSLATE, "D3bug Tr4nsl4t3!1");
 
-        ExperionTranslate effectsTr = new ExperionTranslate("effects.mysticalplantslg", gen);
+        ExperionTranslate effectsTr = new ExperionTranslate("effect.mysticalplantslg", gen);
         effectsTr.trBase("permafrost");
         effectsTr.trBase("frost_resistance");
+        effectsTr.trBase("possessed");
+        effectsTr.trBase("prosperity");
 
         ExperionTranslate soundsTr = new ExperionTranslate("sound.mysticalplantslg", gen);
         soundsTr.trBase("permafrost_shroom_explode", "Shroom Explodes");
@@ -62,12 +72,17 @@ public class TranslateDataGen extends FabricLanguageProvider {
 
         ExperionTranslate configTr = new ExperionTranslate("mysticalplantslg.midnightconfig", gen);
         configTr.trBase("show_flower_rings", "Showing the flower rings (ex: Exbiscus), Turn off this might increase the performance");
-        configTr.trBase("enum.TOOL_MODEL_TYPE.DEFAULT", "default");
+        configTr.trBase("enum.TOOL_MODEL_TYPE.DEFAULT", "Default");
         configTr.trBase("enum.TOOL_MODEL_TYPE.OPTION2", "2D");
         configTr.trBase("enum.TOOL_MODEL_TYPE.OPTION3", "3D");
         gen.add("mysticalplantslg.midnightconfigsss", "");
         gen.add("mysticalplantslg.midnightconfig.animated_rings", "Animate flower rings (ex: Exbiscus's ring is floating), Turn off this might increase the performance");
         gen.add("mysticalplantslg.midnightconfig.shulkura_shoots", "Makes the shulkura shoot Shulker Bullets randomly");
         gen.add("mysticalplantslg.midnightconfig.show_debug_item", "Adds the debug item into item tab");
+
+        MPLPotions.PERMAFROST.translate(mainTr);
+        MPLPotions.FROST_RESISTANCE.translate(mainTr);
+        MPLPotions.POSSESSED.translate(mainTr);
+        MPLPotions.PROSPERITY.translate(mainTr);
     }
 }

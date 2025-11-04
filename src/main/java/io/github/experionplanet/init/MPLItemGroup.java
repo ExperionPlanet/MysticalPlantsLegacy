@@ -1,5 +1,6 @@
 package io.github.experionplanet.init;
 
+import io.github.experionplanet.compat.MPLMidnightConfig;
 import io.github.experionplanet.utils.ExperionUtils;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
@@ -9,7 +10,6 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.text.Text;
-import net.minecraft.util.Formatting;
 
 public class  MPLItemGroup {
     public static final RegistryKey<ItemGroup> CUSTOM_ITEM_GROUP_KEY = RegistryKey.of(Registries.ITEM_GROUP.getKey(), ExperionUtils.newId("mystical_plants_tab"));
@@ -34,25 +34,36 @@ public class  MPLItemGroup {
             itemGroup.add(MPLBlocks.DISGUISE_ORCHID);
             itemGroup.add(MPLBlocks.BOGSPORE_CAP);
             itemGroup.add(MPLBlocks.HUNGERBALM);
+            itemGroup.add(MPLBlocks.SOUL_POSSESSION_IRIS);
+            itemGroup.add(MPLBlocks.SOUL_PITCHER);
 
             itemGroup.add(MPLItems.EXPERIENCE_ESSENCE);
             itemGroup.add(MPLItems.FROST_ESSENCE);
             itemGroup.add(MPLItems.BOGGED_ESSENCE);
             itemGroup.add(MPLItems.SOUL_ESSENCE);
+            itemGroup.add(MPLItems.VOID_ESSENCE);
 
             itemGroup.add(MPLItems.EXPERIENCE_PICKAXE);
             itemGroup.add(MPLItems.FROST_AXE);
             itemGroup.add(MPLItems.BOGGED_SHOVEL);
             itemGroup.add(MPLItems.SOUL_HOE);
+            itemGroup.add(MPLItems.VOID_SWORD);
 
             itemGroup.add(MPLBlocks.BINDING_ROCK);
             itemGroup.add(MPLBlocks.PEDESTAL);
 
             itemGroup.add(MPLBlocks.PERMAFROSTED_LOG);
 
-            itemGroup.add(MPLItems.BROKEN_EXPERIENCE_PICKAXE);
-            itemGroup.add(MPLItems.BROKEN_FROST_AXE);
-            itemGroup.add(MPLItems.GUIDE_BOOK);
+            itemGroup.add(MPLItems.EXP_SPORE);
+            itemGroup.add(MPLItems.SOUL);
+            itemGroup.add(MPLItems.SOUL_POLLEN);
+
+            if (MPLMidnightConfig.show_debug_item) {
+                itemGroup.add(MPLItems.BROKEN_EXPERIENCE_PICKAXE);
+                itemGroup.add(MPLItems.BROKEN_FROST_AXE);
+                itemGroup.add(MPLItems.GUIDE_BOOK);
+                itemGroup.add(MPLBlocks.BINDING_ROCK);
+            }
         });
     }
 }
