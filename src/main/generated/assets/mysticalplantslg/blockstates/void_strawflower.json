@@ -1,0 +1,20 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "mysticalplantslg:block/void_strawflower_0"
+      },
+      "when": {
+        "is_trapped": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "mysticalplantslg:block/void_strawflower_1"
+      },
+      "when": {
+        "is_trapped": "true"
+      }
+    }
+  ]
+}

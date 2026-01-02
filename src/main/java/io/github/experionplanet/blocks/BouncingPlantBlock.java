@@ -16,14 +16,23 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-public class BouncingPlantBlock extends MysticalPlantBlockWithEntity {
-    private static final int T_STEPPED = BouncingPlantBlockEntity.T_STEPPED;
-    private final int COOLDOWN_STEP;
+import static io.github.experionplanet.blocks.entity.custom.BouncingPlantBlockEntity.T_STEPPED;
 
-    public BouncingPlantBlock(Settings settings, int cooldown) {
+public class BouncingPlantBlock extends MysticalPlantBlockWithEntity {
+    private final int COOLDOWN_STEP;
+    private final boolean allowSteppedBounce;
+
+    public BouncingPlantBlock(Settings settings, int cooldown, boolean allowSteppedBounce) {
         super(settings);
         this.COOLDOWN_STEP = cooldown;
+        this.allowSteppedBounce = allowSteppedBounce;
+
     }
+
+    public BouncingPlantBlock(Settings settings, int cooldown) {
+        this(settings, cooldown, true);
+    }
+
 
     @Override
     protected BlockRenderType getRenderType(BlockState state) {
@@ -43,9 +52,13 @@ public class BouncingPlantBlock extends MysticalPlantBlockWithEntity {
 
     }
 
+    protected void bounceThePlant(World world, BlockPos pos) {
+        BouncingPlantBlockEntity blockEntity = (BouncingPlantBlockEntity) world.getBlockEntity(pos);
+        blockEntity.triggerTick(T_STEPPED);
+    }
+
     @Override
     protected void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
-
         if (!world.isClient() && entity.isLiving()) {
             if (allowStepped(state, (ServerWorld) world, entity)) {
                 LivingEntity livingEntity = (LivingEntity) entity;
@@ -55,6 +68,9 @@ public class BouncingPlantBlock extends MysticalPlantBlockWithEntity {
                     if (ticked == LastTickedBlockEntity.NULL_CLOCK || blockEntity.getTickedAsSeconds(T_STEPPED) >= this.COOLDOWN_STEP) {
                         blockEntity.triggerTick(T_STEPPED);
                         onStepped(state,world,pos,livingEntity);
+                        if (allowSteppedBounce) {
+                            bounceThePlant(world, pos);
+                        }
                     }
                 }
             }

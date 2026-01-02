@@ -1,6 +1,8 @@
 package io.github.experionplanet.DataGens;
 
 import io.github.experionplanet.blocks.custom.DisguiseOrchidBlock;
+import io.github.experionplanet.blocks.custom.ShulkuraBlock;
+import io.github.experionplanet.blocks.custom.VoidStrawflowerBlock;
 import io.github.experionplanet.init.MPLBlockProperties;
 import io.github.experionplanet.init.MPLBlocks;
 import io.github.experionplanet.init.MPLItems;
@@ -11,7 +13,12 @@ import net.minecraft.block.Blocks;
 import net.minecraft.data.client.*;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.IntProperty;
+import net.minecraft.state.property.Properties;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.Direction;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ModelDataGen extends FabricModelProvider {
     public ModelDataGen(FabricDataOutput output) {
@@ -33,6 +40,11 @@ public class ModelDataGen extends FabricModelProvider {
 
         registerSingleModel(MPLBlocks.SOUL_POSSESSION_IRIS, gen);
         registerBlooming(MPLBlocks.SOUL_PITCHER, gen, true);
+        registerSingleModel(MPLBlocks.SOUL_BELL, gen);
+
+        registerMultiShroom(MPLBlocks.VOID_CAP, gen, 5, false);
+        registerShulkura(MPLBlocks.SHULKURA, gen);
+        registerBlockShifting(MPLBlocks.VOID_STRAWFLOWER, gen, ModelIds.getBlockSubModelId(MPLBlocks.VOID_STRAWFLOWER, "_0"), ModelIds.getBlockSubModelId(MPLBlocks.VOID_STRAWFLOWER, "_1"), VoidStrawflowerBlock.IS_TRAPPED);
 
         registerBlockShifting(MPLBlocks.DISGUISE_ORCHID, gen, ModelIds.getBlockModelId(Blocks.BLUE_ORCHID), ModelIds.getBlockModelId(MPLBlocks.DISGUISE_ORCHID), DisguiseOrchidBlock.REVEALED);
         registerBlooming(MPLBlocks.HUNGERBALM, gen, false);
@@ -41,6 +53,7 @@ public class ModelDataGen extends FabricModelProvider {
         registerSingleModel(MPLBlocks.DEBUG_TRANSLATE, gen);
         registerSingleModel(MPLBlocks.PEDESTAL, gen);
         gen.registerSimpleCubeAll(MPLBlocks.PERMAFROSTED_LOG);
+
     }
 
     @Override
@@ -62,6 +75,10 @@ public class ModelDataGen extends FabricModelProvider {
         gen.register(MPLItems.SOUL_POLLEN, Models.GENERATED);
         gen.register(MPLBlocks.SOUL_PITCHER.asItem(), Models.GENERATED);
         gen.register(MPLItems.EXP_SPORE, Models.GENERATED);
+        gen.register(MPLBlocks.VOID_CAP.asItem(), Models.GENERATED);
+        gen.register(MPLBlocks.SHULKURA.asItem(), Models.GENERATED);
+        gen.register(MPLBlocks.VOID_STRAWFLOWER.asItem(), Models.GENERATED);
+        gen.register(MPLBlocks.SOUL_BELL.asItem(), Models.GENERATED);
 
     }
 
@@ -119,5 +136,39 @@ public class ModelDataGen extends FabricModelProvider {
                 BlockStateVariant.create().put(VariantSettings.MODEL, myModel).put(VariantSettings.Y, VariantSettings.Rotation.R180),
                 BlockStateVariant.create().put(VariantSettings.MODEL, myModel).put(VariantSettings.Y, VariantSettings.Rotation.R270)
         };
+    }
+
+    private void registerShulkura(Block block, BlockStateModelGenerator gen) {
+
+        List<Direction> dirList = List.of(Direction.NORTH, Direction.SOUTH, Direction.WEST, Direction.EAST);
+        List<VariantSettings.Rotation> rotList = List.of(VariantSettings.Rotation.R0,VariantSettings.Rotation.R90,VariantSettings.Rotation.R180,VariantSettings.Rotation.R270);
+
+        Identifier myModel1 = ModelIds.getBlockSubModelId(block, "" + 1);
+        Identifier myModel2 = ModelIds.getBlockSubModelId(block, "" + 2);
+        Identifier myModel3 = ModelIds.getBlockSubModelId(block, "" + 3);
+        /*
+        this.blockStateCollector.accept(MultipartBlockStateSupplier.create(flowerbed)
+                .with(When.create().set(Properties.FLOWER_AMOUNT, 1, new Integer[]{2, 3, 4}).set(Properties.HORIZONTAL_FACING, Direction.NORTH), BlockStateVariant.create().put(VariantSettings.MODEL, identifier))
+                .with(When.create().set(Properties.FLOWER_AMOUNT, 1, new Integer[]{2, 3, 4}).set(Properties.HORIZONTAL_FACING, Direction.EAST), BlockStateVariant.create().put(VariantSettings.MODEL, identifier).put(VariantSettings.Y, VariantSettings.Rotation.R90))
+                .with(When.create().set(Properties.FLOWER_AMOUNT, 1, new Integer[]{2, 3, 4}).set(Properties.HORIZONTAL_FACING, Direction.SOUTH), BlockStateVariant.create().put(VariantSettings.MODEL, identifier).put(VariantSettings.Y, VariantSettings.Rotation.R180))
+                .with(When.create().set(Properties.FLOWER_AMOUNT, 1, new Integer[]{2, 3, 4}).set(Properties.HORIZONTAL_FACING, Direction.WEST), BlockStateVariant.create().put(VariantSettings.MODEL, identifier).put(VariantSettings.Y, VariantSettings.Rotation.R270))*/
+        MultipartBlockStateSupplier supply = MultipartBlockStateSupplier.create(block)
+                .with(When.create().set(ShulkuraBlock.FLOWER_AMOUNT, 1).set(ShulkuraBlock.FACING, Direction.NORTH), BlockStateVariant.create().put(VariantSettings.MODEL,myModel1))
+                .with(When.create().set(ShulkuraBlock.FLOWER_AMOUNT, 1).set(ShulkuraBlock.FACING, Direction.EAST), BlockStateVariant.create().put(VariantSettings.MODEL,myModel1).put(VariantSettings.Y, VariantSettings.Rotation.R90))
+                .with(When.create().set(ShulkuraBlock.FLOWER_AMOUNT, 1).set(ShulkuraBlock.FACING, Direction.SOUTH), BlockStateVariant.create().put(VariantSettings.MODEL,myModel1).put(VariantSettings.Y, VariantSettings.Rotation.R180))
+                .with(When.create().set(ShulkuraBlock.FLOWER_AMOUNT, 1).set(ShulkuraBlock.FACING, Direction.WEST), BlockStateVariant.create().put(VariantSettings.MODEL,myModel1).put(VariantSettings.Y, VariantSettings.Rotation.R270))
+                .with(When.create().set(ShulkuraBlock.FLOWER_AMOUNT, 2).set(ShulkuraBlock.FACING, Direction.NORTH), BlockStateVariant.create().put(VariantSettings.MODEL,myModel2))
+                .with(When.create().set(ShulkuraBlock.FLOWER_AMOUNT, 2).set(ShulkuraBlock.FACING, Direction.EAST), BlockStateVariant.create().put(VariantSettings.MODEL,myModel2).put(VariantSettings.Y, VariantSettings.Rotation.R90))
+                .with(When.create().set(ShulkuraBlock.FLOWER_AMOUNT, 2).set(ShulkuraBlock.FACING, Direction.SOUTH), BlockStateVariant.create().put(VariantSettings.MODEL,myModel2).put(VariantSettings.Y, VariantSettings.Rotation.R180))
+                .with(When.create().set(ShulkuraBlock.FLOWER_AMOUNT, 2).set(ShulkuraBlock.FACING, Direction.WEST), BlockStateVariant.create().put(VariantSettings.MODEL,myModel2).put(VariantSettings.Y, VariantSettings.Rotation.R270))
+                .with(When.create().set(ShulkuraBlock.FLOWER_AMOUNT, 3).set(ShulkuraBlock.FACING, Direction.NORTH), BlockStateVariant.create().put(VariantSettings.MODEL,myModel3))
+                .with(When.create().set(ShulkuraBlock.FLOWER_AMOUNT, 3).set(ShulkuraBlock.FACING, Direction.EAST), BlockStateVariant.create().put(VariantSettings.MODEL,myModel3).put(VariantSettings.Y, VariantSettings.Rotation.R90))
+                .with(When.create().set(ShulkuraBlock.FLOWER_AMOUNT, 3).set(ShulkuraBlock.FACING, Direction.SOUTH), BlockStateVariant.create().put(VariantSettings.MODEL,myModel3).put(VariantSettings.Y, VariantSettings.Rotation.R180))
+                .with(When.create().set(ShulkuraBlock.FLOWER_AMOUNT, 3).set(ShulkuraBlock.FACING, Direction.WEST), BlockStateVariant.create().put(VariantSettings.MODEL,myModel3).put(VariantSettings.Y, VariantSettings.Rotation.R270))
+
+                ;
+
+
+        gen.blockStateCollector.accept(supply);
     }
 }

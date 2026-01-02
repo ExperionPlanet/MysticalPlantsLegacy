@@ -47,6 +47,10 @@ public class TranslateDataGen extends FabricLanguageProvider {
         mainTr.trBlock(MPLBlocks.SOUL_PITCHER);
         mainTr.trItem(MPLItems.EXP_SPORE);
         mainTr.trItem(MPLItems.VOID_ESSENCE);
+        mainTr.trBlock(MPLBlocks.VOID_CAP);
+        mainTr.trBlock(MPLBlocks.SHULKURA);
+        mainTr.trBlock(MPLBlocks.VOID_STRAWFLOWER);
+        mainTr.trBlock(MPLBlocks.SOUL_BELL);
 
         mainTr.trBlock(MPLBlocks.PERMAFROSTED_LOG);
 
@@ -62,6 +66,8 @@ public class TranslateDataGen extends FabricLanguageProvider {
         effectsTr.trBase("frost_resistance");
         effectsTr.trBase("possessed");
         effectsTr.trBase("prosperity");
+        effectsTr.trBase("void");
+        effectsTr.trBase("rooted");
 
         ExperionTranslate soundsTr = new ExperionTranslate("sound.mysticalplantslg", gen);
         soundsTr.trBase("permafrost_shroom_explode", "Shroom Explodes");

@@ -19,6 +19,7 @@ public class MPLJade implements IWailaPlugin {
 
     }
 
+    // Even Jade mod won't help HAHAHAHAHAHA-
     @Override
     public void registerClient(IWailaClientRegistration registration) {
         registration.addRayTraceCallback(((hitResult, accessor, accessor1) -> {

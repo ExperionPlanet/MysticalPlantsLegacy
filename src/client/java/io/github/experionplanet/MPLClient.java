@@ -1,5 +1,6 @@
 package io.github.experionplanet;
 
+import io.github.experionplanet.blocks.entity.custom.SoulBellBlockEntity;
 import io.github.experionplanet.init.*;
 import io.github.experionplanet.mysticalcontents.MysticalContentsClient;
 import io.github.experionplanet.particle.BasicGlowingParticle;
@@ -10,6 +11,7 @@ import io.github.experionplanet.utils.ExperionLogger;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
@@ -40,7 +42,9 @@ public class MPLClient implements ClientModInitializer {
 				MPLBlocks.BOGSPORE_CAP,
 				MPLBlocks.HUNGERBALM,
 				MPLBlocks.SOUL_POSSESSION_IRIS,
-				MPLBlocks.SOUL_PITCHER
+				MPLBlocks.SOUL_PITCHER,
+				MPLBlocks.VOID_CAP,
+				MPLBlocks.SHULKURA
 
 		);
 
@@ -58,26 +62,31 @@ public class MPLClient implements ClientModInitializer {
 		BlockEntityRendererFactories.register(MPLBlockEntities.BOUNCING_PLANT, BouncingPlantBlockEntityRenderer::new);
 
 		BlockEntityRendererFactories.register(MPLBlockEntities.PERMAFROST_LOG, PermafrostLogBlockEntityRenderer::new);
+		BlockEntityRendererFactories.register(MPLBlockEntities.SOUL_BELL, SoulBellBlockEntityRenderer::new);
 
 		BlockEntityRendererFactories.register(MPLBlockEntities.BINDING_ROCK, BindingRockBlockEntityRenderer::new);
 		BlockEntityRendererFactories.register(MPLBlockEntities.DEBUG_TRANSLATE, DebugTranslateBlockEntityRenderer::new);
 		BlockEntityRendererFactories.register(MPLBlockEntities.PEDESTAL, PedestalBlockEntityRenderer::new);
 		BlockEntityRendererFactories.register(MPLBlockEntities.SOUL_POSSESSION_IRIS, SoulPossessionIrisBlockEntityRenderer::new);
+		BlockEntityRendererFactories.register(MPLBlockEntities.VOID_STRAWFLOWER, BouncingPlantBlockEntityRenderer::new);
 
 	}
 
 	private void particle() {
-		ParticleFactoryRegistry.getInstance().register(MPLParticles.EXP_SPORE, (v1) -> new SporeParticle.Factory<>(v1, 1.5f));
-		ParticleFactoryRegistry.getInstance().register(MPLParticles.EXP_ENCHANT_LETTER, (v1) -> new BasicGlowingParticle.Factory(v1, 0.3f, 40, 120));
-		ParticleFactoryRegistry.getInstance().register(MPLParticles.EXP_PIECES, (v1) -> new BasicGlowingParticle.Factory(v1, 0.25f, 20, 40));
+		ParticleFactoryRegistry factory = ParticleFactoryRegistry.getInstance();
+		factory.register(MPLParticles.EXP_ENCHANT_LETTER, (v1) -> new BasicGlowingParticle.Factory(v1, 0.3f, 40, 120));
+		factory.register(MPLParticles.EXP_PIECES, (v1) -> new BasicGlowingParticle.Factory(v1, 0.25f, 20, 40));
 
-		ParticleFactoryRegistry.getInstance().register(MPLParticles.EXP_SPORE, (v1) -> new SporeParticle.Factory<>(v1, 1.5f));
-		ParticleFactoryRegistry.getInstance().register(MPLParticles.BOG_SPORE, (v1) -> new SporeParticle.Factory<>(v1, 1f));
+		factory.register(MPLParticles.EXP_SPORE, (v1) -> new SporeParticle.Factory<>(v1, 1.5f, true));
+		factory.register(MPLParticles.BOG_SPORE, (v1) -> new SporeParticle.Factory<>(v1, 1f, false));
+		factory.register(MPLParticles.VOID_SPORE, (v1) -> new SporeParticle.Factory<>(v1, 1f, false));
 
 	}
 
 	private void entities() {
 		EntityRendererRegistry.register(MPLEntities.SPORES, EmptyEntityRenderer::new);
-		//EntityRendererRegistry.register(MPLEntities.SOUL_ZOMBIE, (ctx) -> new SoulZombieEntityRenderer(ctx, SoulZombieEntityRenderer.MODEL_LAYER, EntityModelLayers.ZOMBIE_INNER_ARMOR, EntityModelLayers.ZOMBIE_OUTER_ARMOR));
+		EntityRendererRegistry.register(MPLEntities.SOUL_ZOMBIE, SoulZombieEntityRenderer::new);
 	}
+
+
 }

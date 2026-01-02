@@ -1,0 +1,52 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "mysticalplantslg:block/void_cap"
+      },
+      "when": {
+        "cap_remaining": "5"
+      }
+    },
+    {
+      "apply": {
+        "model": "mysticalplantslg:block/void_cap_1"
+      },
+      "when": {
+        "cap_remaining": "4"
+      }
+    },
+    {
+      "apply": {
+        "model": "mysticalplantslg:block/void_cap_2"
+      },
+      "when": {
+        "cap_remaining": "3"
+      }
+    },
+    {
+      "apply": {
+        "model": "mysticalplantslg:block/void_cap_3"
+      },
+      "when": {
+        "cap_remaining": "2"
+      }
+    },
+    {
+      "apply": {
+        "model": "mysticalplantslg:block/void_cap_4"
+      },
+      "when": {
+        "cap_remaining": "1"
+      }
+    },
+    {
+      "apply": {
+        "model": "mysticalplantslg:block/void_cap_5"
+      },
+      "when": {
+        "cap_remaining": "0"
+      }
+    }
+  ]
+}

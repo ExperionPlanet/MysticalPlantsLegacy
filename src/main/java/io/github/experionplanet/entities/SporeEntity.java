@@ -2,6 +2,7 @@ package io.github.experionplanet.entities;
 
 import io.github.experionplanet.init.MPLEntities;
 import io.github.experionplanet.init.MPLParticles;
+import io.github.experionplanet.init.MPLStatusEffects;
 import io.github.experionplanet.utils.ExperionLogger;
 import io.github.experionplanet.utils.ExperionUtils;
 import net.minecraft.entity.Entity;
@@ -14,6 +15,7 @@ import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.particle.ParticleEffect;
 import net.minecraft.particle.SimpleParticleType;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.util.math.Box;
@@ -74,11 +76,31 @@ public class SporeEntity extends Entity {
                         getZ() + ExperionUtils.doubleInRange(rand, -0.75, 0.75)
                 );
 
-                world.addParticle(MPLParticles.BOG_SPORE, partiPos.getX(), partiPos.getY(), partiPos.getZ(), 0, 0,0);
+                world.addParticle(particleSpore(this.dataTracker.get(SPORE_TYPE)), partiPos.getX(), partiPos.getY(), partiPos.getZ(), 0, 0,0);
             }
         }
 
     }
+
+    private static ParticleEffect particleSpore(String type) {
+        if (type.equals("bog")) {
+            return MPLParticles.BOG_SPORE;
+        } else if (type.equals("void")) {
+            return MPLParticles.VOID_SPORE;
+        }
+
+        return null;
+    }
+
+    private static RegistryEntry<StatusEffect> effectSpore(String type) {
+        if (type.equals("bog")) {
+            return StatusEffects.POISON;
+        } else if (type.equals("void")) {
+            return MPLStatusEffects.VOID;
+        }
+        return null;
+    }
+
 
 
     @Override

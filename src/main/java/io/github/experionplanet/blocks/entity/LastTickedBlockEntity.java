@@ -37,6 +37,10 @@ public class LastTickedBlockEntity extends BlockEntity {
         this.world.addSyncedBlockEvent(pos, this.getCachedState().getBlock(), 1, index);
     }
 
+    public void setTicked(int index, long tick) {
+        tickedList.set(index, tick);
+    }
+
     @Override
     public boolean onSyncedBlockEvent(int type, int data) {
         if (type == 1) {

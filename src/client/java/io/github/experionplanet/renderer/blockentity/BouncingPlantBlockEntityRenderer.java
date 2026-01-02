@@ -16,7 +16,7 @@ import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 
-public class BouncingPlantBlockEntityRenderer implements BlockEntityRenderer<BouncingPlantBlockEntity> {
+public class BouncingPlantBlockEntityRenderer implements BlockEntityRenderer<LastTickedBlockEntity> {
     private static final float DURATION_OUT = 30f;
     private static final float SQUISH_IN = 0.2f;
 
@@ -24,10 +24,11 @@ public class BouncingPlantBlockEntityRenderer implements BlockEntityRenderer<Bou
 
     public BouncingPlantBlockEntityRenderer(BlockEntityRendererFactory.Context context) {
         this.rendManager = context.getRenderManager();
+
     }
 
     @Override
-    public void render(BouncingPlantBlockEntity entity, float tickDelta, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay) {
+    public void render(LastTickedBlockEntity entity, float tickDelta, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay) {
         World world = entity.getWorld();
 
         long lastClock = entity.getTicked(BouncingPlantBlockEntity.T_STEPPED);

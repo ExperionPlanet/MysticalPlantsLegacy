@@ -22,5 +22,10 @@ public class BlockLootableDataGen extends FabricBlockLootTableProvider {
         addDrop(MPLBlocks.PERMAFROST_SHROOM);
         addDrop(MPLBlocks.GLACIER_PASSION_FLOWER);
         addDrop(MPLBlocks.FROST_UMBRELLA_FLOWER);
+        addDrop(MPLBlocks.BOGSPORE_CAP);
+        addDrop(MPLBlocks.DISGUISE_ORCHID);
+        addDrop(MPLBlocks.HUNGERBALM);
+        addDrop(MPLBlocks.SOUL_PITCHER);
+        addDrop(MPLBlocks.VOID_CAP);
     }
 }

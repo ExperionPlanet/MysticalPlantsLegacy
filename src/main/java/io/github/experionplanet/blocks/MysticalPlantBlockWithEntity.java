@@ -50,11 +50,11 @@ public class MysticalPlantBlockWithEntity extends BlockWithEntity {
     protected boolean canPlantOnTop(BlockState floor, BlockView world, BlockPos pos) {
         return floor.isIn(BlockTags.DIRT) || floor.isOf(Blocks.FARMLAND);
     }
-
+    @Override
     protected BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
         return !state.canPlaceAt(world, pos) ? Blocks.AIR.getDefaultState() : super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
     }
-
+    @Override
     protected boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
         BlockPos blockPos = pos.down();
         return this.canPlantOnTop(world.getBlockState(blockPos), world, blockPos);

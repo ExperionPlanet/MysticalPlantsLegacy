@@ -41,10 +41,12 @@ public class MPLBlocks {
     // SOUL
     public static final Block SOUL_POSSESSION_IRIS = register("soul_possession_iris", SoulPossessionIrisBlock::new, AbstractBlock.Settings.create().sounds(BlockSoundGroup.WART_BLOCK).noCollision().nonOpaque(), true);
     public static final Block SOUL_PITCHER = register("soul_pitcher", SoulPitcherBlock::new, AbstractBlock.Settings.create().sounds(BlockSoundGroup.WET_GRASS).nonOpaque().noCollision(), true);
-    // MISSING: Soul Bell
+    public static final Block SOUL_BELL = register("soul_bell", SoulBellBlock::new, AbstractBlock.Settings.create().sounds(BlockSoundGroup.WET_GRASS).nonOpaque().noCollision(), true);
 
     // VOID
-    public static final Block VOID_CAP = register();
+    public static final Block VOID_CAP = register("void_cap", VoidCapBlock::new, AbstractBlock.Settings.create().sounds(BlockSoundGroup.BAMBOO_SAPLING).noCollision().nonOpaque(), true);
+    public static final Block SHULKURA = register("shulkura", ShulkuraBlock::new, AbstractBlock.Settings.create().sounds(BlockSoundGroup.BAMBOO_SAPLING).noCollision().nonOpaque(), true);
+    public static final Block VOID_STRAWFLOWER = register("void_strawflower", VoidStrawflowerBlock::new, AbstractBlock.Settings.create().sounds(BlockSoundGroup.BAMBOO_SAPLING).noCollision().nonOpaque(), true);
 
     // OTHER
     public static final Block BINDING_ROCK = register("binding_rock", BindingRockBlock::new, AbstractBlock.Settings.create().sounds(BlockSoundGroup.STONE).nonOpaque(), true);
@@ -52,8 +54,9 @@ public class MPLBlocks {
 
     public static final Block PERMAFROSTED_LOG = register("permafrosted_log", PermafrostedLogBlock::new, AbstractBlock.Settings.create()
             .instrument(NoteBlockInstrument.BASS)
-            .breakInstantly()
             .nonOpaque()
+            .dropsNothing()
+            .strength(-1.0F, 3600000.0F)
             .sounds(BlockSoundGroup.GLASS), true);
 
     public static final Block DEBUG_TRANSLATE = register("debug_translate", DebugTranslateBlock::new, AbstractBlock.Settings.create().sounds(BlockSoundGroup.BASALT).nonOpaque(), true);

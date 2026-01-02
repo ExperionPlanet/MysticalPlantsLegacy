@@ -1,0 +1,121 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "mysticalplantslg:block/shulkura1"
+      },
+      "when": {
+        "facing": "north",
+        "shulkura_amount": "1"
+      }
+    },
+    {
+      "apply": {
+        "model": "mysticalplantslg:block/shulkura1",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "shulkura_amount": "1"
+      }
+    },
+    {
+      "apply": {
+        "model": "mysticalplantslg:block/shulkura1",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "shulkura_amount": "1"
+      }
+    },
+    {
+      "apply": {
+        "model": "mysticalplantslg:block/shulkura1",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "shulkura_amount": "1"
+      }
+    },
+    {
+      "apply": {
+        "model": "mysticalplantslg:block/shulkura2"
+      },
+      "when": {
+        "facing": "north",
+        "shulkura_amount": "2"
+      }
+    },
+    {
+      "apply": {
+        "model": "mysticalplantslg:block/shulkura2",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "shulkura_amount": "2"
+      }
+    },
+    {
+      "apply": {
+        "model": "mysticalplantslg:block/shulkura2",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "shulkura_amount": "2"
+      }
+    },
+    {
+      "apply": {
+        "model": "mysticalplantslg:block/shulkura2",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "shulkura_amount": "2"
+      }
+    },
+    {
+      "apply": {
+        "model": "mysticalplantslg:block/shulkura3"
+      },
+      "when": {
+        "facing": "north",
+        "shulkura_amount": "3"
+      }
+    },
+    {
+      "apply": {
+        "model": "mysticalplantslg:block/shulkura3",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "shulkura_amount": "3"
+      }
+    },
+    {
+      "apply": {
+        "model": "mysticalplantslg:block/shulkura3",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "shulkura_amount": "3"
+      }
+    },
+    {
+      "apply": {
+        "model": "mysticalplantslg:block/shulkura3",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "shulkura_amount": "3"
+      }
+    }
+  ]
+}

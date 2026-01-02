@@ -1,14 +1,14 @@
- {
+{
 	"format_version": "1.9.0",
 	"credit": "Made with Blockbench",
 	"ambientocclusion": false,
 	"texture_size": [32, 32],
-	 "gui_light": "front",
 	"textures": {
 		"0": "mysticalplantslg:item/experience_pickaxe",
 		"1": "mysticalplantslg:item/experience_pickaxe_core",
 		"particle": "mysticalplantslg:item/experience_pickaxe"
 	},
+	"gui_light": "front",
 	"elements": [
 		{
 			"name": "handke",

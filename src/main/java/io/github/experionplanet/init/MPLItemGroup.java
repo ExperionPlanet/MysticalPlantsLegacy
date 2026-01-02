@@ -36,6 +36,10 @@ public class  MPLItemGroup {
             itemGroup.add(MPLBlocks.HUNGERBALM);
             itemGroup.add(MPLBlocks.SOUL_POSSESSION_IRIS);
             itemGroup.add(MPLBlocks.SOUL_PITCHER);
+            itemGroup.add(MPLBlocks.SOUL_BELL);
+            itemGroup.add(MPLBlocks.VOID_CAP);
+            itemGroup.add(MPLBlocks.SHULKURA);
+            itemGroup.add(MPLBlocks.VOID_STRAWFLOWER);
 
             itemGroup.add(MPLItems.EXPERIENCE_ESSENCE);
             itemGroup.add(MPLItems.FROST_ESSENCE);
@@ -57,6 +61,7 @@ public class  MPLItemGroup {
             itemGroup.add(MPLItems.EXP_SPORE);
             itemGroup.add(MPLItems.SOUL);
             itemGroup.add(MPLItems.SOUL_POLLEN);
+            itemGroup.add(MPLItems.SOUL_ZOMBIE_SPAWN_EGG);
 
             if (MPLMidnightConfig.show_debug_item) {
                 itemGroup.add(MPLItems.BROKEN_EXPERIENCE_PICKAXE);

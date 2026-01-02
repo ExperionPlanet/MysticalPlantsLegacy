@@ -6,7 +6,7 @@
 		"EntityMixin",
 		"FarmlandBlockSoulMixin",
 		"ActionStackonSlotMixin",
-		"ProsperityMixin"
+		"LivingEntityMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

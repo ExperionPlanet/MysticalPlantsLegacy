@@ -17,9 +17,10 @@ import org.joml.Vector3f;
 public class SporeParticle extends SpriteBillboardParticle {
     private final SpriteProvider sprite;
     private static final double RangeVelo = 0.01;
+    private final boolean isGlowing;
     private static final Quaternionf QUATERNION = new Quaternionf(0F, -0.7F, 0.7F, 0F);
 
-    protected SporeParticle(ClientWorld clientWorld,  double x, double y, double z, double velX, double velY, double velZ, SpriteProvider sprites, float setScale) {
+    protected SporeParticle(ClientWorld clientWorld,  double x, double y, double z, double velX, double velY, double velZ, SpriteProvider sprites, float setScale, boolean glow) {
         super(clientWorld, x, y, z, velX, velY, velZ);
         Random rand = clientWorld.getRandom();
         this.sprite = sprites;
@@ -33,6 +34,7 @@ public class SporeParticle extends SpriteBillboardParticle {
         this.velocityMultiplier = 0.75f;
         this.ascending = true;
         this.maxAge = rand.nextBetween(20, 80);
+        this.isGlowing = glow;
     }
 
     @Override
@@ -106,9 +108,9 @@ public class SporeParticle extends SpriteBillboardParticle {
     }
 
     @Environment(EnvType.CLIENT)
-    public record Factory<T extends ParticleEffect>(SpriteProvider sprites, float setScale) implements ParticleFactory<T> {
+    public record Factory<T extends ParticleEffect>(SpriteProvider sprites, float setScale, boolean glow) implements ParticleFactory<T> {
         public Particle createParticle(T type, ClientWorld world, double x, double y, double z, double vx, double vy, double vz) {
-            return new SporeParticle(world, x, y ,z , vx, vy, vz, sprites, setScale);
+            return new SporeParticle(world, x, y ,z , vx, vy, vz, sprites, setScale, glow);
         }
     }
 

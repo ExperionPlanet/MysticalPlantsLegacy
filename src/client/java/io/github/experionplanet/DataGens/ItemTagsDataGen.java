@@ -12,6 +12,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.registry.tag.ItemTags;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -25,6 +26,9 @@ public class ItemTagsDataGen extends FabricTagProvider<Item> {
         getOrCreateTagBuilder(MPLItemTags.DIRTS);
         getOrCreateTagBuilder(MPLItemTags.SOIL_FILLING).add(Blocks.DIRT.asItem(), Blocks.SOUL_SOIL.asItem(), Blocks.COARSE_DIRT.asItem(), Blocks.MUD.asItem()).addTag(MPLItemTags.DIRTS);
         getOrCreateTagBuilder(MPLItemTags.SOUL_FILLING).add(MPLItems.SOUL,MPLItems.SOUL_POLLEN,MPLItems.SOUL_ESSENCE);
+
+        getOrCreateTagBuilder(ItemTags.SWORDS).add(MPLItems.VOID_SWORD);
+        getOrCreateTagBuilder(ItemTags.SWORD_ENCHANTABLE).add(MPLItems.VOID_SWORD);
 
     }
 }

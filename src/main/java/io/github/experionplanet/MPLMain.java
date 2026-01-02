@@ -60,7 +60,7 @@ public class MPLMain implements ModInitializer {
 		ExperionLogger.Print("Fully Initiated!");
 	}
 	private void entityAttributes() {
-		//FabricDefaultAttributeRegistry.register(MPLEntities.SOUL_ZOMBIE, SoulZombieEntity.createAttributes());
+		FabricDefaultAttributeRegistry.register(MPLEntities.SOUL_ZOMBIE, SoulZombieEntity.createAttributes());
 	}
 
 	private void testJson() {

@@ -1,0 +1,132 @@
+{
+	"format_version": "1.9.0",
+	"credit": "Made with Blockbench",
+	"ambientocclusion": false,
+	"texture_size": [64, 64],
+	"textures": {
+		"0": "mysticalplantslg:block/void_cap",
+		"particle": "mysticalplantslg:block/void_cap"
+	},
+	"elements": [
+		{
+			"name": "stem",
+			"from": [0, 0, 8],
+			"to": [16, 13, 8],
+			"rotation": {"angle": 45, "axis": "y", "origin": [8, 1, 8]},
+			"faces": {
+				"north": {"uv": [0, 6.25, 4, 9.5], "texture": "#0"},
+				"east": {"uv": [0, 0, 0, 3.25], "texture": "#0"},
+				"south": {"uv": [0, 6.25, 4, 9.5], "texture": "#0"},
+				"west": {"uv": [0, 0, 0, 3.25], "texture": "#0"},
+				"up": {"uv": [4, 0, 0, 0], "texture": "#0"},
+				"down": {"uv": [4, 0, 0, 0], "texture": "#0"}
+			}
+		},
+		{
+			"name": "stem",
+			"from": [8, 0, 0],
+			"to": [8, 13, 16],
+			"rotation": {"angle": 45, "axis": "y", "origin": [8, 1, 8]},
+			"faces": {
+				"north": {"uv": [0, 0, 0, 3.25], "texture": "#0"},
+				"east": {"uv": [0, 6.25, 4, 9.5], "texture": "#0"},
+				"south": {"uv": [0, 0, 0, 3.25], "texture": "#0"},
+				"west": {"uv": [0, 6.25, 4, 9.5], "texture": "#0"},
+				"up": {"uv": [4, 0, 0, 0], "rotation": 90, "texture": "#0"},
+				"down": {"uv": [4, 0, 0, 0], "rotation": 270, "texture": "#0"}
+			}
+		},
+		{
+			"from": [4, 13, 4],
+			"to": [12, 15, 12],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 15, 8]},
+			"faces": {
+				"north": {"uv": [2, 2, 4, 2.5], "texture": "#0"},
+				"east": {"uv": [0, 2, 2, 2.5], "texture": "#0"},
+				"south": {"uv": [6, 2, 8, 2.5], "texture": "#0"},
+				"west": {"uv": [4, 2, 6, 2.5], "texture": "#0"},
+				"up": {"uv": [4, 2, 2, 0], "texture": "#0"},
+				"down": {"uv": [6, 0, 4, 2], "texture": "#0"}
+			}
+		},
+		{
+			"name": "moss",
+			"from": [4, 11, 4],
+			"to": [4, 13, 12],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 15, 8]},
+			"faces": {
+				"north": {"uv": [0, 0, 0, 0.5], "texture": "#0"},
+				"east": {"uv": [7, 2.5, 9, 3], "texture": "#0"},
+				"south": {"uv": [0, 0, 0, 0.5], "texture": "#0"},
+				"west": {"uv": [9, 2.5, 7, 3], "texture": "#0"},
+				"up": {"uv": [0, 2, 0, 0], "texture": "#0"},
+				"down": {"uv": [0, 0, 0, 2], "texture": "#0"}
+			}
+		},
+		{
+			"name": "moss",
+			"from": [4, 11, 4],
+			"to": [12, 13, 4],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 15, 8]},
+			"faces": {
+				"north": {"uv": [9, 2.5, 7, 3], "texture": "#0"},
+				"east": {"uv": [0, 0, 0, 0.5], "texture": "#0"},
+				"south": {"uv": [7, 2.5, 9, 3], "texture": "#0"},
+				"west": {"uv": [0, 0, 0, 0.5], "texture": "#0"},
+				"up": {"uv": [0, 2, 0, 0], "rotation": 90, "texture": "#0"},
+				"down": {"uv": [0, 0, 0, 2], "rotation": 270, "texture": "#0"}
+			}
+		},
+		{
+			"name": "moss",
+			"from": [4, 11, 12],
+			"to": [12, 13, 12],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 15, 8]},
+			"faces": {
+				"north": {"uv": [7, 2.5, 9, 3], "texture": "#0"},
+				"east": {"uv": [0, 0, 0, 0.5], "texture": "#0"},
+				"south": {"uv": [9, 2.5, 7, 3], "texture": "#0"},
+				"west": {"uv": [0, 0, 0, 0.5], "texture": "#0"},
+				"up": {"uv": [0, 2, 0, 0], "rotation": 270, "texture": "#0"},
+				"down": {"uv": [0, 0, 0, 2], "rotation": 90, "texture": "#0"}
+			}
+		},
+		{
+			"name": "moss",
+			"from": [12, 11, 4],
+			"to": [12, 13, 12],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 15, 8]},
+			"faces": {
+				"north": {"uv": [0, 0, 0, 0.5], "texture": "#0"},
+				"east": {"uv": [9, 2.5, 7, 3], "texture": "#0"},
+				"south": {"uv": [0, 0, 0, 0.5], "texture": "#0"},
+				"west": {"uv": [7, 2.5, 9, 3], "texture": "#0"},
+				"up": {"uv": [0, 2, 0, 0], "rotation": 180, "texture": "#0"},
+				"down": {"uv": [0, 0, 0, 2], "rotation": 180, "texture": "#0"}
+			}
+		},
+		{
+			"from": [4.5, 15, 4.5],
+			"to": [11.5, 17, 11.5],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 15, 8]},
+			"faces": {
+				"north": {"uv": [1.75, 4.25, 3.5, 4.75], "texture": "#0"},
+				"east": {"uv": [0, 4.25, 1.75, 4.75], "texture": "#0"},
+				"south": {"uv": [5.25, 4.25, 7, 4.75], "texture": "#0"},
+				"west": {"uv": [3.5, 4.25, 5.25, 4.75], "texture": "#0"},
+				"up": {"uv": [3.5, 4.25, 1.75, 2.5], "texture": "#0"},
+				"down": {"uv": [5.25, 2.5, 3.5, 4.25], "texture": "#0"}
+			}
+		}
+	],
+	"groups": [
+		0,
+		1,
+		{
+			"name": "HugeCap",
+			"origin": [8, 15, 8],
+			"color": 0,
+			"children": [2, 3, 4, 5, 6, 7]
+		}
+	]
+}
