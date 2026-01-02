@@ -96,7 +96,7 @@ public class PedestalBlock extends BlockWithEntity {
                 }
 
                 if (succ) {
-                    return ActionResult.SUCCESS;
+                    return ActionResult.SUCCESS_NO_ITEM_USED;
                 }
             }
         }

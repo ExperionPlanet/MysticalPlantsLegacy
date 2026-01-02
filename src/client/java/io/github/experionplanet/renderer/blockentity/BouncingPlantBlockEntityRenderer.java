@@ -29,21 +29,30 @@ public class BouncingPlantBlockEntityRenderer implements BlockEntityRenderer<Las
 
     @Override
     public void render(LastTickedBlockEntity entity, float tickDelta, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay) {
+       bounceRender(entity, tickDelta, matrices, vertexConsumers, light, overlay, 1f);
+    }
+
+    protected static float getAlpha(long currentTime, long lastClock, float tickDelta, float duration) {
+        return ExperionUtils.alphaHandling(((((float) currentTime) + tickDelta) - (float) lastClock), duration);
+    }
+
+    protected void bounceRender(LastTickedBlockEntity entity, float tickDelta, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay, float size) {
         World world = entity.getWorld();
 
         long lastClock = entity.getTicked(BouncingPlantBlockEntity.T_STEPPED);
+
         float alpha = 1f;
 
         if (lastClock != LastTickedBlockEntity.NULL_CLOCK) {
-
-            alpha = ExperionUtils.alphaHandling(((((float) world.getTime()) + tickDelta) - (float) lastClock), DURATION_OUT);
+            alpha = getAlpha(world.getTime(), lastClock, tickDelta, DURATION_OUT); //ExperionUtils.alphaHandling(((((float) world.getTime()) + tickDelta) - (float) lastClock), DURATION_OUT);
         }
 
         matrices.push();
 
-        float totalScale = ExperionUtils.tweenHandling(SQUISH_IN, 1f, (float) EasingsList.OutElastic(alpha));
-
-        matrices.scale(1,totalScale,1);
+        float totalScale = ExperionUtils.tweenHandling(SQUISH_IN, size, (float) EasingsList.OutElastic(alpha));
+        matrices.translate(0.5, 0, 0.5);
+        matrices.scale(size,totalScale,size);
+        matrices.translate(-0.5, 0, -0.5);
 
         BlockState cacheState = entity.getCachedState();
         BakedModel model = this.rendManager.getModel(cacheState);

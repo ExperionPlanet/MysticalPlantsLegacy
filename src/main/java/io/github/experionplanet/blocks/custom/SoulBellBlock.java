@@ -24,12 +24,16 @@ import org.jetbrains.annotations.Nullable;
 
 public class SoulBellBlock extends MysticalPlantBlockWithEntity {
     public static final BooleanProperty ON_GOING = BooleanProperty.of("on_going");
+    public static final BooleanProperty ON_REWARD = BooleanProperty.of("on_reward");
+    public static final IntProperty REWARD_COUNT = IntProperty.of("reward_count", 0, 5);
     public static final IntProperty ROUND = IntProperty.of("round", 1, 3);
 
     public SoulBellBlock(Settings settings) {
         super(settings);
         setDefaultState(getDefaultState()
                 .with(ON_GOING, false)
+                .with(ON_REWARD, false)
+                .with(REWARD_COUNT, 0)
                 .with(ROUND, 1)
         );
     }
@@ -42,7 +46,7 @@ public class SoulBellBlock extends MysticalPlantBlockWithEntity {
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         super.appendProperties(builder);
-        builder.add(ON_GOING, ROUND);
+        builder.add(ON_GOING, ROUND, ON_REWARD, REWARD_COUNT);
     }
 
     @Override
@@ -61,7 +65,7 @@ public class SoulBellBlock extends MysticalPlantBlockWithEntity {
             if (!state.get(ON_GOING)) {
                 if (world.getBlockEntity(pos) instanceof SoulBellBlockEntity blockEntity) {
                     world.setBlockState(pos, state.with(ON_GOING, true));
-                    return ActionResult.SUCCESS;
+                    return ActionResult.SUCCESS_NO_ITEM_USED;
                 }
             }
         }
