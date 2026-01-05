@@ -18,6 +18,7 @@ import java.util.List;
 
 public class MPLConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?,?>> EXP_MUSHROOMS_KEY = registerKey("exp_mushrooms");
+    public static final RegistryKey<ConfiguredFeature<?,?>> EXP_PLANTS_KEY = registerKey("exp_plants");
 
     public static void boot(Registerable<ConfiguredFeature<?, ?>> context) {
 
@@ -34,18 +35,6 @@ public class MPLConfiguredFeatures {
                         )
                 )
         );
-
-
-        /*
-
-        ConfiguredFeatures.createRandomPatchFeatureConfig(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(new NoiseBlockStateProvider(2215L, new DoublePerlinNoiseSampler.NoiseParameters(0, 1d, 0), 0.020833334F,
-                        List.of(
-                                MPLBlocks.SMALL_EXP_MUSHROOMS.getDefaultState(),
-                                MPLBlocks.MEDIUM_EXP_MUSHROOMS.getDefaultState(),
-                                MPLBlocks.LARGE_EXP_MUSHROOMS.getDefaultState()
-                        )
-                )))
-         */
     }
 
     public static RegistryKey<ConfiguredFeature<?, ?>> registerKey(String name) {
