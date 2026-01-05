@@ -1,7 +1,7 @@
 package io.github.experionplanet.renderer.blockentity;
 
 import io.github.experionplanet.blocks.entity.custom.PedestalBlockEntity;
-import io.github.experionplanet.utils.ExperionUtils;
+import io.github.experionplanet.utils.MysticalUtils;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.block.entity.BlockEntityRenderer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactory;
@@ -27,7 +27,7 @@ public class PedestalBlockEntityRenderer implements BlockEntityRenderer<Pedestal
 
             Random selfRand = Random.create(entity.getPos().asLong());
 
-            float offsetAnim = ExperionUtils.floatInRange(selfRand, 0, 199);
+            float offsetAnim = MysticalUtils.floatInRange(selfRand, 0, 199);
             float clock = ((float) entity.getWorld().getTime()) + tickDelta + offsetAnim;
 
             matrices.translate(0.5,1.05 + (float) Math.sin(clock * 0.15f) * 0.025,0.5);

@@ -4,10 +4,8 @@ import io.github.experionplanet.blocks.entity.LastTickedBlockEntity;
 import io.github.experionplanet.init.MPLBlockEntities;
 import io.github.experionplanet.init.MPLItems;
 import io.github.experionplanet.init.MPLStatusEffects;
-import io.github.experionplanet.utils.ExperionUtils;
+import io.github.experionplanet.utils.MysticalUtils;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -35,7 +33,7 @@ public class VoidStrawflowerBlockEntity extends LastTickedBlockEntity {
     public void trapEntity(LivingEntity entity, BlockPos pos, BlockState state, ServerWorld serverWorld) {
         if (!state.get(IS_TRAPPED)) {
 
-            Vec3d vec = ExperionUtils.v3dConvert(pos, true);
+            Vec3d vec = MysticalUtils.v3dConvert(pos, true);
 
             triggerTick(T_TRAPPED);
             world.setBlockState(pos,state.with(IS_TRAPPED, true));
@@ -57,7 +55,7 @@ public class VoidStrawflowerBlockEntity extends LastTickedBlockEntity {
                 return;
             }
 
-            Vec3d vec = ExperionUtils.v3dConvert(pos, true);
+            Vec3d vec = MysticalUtils.v3dConvert(pos, true);
 
             blockEntity.victim.teleport(vec.getX(), blockEntity.victim.getY(), vec.getZ(), false);
 

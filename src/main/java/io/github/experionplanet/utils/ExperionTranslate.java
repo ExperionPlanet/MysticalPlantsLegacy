@@ -31,11 +31,11 @@ public class ExperionTranslate {
     }
 
     public void trItem(Item item) {
-        gen.add(item, quickTranslate(ExperionUtils.getItemID(item).getPath()));
+        gen.add(item, quickTranslate(MysticalUtils.getItemID(item).getPath()));
     }
 
     public void trBlock(Block block) {
-        gen.add(block, quickTranslate(ExperionUtils.getBlockID(block).getPath()));
+        gen.add(block, quickTranslate(MysticalUtils.getBlockID(block).getPath()));
     }
 
     public static String quickTranslate(String name) {

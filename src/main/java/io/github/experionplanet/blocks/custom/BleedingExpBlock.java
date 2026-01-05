@@ -1,7 +1,7 @@
 package io.github.experionplanet.blocks.custom;
 
 import io.github.experionplanet.blocks.MysticalPlantBlock;
-import io.github.experionplanet.utils.ExperionUtils;
+import io.github.experionplanet.utils.MysticalUtils;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.ExperienceOrbEntity;
 import net.minecraft.server.world.ServerWorld;
@@ -24,7 +24,7 @@ public class BleedingExpBlock extends MysticalPlantBlock {
         int resChance =  random.nextBetween(1, 4);
 
         if (resChance <= 1) {
-            ExperienceOrbEntity.spawn(world, ExperionUtils.v3dConvert(pos, true), random.nextBetween(1, 3));
+            ExperienceOrbEntity.spawn(world, MysticalUtils.v3dConvert(pos, true), random.nextBetween(1, 3));
 
             resChance = random.nextBetween(1, 20);
 

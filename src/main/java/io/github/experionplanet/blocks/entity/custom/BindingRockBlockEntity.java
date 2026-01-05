@@ -7,7 +7,7 @@ import io.github.experionplanet.init.MPLRecipes;
 import io.github.experionplanet.recipe.MysticalPedestalRecipe;
 import io.github.experionplanet.recipe.PedestalRecipeInput;
 import io.github.experionplanet.utils.ExperionLogger;
-import io.github.experionplanet.utils.ExperionUtils;
+import io.github.experionplanet.utils.MysticalUtils;
 import io.github.experionplanet.utils.MysticalNbt;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -124,7 +124,7 @@ public class BindingRockBlockEntity extends ContainerBlockEntity {
 
 
             boolean succ = false;
-            Vec3d v = ExperionUtils.v3dConvert(pos, true);
+            Vec3d v = MysticalUtils.v3dConvert(pos, true);
             if (index >= 0 && index < blockEntity.pedestalsPos.size()) {
                 BlockPos pPos = blockEntity.pedestalsPos.get(index);
                 ItemStack ingredient = blockEntity.ingredientList.get(index);

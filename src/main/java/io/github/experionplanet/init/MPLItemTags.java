@@ -1,6 +1,6 @@
 package io.github.experionplanet.init;
 
-import io.github.experionplanet.utils.ExperionUtils;
+import io.github.experionplanet.utils.MysticalUtils;
 import net.minecraft.item.Item;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.tag.TagKey;
@@ -17,6 +17,6 @@ public class MPLItemTags {
     }
 
     private static TagKey<Item> key(String str) {
-        return TagKey.of(RegistryKeys.ITEM, ExperionUtils.newId(str));
+        return TagKey.of(RegistryKeys.ITEM, MysticalUtils.newId(str));
     }
 }

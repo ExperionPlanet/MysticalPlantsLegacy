@@ -3,8 +3,7 @@ package io.github.experionplanet.entities;
 import io.github.experionplanet.init.MPLEntities;
 import io.github.experionplanet.init.MPLParticles;
 import io.github.experionplanet.init.MPLStatusEffects;
-import io.github.experionplanet.utils.ExperionLogger;
-import io.github.experionplanet.utils.ExperionUtils;
+import io.github.experionplanet.utils.MysticalUtils;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -16,7 +15,6 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.particle.ParticleEffect;
-import net.minecraft.particle.SimpleParticleType;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
@@ -71,9 +69,9 @@ public class SporeEntity extends Entity {
             if (this.age % 2 == 0) {
                 double m = myBox.maxY/2;
                 Vec3d partiPos = new Vec3d(
-                        getX() + ExperionUtils.doubleInRange(rand, -0.75, 0.75),
-                        getY() + ExperionUtils.doubleInRange(rand, -0.25, 0.25),
-                        getZ() + ExperionUtils.doubleInRange(rand, -0.75, 0.75)
+                        getX() + MysticalUtils.doubleInRange(rand, -0.75, 0.75),
+                        getY() + MysticalUtils.doubleInRange(rand, -0.25, 0.25),
+                        getZ() + MysticalUtils.doubleInRange(rand, -0.75, 0.75)
                 );
 
                 world.addParticle(particleSpore(this.dataTracker.get(SPORE_TYPE)), partiPos.getX(), partiPos.getY(), partiPos.getZ(), 0, 0,0);

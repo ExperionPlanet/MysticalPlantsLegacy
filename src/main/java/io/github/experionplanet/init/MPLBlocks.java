@@ -1,7 +1,7 @@
 package io.github.experionplanet.init;
 
 import io.github.experionplanet.blocks.custom.*;
-import io.github.experionplanet.utils.ExperionUtils;
+import io.github.experionplanet.utils.MysticalUtils;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -64,11 +64,11 @@ public class MPLBlocks {
     public static void init() {}
 
     private static Block register(String name, Block block, boolean regItem) {
-        Block res = Registry.register(Registries.BLOCK, ExperionUtils.newId(name), block);
+        Block res = Registry.register(Registries.BLOCK, MysticalUtils.newId(name), block);
 
         if (regItem) {
             BlockItem blockItem = new BlockItem(block, new Item.Settings());
-            Registry.register(Registries.ITEM, ExperionUtils.newId(name), blockItem);
+            Registry.register(Registries.ITEM, MysticalUtils.newId(name), blockItem);
         }
 
         return res;

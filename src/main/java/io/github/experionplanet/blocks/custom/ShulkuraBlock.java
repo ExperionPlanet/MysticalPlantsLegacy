@@ -1,7 +1,7 @@
 package io.github.experionplanet.blocks.custom;
 
 import io.github.experionplanet.blocks.MysticalPlantBlock;
-import io.github.experionplanet.utils.ExperionUtils;
+import io.github.experionplanet.utils.MysticalUtils;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ShapeContext;
@@ -81,7 +81,7 @@ public class ShulkuraBlock extends MysticalPlantBlock {
 
             int r = 3;
 
-            Vec3d v = ExperionUtils.v3dConvert(pos, true).add(new Vec3d(ExperionUtils.doubleInRange(random,-0.5d, 0.5d),0,ExperionUtils.doubleInRange(random,-0.5d, 0.5d)));
+            Vec3d v = MysticalUtils.v3dConvert(pos, true).add(new Vec3d(MysticalUtils.doubleInRange(random,-0.5d, 0.5d),0, MysticalUtils.doubleInRange(random,-0.5d, 0.5d)));
 
             /*
             Box box = new Box(v.x - r, v.y - r, v.z - r, v.x + r, v.y + r, v.z + r);

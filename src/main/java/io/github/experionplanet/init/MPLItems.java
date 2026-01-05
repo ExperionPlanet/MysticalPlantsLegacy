@@ -2,7 +2,7 @@ package io.github.experionplanet.init;
 
 import io.github.experionplanet.items.tool.MysticalToolMats;
 import io.github.experionplanet.items.tool.custom.*;
-import io.github.experionplanet.utils.ExperionUtils;
+import io.github.experionplanet.utils.MysticalUtils;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -45,7 +45,7 @@ public class MPLItems {
     }
 
     private static Item register(String name, Item item) {
-        return Registry.register(Registries.ITEM, ExperionUtils.newId(name), item);
+        return Registry.register(Registries.ITEM, MysticalUtils.newId(name), item);
     }
 
     public static void init() {}

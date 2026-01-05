@@ -8,7 +8,7 @@ import io.github.experionplanet.init.MPLBlockProperties;
 import io.github.experionplanet.mysticalcontents.MysticalContentsClient;
 import io.github.experionplanet.mysticalcontents.content.RingedBloomingContent;
 import io.github.experionplanet.utils.ExperionLogger;
-import io.github.experionplanet.utils.ExperionUtils;
+import io.github.experionplanet.utils.MysticalUtils;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.VertexConsumerProvider;
@@ -59,7 +59,7 @@ public class RingedBloomingBlockEntityRenderer implements BlockEntityRenderer<Bl
                 if (MPLConfig.animated_rings) {
                     Random selfRand = Random.create(entity.getPos().asLong());
 
-                    float offsetAnim = ExperionUtils.floatInRange(selfRand, 0, 199);
+                    float offsetAnim = MysticalUtils.floatInRange(selfRand, 0, 199);
                     float myClock = ((float) entity.getWorld().getTime()) + offsetAnim;
 
                     if (!content.lowFPS) {
@@ -78,7 +78,7 @@ public class RingedBloomingBlockEntityRenderer implements BlockEntityRenderer<Bl
                 matrices.scale(1.0F, -1.0F, -1.0F);
 
                 matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(angle));
-                VertexConsumer vertexConsumer = vertexConsumers.getBuffer(RenderLayer.getEntityCutout(ExperionUtils.newId(content.texture)));
+                VertexConsumer vertexConsumer = vertexConsumers.getBuffer(RenderLayer.getEntityCutout(MysticalUtils.newId(content.texture)));
                 this.ring.render(matrices, vertexConsumer, light, overlay);
 
                 matrices.pop();

@@ -5,7 +5,7 @@ import io.github.experionplanet.blocks.BloomingFlowerBlock;
 import io.github.experionplanet.blocks.entity.custom.BloomingFlowerBlockEntity;
 import io.github.experionplanet.init.MPLItems;
 import io.github.experionplanet.init.MPLSoundEvents;
-import io.github.experionplanet.utils.ExperionUtils;
+import io.github.experionplanet.utils.MysticalUtils;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.BlockWithEntity;
 import net.minecraft.block.entity.BlockEntity;
@@ -19,7 +19,6 @@ import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.random.Random;
-import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 public class ExbiscusBlock extends BloomingFlowerBlock {
@@ -40,7 +39,7 @@ public class ExbiscusBlock extends BloomingFlowerBlock {
     @Override
     protected void onHarvest(BlockState state, ServerWorld world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
         Random rand =  world.getRandom();
-        Vec3d vec = ExperionUtils.v3dConvert(pos, true);
+        Vec3d vec = MysticalUtils.v3dConvert(pos, true);
         if (rand.nextBetween(1, 15) <= 1) {
             world.spawnEntity(new ItemEntity(world, vec.getX(), vec.y, vec.z, new ItemStack(MPLItems.EXPERIENCE_ESSENCE, 1)));
             world.playSound(null, pos, MPLSoundEvents.EXBISCUS_BLOOMING_PICK_ESSENCE, SoundCategory.BLOCKS);

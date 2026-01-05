@@ -1,14 +1,14 @@
 package io.github.experionplanet.mysticalcontents;
 
 import io.github.experionplanet.mysticalcontent.MysticMapping;
-import io.github.experionplanet.utils.ExperionUtils;
+import io.github.experionplanet.utils.MysticalUtils;
 import net.minecraft.util.Identifier;
 
 public class MysticalHoldableContentClient {
     public static final MysticMapping<Identifier, Identifier> ITEM_3D_ABLE = new MysticMapping<>();
 
     public static void register(String name) {
-        ITEM_3D_ABLE.register(ExperionUtils.newId(name), ExperionUtils.newId(name + "_world"));
+        ITEM_3D_ABLE.register(MysticalUtils.newId(name), MysticalUtils.newId(name + "_world"));
     }
 
     public static void bootstrap() {

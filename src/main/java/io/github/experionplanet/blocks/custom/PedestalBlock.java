@@ -2,16 +2,13 @@ package io.github.experionplanet.blocks.custom;
 
 import com.mojang.serialization.MapCodec;
 import io.github.experionplanet.blocks.entity.custom.PedestalBlockEntity;
-import io.github.experionplanet.utils.ExperionLogger;
-import io.github.experionplanet.utils.ExperionUtils;
+import io.github.experionplanet.utils.MysticalUtils;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.state.StateManager;
-import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.ItemScatterer;
@@ -83,7 +80,7 @@ public class PedestalBlock extends BlockWithEntity {
                 boolean succ = false;
 
                 if (!blockEntity.getCurrentStack().isEmpty()) {
-                    Vec3d vec = ExperionUtils.v3dConvert(pos, true);
+                    Vec3d vec = MysticalUtils.v3dConvert(pos, true);
                     ItemStack copiedStack = blockEntity.getCurrentStack().copy();
 
                     world.spawnEntity(new ItemEntity(world, vec.x, vec.y, vec.z, copiedStack));
@@ -123,7 +120,7 @@ public class PedestalBlock extends BlockWithEntity {
         if (!world.isClient()) {
             if (world.getBlockEntity(pos) instanceof PedestalBlockEntity blockEntity) {
                 if (!blockEntity.getCurrentStack().isEmpty()) {
-                    Vec3d v = ExperionUtils.v3dConvert(pos, true);
+                    Vec3d v = MysticalUtils.v3dConvert(pos, true);
                     world.spawnEntity(new ItemEntity((World) world,  v.getX(), v.getY(), v.getZ(), blockEntity.getCurrentStack().copy()));
                 }
             }

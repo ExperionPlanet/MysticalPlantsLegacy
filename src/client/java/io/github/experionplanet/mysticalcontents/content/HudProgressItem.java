@@ -1,6 +1,6 @@
 package io.github.experionplanet.mysticalcontents.content;
 
-import io.github.experionplanet.utils.ExperionUtils;
+import io.github.experionplanet.utils.MysticalUtils;
 import net.minecraft.component.ComponentType;
 import net.minecraft.util.Identifier;
 
@@ -12,8 +12,8 @@ public class HudProgressItem {
     public final int frames;
 
     public HudProgressItem(String base, String fluid, ComponentType<Integer> property, int maximum, int maxFrame) {
-        this.base = ExperionUtils.newId("textures/gui/" + base + ".png");
-        this.fluid = ExperionUtils.newId("textures/gui/" + fluid + ".png");
+        this.base = MysticalUtils.newId("textures/gui/" + base + ".png");
+        this.fluid = MysticalUtils.newId("textures/gui/" + fluid + ".png");
         this.prop = property;
         this.max = maximum;
         this.frames = maxFrame;

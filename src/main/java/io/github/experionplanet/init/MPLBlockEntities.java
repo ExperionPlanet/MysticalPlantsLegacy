@@ -2,7 +2,7 @@ package io.github.experionplanet.init;
 
 import io.github.experionplanet.blocks.entity.SoulPossessionIrisBlockEntity;
 import io.github.experionplanet.blocks.entity.custom.*;
-import io.github.experionplanet.utils.ExperionUtils;
+import io.github.experionplanet.utils.MysticalUtils;
 import net.minecraft.block.Block;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
@@ -37,7 +37,7 @@ public class MPLBlockEntities {
             BlockEntityType.BlockEntityFactory<? extends T> entityFactory,
             Block... blocks
     ) {
-        Identifier id = ExperionUtils.newId(name);
+        Identifier id = MysticalUtils.newId(name);
         return Registry.register(Registries.BLOCK_ENTITY_TYPE, id, BlockEntityType.Builder.<T>create(entityFactory, blocks).build());
     }
 }

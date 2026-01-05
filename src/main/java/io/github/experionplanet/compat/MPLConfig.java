@@ -1,10 +1,6 @@
 package io.github.experionplanet.compat;
 
 import eu.midnightdust.lib.config.MidnightConfig;
-import io.github.experionplanet.MPLMain;
-import io.github.experionplanet.utils.ExperionUtils;
-import net.fabricmc.loader.api.FabricLoader;
-import net.minecraft.text.Text;
 
 public class MPLConfig extends MidnightConfig {
 

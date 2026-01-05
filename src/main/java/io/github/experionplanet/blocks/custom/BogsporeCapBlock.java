@@ -3,16 +3,12 @@ package io.github.experionplanet.blocks.custom;
 import com.mojang.serialization.MapCodec;
 import io.github.experionplanet.blocks.BouncingPlantBlock;
 import io.github.experionplanet.entities.SporeEntity;
-import io.github.experionplanet.init.MPLParticles;
-import io.github.experionplanet.utils.ExperionUtils;
+import io.github.experionplanet.utils.MysticalUtils;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.BlockWithEntity;
-import net.minecraft.component.type.PotionContentsComponent;
-import net.minecraft.entity.AreaEffectCloudEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.potion.Potions;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
 import net.minecraft.util.math.BlockPos;
@@ -46,7 +42,7 @@ public class BogsporeCapBlock extends BouncingPlantBlock {
     protected void onStepped(BlockState state, World world, BlockPos pos, LivingEntity entity) {
         int currentCap = state.get(CAP_REMAINING);
 
-        Vec3d v = ExperionUtils.v3dConvert(pos, true);
+        Vec3d v = MysticalUtils.v3dConvert(pos, true);
 
         SporeEntity spore = SporeEntity.createSpore(world, v.x, v.y, v.z,"bog");
 

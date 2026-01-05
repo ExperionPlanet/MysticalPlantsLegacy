@@ -3,8 +3,6 @@ package io.github.experionplanet.items.tool.custom;
 import io.github.experionplanet.MPLMain;
 import io.github.experionplanet.init.MPLComponentTypes;
 import io.github.experionplanet.init.MPLBlockTags;
-import io.github.experionplanet.utils.ExperionLogger;
-import io.github.experionplanet.utils.ExperionUtils;
 import net.minecraft.block.BlockState;
 import net.minecraft.component.ComponentType;
 import net.minecraft.enchantment.EnchantmentHelper;

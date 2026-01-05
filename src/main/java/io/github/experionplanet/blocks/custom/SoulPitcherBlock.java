@@ -4,7 +4,7 @@ import io.github.experionplanet.blocks.MysticalPlantBlock;
 import io.github.experionplanet.init.MPLBiomeTags;
 import io.github.experionplanet.init.MPLItems;
 import io.github.experionplanet.items.tool.custom.SoulHoeItem;
-import io.github.experionplanet.utils.ExperionUtils;
+import io.github.experionplanet.utils.MysticalUtils;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.ItemEntity;
@@ -52,10 +52,10 @@ public class SoulPitcherBlock extends MysticalPlantBlock {
     @Override
     public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random rand) {
         if (state.get(BLOOMING)) {
-            Vec3d v = ExperionUtils.v3dConvert(pos, true);
-            double x = ExperionUtils.doubleInRange(rand, -0.5, 0.5);
-            double y = ExperionUtils.doubleInRange(rand, -0.5, 0.5);
-            double z = ExperionUtils.doubleInRange(rand, -0.5, 0.5);
+            Vec3d v = MysticalUtils.v3dConvert(pos, true);
+            double x = MysticalUtils.doubleInRange(rand, -0.5, 0.5);
+            double y = MysticalUtils.doubleInRange(rand, -0.5, 0.5);
+            double z = MysticalUtils.doubleInRange(rand, -0.5, 0.5);
             world.addParticle(ParticleTypes.SCULK_SOUL, v.getX() + x, v.getY() + y, v.getZ() + z, 0, 0, 0);
         }
     }
@@ -68,7 +68,7 @@ public class SoulPitcherBlock extends MysticalPlantBlock {
                 if (handStack.isOf(MPLItems.SOUL_HOE)) {
                     SoulHoeItem.fillings(handStack, 1);
                 }else {
-                    Vec3d vec = ExperionUtils.v3dConvert(pos, true);
+                    Vec3d vec = MysticalUtils.v3dConvert(pos, true);
                     world.spawnEntity(new ItemEntity(world, vec.getX(), vec.getY(), vec.getZ(), new ItemStack(MPLItems.SOUL)));
                 }
                 world.setBlockState(pos, state.with(BLOOMING, false));

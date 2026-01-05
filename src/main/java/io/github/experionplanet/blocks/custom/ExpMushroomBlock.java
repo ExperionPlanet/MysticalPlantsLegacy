@@ -3,7 +3,7 @@ package io.github.experionplanet.blocks.custom;
 import com.mojang.serialization.MapCodec;
 import io.github.experionplanet.blocks.MysticalPlantBlockWithEntity;
 import io.github.experionplanet.blocks.entity.custom.ExpMushroomBlockEntity;
-import io.github.experionplanet.utils.ExperionUtils;
+import io.github.experionplanet.utils.MysticalUtils;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.Entity;
@@ -124,7 +124,7 @@ public class ExpMushroomBlock extends MysticalPlantBlockWithEntity {
     protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
         if (!world.isClient()) {
             world.breakBlock(pos, false, player);
-            ExperienceOrbEntity.spawn((ServerWorld) world, ExperionUtils.v3dConvert(pos, true), this.AMOUNT_EXP);
+            ExperienceOrbEntity.spawn((ServerWorld) world, MysticalUtils.v3dConvert(pos, true), this.AMOUNT_EXP);
         }
         return ActionResult.SUCCESS;
     }

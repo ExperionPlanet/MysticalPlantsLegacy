@@ -2,7 +2,7 @@ package io.github.experionplanet.blocks.entity.custom;
 
 import io.github.experionplanet.init.MPLBlockEntities;
 import io.github.experionplanet.init.MPLParticles;
-import io.github.experionplanet.utils.ExperionUtils;
+import io.github.experionplanet.utils.MysticalUtils;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.server.world.ServerWorld;
@@ -19,7 +19,7 @@ public class ExpMushroomBlockEntity extends BlockEntity {
 
     public void Stepped(ServerWorld serverWorld, BlockPos pos) {
         this.STEP_STATUS = 1;
-        Vec3d vec = ExperionUtils.v3dConvert(pos, true).add(0, -0.5, 0);
+        Vec3d vec = MysticalUtils.v3dConvert(pos, true).add(0, -0.5, 0);
         serverWorld.spawnParticles(MPLParticles.EXP_PIECES, vec.getX(), vec.getY(), vec.getZ(), 5, 0.1d, 0.1d, 0.1d, 1);
         this.world.addSyncedBlockEvent(pos, this.getCachedState().getBlock(), 1, this.STEP_STATUS);
 

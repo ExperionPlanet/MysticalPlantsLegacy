@@ -9,7 +9,10 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.random.Random;
 
-public class ExperionUtils {
+import java.util.ArrayList;
+import java.util.List;
+
+public class MysticalUtils {
     public static Identifier newId(String str) {
         return Identifier.of(MPLMain.MOD_ID, str);
     }
@@ -46,5 +49,14 @@ public class ExperionUtils {
 
     public static Identifier getBlockID(Block block) {
         return Registries.BLOCK.getId(block);
+    }
+
+    public static List<Identifier> blockToID(Block... list) {
+        List<Identifier> res = new ArrayList<>();
+        for (Block block : list) {
+            res.add(Registries.BLOCK.getId(block));
+        }
+
+        return res;
     }
 }

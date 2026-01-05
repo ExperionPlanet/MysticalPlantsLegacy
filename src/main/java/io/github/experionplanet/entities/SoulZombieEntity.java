@@ -1,12 +1,9 @@
 package io.github.experionplanet.entities;
 
 import io.github.experionplanet.init.MPLEntities;
-import io.github.experionplanet.utils.ExperionLogger;
-import io.github.experionplanet.utils.ExperionUtils;
-import net.minecraft.entity.EntityData;
+import io.github.experionplanet.utils.MysticalUtils;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
@@ -23,9 +20,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.LocalDifficulty;
-import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -91,7 +86,7 @@ public class SoulZombieEntity extends ZombieEntity {
 
             double dist = this.squaredDistanceTo(origin.getX() + 0.5, origin.getY() + 0.5, origin.getZ() + 0.5);
             if (dist > (double) (maxDistance * maxDistance)) {
-                Vec3d v = ExperionUtils.v3dConvert(origin, true);
+                Vec3d v = MysticalUtils.v3dConvert(origin, true);
                 this.teleport(v.getX(), v.getY(), v.getZ(), false);
             }
         }

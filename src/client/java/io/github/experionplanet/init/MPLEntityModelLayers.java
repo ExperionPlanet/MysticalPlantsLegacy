@@ -2,7 +2,7 @@ package io.github.experionplanet.init;
 
 import io.github.experionplanet.entitymodel.models.CubeOrbModel;
 import io.github.experionplanet.entitymodel.models.SquarePlaneModel;
-import io.github.experionplanet.utils.ExperionUtils;
+import io.github.experionplanet.utils.MysticalUtils;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
 
@@ -13,7 +13,7 @@ public class MPLEntityModelLayers {
 
     private static EntityModelLayer register(String str) {
 
-        return new EntityModelLayer(ExperionUtils.newId(str), "main");
+        return new EntityModelLayer(MysticalUtils.newId(str), "main");
     }
 
 

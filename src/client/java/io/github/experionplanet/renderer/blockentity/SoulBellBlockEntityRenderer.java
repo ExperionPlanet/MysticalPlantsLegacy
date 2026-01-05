@@ -4,10 +4,9 @@ import io.github.experionplanet.blocks.custom.SoulBellBlock;
 import io.github.experionplanet.blocks.entity.LastTickedBlockEntity;
 import io.github.experionplanet.blocks.entity.custom.SoulBellBlockEntity;
 import io.github.experionplanet.utils.EasingsList;
-import io.github.experionplanet.utils.ExperionUtils;
+import io.github.experionplanet.utils.MysticalUtils;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.render.VertexConsumerProvider;
-import net.minecraft.client.render.block.entity.BlockEntityRenderer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactory;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.math.BlockPos;
@@ -37,7 +36,7 @@ public class SoulBellBlockEntityRenderer extends BouncingPlantBlockEntityRendere
                 if (blockEntity.getTicked(SoulBellBlockEntity.T_SOUL) != LastTickedBlockEntity.NULL_CLOCK) {
                     alpha = getAlpha(world.getTime(), blockEntity.getTicked(SoulBellBlockEntity.T_SOUL), tickDelta, 20f);
                 }
-                totalSize = ExperionUtils.tweenHandling(STG_SIZE.get(prevStage), STG_SIZE.get(currStage), (float) EasingsList.OutBack( alpha));
+                totalSize = MysticalUtils.tweenHandling(STG_SIZE.get(prevStage), STG_SIZE.get(currStage), (float) EasingsList.OutBack( alpha));
             }
 
             bounceRender(blockEntity, tickDelta, matrices, vertexConsumers, light, overlay, totalSize);

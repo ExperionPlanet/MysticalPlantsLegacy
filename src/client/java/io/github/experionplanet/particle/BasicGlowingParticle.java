@@ -1,6 +1,6 @@
 package io.github.experionplanet.particle;
 
-import io.github.experionplanet.utils.ExperionUtils;
+import io.github.experionplanet.utils.MysticalUtils;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.particle.*;
@@ -16,9 +16,9 @@ public class BasicGlowingParticle extends SpriteBillboardParticle {
         Random rand = clientWorld.getRandom();
 
         this.setVelocity(
-                ExperionUtils.doubleInRange(rand,-.2, .2),
+                MysticalUtils.doubleInRange(rand,-.2, .2),
                 0,
-                ExperionUtils.doubleInRange(rand,-.2, .2)
+                MysticalUtils.doubleInRange(rand,-.2, .2)
         );
         this.ascending = true;
         this.velocityMultiplier = 0.75f;

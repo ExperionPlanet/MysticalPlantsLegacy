@@ -3,7 +3,7 @@ package io.github.experionplanet.recipe;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import io.github.experionplanet.init.MPLRecipes;
-import io.github.experionplanet.utils.ExperionUtils;
+import io.github.experionplanet.utils.MysticalUtils;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.RegistryByteBuf;
 import net.minecraft.network.codec.PacketCodec;
@@ -23,7 +23,7 @@ public class MysticalPedestalRecipe implements Recipe<PedestalRecipeInput>{
     private final Ingredient lastIngredient;
     private final ItemStack bindedStack;
     private final ItemStack resultStack;
-    public static final Identifier id = ExperionUtils.newId("mystical_pedestal");
+    public static final Identifier id = MysticalUtils.newId("mystical_pedestal");
 
     public MysticalPedestalRecipe(List<Ingredient> list, Ingredient lastIngredient, ItemStack bindedStack, ItemStack outputStack) {
 

@@ -5,7 +5,7 @@ import io.github.experionplanet.blocks.MysticalPlantBlockWithEntity;
 import io.github.experionplanet.blocks.entity.ContainerBlockEntity;
 import io.github.experionplanet.blocks.entity.SoulPossessionIrisBlockEntity;
 import io.github.experionplanet.init.MPLItems;
-import io.github.experionplanet.utils.ExperionUtils;
+import io.github.experionplanet.utils.MysticalUtils;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
@@ -57,7 +57,7 @@ public class SoulPossessionIrisBlock extends MysticalPlantBlockWithEntity {
 
     private static void emptyContainer(ContainerBlockEntity blockEntity, World world, BlockPos pos) {
         if (!blockEntity.getCurrentStack().isEmpty()) {
-            Vec3d vec = ExperionUtils.v3dConvert(pos, true);
+            Vec3d vec = MysticalUtils.v3dConvert(pos, true);
             ItemEntity itemEntity = new ItemEntity(world, vec.x, vec.y, vec.z, blockEntity.getCurrentStack().copyWithCount(1));
             world.spawnEntity(itemEntity);
             blockEntity.emptyStack();

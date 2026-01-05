@@ -1,16 +1,15 @@
 package io.github.experionplanet.init;
 
 import io.github.experionplanet.items.tool.PotionPack;
-import io.github.experionplanet.utils.ExperionUtils;
+import io.github.experionplanet.utils.MysticalUtils;
 import net.fabricmc.fabric.api.registry.FabricBrewingRecipeRegistryBuilder;
-import net.minecraft.block.Blocks;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.item.Items;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.Potions;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
-import net.minecraft.util.Identifier;
+
 import static io.github.experionplanet.items.tool.PotionPack.EffectSettings;
 
 public class MPLPotions {
@@ -48,7 +47,7 @@ public class MPLPotions {
 
     private static Potion register(String id, StatusEffectInstance instr) {
 
-        return Registry.register(Registries.POTION, ExperionUtils.newId(id), new Potion(instr));
+        return Registry.register(Registries.POTION, MysticalUtils.newId(id), new Potion(instr));
     }
 
     public static void init() {

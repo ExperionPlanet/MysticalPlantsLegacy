@@ -1,18 +1,12 @@
 package io.github.experionplanet.particle;
 
-import io.github.experionplanet.utils.ExperionUtils;
+import io.github.experionplanet.utils.MysticalUtils;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.particle.*;
-import net.minecraft.client.render.Camera;
-import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.particle.ParticleEffect;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.random.Random;
-import org.joml.Quaternionf;
-import org.joml.Vector3f;
 
 public class SporeParticle extends PlaneParticle {
     private static final double RangeVelo = 0.01;
@@ -21,9 +15,9 @@ public class SporeParticle extends PlaneParticle {
         super(clientWorld, x, y, z, velX, velY, velZ, sprites, 0, 1, setScale, glow);
         Random rand = clientWorld.getRandom();
         this.setVelocity(
-                ExperionUtils.doubleInRange(rand,-0.1, 0.1),
+                MysticalUtils.doubleInRange(rand,-0.1, 0.1),
                 0,
-                ExperionUtils.doubleInRange(rand,-.1, .1)
+                MysticalUtils.doubleInRange(rand,-.1, .1)
         );
         this.velocityMultiplier = 0.75f;
         this.ascending = true;

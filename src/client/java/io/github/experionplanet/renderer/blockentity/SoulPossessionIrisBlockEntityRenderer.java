@@ -5,7 +5,7 @@ import io.github.experionplanet.entitymodel.models.SquarePlaneModel;
 import io.github.experionplanet.init.MPLBlockProperties;
 import io.github.experionplanet.init.MPLEntityModelLayers;
 import io.github.experionplanet.utils.ExperionLogger;
-import io.github.experionplanet.utils.ExperionUtils;
+import io.github.experionplanet.utils.MysticalUtils;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.VertexConsumer;
@@ -28,7 +28,7 @@ public class SoulPossessionIrisBlockEntityRenderer implements BlockEntityRendere
 
     static {
         for (int i = 0; i < totalFrames; i++) {
-            FrameTexture[i] = ExperionUtils.newId("textures/block/soul_ring/soul_ring_" + (i + 1) + ".png");
+            FrameTexture[i] = MysticalUtils.newId("textures/block/soul_ring/soul_ring_" + (i + 1) + ".png");
         }
     }
 
@@ -52,7 +52,7 @@ public class SoulPossessionIrisBlockEntityRenderer implements BlockEntityRendere
 
             Random selfRand = Random.create(entity.getPos().asLong());
 
-            float offsetAnim = ExperionUtils.floatInRange(selfRand, 0, 199);
+            float offsetAnim = MysticalUtils.floatInRange(selfRand, 0, 199);
             float clock = ((float) entity.getWorld().getTime()) + tickDelta + offsetAnim;
 
             float sRot = 0.2f; // Speed

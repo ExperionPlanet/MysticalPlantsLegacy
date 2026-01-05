@@ -1,7 +1,7 @@
 package io.github.experionplanet.items.tool;
 
 import io.github.experionplanet.utils.ExperionTranslate;
-import io.github.experionplanet.utils.ExperionUtils;
+import io.github.experionplanet.utils.MysticalUtils;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.potion.Potion;
@@ -55,7 +55,7 @@ public class PotionPack {
 
     private static Potion register(String id, StatusEffectInstance instr) {
 
-        return Registry.register(Registries.POTION, ExperionUtils.newId(id), new Potion(instr));
+        return Registry.register(Registries.POTION, MysticalUtils.newId(id), new Potion(instr));
     }
 
     public static class EffectSettings {

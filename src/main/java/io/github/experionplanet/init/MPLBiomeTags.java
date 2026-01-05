@@ -1,7 +1,6 @@
 package io.github.experionplanet.init;
 
-import io.github.experionplanet.utils.ExperionUtils;
-import net.minecraft.block.Block;
+import io.github.experionplanet.utils.MysticalUtils;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
@@ -15,6 +14,6 @@ public class MPLBiomeTags {
     }
 
     private static TagKey<Biome> key(String str) {
-        return TagKey.of(RegistryKeys.BIOME, ExperionUtils.newId(str));
+        return TagKey.of(RegistryKeys.BIOME, MysticalUtils.newId(str));
     }
 }

@@ -1,6 +1,6 @@
 package io.github.experionplanet.mysticalcontent;
 
-import io.github.experionplanet.utils.ExperionUtils;
+import io.github.experionplanet.utils.MysticalUtils;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
@@ -8,7 +8,7 @@ import net.minecraft.util.Identifier;
 
 public class MysticIdMapping<T> extends MysticMapping<Identifier, T> {
     private boolean hasDefault = false;
-    public static final Identifier DEFAULT_ID = ExperionUtils.newId("default_value");
+    public static final Identifier DEFAULT_ID = MysticalUtils.newId("default_value");
 
     public void registerItem(Item item, T value) {
         register(Registries.ITEM.getId(item), value);

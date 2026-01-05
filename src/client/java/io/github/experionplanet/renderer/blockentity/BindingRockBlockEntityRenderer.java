@@ -4,7 +4,7 @@ import io.github.experionplanet.blocks.entity.custom.BindingRockBlockEntity;
 import io.github.experionplanet.mysticalcontents.MysticalContentsClient;
 import io.github.experionplanet.mysticalcontent.MysticIdMapping;
 import io.github.experionplanet.mysticalcontents.content.TrxContent;
-import io.github.experionplanet.utils.ExperionUtils;
+import io.github.experionplanet.utils.MysticalUtils;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.block.BlockRenderManager;
 import net.minecraft.client.render.block.entity.BlockEntityRenderer;
@@ -50,9 +50,9 @@ public class BindingRockBlockEntityRenderer implements BlockEntityRenderer<Bindi
             Random rand = Random.create(entity.getPos().asLong());
 
 
-            matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(trx.ry + ExperionUtils.floatInRange(rand, -15f, 15f)));
-            matrices.multiply(RotationAxis.POSITIVE_X.rotationDegrees(trx.rx + ExperionUtils.floatInRange(rand, -15f, 15f)));
-            matrices.multiply(RotationAxis.POSITIVE_Z.rotationDegrees(trx.rz + ExperionUtils.floatInRange(rand, -15f, 15f)));
+            matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(trx.ry + MysticalUtils.floatInRange(rand, -15f, 15f)));
+            matrices.multiply(RotationAxis.POSITIVE_X.rotationDegrees(trx.rx + MysticalUtils.floatInRange(rand, -15f, 15f)));
+            matrices.multiply(RotationAxis.POSITIVE_Z.rotationDegrees(trx.rz + MysticalUtils.floatInRange(rand, -15f, 15f)));
 
 
             this.itemRenderer.renderItem(entity.getCurrentStack(), ModelTransformationMode.FIXED, light, overlay, matrices, vertexConsumers, entity.getWorld(), (int) entity.getPos().asLong());

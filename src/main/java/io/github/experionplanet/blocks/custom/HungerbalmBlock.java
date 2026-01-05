@@ -4,8 +4,7 @@ import io.github.experionplanet.blocks.BloomingFlowerBlock;
 import io.github.experionplanet.blocks.entity.custom.BloomingFlowerBlockEntity;
 import io.github.experionplanet.entities.SporeEntity;
 import io.github.experionplanet.init.MPLItems;
-import io.github.experionplanet.init.MPLStatusEffects;
-import io.github.experionplanet.utils.ExperionUtils;
+import io.github.experionplanet.utils.MysticalUtils;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.ItemEntity;
@@ -33,7 +32,7 @@ public class HungerbalmBlock extends BloomingFlowerBlock {
     @Override
     protected void onHarvest(BlockState state, ServerWorld world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
         Random rand =  world.getRandom();
-        Vec3d vec = ExperionUtils.v3dConvert(pos, true);
+        Vec3d vec = MysticalUtils.v3dConvert(pos, true);
         if (rand.nextFloat() <= 0.1f) {
             ItemStack stack = new ItemStack(MPLItems.BOGGED_ESSENCE);
             world.spawnEntity(new ItemEntity(world, vec.getX(), vec.getY(), vec.getZ(), stack));

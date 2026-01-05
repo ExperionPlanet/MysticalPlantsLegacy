@@ -4,16 +4,11 @@ import io.github.experionplanet.blocks.custom.SoulBellBlock;
 import io.github.experionplanet.blocks.entity.LastTickedBlockEntity;
 import io.github.experionplanet.entities.SoulZombieEntity;
 import io.github.experionplanet.init.MPLBlockEntities;
-import io.github.experionplanet.init.MPLEntities;
 import io.github.experionplanet.init.MPLItems;
-import io.github.experionplanet.utils.ExperionLogger;
-import io.github.experionplanet.utils.ExperionUtils;
+import io.github.experionplanet.utils.MysticalUtils;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.ItemEntity;
-import net.minecraft.entity.SpawnReason;
-import net.minecraft.entity.SpawnRestriction;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
@@ -84,13 +79,13 @@ public class SoulBellBlockEntity extends LastTickedBlockEntity {
         if (!world.isSpaceEmpty(entity.getBoundingBox())) return;*/
 
 
-        Vec3d v = ExperionUtils.v3dConvert(pos, true);
+        Vec3d v = MysticalUtils.v3dConvert(pos, true);
 
         entity.refreshPositionAndAngles(v.getX(), v.getY(), v.getZ(), rand.nextFloat() * 360F, 0);
         entity.addVelocity(
-                ExperionUtils.floatInRange(rand, -.5f, .5f),
-                ExperionUtils.floatInRange(rand, 0f, .5f),
-                ExperionUtils.floatInRange(rand, -.5f, .5f)
+                MysticalUtils.floatInRange(rand, -.5f, .5f),
+                MysticalUtils.floatInRange(rand, 0f, .5f),
+                MysticalUtils.floatInRange(rand, -.5f, .5f)
         );
         blockEntity.targetList.add(entity.getUuid());
 
@@ -134,7 +129,7 @@ public class SoulBellBlockEntity extends LastTickedBlockEntity {
             } else {
                 if (world.getTime() % 20L == 0) {
                     float n = rand.nextFloat();
-                    Vec3d v = ExperionUtils.v3dConvert(pos, true);
+                    Vec3d v = MysticalUtils.v3dConvert(pos, true);
 
                     for (int i = REWARD_LIST.size() - 1; i >= 0; i--) {
                         CustomChance c = REWARD_LIST.get(i);
@@ -142,9 +137,9 @@ public class SoulBellBlockEntity extends LastTickedBlockEntity {
                         if (c.chance <= n) {
                             ItemEntity itemEntity = new ItemEntity(world, v.getX(), v.getY(), v.getZ(), c.reward.copy());
                             itemEntity.addVelocity(
-                                    ExperionUtils.floatInRange(rand, -.1f, .1f),
-                                    ExperionUtils.floatInRange(rand, 0f, .3f),
-                                    ExperionUtils.floatInRange(rand, -.1f, .1f)
+                                    MysticalUtils.floatInRange(rand, -.1f, .1f),
+                                    MysticalUtils.floatInRange(rand, 0f, .3f),
+                                    MysticalUtils.floatInRange(rand, -.1f, .1f)
                             );
                             world.spawnEntity(itemEntity);
                             break;

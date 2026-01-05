@@ -1,14 +1,10 @@
 package io.github.experionplanet.compat;
 
 import io.github.experionplanet.blocks.custom.DisguiseOrchidBlock;
-import io.github.experionplanet.entities.SporeEntity;
 import io.github.experionplanet.init.MPLBlocks;
 import io.github.experionplanet.init.MPLEntities;
-import io.github.experionplanet.utils.ExperionLogger;
-import io.github.experionplanet.utils.ExperionUtils;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.entity.Entity;
 import snownee.jade.api.*;
 
 @WailaPlugin

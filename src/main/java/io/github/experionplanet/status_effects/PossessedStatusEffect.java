@@ -1,6 +1,6 @@
 package io.github.experionplanet.status_effects;
 
-import io.github.experionplanet.utils.ExperionUtils;
+import io.github.experionplanet.utils.MysticalUtils;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
@@ -18,7 +18,7 @@ public class PossessedStatusEffect extends StatusEffect {
         World world = entity.getWorld();
         Random rand = world.getRandom();
 
-        entity.addVelocity(ExperionUtils.doubleInRange(rand, -0.5, 0.5), 0, ExperionUtils.doubleInRange(rand, -0.5, 0.5));
+        entity.addVelocity(MysticalUtils.doubleInRange(rand, -0.5, 0.5), 0, MysticalUtils.doubleInRange(rand, -0.5, 0.5));
 
         if (rand.nextBetween(1, 5) == 1) {
             entity.jump();

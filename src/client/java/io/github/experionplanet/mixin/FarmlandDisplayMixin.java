@@ -1,14 +1,11 @@
 package io.github.experionplanet.mixin;
 
 import io.github.experionplanet.init.MPLItems;
-import io.github.experionplanet.utils.ExperionUtils;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
+import io.github.experionplanet.utils.MysticalUtils;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.FarmlandBlock;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
@@ -28,7 +25,7 @@ public class FarmlandDisplayMixin {
 
         if (player != null) {
             if (player.getStackInHand(Hand.MAIN_HAND).isOf(MPLItems.SOUL_HOE) || player.getStackInHand(Hand.OFF_HAND).isOf(MPLItems.SOUL_HOE)) {
-                Vec3d v = ExperionUtils.v3dConvert(pos, true);
+                Vec3d v = MysticalUtils.v3dConvert(pos, true);
                 world.addParticle(ParticleTypes.SOUL, v.getX(), v.getY() + 0.6d, v.getZ(), 0, 0, 0);
             }
         }

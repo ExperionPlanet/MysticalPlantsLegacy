@@ -1,11 +1,10 @@
 package io.github.experionplanet.blocks.custom;
 
 import io.github.experionplanet.blocks.BloomingFlowerBlock;
-import io.github.experionplanet.blocks.MysticalPlantBlockWithEntity;
 import io.github.experionplanet.blocks.entity.custom.BloomingFlowerBlockEntity;
 import io.github.experionplanet.init.MPLItems;
 import io.github.experionplanet.init.MPLStatusEffects;
-import io.github.experionplanet.utils.ExperionUtils;
+import io.github.experionplanet.utils.MysticalUtils;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.ItemEntity;
@@ -17,7 +16,6 @@ import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.random.Random;
-import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 public class GlacierPassionFlowerBlock extends BloomingFlowerBlock {
@@ -33,7 +31,7 @@ public class GlacierPassionFlowerBlock extends BloomingFlowerBlock {
     @Override
     protected void onHarvest(BlockState state, ServerWorld world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
         Random rand =  world.getRandom();
-        Vec3d vec = ExperionUtils.v3dConvert(pos, true);
+        Vec3d vec = MysticalUtils.v3dConvert(pos, true);
         if (rand.nextFloat() <= 0.1f) {
             ItemStack stack = new ItemStack(MPLItems.FROST_ESSENCE);
             world.spawnEntity(new ItemEntity(world, vec.getX(), vec.getY(), vec.getZ(), stack));

@@ -1,7 +1,7 @@
 package io.github.experionplanet.init;
 
 import com.mojang.serialization.Codec;
-import io.github.experionplanet.utils.ExperionUtils;
+import io.github.experionplanet.utils.MysticalUtils;
 import net.minecraft.component.ComponentType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -13,7 +13,7 @@ public class MPLComponentTypes {
     public static final ComponentType<Integer> SOIL_MODE = register("soil_mode", Codec.intRange(1, 4));
 
     private static <T> ComponentType<T> register(String name, Codec<T> cod) {
-        return Registry.register(Registries.DATA_COMPONENT_TYPE, ExperionUtils.newId(name), ComponentType.<T>builder().codec(cod).build());
+        return Registry.register(Registries.DATA_COMPONENT_TYPE, MysticalUtils.newId(name), ComponentType.<T>builder().codec(cod).build());
     }
 
     public static void init() {}

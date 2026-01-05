@@ -1,6 +1,6 @@
 package io.github.experionplanet.init;
 
-import io.github.experionplanet.utils.ExperionUtils;
+import io.github.experionplanet.utils.MysticalUtils;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.SoundEvent;
@@ -14,7 +14,7 @@ public class MPLSoundEvents {
     public static final SoundEvent FROST_UMBRELLA_FLOWER_BOINK = registerSound("frost_umbrella_flower_boink");
 
     private static SoundEvent registerSound(String id) {
-        Identifier identifier = ExperionUtils.newId(id);
+        Identifier identifier = MysticalUtils.newId(id);
         return Registry.register(Registries.SOUND_EVENT, identifier, SoundEvent.of(identifier));
     }
 

@@ -3,7 +3,7 @@ package io.github.experionplanet.renderer.blockentity;
 import io.github.experionplanet.blocks.entity.LastTickedBlockEntity;
 import io.github.experionplanet.blocks.entity.custom.BouncingPlantBlockEntity;
 import io.github.experionplanet.utils.EasingsList;
-import io.github.experionplanet.utils.ExperionUtils;
+import io.github.experionplanet.utils.MysticalUtils;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.VertexConsumer;
@@ -33,7 +33,7 @@ public class BouncingPlantBlockEntityRenderer implements BlockEntityRenderer<Las
     }
 
     protected static float getAlpha(long currentTime, long lastClock, float tickDelta, float duration) {
-        return ExperionUtils.alphaHandling(((((float) currentTime) + tickDelta) - (float) lastClock), duration);
+        return MysticalUtils.alphaHandling(((((float) currentTime) + tickDelta) - (float) lastClock), duration);
     }
 
     protected void bounceRender(LastTickedBlockEntity entity, float tickDelta, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay, float size) {
@@ -49,7 +49,7 @@ public class BouncingPlantBlockEntityRenderer implements BlockEntityRenderer<Las
 
         matrices.push();
 
-        float totalScale = ExperionUtils.tweenHandling(SQUISH_IN, size, (float) EasingsList.OutElastic(alpha));
+        float totalScale = MysticalUtils.tweenHandling(SQUISH_IN, size, (float) EasingsList.OutElastic(alpha));
         matrices.translate(0.5, 0, 0.5);
         matrices.scale(size,totalScale,size);
         matrices.translate(-0.5, 0, -0.5);
