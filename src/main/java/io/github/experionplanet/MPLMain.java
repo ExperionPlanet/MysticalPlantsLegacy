@@ -2,7 +2,7 @@ package io.github.experionplanet;
 
 import com.mojang.serialization.JsonOps;
 import eu.midnightdust.lib.config.MidnightConfig;
-import io.github.experionplanet.compat.MPLMidnightConfig;
+import io.github.experionplanet.compat.MPLConfig;
 import io.github.experionplanet.entities.SoulZombieEntity;
 import io.github.experionplanet.init.*;
 import io.github.experionplanet.mysticalcontent.MysticalContents;
@@ -55,7 +55,7 @@ public class MPLMain implements ModInitializer {
 			ExperionLogger.Print("Development Enviroment Detected!");
 		}
 
-		MidnightConfig.init(MOD_ID, MPLMidnightConfig.class);
+		MidnightConfig.init(MOD_ID, MPLConfig.class);
 
 		ExperionLogger.Print("Fully Initiated!");
 	}

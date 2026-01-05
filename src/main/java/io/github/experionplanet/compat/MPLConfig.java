@@ -1,16 +1,16 @@
 package io.github.experionplanet.compat;
 
 import eu.midnightdust.lib.config.MidnightConfig;
+import io.github.experionplanet.MPLMain;
+import io.github.experionplanet.utils.ExperionUtils;
+import net.fabricmc.loader.api.FabricLoader;
+import net.minecraft.text.Text;
 
-public class MPLMidnightConfig extends MidnightConfig {
+public class MPLConfig extends MidnightConfig {
+
     public static final String MAIN = "Main";
     public static final String CLIENT = "Client";
 
-    public enum TOOL_MODEL_TYPE {
-        DEFAULT, // Default
-        OPTION2, // 2D
-        OPTION3, // 3D
-    }
     @Entry(category = MAIN, name = "Show debug items") public static boolean show_debug_item = false;
     @Entry(category = MAIN, name= "Show flower ring") public static boolean show_flower_rings = true;
     @Entry(category = CLIENT, name= "Animated flower ring") public static boolean animated_rings = true;
@@ -18,6 +18,13 @@ public class MPLMidnightConfig extends MidnightConfig {
     @Entry(category = CLIENT, name = "Show item fillings as durability bar") public static boolean show_fillings_durability = true;
     @Entry(category = CLIENT, name = "Show item fillings bar") public static boolean show_fillings_bar = true;
     @Entry(category = CLIENT, name = "Shulkura shoots") public static boolean shulkura_shoots = true;
+    public enum TOOL_MODEL_TYPE {
+        DEFAULT,
+        OPTION2,
+        OPTION3
+    }
+
+
 
 
 }

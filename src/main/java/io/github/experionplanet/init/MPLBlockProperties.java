@@ -6,5 +6,6 @@ import net.minecraft.state.property.IntProperty;
 public class MPLBlockProperties {
     public static final BooleanProperty BLOOMING = BooleanProperty.of("blooming");
     public static final IntProperty CAP_REMAINING = IntProperty.of("cap_remaining", 0, 8);
-    public static final BooleanProperty SOUL_ATTUNED = BooleanProperty.of("soul_attuned");
+    public static final BooleanProperty SOUL_NOT_ATTUNED = BooleanProperty.of("soul_not_attuned");
+    public static final BooleanProperty ON_CRAFTING = BooleanProperty.of("on_crafting");
 }

@@ -17,6 +17,15 @@ repositories {
 	// See https://docs.gradle.org/current/userguide/declaring_repositories.html
 	// for more information about repositories.
 	maven { url = "https://api.modrinth.com/maven" }
+	maven {
+		name = "Terraformers"
+		url = "https://maven.terraformersmc.com/"
+	}
+
+	maven {
+		url = "https://maven.midnightdust.eu/releases"
+	}
+
 }
 
 loom {
@@ -45,10 +54,12 @@ dependencies {
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-	modImplementation include ("maven.modrinth:midnightlib:${project.midnightlib_version}")
 	modImplementation "maven.modrinth:jade:${project.jade_version}"
-	
+	modImplementation "com.terraformersmc:modmenu:${project.modmenu_version}"
+	modImplementation("eu.midnightdust:midnightlib:${project.midnightlib_version}")
+	include("eu.midnightdust:midnightlib:${project.midnightlib_version}")
 }
+
 
 processResources {
 	inputs.property "version", project.version

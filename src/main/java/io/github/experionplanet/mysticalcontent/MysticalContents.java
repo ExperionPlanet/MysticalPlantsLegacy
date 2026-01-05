@@ -21,6 +21,7 @@ public class MysticalContents {
     public static void bootstrap() {
         // Effect Spores
         EFFECT_SPORES.register(ExperionUtils.newId("bog"), new SporeContent(MPLParticles.BOG_SPORE, StatusEffects.POISON.getIdAsString()));
+        EFFECT_SPORES.register(ExperionUtils.newId("void"), new SporeContent(MPLParticles.VOID_SPORE, StatusEffects.POISON.getIdAsString()));
         // Action Slot Stack
         ACTION_SLOT_STACK.registerItem(MPLItems.BOGGED_SHOVEL, new ActionSlotStack(MPLItemTags.SOIL_FILLING, BoggedShovelItem::fillSoil));
         ACTION_SLOT_STACK.registerItem(MPLItems.SOUL_HOE, new ActionSlotStack(MPLItemTags.SOUL_FILLING, SoulHoeItem::fillings));

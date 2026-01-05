@@ -2,27 +2,32 @@ package io.github.experionplanet.blocks.custom;
 
 import com.mojang.serialization.MapCodec;
 import io.github.experionplanet.blocks.entity.custom.PedestalBlockEntity;
+import io.github.experionplanet.utils.ExperionLogger;
 import io.github.experionplanet.utils.ExperionUtils;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldAccess;
 import org.jetbrains.annotations.Nullable;
+
+import static io.github.experionplanet.init.MPLBlockProperties.ON_CRAFTING;
 
 public class PedestalBlock extends BlockWithEntity {
     private static final VoxelShape SHAPE = Block.createCuboidShape(1, 0, 1, 15, 12, 15);
-    private static final BooleanProperty ON_CRAFTING = BooleanProperty.of("on_crafting");
 
     public PedestalBlock(Settings settings) {
         super(settings);
@@ -111,5 +116,34 @@ public class PedestalBlock extends BlockWithEntity {
         }
 
         return super.calcBlockBreakingDelta(state, player, world, pos);
+    }
+
+    @Override
+    public void onBroken(WorldAccess world, BlockPos pos, BlockState state) {
+        if (!world.isClient()) {
+            if (world.getBlockEntity(pos) instanceof PedestalBlockEntity blockEntity) {
+                if (!blockEntity.getCurrentStack().isEmpty()) {
+                    Vec3d v = ExperionUtils.v3dConvert(pos, true);
+                    world.spawnEntity(new ItemEntity((World) world,  v.getX(), v.getY(), v.getZ(), blockEntity.getCurrentStack().copy()));
+                }
+            }
+        }
+
+        super.onBroken(world, pos, state);
+
+    }
+
+    @Override
+    protected void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
+        if (!state.isOf(newState.getBlock())) {
+            if (world.getBlockEntity(pos) instanceof PedestalBlockEntity blockEntity) {
+                if (!blockEntity.getCurrentStack().isEmpty()) {
+                    ItemScatterer.spawn(world, pos, blockEntity.storedItems());
+                }
+
+            }
+        }
+
+        super.onStateReplaced(state, world, pos, newState, moved);
     }
 }

@@ -26,6 +26,9 @@
 		],
 		"jade": [
 			"io.github.experionplanet.compat.MPLJade"
+		],
+		"modmenu": [
+			"io.github.experionplanet.compat.MPLModMenu"
 		]
 	},
 	"mixins": [

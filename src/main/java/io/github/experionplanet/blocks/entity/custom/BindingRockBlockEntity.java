@@ -1,26 +1,29 @@
 package io.github.experionplanet.blocks.entity.custom;
 
-import com.google.common.collect.ImmutableList;
-import io.github.experionplanet.blocks.custom.BindingRockBlock;
 import io.github.experionplanet.blocks.entity.ContainerBlockEntity;
 import io.github.experionplanet.init.MPLBlockEntities;
+import io.github.experionplanet.init.MPLParticles;
 import io.github.experionplanet.init.MPLRecipes;
 import io.github.experionplanet.recipe.MysticalPedestalRecipe;
 import io.github.experionplanet.recipe.PedestalRecipeInput;
 import io.github.experionplanet.utils.ExperionLogger;
+import io.github.experionplanet.utils.ExperionUtils;
 import io.github.experionplanet.utils.MysticalNbt;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.entity.ItemEntity;
+import net.minecraft.inventory.Inventories;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.recipe.RecipeEntry;
 import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
+
+import static io.github.experionplanet.init.MPLBlockProperties.ON_CRAFTING;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,118 +42,230 @@ public class BindingRockBlockEntity extends ContainerBlockEntity {
     }
 
     // SOON
-
-    private static final String KEY_STAGE = "stage";
-    private static final String KEY_STARTED = "started";
-    private static final String KEY_CRAFTED_STACK = "crafted_stack";
-
-    public static final List<Integer> STAGE_TICK = ImmutableList.of(
-            60,
-            120
-    );
-
-    private static final int MAX_STAGE = 2;
+    private static final String KEY_CURRCLOCK = "curr_clock";
+    private static final String KEY_ON_CRAFTING = "on_crafting";
 
     public final MysticalNbt dat = new MysticalNbt()
-            .propInt("stage", 0)
-            .propBoolean("started", false)
+            .propLong("curr_clock", -1L)
+            .propBoolean("on_crafting", false)
             .build();
 
     public ItemStack craftedStack = ItemStack.EMPTY;
+    public ItemStack ingredientFINAL = ItemStack.EMPTY;
+    public DefaultedList<ItemStack> ingredientList = DefaultedList.ofSize(8, ItemStack.EMPTY);
+    public List<Integer> ingredientConsumed = new ArrayList<>();
+    public int pedestalIndex = 0;
+    public List<BlockPos> pedestalsPos = new ArrayList<>();
 
+    public void initializeCrafting(List<PedestalBlockEntity> blockEntities, List<ItemStack> list, ItemStack finalIngredient, ItemStack result, World world, BlockPos center) {
+        if (!dat.getBoolean(KEY_ON_CRAFTING)) {
+            pedestalsPos.clear();
 
-    public int tickProgress = 0;
-    public long currClock = 0l;
-    public int maxTick = 0;
-    public boolean fullySetup = false;
-    public List<PedestalBlockEntity> pedestals = new ArrayList<>();
+            for (int index = 0; index < blockEntities.size(); index++) {
+                PedestalBlockEntity pedestal = blockEntities.get(index);
 
-    private void setupStage(int stage) {
-        if (!fullySetup) {
-            for (BlockPos v : BindingRockBlock.PEDESTAL_POS_LIST) {
-                BlockEntity blockEntity = world.getBlockEntity(v);
-
-                if (blockEntity instanceof PedestalBlockEntity) {
-                    pedestals.add((PedestalBlockEntity) blockEntity);
+                if (!pedestal.getCurrentStack().isEmpty()) {
+                    pedestalsPos.add(pedestal.getPos());
                 }
             }
 
-            this.fullySetup = true;
+            craftedStack = result;
+            ingredientFINAL = finalIngredient;
+
+            clearIngredientList();
+            for (int i = 0; i < list.size(); i++) {
+                ingredientList.set(i, list.get(i));
+            }
+            pedestalIndex = 0;
+
+            dat.setBoolean(KEY_ON_CRAFTING, true);
+            dat.setLong(KEY_CURRCLOCK, world.getTime());
+
+            ExperionLogger.Print("INITIALZIED!");
+
+            markDirty();
+            world.updateListeners(pos, getCachedState(), getCachedState(), Block.NOTIFY_ALL);
+            world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(getCachedState()));
         }
-        tickProgress = 0;
 
-        this.maxTick = STAGE_TICK.get(stage - 1);
+    }
 
-        if (world.isClient()) {
-            this.currClock = world.getTime();
-        }
+    public void endCrafting() {
+        pedestalsPos.clear();
+        clearIngredientList();
+        craftedStack = ItemStack.EMPTY;
+        ingredientFINAL = ItemStack.EMPTY;
 
-        this.dat.setInt(KEY_STAGE, stage);
+        dat.setBoolean(KEY_ON_CRAFTING, false);
+        dat.setLong(KEY_CURRCLOCK, -1L);
 
-        ExperionLogger.Print("Stage " + stage);
+        pedestalIndex = 0;
+        ingredientConsumed.clear();
 
         markDirty();
         world.updateListeners(pos, getCachedState(), getCachedState(), Block.NOTIFY_ALL);
         world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(getCachedState()));
     }
 
-    public void startCrafting(ItemStack resultStack) {
-        if (!this.dat.getBoolean(KEY_STARTED)) {
-            setupStage(1);
-
-            this.craftedStack = resultStack.copy();
-
-            dat.setBoolean(KEY_STARTED, true);
+    private void clearIngredientList() {
+        for (int i = 0; i < ingredientList.size(); i++) {
+            ingredientList.set(i, ItemStack.EMPTY);
         }
     }
 
-    public static void onTick(World world, BlockPos pos, BlockState state, BindingRockBlockEntity blockEntity) {
-        if (blockEntity.dat.getBoolean(KEY_STARTED)) {
-            if (!blockEntity.fullySetup) {
-                blockEntity.setupStage(blockEntity.dat.getInt(KEY_STAGE));
-            }
-            ExperionLogger.Print("t: " + blockEntity.tickProgress + " CLIENT? " + world.isClient());
-            blockEntity.tickProgress++;
+    public static void onTickServer(World world, BlockPos pos, BlockState state, BindingRockBlockEntity blockEntity) {
 
-            if (blockEntity.tickProgress >= blockEntity.maxTick) {
-                if (blockEntity.dat.getInt(KEY_STAGE) + 1 > MAX_STAGE) {
-                    blockEntity.dat.setBoolean(KEY_STARTED, false);
+        long clockNow = world.getTime();
 
-                    ExperionLogger.Print("FINISHED!");
-                } else {
-                    blockEntity.setupStage(blockEntity.dat.getInt(KEY_STAGE) + 1);
+        if (clockNow - blockEntity.dat.getLong(KEY_CURRCLOCK) >= 20L) {
+            blockEntity.dat.setLong(KEY_CURRCLOCK, clockNow);
+
+            int index = blockEntity.pedestalIndex;
+
+
+            boolean succ = false;
+            Vec3d v = ExperionUtils.v3dConvert(pos, true);
+            if (index >= 0 && index < blockEntity.pedestalsPos.size()) {
+                BlockPos pPos = blockEntity.pedestalsPos.get(index);
+                ItemStack ingredient = blockEntity.ingredientList.get(index);
+
+                if (world.getBlockEntity(pPos) instanceof PedestalBlockEntity pedestal) {
+                    if (pedestal.containsItem(ingredient)) {
+                        blockEntity.ingredientConsumed.add(index);
+                        pedestal.emptyStack();
+                        world.setBlockState(pPos, pedestal.getCachedState().with(ON_CRAFTING, false));
+
+                        blockEntity.pedestalIndex++;
+
+                        world.addParticle(MPLParticles.ENDER_WARP, v.getX(), v.getY(), v.getZ(), 0, 0, 0);
+
+                        succ = true;
+                    }
                 }
-
+            } else {
+                ItemEntity itemEntity = new ItemEntity(world, v.getX(), v.getY() + 0.5d, v.getZ(), blockEntity.craftedStack);
+                itemEntity.addVelocity(0, 0.1d, 0);
+                world.spawnEntity(itemEntity);
+                blockEntity.emptyStack();
+                blockEntity.endCrafting();
+                world.setBlockState(pos, state.with(ON_CRAFTING, false));
+                return;
             }
+
+
+            if (!succ) {
+                for (int i : blockEntity.ingredientConsumed) {
+                    ItemStack stack = blockEntity.ingredientList.get(i);
+                    ItemEntity entity = new ItemEntity(world, v.getX(), v.getY(), v.getZ(), stack);
+                    entity.setVelocity(world.random.nextTriangular((double)0.0F, 0.11485000171139836), world.random.nextTriangular(0.2, 0.11485000171139836), world.random.nextTriangular((double)0.0F, 0.11485000171139836));
+                    world.spawnEntity(entity);
+                }
+                
+                blockEntity.endCrafting();
+                world.setBlockState(pos, state.with(ON_CRAFTING, false));
+            } else {
+                blockEntity.markDirty();
+                world.updateListeners(pos, blockEntity.getCachedState(), blockEntity.getCachedState(), Block.NOTIFY_ALL);
+                world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(blockEntity.getCachedState()));
+            }
+
 
         }
+    }
+
+    public static void onTickClient(World world, BlockPos pos, BlockState state, BindingRockBlockEntity blockEntity) {
+
+    }
+
+    private void doWriteNbt(NbtCompound nbt,RegistryWrapper.WrapperLookup registryLookup) {
+        dat.writeNbt(nbt, registryLookup);
+        if (!craftedStack.isEmpty()) {
+            nbt.put("result_stack", craftedStack.encode(registryLookup));
+        }
+
+        if (!ingredientFINAL.isEmpty()) {
+            nbt.put("ingredient_final", ingredientFINAL.encode(registryLookup));
+        }
+
+        if (!ingredientConsumed.isEmpty()) {
+            nbt.putIntArray("consumed", ingredientConsumed);
+        }
+
+        if (!pedestalsPos.isEmpty()) {
+            NbtCompound c = new NbtCompound();
+            int total = 0;
+            for (int i = 0; i < pedestalsPos.size(); i++) {
+                BlockPos p = pedestalsPos.get(i);
+                NbtCompound pComp = new NbtCompound();
+                pComp.putInt("x", p.getX());
+                pComp.putInt("y", p.getY());
+                pComp.putInt("z", p.getZ());
+
+                c.put("i_" + (i + 1), pComp);
+                total++;
+            }
+
+            c.putInt("t", + total);
+            nbt.put("pedestal_pos", c);
+        }
+
+        nbt.putInt("pedestal_index", pedestalIndex);
+
+        NbtCompound ingList = new NbtCompound();
+
+        Inventories.writeNbt(ingList, ingredientList, registryLookup);
+
+        nbt.put("ingredient_list", ingList);
     }
 
     @Override
     public NbtCompound toInitialChunkDataNbt(RegistryWrapper.WrapperLookup registryLookup) {
-        NbtCompound nbt = super.toInitialChunkDataNbt(registryLookup);
-        dat.writeNbt(nbt, registryLookup);
-        if (!this.craftedStack.isEmpty()) {
-            nbt.put(KEY_CRAFTED_STACK,this.craftedStack.encode(registryLookup));
-        }
-        return nbt;
+        NbtCompound c = super.toInitialChunkDataNbt(registryLookup);
+
+        doWriteNbt(c, registryLookup);
+
+        return c;
     }
 
     @Override
     protected void writeNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
         super.writeNbt(nbt, registryLookup);
-        dat.writeNbt(nbt, registryLookup);
-        if (!this.craftedStack.isEmpty()) {
-            nbt.put(KEY_CRAFTED_STACK,this.craftedStack.encode(registryLookup));
-        }
+        doWriteNbt(nbt, registryLookup);
     }
 
     @Override
     protected void readNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
         super.readNbt(nbt, registryLookup);
         dat.readNbt(nbt, registryLookup);
-        if (nbt.contains(KEY_CRAFTED_STACK)) {
-            this.craftedStack = ItemStack.fromNbtOrEmpty(registryLookup, nbt.getCompound(KEY_CRAFTED_STACK));
+        if (nbt.contains("result_stack")) {
+            this.craftedStack = ItemStack.fromNbtOrEmpty(registryLookup, nbt.getCompound("result_stack"));
+        }
+        if (nbt.contains("ingredient_final")) {
+            this.ingredientFINAL = ItemStack.fromNbtOrEmpty(registryLookup, nbt.getCompound("ingredient_final"));
+        }
+        if (nbt.contains("consumed")) {
+            this.ingredientConsumed.clear();
+            for (int a : nbt.getIntArray("consumed")) {
+                this.ingredientConsumed.add(a);
+            }
+        }
+        if (nbt.contains("pedestal_index")) {
+            this.pedestalIndex = nbt.getInt("pedestal_index");
+        }
+        if (nbt.contains("pedestal_pos")) {
+            this.pedestalsPos.clear();
+            NbtCompound c = nbt.getCompound("pedestal_pos");
+            for (int i = 1; i <= c.getInt("t"); i++) {
+                NbtCompound pComp = nbt.getCompound("i_" + i);
+                pedestalsPos.add(new BlockPos(pComp.getInt("x"),pComp.getInt("y"),pComp.getInt("z")));
+            }
+        }
+        if (nbt.contains("ingredient_list")) {
+            clearIngredientList();
+            Inventories.readNbt(nbt.getCompound("ingredient_list"), this.ingredientList, registryLookup);
         }
     }
+
+
+
 }

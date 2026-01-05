@@ -1,6 +1,6 @@
 package io.github.experionplanet.renderer.blockentity;
 
-import io.github.experionplanet.compat.MPLMidnightConfig;
+import io.github.experionplanet.compat.MPLConfig;
 import io.github.experionplanet.init.MPLEntityModelLayers;
 import io.github.experionplanet.blocks.entity.custom.BloomingFlowerBlockEntity;
 import io.github.experionplanet.entitymodel.models.SquarePlaneModel;
@@ -35,7 +35,7 @@ public class RingedBloomingBlockEntityRenderer implements BlockEntityRenderer<Bl
     @Override
     public void render(BloomingFlowerBlockEntity entity, float tickDelta, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay) {
         if (entity.getCachedState().get(MPLBlockProperties.BLOOMING)) {
-            if (MPLMidnightConfig.show_flower_rings) {
+            if (MPLConfig.show_flower_rings) {
                 RingedBloomingContent content;
                 if (entity.CONTENT_TYPE.equals("null")) {
                     entity.CONTENT_TYPE = Registries.BLOCK.getId(entity.getCachedState().getBlock()).getPath();
@@ -56,7 +56,7 @@ public class RingedBloomingBlockEntityRenderer implements BlockEntityRenderer<Bl
                 double FloatNum = 0;
                 float angle = 0;
 
-                if (MPLMidnightConfig.animated_rings) {
+                if (MPLConfig.animated_rings) {
                     Random selfRand = Random.create(entity.getPos().asLong());
 
                     float offsetAnim = ExperionUtils.floatInRange(selfRand, 0, 199);

@@ -13,19 +13,22 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import static io.github.experionplanet.init.MPLBlockProperties.SOUL_ATTUNED;
+import static io.github.experionplanet.init.MPLBlockProperties.SOUL_NOT_ATTUNED;
 
 @Mixin(FarmlandBlock.class)
 public class FarmlandBlockSoulMixin {
+
     @Inject(method = "setToDirt", at = @At("HEAD"), cancellable = true)
     private static void setDirt(@Nullable Entity entity, BlockState state, World world, BlockPos pos, CallbackInfo cit) {
-        /*if (state.get(SOUL_ATTUNED)) {
+        if (!state.get(SOUL_NOT_ATTUNED)) {
             cit.cancel();
-        }*/
+        }
     }
 
     @Inject(method = "appendProperties", at = @At("TAIL"))
     private void append(StateManager.Builder<Block, BlockState> builder, CallbackInfo cit) {
-        //builder.add(SOUL_ATTUNED);
+        builder.add(SOUL_NOT_ATTUNED);
     }
+
+
 }

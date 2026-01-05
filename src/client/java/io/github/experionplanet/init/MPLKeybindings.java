@@ -18,7 +18,7 @@ public class MPLKeybindings {
         );
 
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
-            MPLMain.showInfo = showInfo.wasPressed();
+            MPLMain.showInfo = client.options.sneakKey.wasPressed();
 
 
         });

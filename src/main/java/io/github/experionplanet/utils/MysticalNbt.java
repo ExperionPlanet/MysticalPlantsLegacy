@@ -24,6 +24,7 @@ public class MysticalNbt {
     private Map<String,Integer> datInt;
     private Map<String,String> datString;
     private Map<String,Boolean> datBoolean;
+    private Map<String,Long> datLong;
     private Map<String,IndexTemp> temp = new HashMap<>();
     private boolean hasBuild = false;
 
@@ -76,6 +77,10 @@ public class MysticalNbt {
         datBoolean.put(index, value);
     }
 
+    public long setLong(String index, long value) {
+        return datLong.put(index, value);
+    }
+
     public int getInt(String index) {
         return datInt.get(index);
     }
@@ -86,6 +91,10 @@ public class MysticalNbt {
 
     public boolean getBoolean(String index) {
         return datBoolean.get(index);
+    }
+
+    public long getLong(String index) {
+        return datLong.get(index);
     }
 
     public MysticalNbt propInt(String index, int baseValue) {
@@ -103,11 +112,17 @@ public class MysticalNbt {
         return this;
     }
 
+    public MysticalNbt propLong(String index, long baseValue) {
+        temp.put(index, new IndexTemp(baseValue, "long", index));
+        return this;
+    }
+
     public MysticalNbt build() {
         if (!hasBuild) {
             this.datInt = new HashMap<>();
             this.datBoolean = new HashMap<>();
             this.datString = new HashMap<>();
+            this.datLong = new HashMap<>();
 
             for (Map.Entry<String, IndexTemp> entry : temp.entrySet()) {
                 IndexTemp myIndex = entry.getValue();
@@ -119,6 +134,8 @@ public class MysticalNbt {
                     datBoolean.put(name, (boolean) myIndex.baseValue);
                 }else if (myIndex.type.equals("string")) {
                     datString.put(name, (String) myIndex.baseValue);
+                }else if (myIndex.type.equals("long")) {
+                    datLong.put(name, (long) myIndex.baseValue);
                 }
             }
 

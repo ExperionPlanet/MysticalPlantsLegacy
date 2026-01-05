@@ -32,7 +32,7 @@ public class PedestalBlockEntityRenderer implements BlockEntityRenderer<Pedestal
 
             matrices.translate(0.5,1.05 + (float) Math.sin(clock * 0.15f) * 0.025,0.5);
             matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(clock));
-            matrices.scale(0.5f, 0.5f, 0.5f);
+            matrices.scale(1f, 1f, 1f);
 
             itemRenderer.renderItem(stack, ModelTransformationMode.GROUND, light, overlay, matrices, vertexConsumers, entity.getWorld(), (int) entity.getPos().asLong());
 

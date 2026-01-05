@@ -25,6 +25,7 @@ import java.util.List;
 
 public class ContainerBlockEntity extends BlockEntity {
     private final int slotsize;
+    private static final String KEY_CONTAINER_STORED = "container_storeditems";
     private final DefaultedList<ItemStack> storedItems;
     public ContainerBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state, int slotSize) {
         super(type, pos, state);
@@ -75,7 +76,12 @@ public class ContainerBlockEntity extends BlockEntity {
     @Override
     public NbtCompound toInitialChunkDataNbt(RegistryWrapper.WrapperLookup registryLookup) {
         NbtCompound compound = new NbtCompound();
-        Inventories.writeNbt(compound, this.storedItems, registryLookup);
+
+        NbtCompound stored = new NbtCompound();
+
+        Inventories.writeNbt(stored, this.storedItems, registryLookup);
+
+        compound.put(KEY_CONTAINER_STORED, stored);
 
         return compound;
     }
@@ -83,13 +89,20 @@ public class ContainerBlockEntity extends BlockEntity {
     @Override
     protected void readNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
         super.readNbt(nbt, registryLookup);
-        Inventories.readNbt(nbt, this.storedItems, registryLookup);
+        if (nbt.contains(KEY_CONTAINER_STORED)) {
+            Inventories.readNbt(nbt.getCompound(KEY_CONTAINER_STORED), this.storedItems, registryLookup);
+        }
+
     }
 
     @Override
     protected void writeNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
         super.writeNbt(nbt, registryLookup);
-        Inventories.writeNbt(nbt, this.storedItems, registryLookup);
+        NbtCompound stored = new NbtCompound();
+
+        Inventories.writeNbt(stored, this.storedItems, registryLookup);
+
+        nbt.put(KEY_CONTAINER_STORED, stored);
     }
 
     @Override

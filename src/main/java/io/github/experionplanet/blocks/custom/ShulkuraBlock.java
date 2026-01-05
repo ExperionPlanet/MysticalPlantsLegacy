@@ -1,17 +1,13 @@
 package io.github.experionplanet.blocks.custom;
 
 import io.github.experionplanet.blocks.MysticalPlantBlock;
-import io.github.experionplanet.compat.MPLMidnightConfig;
 import io.github.experionplanet.utils.ExperionUtils;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ShapeContext;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ShulkerBulletEntity;
 import net.minecraft.item.ItemPlacementContext;
-import net.minecraft.item.ItemStack;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.DirectionProperty;
@@ -19,17 +15,12 @@ import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.BlockMirror;
 import net.minecraft.util.BlockRotation;
-import net.minecraft.util.Hand;
-import net.minecraft.util.ItemActionResult;
-import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
-import net.minecraft.world.World;
 
 import java.util.List;
 
@@ -81,7 +72,7 @@ public class ShulkuraBlock extends MysticalPlantBlock {
 
     @Override
     protected boolean hasRandomTicks(BlockState state) {
-        return MPLMidnightConfig.shulkura_shoots;
+        return true;
     }
 
     @Override

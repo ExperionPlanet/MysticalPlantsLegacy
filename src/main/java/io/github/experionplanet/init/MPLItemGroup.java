@@ -1,6 +1,6 @@
 package io.github.experionplanet.init;
 
-import io.github.experionplanet.compat.MPLMidnightConfig;
+import io.github.experionplanet.compat.MPLConfig;
 import io.github.experionplanet.utils.ExperionUtils;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
@@ -63,7 +63,7 @@ public class  MPLItemGroup {
             itemGroup.add(MPLItems.SOUL_POLLEN);
             itemGroup.add(MPLItems.SOUL_ZOMBIE_SPAWN_EGG);
 
-            if (MPLMidnightConfig.show_debug_item) {
+            if (MPLConfig.show_debug_item) {
                 itemGroup.add(MPLItems.BROKEN_EXPERIENCE_PICKAXE);
                 itemGroup.add(MPLItems.BROKEN_FROST_AXE);
                 itemGroup.add(MPLItems.GUIDE_BOOK);
