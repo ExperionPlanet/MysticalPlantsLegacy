@@ -17,11 +17,15 @@ public class MPLPlacedFeatures {
     public static final RegistryKey<PlacedFeature> EXP_MUSHROOMS_KEY = registerKey("exp_mushrooms");
     public static final RegistryKey<PlacedFeature> EXP_PLANTS_KEY = registerKey("exp_plants");
 
+    public static final RegistryKey<PlacedFeature> FROST_PLANTS_KEY = registerKey("frost_plants");
+
     public static void boot(Registerable<PlacedFeature> context) {
         var configuredFeatures = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
 
         registerMysticalPatches(context, EXP_MUSHROOMS_KEY, configuredFeatures.getOrThrow(MPLConfiguredFeatures.EXP_MUSHROOMS_KEY), 4);
-        registerMysticalPatches(context, EXP_PLANTS_KEY, configuredFeatures.getOrThrow(MPLConfiguredFeatures.EXP_PLANTS_KEY), 10);
+        registerMysticalPatches(context, EXP_PLANTS_KEY, configuredFeatures.getOrThrow(MPLConfiguredFeatures.EXP_PLANTS_KEY), 24);
+
+        registerMysticalPatches(context, FROST_PLANTS_KEY, configuredFeatures.getOrThrow(MPLConfiguredFeatures.FROST_PLANTS_KEY), 20);
 
     }
 

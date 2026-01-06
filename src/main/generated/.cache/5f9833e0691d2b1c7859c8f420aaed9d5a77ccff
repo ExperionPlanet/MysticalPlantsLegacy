@@ -1,3 +1,7 @@
-// 1.21.1	2026-01-05T22:27:57.7852435	Mystical Plants Legacy/mystical_registry
+// 1.21.1	2026-01-06T08:42:43.9977771	Mystical Plants Legacy/mystical_registry
 5806057e9e84354cdc19a8b22a4cdd2acb53a3bb data\mysticalplantslg\worldgen\configured_feature\exp_mushrooms.json
+27e118399056931952c45ac9334a539ee315d81f data\mysticalplantslg\worldgen\placed_feature\exp_plants.json
+455c4aff4f635068cea6d010060147d768159267 data\mysticalplantslg\worldgen\placed_feature\frost_plants.json
+11b612347c599ee5d7c81e894d11ca0425d8074d data\mysticalplantslg\worldgen\configured_feature\frost_plants.json
 7aa93d2e3f4fae2f3b0febb68d98c68931ccefbc data\mysticalplantslg\worldgen\placed_feature\exp_mushrooms.json
+f2c03bfe3615238e63bc57e8dc213d0899a46844 data\mysticalplantslg\worldgen\configured_feature\exp_plants.json
