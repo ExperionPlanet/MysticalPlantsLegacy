@@ -19,6 +19,9 @@ public class MPLPlacedFeatures {
 
     public static final RegistryKey<PlacedFeature> FROST_PLANTS_KEY = registerKey("frost_plants");
 
+    public static final RegistryKey<PlacedFeature> BOGGED_PLANTS_KEY = registerKey("bogged_plants");
+    public static final RegistryKey<PlacedFeature> DISGUISE_ORCHIDS_KEY = registerKey("disguise_orchids");
+
     public static void boot(Registerable<PlacedFeature> context) {
         var configuredFeatures = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
 
@@ -26,6 +29,9 @@ public class MPLPlacedFeatures {
         registerMysticalPatches(context, EXP_PLANTS_KEY, configuredFeatures.getOrThrow(MPLConfiguredFeatures.EXP_PLANTS_KEY), 24);
 
         registerMysticalPatches(context, FROST_PLANTS_KEY, configuredFeatures.getOrThrow(MPLConfiguredFeatures.FROST_PLANTS_KEY), 20);
+
+        registerMysticalPatches(context, BOGGED_PLANTS_KEY, configuredFeatures.getOrThrow(MPLConfiguredFeatures.BOGGED_PLANTS_KEY), 30);
+        registerMysticalPatches(context, DISGUISE_ORCHIDS_KEY, configuredFeatures.getOrThrow(MPLConfiguredFeatures.DISGUISE_ORCHIDS_KEY), 32);
 
     }
 

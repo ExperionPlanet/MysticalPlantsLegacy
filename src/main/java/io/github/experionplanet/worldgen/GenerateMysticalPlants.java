@@ -1,5 +1,6 @@
 package io.github.experionplanet.worldgen;
 
+import io.github.experionplanet.init.MPLBiomeTags;
 import net.fabricmc.fabric.api.biome.v1.BiomeModification;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectionContext;
@@ -25,11 +26,26 @@ public class GenerateMysticalPlants {
                 MPLPlacedFeatures.EXP_PLANTS_KEY
         );
         BiomeModifications.addFeature(
-                BiomeSelectors.includeByKey(BiomeKeys.SNOWY_PLAINS, BiomeKeys.SNOWY_TAIGA, BiomeKeys.SNOWY_SLOPES),
+                BiomeSelectors
+                        .includeByKey(BiomeKeys.SNOWY_PLAINS, BiomeKeys.SNOWY_TAIGA, BiomeKeys.SNOWY_SLOPES)
+                        .and(BiomeSelectors.tag(MPLBiomeTags.C_IS_SNOWY_PLAINS)).and(BiomeSelectors.tag(MPLBiomeTags.C_IS_SNOWY))
+                ,
                 GenerationStep.Feature.VEGETAL_DECORATION,
                 MPLPlacedFeatures.FROST_PLANTS_KEY
         );
-
+        BiomeModifications.addFeature(
+                BiomeSelectors
+                        .includeByKey(BiomeKeys.SWAMP, BiomeKeys.MANGROVE_SWAMP)
+                        .and(BiomeSelectors.tag(MPLBiomeTags.C_IS_SWAMP))
+                ,
+                GenerationStep.Feature.VEGETAL_DECORATION,
+                MPLPlacedFeatures.BOGGED_PLANTS_KEY
+        );
+        BiomeModifications.addFeature(
+                BiomeSelectors.includeByKey(BiomeKeys.SWAMP),
+                GenerationStep.Feature.VEGETAL_DECORATION,
+                MPLPlacedFeatures.DISGUISE_ORCHIDS_KEY
+        );
     }
 
 }

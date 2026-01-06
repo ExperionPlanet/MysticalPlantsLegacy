@@ -1,6 +1,7 @@
 package io.github.experionplanet.DataGens;
 
 import io.github.experionplanet.init.MPLBiomeTags;
+import io.github.experionplanet.init.MPLItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.registry.Registry;
@@ -20,5 +21,8 @@ public class BiomeTagsDataGen extends FabricTagProvider<Biome> {
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
         getOrCreateTagBuilder(MPLBiomeTags.SOUL).add(BiomeKeys.SOUL_SAND_VALLEY);
+        getOrCreateTagBuilder(MPLBiomeTags.C_IS_SNOWY);
+        getOrCreateTagBuilder(MPLBiomeTags.C_IS_SNOWY_PLAINS);
+        getOrCreateTagBuilder(MPLBiomeTags.C_IS_SWAMP);
     }
 }
