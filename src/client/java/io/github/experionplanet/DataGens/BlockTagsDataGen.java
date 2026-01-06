@@ -22,5 +22,6 @@ public class BlockTagsDataGen extends FabricTagProvider<Block> {
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
         getOrCreateTagBuilder(MPLBlockTags.DIRTS);
         getOrCreateTagBuilder(MPLBlockTags.SOIL_CHANGING).addTag(MPLBlockTags.DIRTS).add(Blocks.DIRT).add(Blocks.COARSE_DIRT).add(Blocks.ROOTED_DIRT).add(Blocks.MUD).add(Blocks.GRASS_BLOCK);
+        getOrCreateTagBuilder(MPLBlockTags.SOUL_PLANT_SOIL).add(Blocks.SOUL_SOIL, Blocks.SOUL_SAND);
     }
 }

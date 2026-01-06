@@ -22,6 +22,9 @@ public class MPLPlacedFeatures {
     public static final RegistryKey<PlacedFeature> BOGGED_PLANTS_KEY = registerKey("bogged_plants");
     public static final RegistryKey<PlacedFeature> DISGUISE_ORCHIDS_KEY = registerKey("disguise_orchids");
 
+    public static final RegistryKey<PlacedFeature> SOUL_PLANTS_KEY = registerKey("soul_plants");
+    public static final RegistryKey<PlacedFeature> SOUL_BELL_KEY = registerKey("soul_pitchers");
+
     public static void boot(Registerable<PlacedFeature> context) {
         var configuredFeatures = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
 
@@ -33,6 +36,16 @@ public class MPLPlacedFeatures {
         registerMysticalPatches(context, BOGGED_PLANTS_KEY, configuredFeatures.getOrThrow(MPLConfiguredFeatures.BOGGED_PLANTS_KEY), 30);
         registerMysticalPatches(context, DISGUISE_ORCHIDS_KEY, configuredFeatures.getOrThrow(MPLConfiguredFeatures.DISGUISE_ORCHIDS_KEY), 32);
 
+        register(context, SOUL_PLANTS_KEY, configuredFeatures.getOrThrow(MPLConfiguredFeatures.SOUL_PLANTS_KEY),
+                RarityFilterPlacementModifier.of(5),
+                SquarePlacementModifier.of(),
+                PlacedFeatures.BOTTOM_TO_TOP_RANGE
+        );
+        register(context, SOUL_BELL_KEY, configuredFeatures.getOrThrow(MPLConfiguredFeatures.SOUL_BELL_KEY),
+                RarityFilterPlacementModifier.of(10),
+                SquarePlacementModifier.of(),
+                PlacedFeatures.BOTTOM_TO_TOP_RANGE
+        );
     }
 
     public static RegistryKey<PlacedFeature> registerKey(String name) {

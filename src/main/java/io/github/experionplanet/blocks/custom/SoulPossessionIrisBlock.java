@@ -4,6 +4,7 @@ import com.mojang.serialization.MapCodec;
 import io.github.experionplanet.blocks.MysticalPlantBlockWithEntity;
 import io.github.experionplanet.blocks.entity.ContainerBlockEntity;
 import io.github.experionplanet.blocks.entity.SoulPossessionIrisBlockEntity;
+import io.github.experionplanet.init.MPLBlockTags;
 import io.github.experionplanet.init.MPLItems;
 import io.github.experionplanet.utils.MysticalUtils;
 import net.minecraft.block.Block;
@@ -23,7 +24,9 @@ import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.random.Random;
+import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldView;
 import org.jetbrains.annotations.Nullable;
 import static io.github.experionplanet.init.MPLBlockProperties.BLOOMING;
 
@@ -105,13 +108,14 @@ public class SoulPossessionIrisBlock extends MysticalPlantBlockWithEntity {
         if (resChance <= 1) {
             if (world.getBlockEntity(pos) instanceof ContainerBlockEntity blockEntity) {
                 world.setBlockState(pos, state.with(BLOOMING, true));
-                if (random.nextFloat() <= 0.1) {
-                    blockEntity.setStack(new ItemStack(MPLItems.SOUL_ESSENCE));
-                }else {
-                    blockEntity.setStack(new ItemStack(MPLItems.SOUL_POLLEN));
-                }
+                blockEntity.setStack(new ItemStack(MPLItems.SOUL_POLLEN));
 
             }
         }
+    }
+
+    @Override
+    protected boolean canPlantOnTop(BlockState floor, BlockView world, BlockPos pos) {
+        return super.canPlantOnTop(floor, world, pos) || floor.isIn(MPLBlockTags.SOUL_PLANT_SOIL);
     }
 }

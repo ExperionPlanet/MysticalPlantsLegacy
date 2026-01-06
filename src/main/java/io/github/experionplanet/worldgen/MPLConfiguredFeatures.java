@@ -1,8 +1,7 @@
 package io.github.experionplanet.worldgen;
 
-import io.github.experionplanet.blocks.custom.ExbiscusBlock;
-import io.github.experionplanet.blocks.custom.GlacierPassionFlowerBlock;
-import io.github.experionplanet.blocks.custom.HungerbalmBlock;
+import io.github.experionplanet.blocks.custom.*;
+import io.github.experionplanet.init.MPLBlockProperties;
 import io.github.experionplanet.init.MPLBlocks;
 import io.github.experionplanet.utils.MysticalUtils;
 import net.minecraft.block.BlockState;
@@ -22,6 +21,9 @@ public class MPLConfiguredFeatures {
 
     public static final RegistryKey<ConfiguredFeature<?,?>> BOGGED_PLANTS_KEY = registerKey("bogged_plants");
     public static final RegistryKey<ConfiguredFeature<?,?>> DISGUISE_ORCHIDS_KEY = registerKey("disguise_orchids");
+
+    public static final RegistryKey<ConfiguredFeature<?,?>> SOUL_PLANTS_KEY = registerKey("soul_plants");
+    public static final RegistryKey<ConfiguredFeature<?,?>> SOUL_BELL_KEY = registerKey("soul_pitchers");
 
     public static void boot(Registerable<ConfiguredFeature<?, ?>> context) {
         registerPatch(context, EXP_MUSHROOMS_KEY, poolBuildOf()
@@ -46,6 +48,14 @@ public class MPLConfiguredFeatures {
                 .add(MPLBlocks.HUNGERBALM.getDefaultState().with(HungerbalmBlock.BLOOMING, true), 1)
         );
         registerSinglePatch(context, DISGUISE_ORCHIDS_KEY, MPLBlocks.DISGUISE_ORCHID.getDefaultState());
+
+        registerPatch(context, SOUL_PLANTS_KEY, poolBuildOf()
+                .add(MPLBlocks.SOUL_PITCHER.getDefaultState(), 40)
+                .add(MPLBlocks.SOUL_PITCHER.getDefaultState().with(MPLBlockProperties.BLOOMING, true), 10)
+                .add(MPLBlocks.SOUL_POSSESSION_IRIS.getDefaultState(), 6)
+        );
+
+        registerSingle(context, SOUL_BELL_KEY, MPLBlocks.SOUL_BELL.getDefaultState());
 
     }
 

@@ -5,6 +5,7 @@ import io.github.experionplanet.blocks.MysticalPlantBlockWithEntity;
 import io.github.experionplanet.blocks.entity.custom.SoulBellBlockEntity;
 import io.github.experionplanet.blocks.entity.custom.VoidStrawflowerBlockEntity;
 import io.github.experionplanet.init.MPLBlockEntities;
+import io.github.experionplanet.init.MPLBlockTags;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
@@ -19,6 +20,7 @@ import net.minecraft.state.property.IntProperty;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
@@ -41,6 +43,11 @@ public class SoulBellBlock extends MysticalPlantBlockWithEntity {
     @Override
     public @Nullable BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
         return new SoulBellBlockEntity(pos, state);
+    }
+
+    @Override
+    protected boolean canPlantOnTop(BlockState floor, BlockView world, BlockPos pos) {
+        return super.canPlantOnTop(floor, world, pos) || floor.isIn(MPLBlockTags.SOUL_PLANT_SOIL);
     }
 
     @Override

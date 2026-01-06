@@ -2,6 +2,7 @@ package io.github.experionplanet.blocks.custom;
 
 import io.github.experionplanet.blocks.MysticalPlantBlock;
 import io.github.experionplanet.init.MPLBiomeTags;
+import io.github.experionplanet.init.MPLBlockTags;
 import io.github.experionplanet.init.MPLItems;
 import io.github.experionplanet.items.tool.custom.SoulHoeItem;
 import io.github.experionplanet.utils.MysticalUtils;
@@ -18,6 +19,7 @@ import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.random.Random;
+import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 
 import static io.github.experionplanet.init.MPLBlockProperties.BLOOMING;
@@ -36,6 +38,11 @@ public class SoulPitcherBlock extends MysticalPlantBlock {
     @Override
     protected boolean hasRandomTicks(BlockState state) {
         return !state.get(BLOOMING);
+    }
+
+    @Override
+    protected boolean canPlantOnTop(BlockState floor, BlockView world, BlockPos pos) {
+        return super.canPlantOnTop(floor, world, pos) || floor.isIn(MPLBlockTags.SOUL_PLANT_SOIL);
     }
 
     @Override

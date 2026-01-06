@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:simple_block",
+  "config": {
+    "to_place": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "mysticalplantslg:soul_bell",
+        "Properties": {
+          "on_going": "false",
+          "on_reward": "false",
+          "reward_count": "0",
+          "round": "1"
+        }
+      }
+    }
+  }
+}

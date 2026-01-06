@@ -46,6 +46,16 @@ public class GenerateMysticalPlants {
                 GenerationStep.Feature.VEGETAL_DECORATION,
                 MPLPlacedFeatures.DISGUISE_ORCHIDS_KEY
         );
+        BiomeModifications.addFeature(
+                BiomeSelectors.tag(MPLBiomeTags.SOUL),
+                GenerationStep.Feature.VEGETAL_DECORATION,
+                MPLPlacedFeatures.SOUL_PLANTS_KEY
+        );
+        BiomeModifications.addFeature(
+                BiomeSelectors.tag(MPLBiomeTags.SOUL),
+                GenerationStep.Feature.VEGETAL_DECORATION,
+                MPLPlacedFeatures.SOUL_BELL_KEY
+        );
     }
 
 }

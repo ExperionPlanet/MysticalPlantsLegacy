@@ -39,9 +39,9 @@ public class MPLBlocks {
     public static final Block HUNGERBALM = register("hungerbalm", HungerbalmBlock::new, AbstractBlock.Settings.create().nonOpaque().noCollision().sounds(BlockSoundGroup.WET_GRASS), true);
 
     // SOUL
-    public static final Block SOUL_POSSESSION_IRIS = register("soul_possession_iris", SoulPossessionIrisBlock::new, AbstractBlock.Settings.create().sounds(BlockSoundGroup.WART_BLOCK).noCollision().nonOpaque(), true);
-    public static final Block SOUL_PITCHER = register("soul_pitcher", SoulPitcherBlock::new, AbstractBlock.Settings.create().sounds(BlockSoundGroup.WET_GRASS).nonOpaque().noCollision(), true);
-    public static final Block SOUL_BELL = register("soul_bell", SoulBellBlock::new, AbstractBlock.Settings.create().sounds(BlockSoundGroup.WET_GRASS).nonOpaque().noCollision(), true);
+    public static final Block SOUL_POSSESSION_IRIS = register("soul_possession_iris", SoulPossessionIrisBlock::new, AbstractBlock.Settings.create().sounds(BlockSoundGroup.WART_BLOCK).noCollision().nonOpaque().emissiveLighting((state, world, pos) -> true).luminance(value -> 8), true);
+    public static final Block SOUL_PITCHER = register("soul_pitcher", SoulPitcherBlock::new, AbstractBlock.Settings.create().sounds(BlockSoundGroup.WET_GRASS).nonOpaque().noCollision().emissiveLighting((state, world, pos) -> state.get(MPLBlockProperties.BLOOMING)).luminance(state -> {if (state.get(MPLBlockProperties.BLOOMING)) {return 8;}return 0;}), true);
+    public static final Block SOUL_BELL = register("soul_bell", SoulBellBlock::new, AbstractBlock.Settings.create().sounds(BlockSoundGroup.WET_GRASS).nonOpaque().noCollision().emissiveLighting((state, world, pos) -> true).luminance(value -> 8), true);
 
     // VOID
     public static final Block VOID_CAP = register("void_cap", VoidCapBlock::new, AbstractBlock.Settings.create().sounds(BlockSoundGroup.BAMBOO_SAPLING).noCollision().nonOpaque(), true);
