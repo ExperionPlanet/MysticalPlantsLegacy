@@ -52,7 +52,7 @@ public class SporeEntity extends Entity {
                 if (!listLiving.isEmpty()) {
                     for (LivingEntity target : listLiving) {
                         if (!target.hasStatusEffect(StatusEffects.POISON)) {
-                            target.addStatusEffect(new StatusEffectInstance(StatusEffects.POISON, 100, 0));
+                            target.addStatusEffect(new StatusEffectInstance(effectSpore(this.dataTracker.get(SPORE_TYPE)), 100, 0));
                         }
                     }
                 }
@@ -67,7 +67,6 @@ public class SporeEntity extends Entity {
             }
         }else {
             if (this.age % 2 == 0) {
-                double m = myBox.maxY/2;
                 Vec3d partiPos = new Vec3d(
                         getX() + MysticalUtils.doubleInRange(rand, -0.75, 0.75),
                         getY() + MysticalUtils.doubleInRange(rand, -0.25, 0.25),

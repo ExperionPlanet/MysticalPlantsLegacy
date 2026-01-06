@@ -4,6 +4,7 @@ import io.github.experionplanet.blocks.MysticalPlantBlock;
 import io.github.experionplanet.utils.MysticalUtils;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.ShapeContext;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.projectile.ShulkerBulletEntity;
@@ -42,6 +43,11 @@ public class ShulkuraBlock extends MysticalPlantBlock {
     public ShulkuraBlock(Settings settings) {
         super(settings);
         this.setDefaultState((BlockState)((BlockState)((BlockState)this.stateManager.getDefaultState()).with(FACING, Direction.NORTH)).with(FLOWER_AMOUNT, 1));
+    }
+
+    @Override
+    protected boolean canPlantOnTop(BlockState floor, BlockView world, BlockPos pos) {
+        return super.canPlantOnTop(floor, world, pos) || floor.isOf(Blocks.END_STONE);
     }
 
     @Override

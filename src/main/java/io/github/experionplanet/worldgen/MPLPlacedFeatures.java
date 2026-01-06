@@ -25,6 +25,8 @@ public class MPLPlacedFeatures {
     public static final RegistryKey<PlacedFeature> SOUL_PLANTS_KEY = registerKey("soul_plants");
     public static final RegistryKey<PlacedFeature> SOUL_BELL_KEY = registerKey("soul_pitchers");
 
+    public static final RegistryKey<PlacedFeature> VOID_PLANTS = registerKey("void_plants");
+
     public static void boot(Registerable<PlacedFeature> context) {
         var configuredFeatures = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
 
@@ -46,6 +48,8 @@ public class MPLPlacedFeatures {
                 SquarePlacementModifier.of(),
                 PlacedFeatures.BOTTOM_TO_TOP_RANGE
         );
+
+        registerMysticalPatches(context, VOID_PLANTS, configuredFeatures.getOrThrow(MPLConfiguredFeatures.VOID_PLANTS), 32);
     }
 
     public static RegistryKey<PlacedFeature> registerKey(String name) {

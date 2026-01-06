@@ -6,6 +6,7 @@ import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectionContext;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.tag.BiomeTags;
 import net.minecraft.world.biome.BiomeKeys;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.feature.PlacedFeature;
@@ -55,6 +56,11 @@ public class GenerateMysticalPlants {
                 BiomeSelectors.tag(MPLBiomeTags.SOUL),
                 GenerationStep.Feature.VEGETAL_DECORATION,
                 MPLPlacedFeatures.SOUL_BELL_KEY
+        );
+        BiomeModifications.addFeature(
+                BiomeSelectors.tag(BiomeTags.IS_END),
+                GenerationStep.Feature.VEGETAL_DECORATION,
+                MPLPlacedFeatures.VOID_PLANTS
         );
     }
 

@@ -7,12 +7,14 @@ import io.github.experionplanet.utils.MysticalUtils;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.BlockWithEntity;
+import net.minecraft.block.Blocks;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 
 import static io.github.experionplanet.init.MPLBlockProperties.CAP_REMAINING;
@@ -47,5 +49,10 @@ public class VoidCapBlock extends BouncingPlantBlock {
         world.spawnEntity(spore);
         world.setBlockState(pos, state.with(CAP_REMAINING, total));
 
+    }
+
+    @Override
+    protected boolean canPlantOnTop(BlockState floor, BlockView world, BlockPos pos) {
+        return super.canPlantOnTop(floor, world, pos) || floor.isOf(Blocks.END_STONE);
     }
 }

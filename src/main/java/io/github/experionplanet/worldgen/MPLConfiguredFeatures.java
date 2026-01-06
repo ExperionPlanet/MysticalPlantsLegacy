@@ -25,6 +25,8 @@ public class MPLConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?,?>> SOUL_PLANTS_KEY = registerKey("soul_plants");
     public static final RegistryKey<ConfiguredFeature<?,?>> SOUL_BELL_KEY = registerKey("soul_pitchers");
 
+    public static final RegistryKey<ConfiguredFeature<?,?>> VOID_PLANTS = registerKey("void_plants");
+
     public static void boot(Registerable<ConfiguredFeature<?, ?>> context) {
         registerPatch(context, EXP_MUSHROOMS_KEY, poolBuildOf()
                         .add(MPLBlocks.SMALL_EXP_MUSHROOMS.getDefaultState(), 6)
@@ -57,6 +59,13 @@ public class MPLConfiguredFeatures {
 
         registerSingle(context, SOUL_BELL_KEY, MPLBlocks.SOUL_BELL.getDefaultState());
 
+        registerPatch(context, VOID_PLANTS, poolBuildOf()
+                .add(MPLBlocks.VOID_CAP.getDefaultState(), 40)
+                .add(MPLBlocks.VOID_STRAWFLOWER.getDefaultState(), 5)
+                .add(MPLBlocks.SHULKURA.getDefaultState(), 10)
+                .add(MPLBlocks.SHULKURA.getDefaultState().with(ShulkuraBlock.FLOWER_AMOUNT, 2), 10)
+                .add(MPLBlocks.SHULKURA.getDefaultState().with(ShulkuraBlock.FLOWER_AMOUNT, 3), 10)
+        );
     }
 
     public static void registerSingle(Registerable<ConfiguredFeature<?, ?>> context, RegistryKey<ConfiguredFeature<?, ?>> key, BlockState state) {

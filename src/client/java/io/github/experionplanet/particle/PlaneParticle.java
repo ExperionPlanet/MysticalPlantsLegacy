@@ -26,7 +26,6 @@ public class PlaneParticle extends SpriteBillboardParticle {
         this.isGlowing = glow;
         this.scale = setScale;
         this.setSprite(this.sprite);
-        this.setSpriteForAge(this.sprite);
         this.velocityX = 0;
         this.velocityY = 0;
         this.velocityZ = 0;
