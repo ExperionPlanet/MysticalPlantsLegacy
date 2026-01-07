@@ -1,4 +1,4 @@
-package io.github.experionplanet.renderer.blockentity;
+package io.github.experionplanet.renderer.blockentity.custom;
 
 import io.github.experionplanet.blocks.entity.ContainerBlockEntity;
 import io.github.experionplanet.entitymodel.models.SquarePlaneModel;

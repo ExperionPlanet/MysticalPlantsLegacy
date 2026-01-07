@@ -1,4 +1,4 @@
-package io.github.experionplanet.renderer.blockentity;
+package io.github.experionplanet.renderer.blockentity.custom;
 
 import io.github.experionplanet.blocks.entity.custom.DebugTranslateBlockEntity;
 import net.minecraft.block.BlockState;

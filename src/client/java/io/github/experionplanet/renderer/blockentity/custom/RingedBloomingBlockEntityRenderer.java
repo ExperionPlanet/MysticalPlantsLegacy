@@ -1,4 +1,4 @@
-package io.github.experionplanet.renderer.blockentity;
+package io.github.experionplanet.renderer.blockentity.custom;
 
 import io.github.experionplanet.compat.MPLConfig;
 import io.github.experionplanet.init.MPLEntityModelLayers;
@@ -7,6 +7,7 @@ import io.github.experionplanet.entitymodel.models.SquarePlaneModel;
 import io.github.experionplanet.init.MPLBlockProperties;
 import io.github.experionplanet.mysticalcontents.MysticalContentsClient;
 import io.github.experionplanet.mysticalcontents.content.RingedBloomingContent;
+import io.github.experionplanet.renderer.blockentity.SnowableBlockEntityRenderer;
 import io.github.experionplanet.utils.ExperionLogger;
 import io.github.experionplanet.utils.MysticalUtils;
 import net.minecraft.client.render.RenderLayer;
@@ -34,6 +35,8 @@ public class RingedBloomingBlockEntityRenderer implements BlockEntityRenderer<Bl
 
     @Override
     public void render(BloomingFlowerBlockEntity entity, float tickDelta, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay) {
+        SnowableBlockEntityRenderer.render(entity, matrices, vertexConsumers, light, overlay, rendManager);
+
         if (entity.getCachedState().get(MPLBlockProperties.BLOOMING)) {
             if (MPLConfig.show_flower_rings) {
                 RingedBloomingContent content;

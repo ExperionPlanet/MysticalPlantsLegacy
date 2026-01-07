@@ -27,7 +27,6 @@ public class BlockLootableDataGen extends FabricBlockLootTableProvider {
         addDrop(MPLBlocks.HUNGERBALM);
         addDrop(MPLBlocks.SOUL_PITCHER);
         addDrop(MPLBlocks.VOID_CAP);
-
         addDrop(MPLBlocks.PEDESTAL);
 
 

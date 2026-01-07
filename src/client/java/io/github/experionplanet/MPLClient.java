@@ -5,7 +5,7 @@ import io.github.experionplanet.mysticalcontents.MysticalContentsClient;
 import io.github.experionplanet.particle.BasicGlowingParticle;
 import io.github.experionplanet.particle.PlaneParticle;
 import io.github.experionplanet.particle.SporeParticle;
-import io.github.experionplanet.renderer.blockentity.*;
+import io.github.experionplanet.renderer.blockentity.custom.*;
 import io.github.experionplanet.soul_zombie.SoulZombieEntityRenderer;
 import io.github.experionplanet.utils.ExperionLogger;
 import net.fabricmc.api.ClientModInitializer;

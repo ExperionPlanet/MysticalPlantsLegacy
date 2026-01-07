@@ -1,7 +1,8 @@
-package io.github.experionplanet.renderer.blockentity;
+package io.github.experionplanet.renderer.blockentity.custom;
 
 import io.github.experionplanet.blocks.entity.LastTickedBlockEntity;
 import io.github.experionplanet.blocks.entity.custom.BouncingPlantBlockEntity;
+import io.github.experionplanet.renderer.blockentity.SnowableBlockEntityRenderer;
 import io.github.experionplanet.utils.EasingsList;
 import io.github.experionplanet.utils.MysticalUtils;
 import net.minecraft.block.BlockState;
@@ -29,7 +30,8 @@ public class BouncingPlantBlockEntityRenderer implements BlockEntityRenderer<Las
 
     @Override
     public void render(LastTickedBlockEntity entity, float tickDelta, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay) {
-       bounceRender(entity, tickDelta, matrices, vertexConsumers, light, overlay, 1f);
+        SnowableBlockEntityRenderer.render(entity, matrices, vertexConsumers, light, overlay, rendManager);
+        bounceRender(entity, tickDelta, matrices, vertexConsumers, light, overlay, 1f);
     }
 
     protected static float getAlpha(long currentTime, long lastClock, float tickDelta, float duration) {
