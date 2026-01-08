@@ -2,7 +2,8 @@ package io.github.experionplanet;
 
 import io.github.experionplanet.init.*;
 import io.github.experionplanet.mysticalcontents.MysticalContentsClient;
-import io.github.experionplanet.particle.BasicGlowingParticle;
+import io.github.experionplanet.particle.BasicMysticalParticle;
+import io.github.experionplanet.particle.ParticleCreator;
 import io.github.experionplanet.particle.PlaneParticle;
 import io.github.experionplanet.particle.SporeParticle;
 import io.github.experionplanet.renderer.blockentity.custom.*;
@@ -13,6 +14,7 @@ import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
+import net.minecraft.client.particle.ParticleTextureSheet;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
 import net.minecraft.client.render.entity.EmptyEntityRenderer;
@@ -77,13 +79,20 @@ public class MPLClient implements ClientModInitializer {
 
 	private void particle() {
 		ParticleFactoryRegistry factory = ParticleFactoryRegistry.getInstance();
-		factory.register(MPLParticles.EXP_ENCHANT_LETTER, (v1) -> new BasicGlowingParticle.Factory(v1, 0.3f, 40, 120));
-		factory.register(MPLParticles.EXP_PIECES, (v1) -> new BasicGlowingParticle.Factory(v1, 0.25f, 20, 40));
+		factory.register(MPLParticles.EXP_ASH, (v1) -> new BasicMysticalParticle.Factory(v1,
+				new ParticleCreator(20, 40, 0.1f, 0.3f, ParticleTextureSheet.PARTICLE_SHEET_LIT)
+						.targetScale(0,0)
+						.targetAngle(-20f, 20f)
+						.gravityStrength(0.5f)
+						.veloX(-0.1f, 0.1f)
+						.veloZ(-0.1f, 0.1f)
+						.export()
+		));
 
 		factory.register(MPLParticles.EXP_SPORE, (v1) -> new SporeParticle.Factory<>(v1, 1.5f, true));
 		factory.register(MPLParticles.BOG_SPORE, (v1) -> new SporeParticle.Factory<>(v1, 1f, false));
 		factory.register(MPLParticles.VOID_SPORE, (v1) -> new SporeParticle.Factory<>(v1, 1f, false));
-		factory.register(MPLParticles.ENDER_WARP, (v1) -> new PlaneParticle.Factory<>(v1, 5, 10, 2.5f, true));
+		factory.register(MPLParticles.ENDER_WARP, (v1) -> new PlaneParticle.Factory<>(v1, 10, 10, 2.5f, true));
 	}
 
 	private void entities() {

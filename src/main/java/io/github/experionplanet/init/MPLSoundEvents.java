@@ -12,6 +12,7 @@ public class MPLSoundEvents {
     public static final SoundEvent PERMAFROST_SHROOM_EXPLODE = registerSound("permafrost_shroom_explode");
     public static final SoundEvent PERMAFROST_SHROOM_EXPLODE_LAST = registerSound("permafrost_shroom_explode_last");
     public static final SoundEvent FROST_UMBRELLA_FLOWER_BOINK = registerSound("frost_umbrella_flower_boink");
+    public static final SoundEvent EXP_MUSHROOMS_BOUNCE = registerSound("exp_mushrooms_bounce");
 
     private static SoundEvent registerSound(String id) {
         Identifier identifier = MysticalUtils.newId(id);

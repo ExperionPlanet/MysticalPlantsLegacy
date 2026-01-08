@@ -30,5 +30,13 @@
     "sounds": [
       "mysticalplantslg:frost_umbrella_flower_boink"
     ]
+  },
+  "exp_mushrooms_bounce": {
+    "subtitle": "sound.mysticalplantslg.exp_mushrooms_bounce",
+    "sounds": [
+      "mysticalplantslg:exp_mushrooms_bounce1",
+      "mysticalplantslg:exp_mushrooms_bounce2",
+      "mysticalplantslg:exp_mushrooms_bounce3"
+    ]
   }
 }

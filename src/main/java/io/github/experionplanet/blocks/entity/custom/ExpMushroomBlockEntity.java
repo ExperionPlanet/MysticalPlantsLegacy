@@ -20,7 +20,7 @@ public class ExpMushroomBlockEntity extends BlockEntity {
     public void Stepped(ServerWorld serverWorld, BlockPos pos) {
         this.STEP_STATUS = 1;
         Vec3d vec = MysticalUtils.v3dConvert(pos, true).add(0, -0.5, 0);
-        serverWorld.spawnParticles(MPLParticles.EXP_PIECES, vec.getX(), vec.getY(), vec.getZ(), 5, 0.1d, 0.1d, 0.1d, 1);
+        serverWorld.spawnParticles(MPLParticles.EXP_ASH, vec.getX(), vec.getY(), vec.getZ(), 5, 0.1d, 0.1d, 0.1d, 1);
         this.world.addSyncedBlockEvent(pos, this.getCachedState().getBlock(), 1, this.STEP_STATUS);
 
     }

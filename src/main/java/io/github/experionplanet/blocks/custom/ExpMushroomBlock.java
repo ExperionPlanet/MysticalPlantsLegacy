@@ -3,6 +3,7 @@ package io.github.experionplanet.blocks.custom;
 import com.mojang.serialization.MapCodec;
 import io.github.experionplanet.blocks.MysticalPlantBlockWithEntity;
 import io.github.experionplanet.blocks.entity.custom.ExpMushroomBlockEntity;
+import io.github.experionplanet.init.MPLSoundEvents;
 import io.github.experionplanet.utils.MysticalUtils;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
@@ -96,7 +97,7 @@ public class ExpMushroomBlock extends MysticalPlantBlockWithEntity {
         if (stillPressed) {
             world.scheduleBlockTick(pos, this, 5);
         }else {
-            world.playSound(null, pos, SoundEvents.BLOCK_LAVA_POP, SoundCategory.BLOCKS);
+            world.playSound(null, pos, MPLSoundEvents.EXP_MUSHROOMS_BOUNCE, SoundCategory.BLOCKS);
             world.setBlockState(pos, state.with(STEPPED, false));
             blockEntity.Unstepped(world);
         }

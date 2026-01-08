@@ -2,6 +2,7 @@ package io.github.experionplanet.blocks.entity.custom;
 
 import io.github.experionplanet.blocks.entity.ContainerBlockEntity;
 import io.github.experionplanet.init.MPLBlockEntities;
+import io.github.experionplanet.init.MPLBlocks;
 import io.github.experionplanet.init.MPLParticles;
 import io.github.experionplanet.init.MPLRecipes;
 import io.github.experionplanet.recipe.MysticalPedestalRecipe;
@@ -17,6 +18,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.recipe.RecipeEntry;
 import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
@@ -56,6 +58,8 @@ public class BindingRockBlockEntity extends ContainerBlockEntity {
     public List<Integer> ingredientConsumed = new ArrayList<>();
     public int pedestalIndex = 0;
     public List<BlockPos> pedestalsPos = new ArrayList<>();
+
+    public int triggeredIndex = -1;
 
     public void initializeCrafting(List<PedestalBlockEntity> blockEntities, List<ItemStack> list, ItemStack finalIngredient, ItemStack result, World world, BlockPos center) {
         if (!dat.getBoolean(KEY_ON_CRAFTING)) {
@@ -114,6 +118,7 @@ public class BindingRockBlockEntity extends ContainerBlockEntity {
     }
 
     public static void onTickServer(World world, BlockPos pos, BlockState state, BindingRockBlockEntity blockEntity) {
+        ServerWorld serverWorld = (ServerWorld) world;
 
         long clockNow = world.getTime();
 
@@ -134,10 +139,10 @@ public class BindingRockBlockEntity extends ContainerBlockEntity {
                         blockEntity.ingredientConsumed.add(index);
                         pedestal.emptyStack();
                         world.setBlockState(pPos, pedestal.getCachedState().with(ON_CRAFTING, false));
-
+                        serverWorld.spawnParticles(MPLParticles.ENDER_WARP, v.getX(), v.getY(), v.getZ(), 1, 0, 0, 0, 0);
                         blockEntity.pedestalIndex++;
 
-                        world.addParticle(MPLParticles.ENDER_WARP, v.getX(), v.getY(), v.getZ(), 0, 0, 0);
+
 
                         succ = true;
                     }
