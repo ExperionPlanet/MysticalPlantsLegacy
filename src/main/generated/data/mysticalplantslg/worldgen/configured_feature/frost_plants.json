@@ -10,7 +10,10 @@
             "entries": [
               {
                 "data": {
-                  "Name": "mysticalplantslg:frost_umbrella_flower"
+                  "Name": "mysticalplantslg:frost_umbrella_flower",
+                  "Properties": {
+                    "snow": "false"
+                  }
                 },
                 "weight": 10
               },
@@ -18,7 +21,8 @@
                 "data": {
                   "Name": "mysticalplantslg:glacier_passion_flower",
                   "Properties": {
-                    "blooming": "false"
+                    "blooming": "false",
+                    "snow": "false"
                   }
                 },
                 "weight": 5
@@ -27,7 +31,8 @@
                 "data": {
                   "Name": "mysticalplantslg:permafrost_shroom",
                   "Properties": {
-                    "cap_remaining": "5"
+                    "cap_remaining": "5",
+                    "snow": "false"
                   }
                 },
                 "weight": 25
@@ -36,7 +41,8 @@
                 "data": {
                   "Name": "mysticalplantslg:glacier_passion_flower",
                   "Properties": {
-                    "blooming": "true"
+                    "blooming": "true",
+                    "snow": "false"
                   }
                 },
                 "weight": 1

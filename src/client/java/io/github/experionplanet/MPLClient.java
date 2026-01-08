@@ -89,6 +89,23 @@ public class MPLClient implements ClientModInitializer {
 						.export()
 		));
 
+		factory.register(MPLParticles.EXP_DRIP_YELLOW, (v1) -> new BasicMysticalParticle.Factory(v1,
+				new ParticleCreator(5, 10, 0.1f, 0.3f, ParticleTextureSheet.PARTICLE_SHEET_LIT)
+						.veloX(0,0)
+						.veloZ(0,0)
+						.veloY(0.1f, 0.5f)
+						.gravityStrength(0.4f)
+						.export()
+		));
+		factory.register(MPLParticles.EXP_DRIP_GREEN, (v1) -> new BasicMysticalParticle.Factory(v1,
+				new ParticleCreator(5, 10, 0.1f, 0.3f, ParticleTextureSheet.PARTICLE_SHEET_LIT)
+						.veloX(0,0)
+						.veloZ(0,0)
+						.veloY(0.1f, 0.5f)
+						.gravityStrength(0.4f)
+						.export()
+		));
+
 		factory.register(MPLParticles.EXP_SPORE, (v1) -> new SporeParticle.Factory<>(v1, 1.5f, true));
 		factory.register(MPLParticles.BOG_SPORE, (v1) -> new SporeParticle.Factory<>(v1, 1f, false));
 		factory.register(MPLParticles.VOID_SPORE, (v1) -> new SporeParticle.Factory<>(v1, 1f, false));

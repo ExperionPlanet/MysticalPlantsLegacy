@@ -3,8 +3,12 @@ package io.github.experionplanet.items.tool.custom;
 import io.github.experionplanet.MPLMain;
 import io.github.experionplanet.init.MPLComponentTypes;
 import io.github.experionplanet.init.MPLBlockTags;
+import io.github.experionplanet.init.MPLParticles;
+import io.github.experionplanet.init.MPLSoundEvents;
+import net.fabricmc.fabric.api.item.v1.EnchantingContext;
 import net.minecraft.block.BlockState;
 import net.minecraft.component.ComponentType;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.ExperienceOrbEntity;
@@ -14,7 +18,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.PickaxeItem;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.tooltip.TooltipType;
+import net.minecraft.registry.entry.RegistryEntry;
+import net.minecraft.registry.tag.EnchantmentTags;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundCategory;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
@@ -41,30 +48,8 @@ public class ExperiencePickaxeItem extends PickaxeItem {
 
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-        if (MPLMain.showInfo) {
-            tooltip.add(Text.literal("YEEEEEHAAAAAWWWWWW"));
-        }else {
-            int totalBars = getEXP_FILLS(stack) / 10;
-            int whiteBars = 10 - totalBars;
-            String str = "";
-
-            if (totalBars > 0) {
-                for (int i = 1; i <= totalBars; i++) {
-                    str = str + "▮";
-                }
-            }
-
-            Text greenBar = Text.literal(str).formatted(Formatting.GREEN).formatted(Formatting.BOLD);
-            str = "";
-
-            for (int i = 1; i <= whiteBars; i++) {
-                str = str + "▮";
-            }
-
-            Text whiteBar = Text.literal(str).formatted(Formatting.GRAY).formatted(Formatting.BOLD);
-            Text ResText = Text.literal("EXP: ").append(greenBar).append(whiteBar);
-            tooltip.add(ResText);
-        }
+        tooltip.add(Text.literal("Exp Bursts").formatted(Formatting.GREEN).formatted(Formatting.BOLD));
+        tooltip.add(Text.literal("When bar is full, Right-Click to burst out the ").append(Text.literal("E").formatted(Formatting.GREEN).formatted(Formatting.BOLD)).append(Text.literal("X").formatted(Formatting.YELLOW).formatted(Formatting.BOLD)).append(Text.literal("P").formatted(Formatting.GREEN).formatted(Formatting.BOLD)));
 
         super.appendTooltip(stack, context, tooltip, type);
     }
@@ -92,11 +77,26 @@ public class ExperiencePickaxeItem extends PickaxeItem {
             if (getEXP_FILLS(stack) >= MAX_FILLS) {
                 stack.set(EXP_FILLS, 0);
                 ExperienceOrbEntity.spawn((ServerWorld) world, user.getPos().add(0, 0.5d, 0), world.getRandom().nextBetween(74, 122));
+                world.playSound(null, user.getX(), user.getY(), user.getZ(), MPLSoundEvents.EXPERIENCE_PICKAXE_BURST, SoundCategory.PLAYERS);
+                ServerWorld serverWorld = (ServerWorld) world;
+                serverWorld.spawnParticles(MPLParticles.EXP_SPORE, user.getX(), user.getY() + 0.5d, user.getZ(), world.getRandom().nextBetween(3, 5), 0,0.2,0, 0);
+                serverWorld.spawnParticles(MPLParticles.EXP_DRIP_YELLOW, user.getX(), user.getY() + 0.5d, user.getZ(), world.getRandom().nextBetween(3, 8), 1,0.2,1, 0);
+                serverWorld.spawnParticles(MPLParticles.EXP_DRIP_GREEN, user.getX(), user.getY() + 0.5d, user.getZ(), world.getRandom().nextBetween(3, 8), 1,0.2,1, 0);
+
 
                 return TypedActionResult.success(stack);
             }
         }
 
         return TypedActionResult.pass(stack);
+    }
+
+    @Override
+    public boolean canBeEnchantedWith(ItemStack stack, RegistryEntry<Enchantment> enchantment, EnchantingContext context) {
+        if (enchantment.matchesKey(Enchantments.SILK_TOUCH)) {
+            return false;
+        }
+
+        return super.canBeEnchantedWith(stack, enchantment, context);
     }
 }

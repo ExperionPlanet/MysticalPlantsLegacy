@@ -38,5 +38,11 @@
       "mysticalplantslg:exp_mushrooms_bounce2",
       "mysticalplantslg:exp_mushrooms_bounce3"
     ]
+  },
+  "experience_pickaxe_burst": {
+    "subtitle": "sound.mysticalplantslg.experience_pickaxe_burst",
+    "sounds": [
+      "mysticalplantslg:experience_pickaxe_burst"
+    ]
   }
 }

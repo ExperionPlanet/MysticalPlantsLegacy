@@ -27,8 +27,21 @@ public class ItemTagsDataGen extends FabricTagProvider<Item> {
         getOrCreateTagBuilder(MPLItemTags.SOIL_FILLING).add(Blocks.DIRT.asItem(), Blocks.SOUL_SOIL.asItem(), Blocks.COARSE_DIRT.asItem(), Blocks.MUD.asItem()).addTag(MPLItemTags.DIRTS);
         getOrCreateTagBuilder(MPLItemTags.SOUL_FILLING).add(MPLItems.SOUL,MPLItems.SOUL_POLLEN,MPLItems.SOUL_ESSENCE);
 
+        getOrCreateTagBuilder(ItemTags.DURABILITY_ENCHANTABLE)
+                .add(
+                        MPLItems.VOID_SWORD,
+                        MPLItems.FROST_AXE,
+                        MPLItems.EXPERIENCE_PICKAXE,
+                        MPLItems.BOGGED_SHOVEL,
+                        MPLItems.SOUL_HOE
+                );
+
         getOrCreateTagBuilder(ItemTags.SWORDS).add(MPLItems.VOID_SWORD);
         getOrCreateTagBuilder(ItemTags.SWORD_ENCHANTABLE).add(MPLItems.VOID_SWORD);
+
+        getOrCreateTagBuilder(ItemTags.MINING_LOOT_ENCHANTABLE).add(MPLItems.EXPERIENCE_PICKAXE);
+        getOrCreateTagBuilder(ItemTags.MINING_ENCHANTABLE).add(MPLItems.EXPERIENCE_PICKAXE);
+        getOrCreateTagBuilder(ItemTags.PICKAXES).add(MPLItems.EXPERIENCE_PICKAXE);
 
     }
 }
