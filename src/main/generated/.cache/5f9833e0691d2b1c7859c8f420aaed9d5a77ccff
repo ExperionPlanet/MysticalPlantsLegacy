@@ -1,4 +1,4 @@
-// 1.21.1	2026-01-09T10:23:44.9905409	Mystical Plants Legacy/mystical_registry
+// 1.21.1	2026-01-09T10:33:19.0493945	Mystical Plants Legacy/mystical_registry
 25867a1afdef9968f0c3833c78b32d0ea31d34fb data\mysticalplantslg\worldgen\placed_feature\void_plants.json
 7238b59c6f62f3febfbfff14bf40fd7dd543771d data\mysticalplantslg\worldgen\configured_feature\disguise_orchids.json
 e86c29d67c1193f15b4de6f81e333624a2a3dddf data\mysticalplantslg\worldgen\configured_feature\bogged_plants.json
@@ -7,8 +7,8 @@ a86a1855ca92bb0f96f2fcf2aba89c4f27cca1f0 data\mysticalplantslg\worldgen\configur
 5806057e9e84354cdc19a8b22a4cdd2acb53a3bb data\mysticalplantslg\worldgen\configured_feature\exp_mushrooms.json
 e1336a44b621f816fad471e9e11fe50c8d7adeb1 data\mysticalplantslg\worldgen\placed_feature\disguise_orchids.json
 41087342ff61cefd670cf834803c4f5a0b23b010 data\mysticalplantslg\worldgen\configured_feature\soul_pitchers.json
-455c4aff4f635068cea6d010060147d768159267 data\mysticalplantslg\worldgen\placed_feature\frost_plants.json
 27e118399056931952c45ac9334a539ee315d81f data\mysticalplantslg\worldgen\placed_feature\exp_plants.json
+455c4aff4f635068cea6d010060147d768159267 data\mysticalplantslg\worldgen\placed_feature\frost_plants.json
 8ed00f0b898c4a99cb8743b15a2ce585abc8448e data\mysticalplantslg\worldgen\placed_feature\soul_pitchers.json
 451ff1d9fe39adfebf20bd4f12ad8491a8e6b4a8 data\mysticalplantslg\worldgen\configured_feature\frost_plants.json
 7aa93d2e3f4fae2f3b0febb68d98c68931ccefbc data\mysticalplantslg\worldgen\placed_feature\exp_mushrooms.json

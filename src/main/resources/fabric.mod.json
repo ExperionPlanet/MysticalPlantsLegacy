@@ -16,19 +16,19 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"io.github.experionplanet.MPLMain"
+			"io.github.experionplanet.mysticalplantslg.MPLMain"
 		],
 		"client": [
-			"io.github.experionplanet.MPLClient"
+			"io.github.experionplanet.mysticalplantslg.MPLClient"
 		],
 		"fabric-datagen": [
-			"io.github.experionplanet.MPLDataGen"
+			"io.github.experionplanet.mysticalplantslg.MPLDataGen"
 		],
 		"jade": [
-			"io.github.experionplanet.compat.MPLJade"
+			"io.github.experionplanet.mysticalplantslg.compat.MPLJade"
 		],
 		"modmenu": [
-			"io.github.experionplanet.compat.MPLModMenu"
+			"io.github.experionplanet.mysticalplantslg.compat.MPLModMenu"
 		]
 	},
 	"mixins": [
