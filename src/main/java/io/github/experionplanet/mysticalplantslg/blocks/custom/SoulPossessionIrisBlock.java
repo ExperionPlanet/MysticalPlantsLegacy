@@ -6,6 +6,7 @@ import io.github.experionplanet.mysticalplantslg.blocks.entity.ContainerBlockEnt
 import io.github.experionplanet.mysticalplantslg.blocks.entity.SoulPossessionIrisBlockEntity;
 import io.github.experionplanet.mysticalplantslg.init.MPLBlockTags;
 import io.github.experionplanet.mysticalplantslg.init.MPLItems;
+import io.github.experionplanet.mysticalplantslg.init.MPLLootables;
 import io.github.experionplanet.mysticalplantslg.utils.MysticalUtils;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockRenderType;
@@ -15,6 +16,10 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.loot.LootTable;
+import net.minecraft.loot.context.LootContextParameterSet;
+import net.minecraft.loot.context.LootContextParameters;
+import net.minecraft.loot.context.LootContextTypes;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
@@ -102,12 +107,18 @@ public class SoulPossessionIrisBlock extends MysticalPlantBlockWithEntity {
 
     @Override
     protected void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        int resChance = random.nextBetween(1, 10);
+        int resChance = random.nextBetween(1, 5);
 
         if (resChance <= 1) {
             if (world.getBlockEntity(pos) instanceof ContainerBlockEntity blockEntity) {
                 world.setBlockState(pos, state.with(BLOOMING, true));
-                blockEntity.setStack(new ItemStack(MPLItems.SOUL_POLLEN));
+
+                LootTable loot = world.getServer().getReloadableRegistries().getLootTable(MPLLootables.SOUL_POSSESSION_IRIS_LOOT);
+                LootContextParameterSet set = new LootContextParameterSet.Builder(world).add(LootContextParameters.ORIGIN, Vec3d.ofCenter(pos)).build(LootContextTypes.CHEST);
+
+                ItemStack res = loot.generateLoot(set, random).get(0);
+
+                blockEntity.setStack(res);
 
             }
         }

@@ -1,4 +1,4 @@
-// 1.21.1	2026-01-09T10:33:19.0493945	Mystical Plants Legacy/mystical_registry
+// 1.21.1	2026-01-09T12:24:57.9502603	Mystical Plants Legacy/mystical_registry
 25867a1afdef9968f0c3833c78b32d0ea31d34fb data\mysticalplantslg\worldgen\placed_feature\void_plants.json
 7238b59c6f62f3febfbfff14bf40fd7dd543771d data\mysticalplantslg\worldgen\configured_feature\disguise_orchids.json
 e86c29d67c1193f15b4de6f81e333624a2a3dddf data\mysticalplantslg\worldgen\configured_feature\bogged_plants.json
@@ -15,5 +15,5 @@ e1336a44b621f816fad471e9e11fe50c8d7adeb1 data\mysticalplantslg\worldgen\placed_f
 38c6e3e39da62d0ce3656fb0d3eba00645abb7b4 data\mysticalplantslg\worldgen\placed_feature\soul_plants.json
 bf2943002201f8ecba91991560f31f646804da42 data\mysticalplantslg\worldgen\configured_feature\mystical_ore_key.json
 f2c03bfe3615238e63bc57e8dc213d0899a46844 data\mysticalplantslg\worldgen\configured_feature\exp_plants.json
-f7db6fdafe6fc271d68dbfe84bbb2cdbd3bbc6c1 data\mysticalplantslg\worldgen\placed_feature\bogged_plants.json
 ec52e2e8afa5b97f0fa6fbc8bc7fadf97b530fee data\mysticalplantslg\worldgen\placed_feature\mystical_ore.json
+f7db6fdafe6fc271d68dbfe84bbb2cdbd3bbc6c1 data\mysticalplantslg\worldgen\placed_feature\bogged_plants.json

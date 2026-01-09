@@ -44,6 +44,7 @@ public class MPLMain implements ModInitializer {
 		MPLPotions.init();
 		MPLEntities.init();
 		MPLFeatures.init();
+		MPLLootables.init();
 
 		entityAttributes();
 

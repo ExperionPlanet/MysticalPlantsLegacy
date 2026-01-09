@@ -5,6 +5,7 @@ import io.github.experionplanet.mysticalplantslg.blocks.MysticalPlantBlockWithEn
 import io.github.experionplanet.mysticalplantslg.blocks.entity.custom.SoulBellBlockEntity;
 import io.github.experionplanet.mysticalplantslg.init.MPLBlockEntities;
 import io.github.experionplanet.mysticalplantslg.init.MPLBlockTags;
+import io.github.experionplanet.mysticalplantslg.init.MPLItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
@@ -17,6 +18,7 @@ import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.BlockView;
@@ -68,9 +70,10 @@ public class SoulBellBlock extends MysticalPlantBlockWithEntity {
     @Override
     protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
         if (!world.isClient()) {
-            if (!state.get(ON_GOING)) {
+            if (!state.get(ON_GOING) && player.getStackInHand(Hand.MAIN_HAND).isOf(MPLItems.SOUL_POLLEN)) {
                 if (world.getBlockEntity(pos) instanceof SoulBellBlockEntity blockEntity) {
                     world.setBlockState(pos, state.with(ON_GOING, true));
+                    player.getStackInHand(Hand.MAIN_HAND).decrement(1);
                     return ActionResult.SUCCESS_NO_ITEM_USED;
                 }
             }

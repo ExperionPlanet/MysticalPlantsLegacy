@@ -5,13 +5,19 @@ import io.github.experionplanet.mysticalplantslg.blocks.entity.LastTickedBlockEn
 import io.github.experionplanet.mysticalplantslg.entities.SoulZombieEntity;
 import io.github.experionplanet.mysticalplantslg.init.MPLBlockEntities;
 import io.github.experionplanet.mysticalplantslg.init.MPLItems;
+import io.github.experionplanet.mysticalplantslg.init.MPLLootables;
 import io.github.experionplanet.mysticalplantslg.utils.MysticalUtils;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.loot.LootTable;
+import net.minecraft.loot.context.LootContextParameterSet;
+import net.minecraft.loot.context.LootContextParameters;
+import net.minecraft.loot.context.LootContextTypes;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
@@ -26,21 +32,7 @@ import java.util.UUID;
 public class SoulBellBlockEntity extends LastTickedBlockEntity {
     public static final int T_SOUL = 1;
 
-    private static final List<CustomChance> REWARD_LIST = List.of(
-            CustomChance.of(0.05f, new ItemStack(Items.DIAMOND)),
-            CustomChance.of(0.1f, new ItemStack(Items.BLAZE_POWDER)),
-            CustomChance.of(0.4f, new ItemStack(MPLItems.SOUL_ESSENCE)),
-            CustomChance.of(0.6f, new ItemStack(Items.GLOWSTONE_DUST)),
-            CustomChance.of(0.7f, new ItemStack(Items.LEATHER)),
-            CustomChance.of(0.9f, new ItemStack(Items.QUARTZ)),
-            CustomChance.of(1f, new ItemStack(Items.DIAMOND))
-    );
-
-    private record CustomChance(float chance, ItemStack reward) {
-        public static CustomChance of(float chance, ItemStack reward) {
-            return new CustomChance(chance, reward);
-        }
-    }
+    private List<ItemStack> rewardStacks = new ArrayList<>();
 
     public List<UUID> targetList = new ArrayList<>();
 
@@ -119,7 +111,16 @@ public class SoulBellBlockEntity extends LastTickedBlockEntity {
                             world.setBlockState(pos, state.with(SoulBellBlock.ROUND, state.get(SoulBellBlock.ROUND) + 1));
 
                         }else {
-                            world.setBlockState(pos, state.with(SoulBellBlock.ON_REWARD, true).with(SoulBellBlock.ROUND, 1).with(SoulBellBlock.REWARD_COUNT, rand.nextBetween(1, 5)));
+                            int rewCount = 0;
+
+                            ServerWorld serverWorld = (ServerWorld) world;
+
+                            LootTable loot = serverWorld.getServer().getReloadableRegistries().getLootTable(MPLLootables.SOUL_BELL_LOOT);
+                            LootContextParameterSet set = new LootContextParameterSet.Builder(serverWorld).add(LootContextParameters.ORIGIN, Vec3d.ofCenter(pos)).build(LootContextTypes.CHEST);
+                            blockEntity.rewardStacks.clear();
+                            blockEntity.rewardStacks = loot.generateLoot(set, serverWorld.getRandom());
+
+                            world.setBlockState(pos, state.with(SoulBellBlock.ON_REWARD, true).with(SoulBellBlock.ROUND, 1).with(SoulBellBlock.REWARD_COUNT, blockEntity.rewardStacks.size()));
                         }
 
                         blockEntity.targetList.clear();
@@ -128,23 +129,16 @@ public class SoulBellBlockEntity extends LastTickedBlockEntity {
                 }
             } else {
                 if (world.getTime() % 20L == 0) {
-                    float n = rand.nextFloat();
                     Vec3d v = MysticalUtils.v3dConvert(pos, true);
+                    ItemStack reward = blockEntity.rewardStacks.get(state.get(SoulBellBlock.REWARD_COUNT) - 1);
 
-                    for (int i = REWARD_LIST.size() - 1; i >= 0; i--) {
-                        CustomChance c = REWARD_LIST.get(i);
-
-                        if (c.chance <= n) {
-                            ItemEntity itemEntity = new ItemEntity(world, v.getX(), v.getY(), v.getZ(), c.reward.copy());
-                            itemEntity.addVelocity(
-                                    MysticalUtils.floatInRange(rand, -.1f, .1f),
-                                    MysticalUtils.floatInRange(rand, 0f, .3f),
-                                    MysticalUtils.floatInRange(rand, -.1f, .1f)
-                            );
-                            world.spawnEntity(itemEntity);
-                            break;
-                        }
-                    }
+                    ItemEntity itemEntity = new ItemEntity(world, v.getX(), v.getY(), v.getZ(), reward.copy());
+                    itemEntity.addVelocity(
+                            MysticalUtils.floatInRange(rand, -.1f, .1f),
+                            MysticalUtils.floatInRange(rand, 0f, .3f),
+                            MysticalUtils.floatInRange(rand, -.1f, .1f)
+                    );
+                    world.spawnEntity(itemEntity);
 
                     blockEntity.triggerTick(0);
 
@@ -152,6 +146,8 @@ public class SoulBellBlockEntity extends LastTickedBlockEntity {
 
                     if (world.getBlockState(pos).get(SoulBellBlock.REWARD_COUNT) == 0) {
                         world.setBlockState(pos, world.getBlockState(pos).with(SoulBellBlock.ON_REWARD, false).with(SoulBellBlock.ON_GOING, false));
+                        blockEntity.rewardStacks.clear();
+                        blockEntity.markDirty();
                     }
                 }
             }
@@ -184,6 +180,19 @@ public class SoulBellBlockEntity extends LastTickedBlockEntity {
             setTicked(T_SOUL, nbt.getLong("round_tick"));
         }
 
+        if (nbt.contains("reward_stacks")) {
+            NbtCompound comp = nbt.getCompound("reward_stacks");
+            rewardStacks.clear();
+            for (int i = 0; i < 5; i++) {
+                if (comp.contains("i_" + i)) {
+                    rewardStacks.add(ItemStack.fromNbtOrEmpty(registryLookup, comp.getCompound("i_" + i)));
+                }else {
+                    break;
+                }
+            }
+        }
+
+
     }
 
     @Override
@@ -195,6 +204,14 @@ public class SoulBellBlockEntity extends LastTickedBlockEntity {
         }
         nbt.put("target_list", compound);
         nbt.putLong("round_tick", getTicked(T_SOUL));
+
+        if (!rewardStacks.isEmpty()) {
+            NbtCompound rewardComp = new NbtCompound();
+            for (int i = 0; i < rewardStacks.size(); i++) {
+                rewardComp.put("i_" + i, rewardStacks.get(i).encode(registryLookup));
+            }
+            nbt.put("reward_stacks", rewardComp);
+        }
     }
 
 }

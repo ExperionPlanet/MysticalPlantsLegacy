@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:gunpowder",
+          "weight": 20
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:diamond"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:glowstone_dust",
+          "weight": 30
+        },
+        {
+          "type": "minecraft:item",
+          "name": "mysticalplantslg:soul_pollen",
+          "weight": 10
+        }
+      ],
+      "rolls": 1.0
+    }
+  ]
+}
