@@ -1,0 +1,14 @@
+{
+  "type":"mysticalplantslg:mystical_pedestal",
+  "last_ingredient":{"item":"mysticalplantslg:bogspore_cap"},
+  "binded":{"id":"mysticalplantslg:broken_bogged_shovel","count":1},
+  "result_item":{"id":"mysticalplantslg:bogged_shovel","count":1},
+  "input1":{"item":"mysticalplantslg:bogged_essence"},
+  "input2":{"item":"mysticalplantslg:bogged_essence"},
+  "input3":{"item":"mysticalplantslg:bogged_essence"},
+  "input4":{"item":"minecraft:mud"},
+  "input5":{"item":"minecraft:vine"},
+  "input6":{"item":"minecraft:diamond_shovel"},
+  "input7":{"item":"mysticalplantslg:mystical_star_essence"},
+  "input8":[]
+}

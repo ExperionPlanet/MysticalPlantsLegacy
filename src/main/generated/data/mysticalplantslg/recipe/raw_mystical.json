@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "mystical_materials",
+  "key": {
+    "A": {
+      "item": "mysticalplantslg:mystical_dust"
+    }
+  },
+  "pattern": [
+    "AAA",
+    "AAA",
+    "AAA"
+  ],
+  "result": {
+    "count": 1,
+    "id": "mysticalplantslg:raw_mystical"
+  }
+}

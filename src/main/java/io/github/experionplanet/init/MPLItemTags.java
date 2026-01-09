@@ -11,6 +11,7 @@ public class MPLItemTags {
 
     public static final TagKey<Item> SOIL_FILLING = key("soil_filling");
     public static final TagKey<Item> SOUL_FILLING = key("soul_filling");
+    public static final TagKey<Item> ESSENCES = key("essences");
 
     private static TagKey<Item> cKey(String str) {
         return TagKey.of(RegistryKeys.ITEM, Identifier.of("c",str));

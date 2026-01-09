@@ -8,7 +8,7 @@ import io.github.experionplanet.init.*;
 import io.github.experionplanet.mysticalcontent.MysticalContents;
 import io.github.experionplanet.utils.ExperionLogger;
 import io.github.experionplanet.recipe.MysticalPedestalRecipe;
-import io.github.experionplanet.worldgen.GenerateMysticalPlants;
+import io.github.experionplanet.worldgen.MPLBiomeModifications;
 import io.github.experionplanet.worldgen.MPLFeatures;
 import net.fabricmc.api.ModInitializer;
 
@@ -52,7 +52,7 @@ public class MPLMain implements ModInitializer {
 		MPLRecipes.bootstrap();
 		MysticalContents.bootstrap();
 		MysticalContents.build();
-		GenerateMysticalPlants.boot();
+		MPLBiomeModifications.boot();
 
 		if (FabricLoader.getInstance().isDevelopmentEnvironment()) {
 			onDev = true;

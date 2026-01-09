@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 120,
+  "experience": 2.0,
+  "group": "mystical_materials",
+  "ingredient": {
+    "item": "mysticalplantslg:raw_mystical"
+  },
+  "result": {
+    "id": "mysticalplantslg:mystical_ingot"
+  }
+}

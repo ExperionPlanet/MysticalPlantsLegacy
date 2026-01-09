@@ -2,9 +2,7 @@ package io.github.experionplanet.init;
 
 import io.github.experionplanet.blocks.custom.*;
 import io.github.experionplanet.utils.MysticalUtils;
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
+import net.minecraft.block.*;
 import net.minecraft.block.enums.NoteBlockInstrument;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -12,6 +10,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.world.BlockView;
 
 import java.util.function.Function;
@@ -49,6 +48,9 @@ public class MPLBlocks {
     public static final Block VOID_STRAWFLOWER = register("void_strawflower", VoidStrawflowerBlock::new, AbstractBlock.Settings.create().sounds(BlockSoundGroup.BAMBOO_SAPLING).noCollision().nonOpaque(), true);
 
     // OTHER
+    public static final Block MYSTICAL_ORE = register("mystical_ore", new ExperienceDroppingBlock(UniformIntProvider.create(2, 10), AbstractBlock.Settings.create().mapColor(MapColor.STONE_GRAY).instrument(NoteBlockInstrument.BASEDRUM).requiresTool().strength(4.0F, 3.0F).emissiveLighting(MPLBlocks::emissiveLightning).luminance(value -> 8)), true);
+    public static final Block DEEPSLATE_MYSTICAL_ORE = register("deepslate_mystical_ore", new ExperienceDroppingBlock(UniformIntProvider.create(2, 10), AbstractBlock.Settings.create().mapColor(MapColor.STONE_GRAY).instrument(NoteBlockInstrument.BASEDRUM).requiresTool().strength(4.5F, 3.0F).sounds(BlockSoundGroup.DEEPSLATE).emissiveLighting(MPLBlocks::emissiveLightning).luminance(value -> 8)), true);
+
     public static final Block BINDING_ROCK = register("binding_rock", BindingRockBlock::new, AbstractBlock.Settings.create().sounds(BlockSoundGroup.STONE).nonOpaque(), true);
     public static final Block PEDESTAL = register("pedestal", PedestalBlock::new, AbstractBlock.Settings.create().sounds(BlockSoundGroup.STONE).nonOpaque(), true);
 

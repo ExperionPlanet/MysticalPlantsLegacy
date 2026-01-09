@@ -1,8 +1,9 @@
-// 1.21.1	2026-01-08T15:09:42.1186404	Mystical Plants Legacy/Tags for minecraft:item
+// 1.21.1	2026-01-09T10:23:44.9880433	Mystical Plants Legacy/Tags for minecraft:item
 78f85751a456f69e85bb14bdbc8c8c5c6e47f22e data\mysticalplantslg\tags\item\soul_filling.json
 d614d5efc38cfc9363044cdb909b233458422ab6 data\minecraft\tags\item\enchantable\durability.json
 1333eeddd63ba178c10dd2f829eb6f6af933ff0e data\minecraft\tags\item\pickaxes.json
 a7aaba40cd2604379911e0e8c5e77a7d00b1c946 data\mysticalplantslg\tags\item\soil_filling.json
+6be59597189e451b4c3ab06f71e8a48770da5b1d data\mysticalplantslg\tags\item\essences.json
 92bfa1703a0a30ce92ab2a5f51fbc7460d8255ec data\minecraft\tags\item\swords.json
 92bfa1703a0a30ce92ab2a5f51fbc7460d8255ec data\minecraft\tags\item\enchantable\sword.json
 1333eeddd63ba178c10dd2f829eb6f6af933ff0e data\minecraft\tags\item\enchantable\mining.json

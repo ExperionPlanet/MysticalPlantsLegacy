@@ -5,11 +5,9 @@ import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.entry.RegistryEntry;
+import net.minecraft.world.gen.YOffset;
 import net.minecraft.world.gen.feature.*;
-import net.minecraft.world.gen.placementmodifier.BiomePlacementModifier;
-import net.minecraft.world.gen.placementmodifier.PlacementModifier;
-import net.minecraft.world.gen.placementmodifier.RarityFilterPlacementModifier;
-import net.minecraft.world.gen.placementmodifier.SquarePlacementModifier;
+import net.minecraft.world.gen.placementmodifier.*;
 
 import java.util.List;
 
@@ -25,7 +23,9 @@ public class MPLPlacedFeatures {
     public static final RegistryKey<PlacedFeature> SOUL_PLANTS_KEY = registerKey("soul_plants");
     public static final RegistryKey<PlacedFeature> SOUL_BELL_KEY = registerKey("soul_pitchers");
 
-    public static final RegistryKey<PlacedFeature> VOID_PLANTS = registerKey("void_plants");
+    public static final RegistryKey<PlacedFeature> VOID_PLANTS_KEY = registerKey("void_plants");
+
+    public static final RegistryKey<PlacedFeature> MYSTICAL_ORE_KEY = registerKey("mystical_ore");
 
     public static void boot(Registerable<PlacedFeature> context) {
         var configuredFeatures = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
@@ -49,7 +49,15 @@ public class MPLPlacedFeatures {
                 PlacedFeatures.BOTTOM_TO_TOP_RANGE
         );
 
-        registerMysticalPatches(context, VOID_PLANTS, configuredFeatures.getOrThrow(MPLConfiguredFeatures.VOID_PLANTS), 32);
+        registerMysticalPatches(context, VOID_PLANTS_KEY, configuredFeatures.getOrThrow(MPLConfiguredFeatures.VOID_PLANTS), 32);
+
+        register(context, MYSTICAL_ORE_KEY, configuredFeatures.getOrThrow(MPLConfiguredFeatures.MYSTICAL_ORE_KEY),
+                HeightRangePlacementModifier.trapezoid(YOffset.fixed(-60), YOffset.fixed(10)),
+                RarityFilterPlacementModifier.of(2),
+                CountPlacementModifier.of(4),
+                SquarePlacementModifier.of(),
+                BiomePlacementModifier.of()
+        );
     }
 
     public static RegistryKey<PlacedFeature> registerKey(String name) {
@@ -70,5 +78,6 @@ public class MPLPlacedFeatures {
                                                                                    PlacementModifier... modifiers) {
         register(context, key, configuration, List.of(modifiers));
     }
+
 
 }

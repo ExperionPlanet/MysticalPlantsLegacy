@@ -9,6 +9,6 @@
   "input4":{"item":"minecraft:experience_bottle"},
   "input5":{"item":"minecraft:experience_bottle"},
   "input6":{"item":"minecraft:diamond_pickaxe"},
-  "input7":[],
+  "input7":{"item":"mysticalplantslg:mystical_star_essence"},
   "input8":[]
 }

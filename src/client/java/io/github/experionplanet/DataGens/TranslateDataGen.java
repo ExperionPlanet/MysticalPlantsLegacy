@@ -51,6 +51,12 @@ public class TranslateDataGen extends FabricLanguageProvider {
         mainTr.trBlock(MPLBlocks.SHULKURA);
         mainTr.trBlock(MPLBlocks.VOID_STRAWFLOWER);
         mainTr.trBlock(MPLBlocks.SOUL_BELL);
+        mainTr.trItem(MPLItems.MYSTICAL_DUST);
+        mainTr.trItem(MPLItems.MYSTICAL_INGOT);
+        mainTr.trItem(MPLItems.RAW_MYSTICAL);
+        mainTr.trItem(MPLItems.MYSTICAL_STAR_ESSENCE);
+        mainTr.trBlock(MPLBlocks.MYSTICAL_ORE);
+        mainTr.trBlock(MPLBlocks.DEEPSLATE_MYSTICAL_ORE);
 
         mainTr.trBlock(MPLBlocks.PERMAFROSTED_LOG);
 
@@ -58,6 +64,10 @@ public class TranslateDataGen extends FabricLanguageProvider {
 
         mainTr.trBlock(MPLBlocks.BINDING_ROCK);
         mainTr.trBlock(MPLBlocks.PEDESTAL);
+
+        mainTr.trItem(MPLItems.BROKEN_BOGGED_SHOVEL);
+        mainTr.trItem(MPLItems.BROKEN_SOUL_HOE);
+        mainTr.trItem(MPLItems.BROKEN_VOID_SWORD);
 
         gen.add(MPLBlocks.DEBUG_TRANSLATE, "D3bug Tr4nsl4t3!1");
 

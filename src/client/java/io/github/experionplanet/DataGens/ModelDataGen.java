@@ -53,6 +53,8 @@ public class ModelDataGen extends FabricModelProvider {
         registerSingleModel(MPLBlocks.DEBUG_TRANSLATE, gen);
         registerSingleModel(MPLBlocks.PEDESTAL, gen);
         gen.registerSimpleCubeAll(MPLBlocks.PERMAFROSTED_LOG);
+        gen.registerSimpleCubeAll(MPLBlocks.MYSTICAL_ORE);
+        gen.registerSimpleCubeAll(MPLBlocks.DEEPSLATE_MYSTICAL_ORE);
 
     }
 
@@ -79,6 +81,9 @@ public class ModelDataGen extends FabricModelProvider {
         gen.register(MPLBlocks.SHULKURA.asItem(), Models.GENERATED);
         gen.register(MPLBlocks.VOID_STRAWFLOWER.asItem(), Models.GENERATED);
         gen.register(MPLBlocks.SOUL_BELL.asItem(), Models.GENERATED);
+        gen.register(MPLItems.MYSTICAL_INGOT, Models.GENERATED);
+        gen.register(MPLItems.MYSTICAL_DUST, Models.GENERATED);
+        gen.register(MPLItems.RAW_MYSTICAL, Models.GENERATED);
 
     }
 

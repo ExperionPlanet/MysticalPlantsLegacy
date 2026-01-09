@@ -1,0 +1,14 @@
+{
+  "type":"mysticalplantslg:mystical_pedestal",
+  "last_ingredient":{"item":"mysticalplantslg:soul_pollen"},
+  "binded":{"id":"mysticalplantslg:broken_soul_hoe","count":1},
+  "result_item":{"id":"mysticalplantslg:soul_hoe","count":1},
+  "input1":{"item":"mysticalplantslg:soul_essence"},
+  "input2":{"item":"mysticalplantslg:soul_essence"},
+  "input3":{"item":"mysticalplantslg:soul_essence"},
+  "input4":{"item":"mysticalplantslg:soul"},
+  "input5":{"item":"mysticalplantslg:mystical_star_essence"},
+  "input6":{"item":"mysticalplantslg:soul_pollen"},
+  "input7":{"item":"minecraft:diamond_hoe"},
+  "input8":{"item":"minecraft:netherite_scrap"}
+}

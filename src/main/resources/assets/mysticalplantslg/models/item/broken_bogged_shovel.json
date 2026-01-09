@@ -1,0 +1,6 @@
+{
+  "parent": "mysticalplantslg:item/bogged_shovel_world",
+  "textures": {
+    "0": "mysticalplantslg:item/bogged_shovel_broken"
+  }
+}

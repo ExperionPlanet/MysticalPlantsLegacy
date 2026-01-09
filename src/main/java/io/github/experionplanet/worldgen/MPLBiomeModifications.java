@@ -1,19 +1,13 @@
 package io.github.experionplanet.worldgen;
 
 import io.github.experionplanet.init.MPLBiomeTags;
-import net.fabricmc.fabric.api.biome.v1.BiomeModification;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
-import net.fabricmc.fabric.api.biome.v1.BiomeSelectionContext;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
-import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.tag.BiomeTags;
 import net.minecraft.world.biome.BiomeKeys;
 import net.minecraft.world.gen.GenerationStep;
-import net.minecraft.world.gen.feature.PlacedFeature;
 
-import java.util.function.Predicate;
-
-public class GenerateMysticalPlants {
+public class MPLBiomeModifications {
     public static void boot() {
         // Experiences
         BiomeModifications.addFeature(
@@ -60,8 +54,10 @@ public class GenerateMysticalPlants {
         BiomeModifications.addFeature(
                 BiomeSelectors.tag(BiomeTags.IS_END),
                 GenerationStep.Feature.VEGETAL_DECORATION,
-                MPLPlacedFeatures.VOID_PLANTS
+                MPLPlacedFeatures.VOID_PLANTS_KEY
         );
+        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES,
+                MPLPlacedFeatures.MYSTICAL_ORE_KEY);
     }
 
 }

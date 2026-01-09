@@ -1,5 +1,6 @@
 package io.github.experionplanet.mixin;
 
+import io.github.experionplanet.init.MPLBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.FarmlandBlock;
@@ -20,9 +21,12 @@ public class FarmlandBlockSoulMixin {
 
     @Inject(method = "setToDirt", at = @At("HEAD"), cancellable = true)
     private static void setDirt(@Nullable Entity entity, BlockState state, World world, BlockPos pos, CallbackInfo cit) {
-        if (!state.get(SOUL_NOT_ATTUNED)) {
-            cit.cancel();
+        if (state.getBlock() instanceof FarmlandBlock) {
+            if (!state.get(SOUL_NOT_ATTUNED)) {
+                cit.cancel();
+            }
         }
+
     }
 
     @Inject(method = "appendProperties", at = @At("TAIL"))

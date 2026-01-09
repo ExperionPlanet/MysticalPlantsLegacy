@@ -5,9 +5,9 @@
   "result_item":{"id":"mysticalplantslg:frost_axe","count":1},
   "input1":{"item":"mysticalplantslg:frost_essence"},
   "input2":{"item":"mysticalplantslg:frost_essence"},
-  "input3":{"item":"minecraft:ice"},
+  "input3":{"item":"minecraft:packed_ice"},
   "input4":{"item":"minecraft:blue_ice"},
-  "input5":{"item":"minecraft:blue_ice"},
+  "input5":{"item":"mysticalplantslg:mystical_star_essence"},
   "input6":{"item":"minecraft:diamond_axe"},
   "input7":[],
   "input8":[]

@@ -1,0 +1,7 @@
+{
+  "parent": "mysticalplantslg:item/soul_hoe_world",
+  "textures": {
+    "0": "mysticalplantslg:item/soul_hoe_broken",
+    "1": "mysticalplantslg:item/empty"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "type":"mysticalplantslg:mystical_pedestal",
+  "last_ingredient":{"item":"mysticalplantslg:void_strawflower"},
+  "binded":{"id":"mysticalplantslg:broken_void_sword","count":1},
+  "result_item":{"id":"mysticalplantslg:void_sword","count":1},
+  "input1":{"item":"mysticalplantslg:void_essence"},
+  "input2":{"item":"mysticalplantslg:void_essence"},
+  "input3":{"item":"mysticalplantslg:void_essence"},
+  "input4":{"item":"mysticalplantslg:void_essence"},
+  "input5":{"item":"mysticalplantslg:mystical_star_essence"},
+  "input6":{"item":"minecraft:diamond_sword"},
+  "input7":{"item":"mysticalplantslg:mystical_star_essence"},
+  "input8":{"item":"minecraft:netherite_ingot"}
+}

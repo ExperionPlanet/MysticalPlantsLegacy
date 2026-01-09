@@ -53,19 +53,26 @@ public class  MPLItemGroup {
             itemGroup.add(MPLItems.SOUL_HOE);
             itemGroup.add(MPLItems.VOID_SWORD);
 
-            itemGroup.add(MPLBlocks.BINDING_ROCK);
-            itemGroup.add(MPLBlocks.PEDESTAL);
-
-            itemGroup.add(MPLBlocks.PERMAFROSTED_LOG);
-
+            itemGroup.add(MPLItems.MYSTICAL_DUST);
+            itemGroup.add(MPLItems.RAW_MYSTICAL);
+            itemGroup.add(MPLItems.MYSTICAL_INGOT);
+            itemGroup.add(MPLItems.MYSTICAL_STAR_ESSENCE);
+            itemGroup.add(MPLBlocks.MYSTICAL_ORE);
+            itemGroup.add(MPLBlocks.DEEPSLATE_MYSTICAL_ORE);
             itemGroup.add(MPLItems.EXP_SPORE);
             itemGroup.add(MPLItems.SOUL);
             itemGroup.add(MPLItems.SOUL_POLLEN);
             itemGroup.add(MPLItems.SOUL_ZOMBIE_SPAWN_EGG);
 
+            itemGroup.add(MPLBlocks.PEDESTAL);
+
             if (MPLConfig.show_debug_item) {
+                itemGroup.add(MPLBlocks.PERMAFROSTED_LOG);
                 itemGroup.add(MPLItems.BROKEN_EXPERIENCE_PICKAXE);
                 itemGroup.add(MPLItems.BROKEN_FROST_AXE);
+                itemGroup.add(MPLItems.BROKEN_BOGGED_SHOVEL);
+                itemGroup.add(MPLItems.BROKEN_SOUL_HOE);
+                itemGroup.add(MPLItems.BROKEN_VOID_SWORD);
                 itemGroup.add(MPLItems.GUIDE_BOOK);
                 itemGroup.add(MPLBlocks.BINDING_ROCK);
             }

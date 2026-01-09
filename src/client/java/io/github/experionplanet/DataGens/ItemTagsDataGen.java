@@ -42,6 +42,13 @@ public class ItemTagsDataGen extends FabricTagProvider<Item> {
         getOrCreateTagBuilder(ItemTags.MINING_LOOT_ENCHANTABLE).add(MPLItems.EXPERIENCE_PICKAXE);
         getOrCreateTagBuilder(ItemTags.MINING_ENCHANTABLE).add(MPLItems.EXPERIENCE_PICKAXE);
         getOrCreateTagBuilder(ItemTags.PICKAXES).add(MPLItems.EXPERIENCE_PICKAXE);
+        getOrCreateTagBuilder(MPLItemTags.ESSENCES).add(
+                MPLItems.EXPERIENCE_ESSENCE,
+                MPLItems.SOUL_ESSENCE,
+                MPLItems.FROST_ESSENCE,
+                MPLItems.VOID_ESSENCE,
+                MPLItems.BOGGED_ESSENCE
+        );
 
     }
 }

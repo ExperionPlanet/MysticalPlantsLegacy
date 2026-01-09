@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "mysticalplantslg:block/mystical_ore"
+  }
+}

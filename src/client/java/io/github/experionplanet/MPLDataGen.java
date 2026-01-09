@@ -19,6 +19,7 @@ public class MPLDataGen implements DataGeneratorEntrypoint {
 		pack.addProvider(BlockTagsDataGen::new);
 		pack.addProvider(BiomeTagsDataGen::new);
 		pack.addProvider(FabricRegistryDataGen::new);
+		pack.addProvider(RecipeDataGen::new);
 	}
 
 	@Override

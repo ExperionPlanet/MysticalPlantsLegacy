@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "mystical_materials",
+  "key": {
+    "A": {
+      "item": "minecraft:diamond"
+    },
+    "E": {
+      "tag": "mysticalplantslg:essences"
+    },
+    "M": {
+      "item": "mysticalplantslg:mystical_ingot"
+    }
+  },
+  "pattern": [
+    "AMA",
+    "MEM",
+    "AMA"
+  ],
+  "result": {
+    "count": 1,
+    "id": "mysticalplantslg:mystical_star_essence"
+  }
+}

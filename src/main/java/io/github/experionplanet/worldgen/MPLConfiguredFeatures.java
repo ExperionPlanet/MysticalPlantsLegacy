@@ -8,10 +8,15 @@ import net.minecraft.block.BlockState;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
+import net.minecraft.registry.tag.BlockTags;
+import net.minecraft.structure.rule.RuleTest;
+import net.minecraft.structure.rule.TagMatchRuleTest;
 import net.minecraft.util.collection.DataPool;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 import net.minecraft.world.gen.stateprovider.WeightedBlockStateProvider;
+
+import java.util.List;
 
 public class MPLConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?,?>> EXP_MUSHROOMS_KEY = registerKey("exp_mushrooms");
@@ -27,7 +32,12 @@ public class MPLConfiguredFeatures {
 
     public static final RegistryKey<ConfiguredFeature<?,?>> VOID_PLANTS = registerKey("void_plants");
 
+    public static final RegistryKey<ConfiguredFeature<?,?>> MYSTICAL_ORE_KEY = registerKey("mystical_ore_key");
+
     public static void boot(Registerable<ConfiguredFeature<?, ?>> context) {
+        RuleTest stoneReplaceables = new TagMatchRuleTest(BlockTags.STONE_ORE_REPLACEABLES);
+        RuleTest deepslateReplaceables = new TagMatchRuleTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES);
+
         registerPatch(context, EXP_MUSHROOMS_KEY, poolBuildOf()
                         .add(MPLBlocks.SMALL_EXP_MUSHROOMS.getDefaultState(), 6)
                         .add(MPLBlocks.MEDIUM_EXP_MUSHROOMS.getDefaultState(), 4)
@@ -66,6 +76,14 @@ public class MPLConfiguredFeatures {
                 .add(MPLBlocks.SHULKURA.getDefaultState().with(ShulkuraBlock.FLOWER_AMOUNT, 2), 10)
                 .add(MPLBlocks.SHULKURA.getDefaultState().with(ShulkuraBlock.FLOWER_AMOUNT, 3), 10)
         );
+
+        register(context, MYSTICAL_ORE_KEY, Feature.ORE, new OreFeatureConfig(
+                List.of(
+                        OreFeatureConfig.createTarget(stoneReplaceables, MPLBlocks.MYSTICAL_ORE.getDefaultState()),
+                        OreFeatureConfig.createTarget(deepslateReplaceables, MPLBlocks.DEEPSLATE_MYSTICAL_ORE.getDefaultState())
+                ),
+                6
+        ));
     }
 
     public static void registerSingle(Registerable<ConfiguredFeature<?, ?>> context, RegistryKey<ConfiguredFeature<?, ?>> key, BlockState state) {
