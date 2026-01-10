@@ -1,7 +1,28 @@
 {
-  "variants": {
-    "": {
-      "model": "mysticalplantslg:block/binding_rock"
+  "multipart": [
+    {
+      "apply": {
+        "model": "mysticalplantslg:block/binding_rock"
+      },
+      "when": {
+        "rock_skin": "1"
+      }
+    },
+    {
+      "apply": {
+        "model": "mysticalplantslg:block/binding_rock_soul"
+      },
+      "when": {
+        "rock_skin": "2"
+      }
+    },
+    {
+      "apply": {
+        "model": "mysticalplantslg:block/binding_rock_end"
+      },
+      "when": {
+        "rock_skin": "3"
+      }
     }
-  }
+  ]
 }

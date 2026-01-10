@@ -18,6 +18,7 @@ public class BiomeTagsDataGen extends FabricTagProvider<Biome> {
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
         getOrCreateTagBuilder(MPLBiomeTags.SOUL).add(BiomeKeys.SOUL_SAND_VALLEY);
+        getOrCreateTagBuilder(MPLBiomeTags.EXPERIENCE_PICKAXE_SPAWNABLE).add(BiomeKeys.DARK_FOREST);
         getOrCreateTagBuilder(MPLBiomeTags.C_IS_SNOWY);
         getOrCreateTagBuilder(MPLBiomeTags.C_IS_SNOWY_PLAINS);
         getOrCreateTagBuilder(MPLBiomeTags.C_IS_SWAMP);

@@ -7,7 +7,7 @@
         {
           "type": "minecraft:item",
           "name": "minecraft:gunpowder",
-          "weight": 20
+          "weight": 10
         },
         {
           "type": "minecraft:item",
@@ -16,7 +16,7 @@
         {
           "type": "minecraft:item",
           "name": "minecraft:glowstone_dust",
-          "weight": 30
+          "weight": 10
         },
         {
           "type": "minecraft:item",

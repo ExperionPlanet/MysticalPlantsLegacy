@@ -1,0 +1,41 @@
+{
+  "type": "mysticalplantslg:binding_rock",
+  "config": {
+    "amount": 20,
+    "item_id": "mysticalplantslg:broken_experience_pickaxe",
+    "range": 7,
+    "skin": 1,
+    "to_place": {
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
+        {
+          "data": {
+            "Name": "mysticalplantslg:small_exp_mushrooms",
+            "Properties": {
+              "stepped": "false"
+            }
+          },
+          "weight": 6
+        },
+        {
+          "data": {
+            "Name": "mysticalplantslg:medium_exp_mushroom",
+            "Properties": {
+              "stepped": "false"
+            }
+          },
+          "weight": 4
+        },
+        {
+          "data": {
+            "Name": "mysticalplantslg:large_exp_mushroom",
+            "Properties": {
+              "stepped": "false"
+            }
+          },
+          "weight": 2
+        }
+      ]
+    }
+  }
+}

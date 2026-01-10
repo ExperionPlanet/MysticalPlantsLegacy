@@ -60,7 +60,7 @@ public class MPLMain implements ModInitializer {
 			ExperionLogger.Print("Development Enviroment Detected!");
 		}
 
-		MidnightConfig.init(MOD_ID, MPLConfig.class);
+		MPLConfig.init(MOD_ID, MPLConfig.class);
 
 		ExperionLogger.Print("Fully Initiated!");
 	}

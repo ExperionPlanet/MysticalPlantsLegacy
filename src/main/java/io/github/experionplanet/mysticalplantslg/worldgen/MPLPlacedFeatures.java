@@ -14,18 +14,16 @@ import java.util.List;
 public class MPLPlacedFeatures {
     public static final RegistryKey<PlacedFeature> EXP_MUSHROOMS_KEY = registerKey("exp_mushrooms");
     public static final RegistryKey<PlacedFeature> EXP_PLANTS_KEY = registerKey("exp_plants");
-
     public static final RegistryKey<PlacedFeature> FROST_PLANTS_KEY = registerKey("frost_plants");
-
     public static final RegistryKey<PlacedFeature> BOGGED_PLANTS_KEY = registerKey("bogged_plants");
     public static final RegistryKey<PlacedFeature> DISGUISE_ORCHIDS_KEY = registerKey("disguise_orchids");
-
     public static final RegistryKey<PlacedFeature> SOUL_PLANTS_KEY = registerKey("soul_plants");
     public static final RegistryKey<PlacedFeature> SOUL_BELL_KEY = registerKey("soul_pitchers");
-
     public static final RegistryKey<PlacedFeature> VOID_PLANTS_KEY = registerKey("void_plants");
 
     public static final RegistryKey<PlacedFeature> MYSTICAL_ORE_KEY = registerKey("mystical_ore");
+
+    public static final RegistryKey<PlacedFeature> EXPERIENCE_PICKAXE_BINDING_ROCK_KEY = registerKey("experience_pickaxe_binding_rock");
 
     public static void boot(Registerable<PlacedFeature> context) {
         var configuredFeatures = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
@@ -57,6 +55,12 @@ public class MPLPlacedFeatures {
                 CountPlacementModifier.of(4),
                 SquarePlacementModifier.of(),
                 BiomePlacementModifier.of()
+        );
+        register(context, EXPERIENCE_PICKAXE_BINDING_ROCK_KEY, configuredFeatures.getOrThrow(MPLConfiguredFeatures.EXPERIENCE_PICKAXE_BINDING_ROCK_KEY),
+                RarityFilterPlacementModifier.of(2),
+                SquarePlacementModifier.of(),
+                BiomePlacementModifier.of(),
+                PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP
         );
     }
 

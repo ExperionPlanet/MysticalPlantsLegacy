@@ -44,5 +44,11 @@
     "sounds": [
       "mysticalplantslg:experience_pickaxe_burst"
     ]
+  },
+  "soul_bell_stage_1": {
+    "subtitle": "sound.mysticalplantslg.soul_bell_stage_1",
+    "sounds": [
+      "mysticalplantslg:soul_bell_stage_1"
+    ]
   }
 }

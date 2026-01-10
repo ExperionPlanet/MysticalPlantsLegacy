@@ -14,6 +14,7 @@ public class MPLSoundEvents {
     public static final SoundEvent FROST_UMBRELLA_FLOWER_BOINK = registerSound("frost_umbrella_flower_boink");
     public static final SoundEvent EXP_MUSHROOMS_BOUNCE = registerSound("exp_mushrooms_bounce");
     public static final SoundEvent EXPERIENCE_PICKAXE_BURST = registerSound("experience_pickaxe_burst");
+    public static final SoundEvent SOUL_BELL_STAGE_1 = registerSound("soul_bell_stage_1");
 
     private static SoundEvent registerSound(String id) {
         Identifier identifier = MysticalUtils.newId(id);

@@ -9,7 +9,7 @@ import net.minecraft.world.gen.GenerationStep;
 
 public class MPLBiomeModifications {
     public static void boot() {
-        // Experiences
+        // Plants
         BiomeModifications.addFeature(
                 BiomeSelectors.includeByKey(BiomeKeys.DARK_FOREST),
                 GenerationStep.Feature.VEGETAL_DECORATION,
@@ -56,8 +56,15 @@ public class MPLBiomeModifications {
                 GenerationStep.Feature.VEGETAL_DECORATION,
                 MPLPlacedFeatures.VOID_PLANTS_KEY
         );
+        // Ores
         BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES,
                 MPLPlacedFeatures.MYSTICAL_ORE_KEY);
+        // Binding Rock
+        BiomeModifications.addFeature(
+                BiomeSelectors.includeByKey(BiomeKeys.DARK_FOREST),
+                GenerationStep.Feature.VEGETAL_DECORATION,
+                MPLPlacedFeatures.EXPERIENCE_PICKAXE_BINDING_ROCK_KEY
+        );
     }
 
 }

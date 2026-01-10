@@ -6,6 +6,7 @@ import io.github.experionplanet.mysticalplantslg.entities.SoulZombieEntity;
 import io.github.experionplanet.mysticalplantslg.init.MPLBlockEntities;
 import io.github.experionplanet.mysticalplantslg.init.MPLItems;
 import io.github.experionplanet.mysticalplantslg.init.MPLLootables;
+import io.github.experionplanet.mysticalplantslg.init.MPLSoundEvents;
 import io.github.experionplanet.mysticalplantslg.utils.MysticalUtils;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
@@ -20,6 +21,8 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.random.Random;
@@ -109,16 +112,13 @@ public class SoulBellBlockEntity extends LastTickedBlockEntity {
                         blockEntity.setTicked(T_SOUL, NULL_CLOCK);
                         if (state.get(SoulBellBlock.ROUND) < 3) {
                             world.setBlockState(pos, state.with(SoulBellBlock.ROUND, state.get(SoulBellBlock.ROUND) + 1));
-
+                            world.playSound(null, pos, MPLSoundEvents.SOUL_BELL_STAGE_1, SoundCategory.BLOCKS);
                         }else {
-                            int rewCount = 0;
 
-                            ServerWorld serverWorld = (ServerWorld) world;
-
-                            LootTable loot = serverWorld.getServer().getReloadableRegistries().getLootTable(MPLLootables.SOUL_BELL_LOOT);
-                            LootContextParameterSet set = new LootContextParameterSet.Builder(serverWorld).add(LootContextParameters.ORIGIN, Vec3d.ofCenter(pos)).build(LootContextTypes.CHEST);
+                            LootTable loot = world.getServer().getReloadableRegistries().getLootTable(MPLLootables.SOUL_BELL_LOOT);
+                            LootContextParameterSet set = new LootContextParameterSet.Builder(world).add(LootContextParameters.ORIGIN, Vec3d.ofCenter(pos)).build(LootContextTypes.CHEST);
                             blockEntity.rewardStacks.clear();
-                            blockEntity.rewardStacks = loot.generateLoot(set, serverWorld.getRandom());
+                            blockEntity.rewardStacks = loot.generateLoot(set, world.getRandom());
 
                             world.setBlockState(pos, state.with(SoulBellBlock.ON_REWARD, true).with(SoulBellBlock.ROUND, 1).with(SoulBellBlock.REWARD_COUNT, blockEntity.rewardStacks.size()));
                         }
@@ -143,6 +143,7 @@ public class SoulBellBlockEntity extends LastTickedBlockEntity {
                     blockEntity.triggerTick(0);
 
                     world.setBlockState(pos, state.with(SoulBellBlock.REWARD_COUNT, state.get(SoulBellBlock.REWARD_COUNT) - 1));
+                    world.playSound(null, pos, SoundEvents.BLOCK_TRIAL_SPAWNER_SPAWN_ITEM, SoundCategory.BLOCKS);
 
                     if (world.getBlockState(pos).get(SoulBellBlock.REWARD_COUNT) == 0) {
                         world.setBlockState(pos, world.getBlockState(pos).with(SoulBellBlock.ON_REWARD, false).with(SoulBellBlock.ON_GOING, false));

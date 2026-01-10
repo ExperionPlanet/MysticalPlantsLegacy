@@ -71,7 +71,7 @@ public class SoulBellBlock extends MysticalPlantBlockWithEntity {
     protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
         if (!world.isClient()) {
             if (!state.get(ON_GOING) && player.getStackInHand(Hand.MAIN_HAND).isOf(MPLItems.SOUL_POLLEN)) {
-                if (world.getBlockEntity(pos) instanceof SoulBellBlockEntity blockEntity) {
+                if (world.getBlockEntity(pos) instanceof SoulBellBlockEntity) {
                     world.setBlockState(pos, state.with(ON_GOING, true));
                     player.getStackInHand(Hand.MAIN_HAND).decrement(1);
                     return ActionResult.SUCCESS_NO_ITEM_USED;

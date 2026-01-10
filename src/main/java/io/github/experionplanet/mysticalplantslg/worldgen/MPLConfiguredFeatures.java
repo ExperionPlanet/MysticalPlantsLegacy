@@ -3,7 +3,9 @@ package io.github.experionplanet.mysticalplantslg.worldgen;
 import io.github.experionplanet.mysticalplantslg.blocks.custom.*;
 import io.github.experionplanet.mysticalplantslg.init.MPLBlockProperties;
 import io.github.experionplanet.mysticalplantslg.init.MPLBlocks;
+import io.github.experionplanet.mysticalplantslg.init.MPLItems;
 import io.github.experionplanet.mysticalplantslg.utils.MysticalUtils;
+import io.github.experionplanet.mysticalplantslg.worldgen.configuredfeature.BindingRockFeatureConfig;
 import net.minecraft.block.BlockState;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryKey;
@@ -21,18 +23,16 @@ import java.util.List;
 public class MPLConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?,?>> EXP_MUSHROOMS_KEY = registerKey("exp_mushrooms");
     public static final RegistryKey<ConfiguredFeature<?,?>> EXP_PLANTS_KEY = registerKey("exp_plants");
-
     public static final RegistryKey<ConfiguredFeature<?,?>> FROST_PLANTS_KEY = registerKey("frost_plants");
-
     public static final RegistryKey<ConfiguredFeature<?,?>> BOGGED_PLANTS_KEY = registerKey("bogged_plants");
     public static final RegistryKey<ConfiguredFeature<?,?>> DISGUISE_ORCHIDS_KEY = registerKey("disguise_orchids");
-
     public static final RegistryKey<ConfiguredFeature<?,?>> SOUL_PLANTS_KEY = registerKey("soul_plants");
     public static final RegistryKey<ConfiguredFeature<?,?>> SOUL_BELL_KEY = registerKey("soul_pitchers");
-
     public static final RegistryKey<ConfiguredFeature<?,?>> VOID_PLANTS = registerKey("void_plants");
 
     public static final RegistryKey<ConfiguredFeature<?,?>> MYSTICAL_ORE_KEY = registerKey("mystical_ore_key");
+
+    public static final RegistryKey<ConfiguredFeature<?,?>> EXPERIENCE_PICKAXE_BINDING_ROCK_KEY = registerKey("experience_pickaxe_binding_rock");
 
     public static void boot(Registerable<ConfiguredFeature<?, ?>> context) {
         RuleTest stoneReplaceables = new TagMatchRuleTest(BlockTags.STONE_ORE_REPLACEABLES);
@@ -84,6 +84,15 @@ public class MPLConfiguredFeatures {
                 ),
                 6
         ));
+
+        register(context, EXPERIENCE_PICKAXE_BINDING_ROCK_KEY, MPLFeatures.BINDING_ROCK, BindingRockFeatureConfig.of(1, MPLItems.BROKEN_EXPERIENCE_PICKAXE, 7, 20, new WeightedBlockStateProvider(
+                poolBuildOf()
+                        .add(MPLBlocks.SMALL_EXP_MUSHROOMS.getDefaultState(), 6)
+                        .add(MPLBlocks.MEDIUM_EXP_MUSHROOMS.getDefaultState(), 4)
+                        .add(MPLBlocks.LARGE_EXP_MUSHROOMS.getDefaultState(), 2)
+        )));
+
+
     }
 
     public static void registerSingle(Registerable<ConfiguredFeature<?, ?>> context, RegistryKey<ConfiguredFeature<?, ?>> key, BlockState state) {

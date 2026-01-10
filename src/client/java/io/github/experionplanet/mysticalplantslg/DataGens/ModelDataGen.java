@@ -1,5 +1,6 @@
 package io.github.experionplanet.mysticalplantslg.DataGens;
 
+import io.github.experionplanet.mysticalplantslg.blocks.custom.BindingRockBlock;
 import io.github.experionplanet.mysticalplantslg.blocks.custom.DisguiseOrchidBlock;
 import io.github.experionplanet.mysticalplantslg.blocks.custom.ShulkuraBlock;
 import io.github.experionplanet.mysticalplantslg.blocks.custom.VoidStrawflowerBlock;
@@ -47,12 +48,12 @@ public class ModelDataGen extends FabricModelProvider {
         registerBlockShifting(MPLBlocks.DISGUISE_ORCHID, gen, ModelIds.getBlockModelId(Blocks.BLUE_ORCHID), ModelIds.getBlockModelId(MPLBlocks.DISGUISE_ORCHID), DisguiseOrchidBlock.REVEALED);
         registerBlooming(MPLBlocks.HUNGERBALM, gen, false);
 
-        registerSingleModel(MPLBlocks.BINDING_ROCK, gen);
         registerSingleModel(MPLBlocks.DEBUG_TRANSLATE, gen);
         registerSingleModel(MPLBlocks.PEDESTAL, gen);
         gen.registerSimpleCubeAll(MPLBlocks.PERMAFROSTED_LOG);
         gen.registerSimpleCubeAll(MPLBlocks.MYSTICAL_ORE);
         gen.registerSimpleCubeAll(MPLBlocks.DEEPSLATE_MYSTICAL_ORE);
+        registerBindingRock(gen);
 
     }
 
@@ -140,6 +141,22 @@ public class ModelDataGen extends FabricModelProvider {
                 BlockStateVariant.create().put(VariantSettings.MODEL, myModel).put(VariantSettings.Y, VariantSettings.Rotation.R270)
         };
     }
+
+    private void registerBindingRock(BlockStateModelGenerator gen) {
+        Block block = MPLBlocks.BINDING_ROCK;
+
+        Identifier model1 = ModelIds.getBlockModelId(block);
+        Identifier model2 = ModelIds.getBlockSubModelId(block, "_soul");
+        Identifier model3 = ModelIds.getBlockSubModelId(block, "_end");
+
+        gen.blockStateCollector.accept(
+                MultipartBlockStateSupplier.create(block)
+                        .with(When.create().set(BindingRockBlock.ROCK_SKIN, 1), BlockStateVariant.create().put(VariantSettings.MODEL, model1))
+                        .with(When.create().set(BindingRockBlock.ROCK_SKIN, 2), BlockStateVariant.create().put(VariantSettings.MODEL, model2))
+                        .with(When.create().set(BindingRockBlock.ROCK_SKIN, 3), BlockStateVariant.create().put(VariantSettings.MODEL, model3))
+        );
+    }
+
 
     private void registerShulkura(Block block, BlockStateModelGenerator gen) {
 

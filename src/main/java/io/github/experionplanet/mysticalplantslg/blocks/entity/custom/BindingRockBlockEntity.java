@@ -1,9 +1,8 @@
 package io.github.experionplanet.mysticalplantslg.blocks.entity.custom;
 
+import io.github.experionplanet.mysticalplantslg.blocks.custom.BindingRockBlock;
 import io.github.experionplanet.mysticalplantslg.blocks.entity.ContainerBlockEntity;
-import io.github.experionplanet.mysticalplantslg.init.MPLBlockEntities;
-import io.github.experionplanet.mysticalplantslg.init.MPLParticles;
-import io.github.experionplanet.mysticalplantslg.init.MPLRecipes;
+import io.github.experionplanet.mysticalplantslg.init.*;
 import io.github.experionplanet.mysticalplantslg.recipe.MysticalPedestalRecipe;
 import io.github.experionplanet.mysticalplantslg.recipe.PedestalRecipeInput;
 import io.github.experionplanet.mysticalplantslg.utils.ExperionLogger;
@@ -11,17 +10,22 @@ import io.github.experionplanet.mysticalplantslg.utils.MysticalUtils;
 import io.github.experionplanet.mysticalplantslg.utils.MysticalNbt;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.recipe.RecipeEntry;
+import net.minecraft.registry.Registries;
 import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.event.GameEvent;
 
 import static io.github.experionplanet.mysticalplantslg.init.MPLBlockProperties.ON_CRAFTING;
@@ -42,7 +46,6 @@ public class BindingRockBlockEntity extends ContainerBlockEntity {
         return this.getWorld().getRecipeManager().getFirstMatch(MPLRecipes.MYSTICAL_PEDESTAL_TYPE, new PedestalRecipeInput(lastStack, list, getCurrentStack()), this.getWorld());
     }
 
-    // SOON
     private static final String KEY_CURRCLOCK = "curr_clock";
     private static final String KEY_ON_CRAFTING = "on_crafting";
 
@@ -121,7 +124,7 @@ public class BindingRockBlockEntity extends ContainerBlockEntity {
 
         long clockNow = world.getTime();
 
-        if (clockNow - blockEntity.dat.getLong(KEY_CURRCLOCK) >= 20L) {
+        if (clockNow - blockEntity.dat.getLong(KEY_CURRCLOCK) >= 20L && state.get(BindingRockBlock.INITIALIZED)) {
             blockEntity.dat.setLong(KEY_CURRCLOCK, clockNow);
 
             int index = blockEntity.pedestalIndex;
@@ -177,8 +180,19 @@ public class BindingRockBlockEntity extends ContainerBlockEntity {
         }
     }
 
-    public static void onTickClient(World world, BlockPos pos, BlockState state, BindingRockBlockEntity blockEntity) {
+    public static void onInitialize(World world, BlockPos pos, BlockState state, BindingRockBlockEntity blockEntity) {
+        ItemStack resStack = ItemStack.EMPTY;
+        RegistryEntry<Biome> biome = world.getBiome(pos);
 
+        if (biome.isIn(MPLBiomeTags.EXPERIENCE_PICKAXE_SPAWNABLE)) {
+            resStack = new ItemStack(MPLItems.BROKEN_EXPERIENCE_PICKAXE);
+        }
+
+        if (!resStack.isEmpty()) {
+            blockEntity.setStack(resStack);
+        }
+
+        world.setBlockState(pos, state.with(BindingRockBlock.INITIALIZED, true));
     }
 
     private void doWriteNbt(NbtCompound nbt,RegistryWrapper.WrapperLookup registryLookup) {
@@ -269,7 +283,6 @@ public class BindingRockBlockEntity extends ContainerBlockEntity {
             Inventories.readNbt(nbt.getCompound("ingredient_list"), this.ingredientList, registryLookup);
         }
     }
-
 
 
 }
