@@ -67,24 +67,21 @@ public class BasicMysticalParticle extends SpriteBillboardParticle {
 
             float alpha = ((float) this.age / (float) this.maxAge);
 
-            if (this.animScale) {
-                this.scale = MysticalUtils.tweenHandling(this.baseScale, this.targetScale, alpha);
-            }
             if (this.animAngle) {
                 this.prevAngle = this.angle;
                 this.angle = MysticalUtils.tweenHandling(this.baseAngle, this.targetAngle, alpha);
             }
         }
-
-
-
     }
-    /*
+
     @Override
-    public void move(double dx, double dy, double dz) {
-        this.setBoundingBox(this.getBoundingBox().offset(dx, dy, dz));
-        this.repositionFromBoundingBox();
-    }*/
+    public float getSize(float tickDelta) {
+        if (this.animScale) {
+            float alpha = (((float) this.age + tickDelta) / (float) this.maxAge);
+            return MysticalUtils.tweenHandling(this.baseScale, this.targetScale, alpha);
+        }
+        return super.getSize(tickDelta);
+    }
 
     @Override
     public ParticleTextureSheet getType() {

@@ -18,6 +18,8 @@ import net.minecraft.recipe.RecipeEntry;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
@@ -139,9 +141,8 @@ public class BindingRockBlockEntity extends ContainerBlockEntity {
                         pedestal.emptyStack();
                         world.setBlockState(pPos, pedestal.getCachedState().with(ON_CRAFTING, false));
                         serverWorld.spawnParticles(MPLParticles.ENDER_WARP, v.getX(), v.getY(), v.getZ(), 1, 0, 0, 0, 0);
+                        serverWorld.playSound(null, pPos, SoundEvents.BLOCK_TRIAL_SPAWNER_SPAWN_ITEM_BEGIN, SoundCategory.BLOCKS);
                         blockEntity.pedestalIndex++;
-
-
 
                         succ = true;
                     }
@@ -152,6 +153,7 @@ public class BindingRockBlockEntity extends ContainerBlockEntity {
                 world.spawnEntity(itemEntity);
                 blockEntity.emptyStack();
                 blockEntity.endCrafting();
+                serverWorld.playSound(null, pos, SoundEvents.BLOCK_TRIAL_SPAWNER_EJECT_ITEM, SoundCategory.BLOCKS);
                 world.setBlockState(pos, state.with(ON_CRAFTING, false));
                 return;
             }

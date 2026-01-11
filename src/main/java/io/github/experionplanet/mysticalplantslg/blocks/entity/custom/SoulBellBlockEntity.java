@@ -3,10 +3,7 @@ package io.github.experionplanet.mysticalplantslg.blocks.entity.custom;
 import io.github.experionplanet.mysticalplantslg.blocks.custom.SoulBellBlock;
 import io.github.experionplanet.mysticalplantslg.blocks.entity.LastTickedBlockEntity;
 import io.github.experionplanet.mysticalplantslg.entities.SoulZombieEntity;
-import io.github.experionplanet.mysticalplantslg.init.MPLBlockEntities;
-import io.github.experionplanet.mysticalplantslg.init.MPLItems;
-import io.github.experionplanet.mysticalplantslg.init.MPLLootables;
-import io.github.experionplanet.mysticalplantslg.init.MPLSoundEvents;
+import io.github.experionplanet.mysticalplantslg.init.*;
 import io.github.experionplanet.mysticalplantslg.utils.MysticalUtils;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
@@ -18,6 +15,7 @@ import net.minecraft.loot.context.LootContextParameterSet;
 import net.minecraft.loot.context.LootContextParameters;
 import net.minecraft.loot.context.LootContextTypes;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.server.world.ServerWorld;
@@ -26,6 +24,7 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.random.Random;
+import net.minecraft.world.Difficulty;
 import net.minecraft.world.World;
 
 import java.util.ArrayList;
@@ -91,9 +90,29 @@ public class SoulBellBlockEntity extends LastTickedBlockEntity {
     public static void onServerTick(World a, BlockPos pos, BlockState state, SoulBellBlockEntity blockEntity) {
         ServerWorld world = (ServerWorld) a;
         Random rand = world.getRandom();
+        Vec3d v = pos.toCenterPos();
         if (blockEntity.getTicked(T_SOUL) == NULL_CLOCK && !state.get(SoulBellBlock.ON_REWARD)) {
-            blockEntity.triggerTick(T_SOUL);
-            startRound(state.get(SoulBellBlock.ROUND), world, pos, blockEntity);
+            if (world.getDifficulty() != Difficulty.PEACEFUL) {
+                blockEntity.triggerTick(T_SOUL);
+
+                int currRound = state.get(SoulBellBlock.ROUND);
+
+                world.spawnParticles(MPLParticles.SOUL_BELL_BLASTWAVE, v.getX(), v.getY(), v.getZ(), 1, 0,0,0,0);
+                world.spawnParticles(MPLParticles.SOUL_DUST, v.getX(), v.getY(), v.getZ(), 8, 0,0,0,0);
+                world.spawnParticles(ParticleTypes.SCULK_SOUL, v.getX(), v.getY(), v.getZ(), 10, 1,1,1,0.1);
+                if (currRound == 2) {
+                    world.playSound(null, pos, MPLSoundEvents.SOUL_BELL_STAGE_2, SoundCategory.BLOCKS);
+                } else if (currRound == 3) {
+                    world.playSound(null, pos, MPLSoundEvents.SOUL_BELL_STAGE_3, SoundCategory.BLOCKS);
+                } else {
+                    world.playSound(null, pos, MPLSoundEvents.SOUL_BELL_STAGE_1, SoundCategory.BLOCKS);
+                }
+
+                startRound(currRound, world, pos, blockEntity);
+
+            } else {
+                world.setBlockState(pos, state.with(SoulBellBlock.ROUND, 1).with(SoulBellBlock.ON_GOING, false).with(SoulBellBlock.REWARD_COUNT, 0).with(SoulBellBlock.ON_REWARD, false));
+            }
             blockEntity.markDirty();
         } else {
             if (!state.get(SoulBellBlock.ON_REWARD)) {
@@ -110,17 +129,24 @@ public class SoulBellBlockEntity extends LastTickedBlockEntity {
 
                     if (dies >= size) {
                         blockEntity.setTicked(T_SOUL, NULL_CLOCK);
-                        if (state.get(SoulBellBlock.ROUND) < 3) {
+                        int currRound = state.get(SoulBellBlock.ROUND);
+                        if (currRound < 3) {
                             world.setBlockState(pos, state.with(SoulBellBlock.ROUND, state.get(SoulBellBlock.ROUND) + 1));
-                            world.playSound(null, pos, MPLSoundEvents.SOUL_BELL_STAGE_1, SoundCategory.BLOCKS);
+
                         }else {
+                            if (world.getDifficulty() != Difficulty.PEACEFUL) {
+                                LootTable loot = world.getServer().getReloadableRegistries().getLootTable(MPLLootables.SOUL_BELL_LOOT);
+                                LootContextParameterSet set = new LootContextParameterSet.Builder(world).add(LootContextParameters.ORIGIN, Vec3d.ofCenter(pos)).build(LootContextTypes.CHEST);
+                                blockEntity.rewardStacks.clear();
+                                blockEntity.rewardStacks = loot.generateLoot(set, world.getRandom());
 
-                            LootTable loot = world.getServer().getReloadableRegistries().getLootTable(MPLLootables.SOUL_BELL_LOOT);
-                            LootContextParameterSet set = new LootContextParameterSet.Builder(world).add(LootContextParameters.ORIGIN, Vec3d.ofCenter(pos)).build(LootContextTypes.CHEST);
-                            blockEntity.rewardStacks.clear();
-                            blockEntity.rewardStacks = loot.generateLoot(set, world.getRandom());
+                                world.setBlockState(pos, state.with(SoulBellBlock.ON_REWARD, true).with(SoulBellBlock.ROUND, 1).with(SoulBellBlock.REWARD_COUNT, blockEntity.rewardStacks.size()));
+                            }else {
+                                world.playSound(null, pos, SoundEvents.ENTITY_GHAST_DEATH, SoundCategory.BLOCKS);
+                                world.spawnParticles(ParticleTypes.SCULK_SOUL, v.getX(), v.getY(), v.getZ(), 12, 0,0,0,0.2);
+                                world.setBlockState(pos, state.with(SoulBellBlock.ON_REWARD, false).with(SoulBellBlock.REWARD_COUNT, 0).with(SoulBellBlock.ON_GOING, false).with(SoulBellBlock.ROUND, 1));
+                            }
 
-                            world.setBlockState(pos, state.with(SoulBellBlock.ON_REWARD, true).with(SoulBellBlock.ROUND, 1).with(SoulBellBlock.REWARD_COUNT, blockEntity.rewardStacks.size()));
                         }
 
                         blockEntity.targetList.clear();
@@ -129,7 +155,6 @@ public class SoulBellBlockEntity extends LastTickedBlockEntity {
                 }
             } else {
                 if (world.getTime() % 20L == 0) {
-                    Vec3d v = MysticalUtils.v3dConvert(pos, true);
                     ItemStack reward = blockEntity.rewardStacks.get(state.get(SoulBellBlock.REWARD_COUNT) - 1);
 
                     ItemEntity itemEntity = new ItemEntity(world, v.getX(), v.getY(), v.getZ(), reward.copy());

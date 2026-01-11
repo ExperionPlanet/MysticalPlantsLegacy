@@ -105,11 +105,23 @@ public class MPLClient implements ClientModInitializer {
 						.gravityStrength(0.4f)
 						.export()
 		));
+		factory.register(MPLParticles.SOUL_DUST, (v1) -> new BasicMysticalParticle.Factory(v1,
+				new ParticleCreator(10, 40, 0.3f, 0.6f, ParticleTextureSheet.PARTICLE_SHEET_LIT)
+						.veloX(-0.5f, 0.5f)
+						.veloY(0f, 0.7f)
+						.veloZ(-0.5f, 0.5f)
+						.velocityMultiplier(0.7f)
+						.targetAngle(-10f, 10f)
+						.targetScale(0,0)
+						.export()
+		));
 
 		factory.register(MPLParticles.EXP_SPORE, (v1) -> new SporeParticle.Factory<>(v1, 1.5f, true));
 		factory.register(MPLParticles.BOG_SPORE, (v1) -> new SporeParticle.Factory<>(v1, 1f, false));
 		factory.register(MPLParticles.VOID_SPORE, (v1) -> new SporeParticle.Factory<>(v1, 1f, false));
 		factory.register(MPLParticles.ENDER_WARP, (v1) -> new PlaneParticle.Factory<>(v1, 10, 10, 2.5f, true));
+		factory.register(MPLParticles.SOUL_BELL_BLASTWAVE, (v1) -> new PlaneParticle.Factory<>(v1, 10, 15, 1.5f, true));
+
 	}
 
 	private void entities() {

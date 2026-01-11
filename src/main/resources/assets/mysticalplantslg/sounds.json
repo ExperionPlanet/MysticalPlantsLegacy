@@ -50,5 +50,17 @@
     "sounds": [
       "mysticalplantslg:soul_bell_stage_1"
     ]
+  },
+  "soul_bell_stage_2": {
+    "subtitle": "sound.mysticalplantslg.soul_bell_stage_2",
+    "sounds": [
+      "mysticalplantslg:soul_bell_stage_2"
+    ]
+  },
+  "soul_bell_stage_3": {
+    "subtitle": "sound.mysticalplantslg.soul_bell_stage_3",
+    "sounds": [
+      "mysticalplantslg:soul_bell_stage_3"
+    ]
   }
 }

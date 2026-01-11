@@ -27,7 +27,6 @@ public class MPLMain implements ModInitializer {
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
 	public static boolean showInfo = false;
-
 	public static boolean onDev = false;
 
 	@Override

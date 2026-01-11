@@ -29,6 +29,7 @@ public class PlaneParticle extends SpriteBillboardParticle {
         this.velocityX = 0;
         this.velocityY = 0;
         this.velocityZ = 0;
+        this.setSpriteForAge(sprite);
     }
 
     @Override
