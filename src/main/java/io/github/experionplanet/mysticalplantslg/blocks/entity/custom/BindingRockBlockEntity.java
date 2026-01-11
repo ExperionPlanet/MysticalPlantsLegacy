@@ -10,17 +10,14 @@ import io.github.experionplanet.mysticalplantslg.utils.MysticalUtils;
 import io.github.experionplanet.mysticalplantslg.utils.MysticalNbt;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.recipe.RecipeEntry;
-import net.minecraft.registry.Registries;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.server.world.ServerWorld;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
@@ -186,6 +183,14 @@ public class BindingRockBlockEntity extends ContainerBlockEntity {
 
         if (biome.isIn(MPLBiomeTags.EXPERIENCE_PICKAXE_SPAWNABLE)) {
             resStack = new ItemStack(MPLItems.BROKEN_EXPERIENCE_PICKAXE);
+        } else if (biome.isIn(MPLBiomeTags.FROST_AXE_SPAWNABLE)) {
+            resStack = new ItemStack(MPLItems.BROKEN_FROST_AXE);
+        } else if (biome.isIn(MPLBiomeTags.BOGGED_SHOVEL_SPAWNABLE)) {
+            resStack = new ItemStack(MPLItems.BROKEN_BOGGED_SHOVEL);
+        } else if (biome.isIn(MPLBiomeTags.SOUL_HOE_SPAWNABLE)) {
+            resStack = new ItemStack(MPLItems.BROKEN_SOUL_HOE);
+        } else if (biome.isIn(MPLBiomeTags.VOID_SWORD_SPAWNABLE)) {
+            resStack = new ItemStack(MPLItems.BROKEN_VOID_SWORD);
         }
 
         if (!resStack.isEmpty()) {

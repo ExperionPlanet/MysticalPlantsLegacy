@@ -56,7 +56,8 @@ public class BindingRockBlock extends BlockWithEntity {
     // 1 = Stone
     // 2 = Soul Soil
     // 3 = End Stone
-    public static final IntProperty ROCK_SKIN = IntProperty.of("rock_skin", 1, 3);
+    // 4 = Ice Block
+    public static final IntProperty ROCK_SKIN = IntProperty.of("rock_skin", 1, 4);
     public static final BooleanProperty INITIALIZED = BooleanProperty.of("initialized");
 
 

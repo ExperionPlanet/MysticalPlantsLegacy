@@ -3,15 +3,15 @@
 	"id": "mysticalplantslg",
 	"version": "${version}",
 	"name": "Mystical Plants Legacy",
-	"description": "Adds 5 types of magical plants that can be useful or dangerous",
+	"description": "Adds magical plants that can be useful or dangerous. Also these plants even animated by the way-",
 	"authors": [
 		"ExperionPlanet"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"license": "https://github.com/ExperionPlanet/MysticalPlantsLegacy/blob/latest/LICENSE",
+		"sources": "https://github.com/ExperionPlanet/MysticalPlantsLegacy"
 	},
-	"license": "ExperionPlanet-License-1.0",
+	"license": "ExperionPlanet's Custom License",
 	"icon": "assets/mysticalplantslg/icon.png",
 	"environment": "*",
 	"entrypoints": {

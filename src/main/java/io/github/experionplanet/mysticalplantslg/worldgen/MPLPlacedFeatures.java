@@ -24,6 +24,10 @@ public class MPLPlacedFeatures {
     public static final RegistryKey<PlacedFeature> MYSTICAL_ORE_KEY = registerKey("mystical_ore");
 
     public static final RegistryKey<PlacedFeature> EXPERIENCE_PICKAXE_BINDING_ROCK_KEY = registerKey("experience_pickaxe_binding_rock");
+    public static final RegistryKey<PlacedFeature> FROST_AXE_BINDING_ROCK_KEY = registerKey("frost_axe_binding_rock");
+    public static final RegistryKey<PlacedFeature> BOGGED_SHOVEL_BINDING_ROCK_KEY = registerKey("bogged_shovel_binding_rock");
+    public static final RegistryKey<PlacedFeature> SOUL_HOE_BINDING_ROCK_KEY = registerKey("soul_hoe_binding_rock");
+    public static final RegistryKey<PlacedFeature> VOID_SWORD_BINDING_ROCK_KEY = registerKey("void_sword_binding_rock");
 
     public static void boot(Registerable<PlacedFeature> context) {
         var configuredFeatures = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
@@ -37,17 +41,19 @@ public class MPLPlacedFeatures {
         registerMysticalPatches(context, DISGUISE_ORCHIDS_KEY, configuredFeatures.getOrThrow(MPLConfiguredFeatures.DISGUISE_ORCHIDS_KEY), 32);
 
         register(context, SOUL_PLANTS_KEY, configuredFeatures.getOrThrow(MPLConfiguredFeatures.SOUL_PLANTS_KEY),
-                RarityFilterPlacementModifier.of(5),
+                RarityFilterPlacementModifier.of(3),
                 SquarePlacementModifier.of(),
+                BiomePlacementModifier.of(),
                 PlacedFeatures.BOTTOM_TO_TOP_RANGE
         );
         register(context, SOUL_BELL_KEY, configuredFeatures.getOrThrow(MPLConfiguredFeatures.SOUL_BELL_KEY),
-                RarityFilterPlacementModifier.of(10),
+                RarityFilterPlacementModifier.of(5),
                 SquarePlacementModifier.of(),
+                BiomePlacementModifier.of(),
                 PlacedFeatures.BOTTOM_TO_TOP_RANGE
         );
 
-        registerMysticalPatches(context, VOID_PLANTS_KEY, configuredFeatures.getOrThrow(MPLConfiguredFeatures.VOID_PLANTS), 32);
+        registerMysticalPatches(context, VOID_PLANTS_KEY, configuredFeatures.getOrThrow(MPLConfiguredFeatures.VOID_PLANTS), 20);
 
         register(context, MYSTICAL_ORE_KEY, configuredFeatures.getOrThrow(MPLConfiguredFeatures.MYSTICAL_ORE_KEY),
                 HeightRangePlacementModifier.trapezoid(YOffset.fixed(-60), YOffset.fixed(10)),
@@ -57,16 +63,49 @@ public class MPLPlacedFeatures {
                 BiomePlacementModifier.of()
         );
         register(context, EXPERIENCE_PICKAXE_BINDING_ROCK_KEY, configuredFeatures.getOrThrow(MPLConfiguredFeatures.EXPERIENCE_PICKAXE_BINDING_ROCK_KEY),
-                RarityFilterPlacementModifier.of(2),
+                RarityFilterPlacementModifier.of(10),
                 SquarePlacementModifier.of(),
                 BiomePlacementModifier.of(),
                 PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP
         );
+
+        register(context, FROST_AXE_BINDING_ROCK_KEY, configuredFeatures.getOrThrow(MPLConfiguredFeatures.FROST_AXE_BINDING_ROCK_KEY),
+                RarityFilterPlacementModifier.of(20),
+                SquarePlacementModifier.of(),
+                BiomePlacementModifier.of(),
+                PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP
+        );
+
+        register(context, BOGGED_SHOVEL_BINDING_ROCK_KEY, configuredFeatures.getOrThrow(MPLConfiguredFeatures.BOGGED_SHOVEL_BINDING_ROCK_KEY),
+                RarityFilterPlacementModifier.of(15),
+                SquarePlacementModifier.of(),
+                BiomePlacementModifier.of(),
+                PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP
+        );
+
+        register(context, SOUL_HOE_BINDING_ROCK_KEY, configuredFeatures.getOrThrow(MPLConfiguredFeatures.SOUL_HOE_BINDING_ROCK_KEY),
+                RarityFilterPlacementModifier.of(64),
+                SquarePlacementModifier.of(),
+                BiomePlacementModifier.of(),
+                PlacedFeatures.BOTTOM_TO_TOP_RANGE
+        );
+
+        register(context, VOID_SWORD_BINDING_ROCK_KEY, configuredFeatures.getOrThrow(MPLConfiguredFeatures.VOID_SWORD_BINDING_ROCK_KEY),
+                RarityFilterPlacementModifier.of(64),
+                SquarePlacementModifier.of(),
+                BiomePlacementModifier.of(),
+                PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP
+        );
+
+
+
+
     }
 
     public static RegistryKey<PlacedFeature> registerKey(String name) {
         return RegistryKey.of(RegistryKeys.PLACED_FEATURE, MysticalUtils.newId(name));
     }
+
 
     private static void registerMysticalPatches(Registerable<PlacedFeature> context, RegistryKey<PlacedFeature> key, RegistryEntry<ConfiguredFeature<?, ?>> configuration, int chances) {
         register(context, key, configuration, RarityFilterPlacementModifier.of(chances), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of());

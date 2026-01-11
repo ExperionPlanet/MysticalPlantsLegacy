@@ -1,9 +1,9 @@
 {
-  "feature": "mysticalplantslg:experience_pickaxe_binding_rock",
+  "feature": "mysticalplantslg:bogged_shovel_binding_rock",
   "placement": [
     {
       "type": "minecraft:rarity_filter",
-      "chance": 10
+      "chance": 15
     },
     {
       "type": "minecraft:in_square"

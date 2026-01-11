@@ -148,12 +148,14 @@ public class ModelDataGen extends FabricModelProvider {
         Identifier model1 = ModelIds.getBlockModelId(block);
         Identifier model2 = ModelIds.getBlockSubModelId(block, "_soul");
         Identifier model3 = ModelIds.getBlockSubModelId(block, "_end");
+        Identifier model4 = ModelIds.getBlockSubModelId(block, "_ice");
 
         gen.blockStateCollector.accept(
                 MultipartBlockStateSupplier.create(block)
                         .with(When.create().set(BindingRockBlock.ROCK_SKIN, 1), BlockStateVariant.create().put(VariantSettings.MODEL, model1))
                         .with(When.create().set(BindingRockBlock.ROCK_SKIN, 2), BlockStateVariant.create().put(VariantSettings.MODEL, model2))
                         .with(When.create().set(BindingRockBlock.ROCK_SKIN, 3), BlockStateVariant.create().put(VariantSettings.MODEL, model3))
+                        .with(When.create().set(BindingRockBlock.ROCK_SKIN, 4), BlockStateVariant.create().put(VariantSettings.MODEL, model4))
         );
     }
 

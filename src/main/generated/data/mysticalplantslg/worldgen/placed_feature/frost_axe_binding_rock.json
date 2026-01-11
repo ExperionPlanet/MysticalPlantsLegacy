@@ -1,9 +1,9 @@
 {
-  "feature": "mysticalplantslg:experience_pickaxe_binding_rock",
+  "feature": "mysticalplantslg:frost_axe_binding_rock",
   "placement": [
     {
       "type": "minecraft:rarity_filter",
-      "chance": 10
+      "chance": 20
     },
     {
       "type": "minecraft:in_square"

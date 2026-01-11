@@ -6,13 +6,24 @@
         "type": "minecraft:simple_block",
         "config": {
           "to_place": {
-            "type": "minecraft:simple_state_provider",
-            "state": {
-              "Name": "mysticalplantslg:disguise_orchid",
-              "Properties": {
-                "revealed": "false"
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "data": {
+                  "Name": "mysticalplantslg:disguise_orchid",
+                  "Properties": {
+                    "revealed": "false"
+                  }
+                },
+                "weight": 1
+              },
+              {
+                "data": {
+                  "Name": "minecraft:blue_orchid"
+                },
+                "weight": 1
               }
-            }
+            ]
           }
         }
       },

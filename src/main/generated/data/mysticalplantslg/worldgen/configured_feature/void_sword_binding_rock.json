@@ -1,0 +1,32 @@
+{
+  "type": "mysticalplantslg:binding_rock",
+  "config": {
+    "brute_force_y": false,
+    "item_id": "mysticalplantslg:broken_void_sword",
+    "range": 7,
+    "skin": 3,
+    "to_place": {
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
+        {
+          "data": {
+            "Name": "mysticalplantslg:void_cap",
+            "Properties": {
+              "cap_remaining": "5"
+            }
+          },
+          "weight": 1
+        },
+        {
+          "data": {
+            "Name": "mysticalplantslg:void_strawflower",
+            "Properties": {
+              "is_trapped": "false"
+            }
+          },
+          "weight": 1
+        }
+      ]
+    }
+  }
+}

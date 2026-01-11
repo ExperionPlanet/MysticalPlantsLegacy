@@ -65,6 +65,26 @@ public class MPLBiomeModifications {
                 GenerationStep.Feature.VEGETAL_DECORATION,
                 MPLPlacedFeatures.EXPERIENCE_PICKAXE_BINDING_ROCK_KEY
         );
+        BiomeModifications.addFeature(
+                BiomeSelectors.tag(MPLBiomeTags.FROST_AXE_SPAWNABLE),
+                GenerationStep.Feature.VEGETAL_DECORATION,
+                MPLPlacedFeatures.FROST_AXE_BINDING_ROCK_KEY
+        );
+        BiomeModifications.addFeature(
+                BiomeSelectors.tag(MPLBiomeTags.BOGGED_SHOVEL_SPAWNABLE),
+                GenerationStep.Feature.VEGETAL_DECORATION,
+                MPLPlacedFeatures.BOGGED_SHOVEL_BINDING_ROCK_KEY
+        );BiomeModifications.addFeature(
+                BiomeSelectors.tag(MPLBiomeTags.SOUL_HOE_SPAWNABLE),
+                GenerationStep.Feature.VEGETAL_DECORATION,
+                MPLPlacedFeatures.SOUL_HOE_BINDING_ROCK_KEY
+        );
+        BiomeModifications.addFeature(
+                BiomeSelectors.tag(MPLBiomeTags.VOID_SWORD_SPAWNABLE),
+                GenerationStep.Feature.VEGETAL_DECORATION,
+                MPLPlacedFeatures.VOID_SWORD_BINDING_ROCK_KEY
+        );
+
     }
 
 }

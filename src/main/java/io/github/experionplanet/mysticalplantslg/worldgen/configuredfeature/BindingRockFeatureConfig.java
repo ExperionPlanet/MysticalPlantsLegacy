@@ -19,20 +19,23 @@ import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 
 import java.util.List;
 
-public record BindingRockFeatureConfig(int skin, Identifier itemID, int range, int amount,BlockStateProvider provider) implements FeatureConfig {
+public record BindingRockFeatureConfig(int skin, Identifier itemID, int range, boolean bruteForceY,BlockStateProvider provider) implements FeatureConfig {
     public static final Codec<BindingRockFeatureConfig> CODEC = RecordCodecBuilder.create(
             instance -> instance.group(
                             Codecs.POSITIVE_INT.fieldOf("skin").forGetter(BindingRockFeatureConfig::skin),
                             Identifier.CODEC.fieldOf("item_id").forGetter(BindingRockFeatureConfig::itemID),
                             Codecs.POSITIVE_INT.fieldOf("range").forGetter(BindingRockFeatureConfig::range),
-                            Codecs.POSITIVE_INT.fieldOf("amount").forGetter(BindingRockFeatureConfig::amount),
+                            Codec.BOOL.fieldOf("brute_force_y").forGetter(BindingRockFeatureConfig::bruteForceY),
                             BlockStateProvider.TYPE_CODEC.fieldOf("to_place").forGetter(BindingRockFeatureConfig::provider)
 
                     )
                     .apply(instance, BindingRockFeatureConfig::new));
+    public static BindingRockFeatureConfig of(int skin, Item item, int radius, boolean bruteForceY ,BlockStateProvider provider) {
+        return new BindingRockFeatureConfig(skin, Registries.ITEM.getId(item), radius, bruteForceY, provider);
+    }
 
-    public static BindingRockFeatureConfig of(int skin, Item item, int radius, int amount,BlockStateProvider provider) {
-        return new BindingRockFeatureConfig(skin, Registries.ITEM.getId(item), radius, amount, provider);
+    public static BindingRockFeatureConfig of(int skin, Item item, int radius,BlockStateProvider provider) {
+        return of(skin, item,  radius, false, provider);
     }
 
 }

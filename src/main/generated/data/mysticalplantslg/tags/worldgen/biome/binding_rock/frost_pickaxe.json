@@ -1,0 +1,9 @@
+{
+  "values": [
+    "#c:is_snowy",
+    "#c:is_snowy_plains",
+    "minecraft:snowy_plains",
+    "minecraft:snowy_taiga",
+    "minecraft:snowy_slopes"
+  ]
+}

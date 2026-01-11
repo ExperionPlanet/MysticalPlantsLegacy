@@ -1,0 +1,33 @@
+{
+  "type": "mysticalplantslg:binding_rock",
+  "config": {
+    "brute_force_y": true,
+    "item_id": "mysticalplantslg:broken_soul_hoe",
+    "range": 8,
+    "skin": 2,
+    "to_place": {
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
+        {
+          "data": {
+            "Name": "mysticalplantslg:soul_pitcher",
+            "Properties": {
+              "blooming": "false"
+            }
+          },
+          "weight": 1
+        },
+        {
+          "data": {
+            "Name": "mysticalplantslg:soul_possession_iris",
+            "Properties": {
+              "blooming": "false",
+              "has_soul": "false"
+            }
+          },
+          "weight": 1
+        }
+      ]
+    }
+  }
+}

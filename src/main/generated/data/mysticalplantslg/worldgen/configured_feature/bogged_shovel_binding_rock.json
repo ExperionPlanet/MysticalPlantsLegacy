@@ -2,7 +2,7 @@
   "type": "mysticalplantslg:binding_rock",
   "config": {
     "brute_force_y": false,
-    "item_id": "mysticalplantslg:broken_experience_pickaxe",
+    "item_id": "mysticalplantslg:broken_bogged_shovel",
     "range": 7,
     "skin": 1,
     "to_place": {
@@ -10,30 +10,27 @@
       "entries": [
         {
           "data": {
-            "Name": "mysticalplantslg:small_exp_mushrooms",
+            "Name": "mysticalplantslg:bogspore_cap",
             "Properties": {
-              "stepped": "false"
+              "cap_remaining": "3"
             }
           },
-          "weight": 6
+          "weight": 1
         },
         {
           "data": {
-            "Name": "mysticalplantslg:medium_exp_mushroom",
+            "Name": "mysticalplantslg:disguise_orchid",
             "Properties": {
-              "stepped": "false"
+              "revealed": "false"
             }
           },
-          "weight": 4
+          "weight": 1
         },
         {
           "data": {
-            "Name": "mysticalplantslg:large_exp_mushroom",
-            "Properties": {
-              "stepped": "false"
-            }
+            "Name": "minecraft:blue_orchid"
           },
-          "weight": 2
+          "weight": 1
         }
       ]
     }

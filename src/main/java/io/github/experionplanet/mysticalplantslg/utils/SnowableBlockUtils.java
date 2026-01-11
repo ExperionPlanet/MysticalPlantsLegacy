@@ -1,5 +1,6 @@
 package io.github.experionplanet.mysticalplantslg.utils;
 
+import io.github.experionplanet.mysticalplantslg.init.MPLBlockProperties;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -28,8 +29,9 @@ public class SnowableBlockUtils {
         boolean succ = true;
 
         for (BlockPos v : CHECK_POS) {
-            if (!world.getBlockState(center.add(v)).isOf(Blocks.SNOW)) {
-                succ = false;
+            BlockState targState = world.getBlockState(center.add(v));
+            if (targState.isOf(Blocks.SNOW)) {
+                succ = true;
                 break;
             }
         }

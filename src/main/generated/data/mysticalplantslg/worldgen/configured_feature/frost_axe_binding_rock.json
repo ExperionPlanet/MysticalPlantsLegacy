@@ -1,0 +1,33 @@
+{
+  "type": "mysticalplantslg:binding_rock",
+  "config": {
+    "brute_force_y": false,
+    "item_id": "mysticalplantslg:broken_frost_axe",
+    "range": 5,
+    "skin": 4,
+    "to_place": {
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
+        {
+          "data": {
+            "Name": "mysticalplantslg:permafrost_shroom",
+            "Properties": {
+              "cap_remaining": "5",
+              "snow": "true"
+            }
+          },
+          "weight": 12
+        },
+        {
+          "data": {
+            "Name": "mysticalplantslg:frost_umbrella_flower",
+            "Properties": {
+              "snow": "true"
+            }
+          },
+          "weight": 4
+        }
+      ]
+    }
+  }
+}

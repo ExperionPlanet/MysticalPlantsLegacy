@@ -23,6 +23,14 @@
       "when": {
         "rock_skin": "3"
       }
+    },
+    {
+      "apply": {
+        "model": "mysticalplantslg:block/binding_rock_ice"
+      },
+      "when": {
+        "rock_skin": "4"
+      }
     }
   ]
 }

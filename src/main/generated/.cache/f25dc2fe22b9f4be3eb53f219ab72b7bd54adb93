@@ -1,6 +1,11 @@
-// 1.21.1	2026-01-10T23:06:47.3895528	Mystical Plants Legacy/Tags for minecraft:worldgen/biome
-5f176659fa27569cc678ddae4a306c2055a89a16 data\mysticalplantslg\tags\worldgen\biome\binding_rock\experience_pickaxe.json
+// 1.21.1	2026-01-11T13:38:21.0739812	Mystical Plants Legacy/Tags for minecraft:worldgen/biome
+2848fd21678020e480817af24906cc7471b13118 data\mysticalplantslg\tags\worldgen\biome\binding_rock\void_sword.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data\c\tags\worldgen\biome\is_swamp.json
+5f176659fa27569cc678ddae4a306c2055a89a16 data\mysticalplantslg\tags\worldgen\biome\binding_rock\experience_pickaxe.json
+0fa245d4c45927d9d0b3c681faadaddeabec6507 data\mysticalplantslg\tags\worldgen\biome\binding_rock\bogged_shovel.json
+35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data\minecraft\tags\worldgen\biome\is_end.json
 15343ca7e7931ca3b093f52c77b5d7fae920fed9 data\mysticalplantslg\tags\worldgen\biome\soul.json
+15343ca7e7931ca3b093f52c77b5d7fae920fed9 data\mysticalplantslg\tags\worldgen\biome\binding_rock\soul_hoe.json
+53445f196fb2fefc5e974983d7bf64e8b8f757ab data\mysticalplantslg\tags\worldgen\biome\binding_rock\frost_pickaxe.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data\c\tags\worldgen\biome\is_snowy.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data\c\tags\worldgen\biome\is_snowy_plains.json
