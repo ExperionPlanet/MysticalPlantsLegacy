@@ -170,6 +170,10 @@ public class SoulBellBlockEntity extends LastTickedBlockEntity {
                     world.setBlockState(pos, state.with(SoulBellBlock.REWARD_COUNT, state.get(SoulBellBlock.REWARD_COUNT) - 1));
                     world.playSound(null, pos, SoundEvents.BLOCK_TRIAL_SPAWNER_SPAWN_ITEM, SoundCategory.BLOCKS);
 
+                    if (reward.isOf(MPLItems.SOUL_ESSENCE)) {
+                        world.playSound(null, pos, MPLSoundEvents.SOUL_ESSENCE_POPUP, SoundCategory.BLOCKS);
+                    }
+
                     if (world.getBlockState(pos).get(SoulBellBlock.REWARD_COUNT) == 0) {
                         world.setBlockState(pos, world.getBlockState(pos).with(SoulBellBlock.ON_REWARD, false).with(SoulBellBlock.ON_GOING, false));
                         blockEntity.rewardStacks.clear();

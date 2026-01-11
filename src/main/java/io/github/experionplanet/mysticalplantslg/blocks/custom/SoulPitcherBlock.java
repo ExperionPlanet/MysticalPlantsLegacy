@@ -4,6 +4,7 @@ import io.github.experionplanet.mysticalplantslg.blocks.MysticalPlantBlock;
 import io.github.experionplanet.mysticalplantslg.init.MPLBiomeTags;
 import io.github.experionplanet.mysticalplantslg.init.MPLBlockTags;
 import io.github.experionplanet.mysticalplantslg.init.MPLItems;
+import io.github.experionplanet.mysticalplantslg.init.MPLSoundEvents;
 import io.github.experionplanet.mysticalplantslg.items.tool.custom.SoulHoeItem;
 import io.github.experionplanet.mysticalplantslg.utils.MysticalUtils;
 import net.minecraft.block.Block;
@@ -13,6 +14,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundCategory;
 import net.minecraft.state.StateManager;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.hit.BlockHitResult;
@@ -77,6 +79,7 @@ public class SoulPitcherBlock extends MysticalPlantBlock {
                 }else {
                     Vec3d vec = MysticalUtils.v3dConvert(pos, true);
                     world.spawnEntity(new ItemEntity(world, vec.getX(), vec.getY(), vec.getZ(), new ItemStack(MPLItems.SOUL)));
+                    world.playSound(null, pos, MPLSoundEvents.SOUL_PITCHER_HARVEST, SoundCategory.BLOCKS);
                 }
                 world.setBlockState(pos, state.with(BLOOMING, false));
             }

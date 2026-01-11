@@ -7,6 +7,7 @@ import io.github.experionplanet.mysticalplantslg.blocks.entity.SoulPossessionIri
 import io.github.experionplanet.mysticalplantslg.init.MPLBlockTags;
 import io.github.experionplanet.mysticalplantslg.init.MPLItems;
 import io.github.experionplanet.mysticalplantslg.init.MPLLootables;
+import io.github.experionplanet.mysticalplantslg.init.MPLSoundEvents;
 import io.github.experionplanet.mysticalplantslg.utils.MysticalUtils;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockRenderType;
@@ -21,6 +22,8 @@ import net.minecraft.loot.context.LootContextParameterSet;
 import net.minecraft.loot.context.LootContextParameters;
 import net.minecraft.loot.context.LootContextTypes;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.util.ActionResult;
@@ -63,9 +66,14 @@ public class SoulPossessionIrisBlock extends MysticalPlantBlockWithEntity {
     }
 
     private static void emptyContainer(ContainerBlockEntity blockEntity, World world, BlockPos pos) {
-        if (!blockEntity.getCurrentStack().isEmpty()) {
+        ItemStack storedStack = blockEntity.getCurrentStack();
+
+        if (!storedStack.isEmpty()) {
+            if (!storedStack.isOf(MPLItems.SOUL)) {
+                world.playSound(null, pos, MPLSoundEvents.SOUL_POSSESION_IRIS_HARVEST, SoundCategory.BLOCKS);
+            }
             Vec3d vec = MysticalUtils.v3dConvert(pos, true);
-            ItemEntity itemEntity = new ItemEntity(world, vec.x, vec.y, vec.z, blockEntity.getCurrentStack().copyWithCount(1));
+            ItemEntity itemEntity = new ItemEntity(world, vec.x, vec.y, vec.z, storedStack.copyWithCount(1));
             world.spawnEntity(itemEntity);
             blockEntity.emptyStack();
         }
@@ -84,6 +92,8 @@ public class SoulPossessionIrisBlock extends MysticalPlantBlockWithEntity {
                         blockEntity.setStack(stack.copyWithCount(1));
                         stack.decrement(1);
                         world.setBlockState(pos,state.with(HAS_SOUL, true));
+                        world.playSound(null, pos, SoundEvents.BLOCK_MOSS_BREAK, SoundCategory.BLOCKS);
+
                     }
                     return ActionResult.SUCCESS;
                 }

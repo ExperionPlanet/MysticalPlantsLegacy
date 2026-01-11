@@ -39,6 +39,29 @@
       "mysticalplantslg:exp_mushrooms_bounce3"
     ]
   },
+  "soul_possesion_iris_harvest": {
+    "subtitle": "sound.mysticalplantslg.soul_possesion_iris_harvest",
+    "sounds": [
+      "mysticalplantslg:soul_possesion_iris_harvest1",
+      "mysticalplantslg:soul_possesion_iris_harvest2",
+      "mysticalplantslg:soul_possesion_iris_harvest3"
+    ]
+  },
+  "soul_pitcher_harvest": {
+    "subtitle": "sound.mysticalplantslg.soul_pitcher_harvest",
+    "sounds": [
+      "mysticalplantslg:soul_pitcher_harvest1",
+      "mysticalplantslg:soul_pitcher_harvest2",
+      "mysticalplantslg:soul_pitcher_harvest3",
+      "mysticalplantslg:soul_pitcher_harvest4"
+    ]
+  },
+  "soul_essence_popup": {
+    "subtitle": "sound.mysticalplantslg.soul_essence_popup",
+    "sounds": [
+      "mysticalplantslg:soul_essence_popup"
+    ]
+  },
   "experience_pickaxe_burst": {
     "subtitle": "sound.mysticalplantslg.experience_pickaxe_burst",
     "sounds": [
