@@ -45,6 +45,9 @@ public class MysticalContentsClient {
         BINDING_ROCK.registerItem(MPLItems.EXPERIENCE_PICKAXE, new TrxContent(0.8d, 1.25d, 0.45d, -8.0f, 12.0f, 125.0f));
         BINDING_ROCK.registerItem(MPLItems.BROKEN_EXPERIENCE_PICKAXE, new TrxContent(0.8d, 1.25d, 0.45d, -8.0f, 12.0f, 125.0f));
         BINDING_ROCK.registerItem(MPLItems.BROKEN_FROST_AXE, new TrxContent(0.35d, 1.3d, 0.65d, -2f, 37f, -106f));
+        BINDING_ROCK.registerItem(MPLItems.BROKEN_BOGGED_SHOVEL, new TrxContent(0.35d, 1.5d, 0.6d, 9f, 8f, 197f));
+        BINDING_ROCK.registerItem(MPLItems.BROKEN_SOUL_HOE, new TrxContent(0.45d, 1.35d, 0.65d, 0f, 81f, -107f));
+        BINDING_ROCK.registerItem(MPLItems.BROKEN_VOID_SWORD, new TrxContent(0.65d, 1.6d, 0.6d, 6f, 2f, 168f));
 
 
     }

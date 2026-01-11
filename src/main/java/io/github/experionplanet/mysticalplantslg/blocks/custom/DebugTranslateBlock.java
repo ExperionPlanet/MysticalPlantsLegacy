@@ -73,8 +73,6 @@ public class DebugTranslateBlock extends BlockWithEntity {
                 return ActionResult.SUCCESS;
             }
 
-
-
             if (stack.isOf(Items.STICK)) {
                 if (blockEntity.modeAddings == 1) {
                     blockEntity.setMode(2);
