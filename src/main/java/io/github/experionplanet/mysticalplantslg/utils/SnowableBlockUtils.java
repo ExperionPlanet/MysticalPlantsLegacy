@@ -26,7 +26,7 @@ public class SnowableBlockUtils {
     private static final VoxelShape SNOW_SHAPE = Block.createCuboidShape((double)0.0F, (double)0.0F, (double)0.0F, (double)16.0F, (double)2.0F, (double)16.0F);
 
     public static boolean isItSurrounding(BlockPos center, World world) {
-        boolean succ = true;
+        boolean succ = false;
 
         for (BlockPos v : CHECK_POS) {
             BlockState targState = world.getBlockState(center.add(v));

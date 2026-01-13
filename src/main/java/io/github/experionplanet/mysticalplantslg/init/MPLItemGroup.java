@@ -62,8 +62,10 @@ public class  MPLItemGroup {
             itemGroup.add(MPLItems.EXP_SPORE);
             itemGroup.add(MPLItems.SOUL);
             itemGroup.add(MPLItems.SOUL_POLLEN);
-            itemGroup.add(MPLItems.SOUL_ZOMBIE_SPAWN_EGG);
 
+            itemGroup.add(MPLItems.PERMAFROST_SNOWFLAKE);
+            itemGroup.add(MPLItems.PERMAFROST_SNOWBALL);
+            itemGroup.add(MPLBlocks.PERMAFROST_SNOW_BLOCK);
             itemGroup.add(MPLBlocks.PEDESTAL);
 
             if (MPLConfig.show_debug_item) {

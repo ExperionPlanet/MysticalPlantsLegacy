@@ -1,5 +1,6 @@
 package io.github.experionplanet.mysticalplantslg.init;
 
+import io.github.experionplanet.mysticalplantslg.items.custom.PermafrostSnowballItem;
 import io.github.experionplanet.mysticalplantslg.items.tool.MysticalToolMats;
 import io.github.experionplanet.mysticalplantslg.items.tool.custom.*;
 import io.github.experionplanet.mysticalplantslg.utils.MysticalUtils;
@@ -33,8 +34,11 @@ public class MPLItems {
 
     // MATS
     public static final Item EXP_SPORE = registerBasic("exp_spore");
+    public static final Item PERMAFROST_SNOWFLAKE = registerBasic("permafrost_snowflake");
+    public static final Item PERMAFROST_SNOWBALL = register("permafrost_snowball", new PermafrostSnowballItem(new Item.Settings()));
     public static final Item SOUL = registerBasic("soul");
     public static final Item SOUL_POLLEN = registerBasic("soul_pollen");
+
     public static final Item MYSTICAL_DUST = registerBasic("mystical_dust");
     public static final Item MYSTICAL_INGOT = registerBasic("mystical_ingot");
     public static final Item RAW_MYSTICAL = registerBasic("raw_mystical");

@@ -20,6 +20,8 @@ public class MPLSoundEvents {
     public static final SoundEvent SOUL_POSSESION_IRIS_HARVEST = registerSound("soul_possesion_iris_harvest");
     public static final SoundEvent SOUL_PITCHER_HARVEST = registerSound("soul_pitcher_harvest");
     public static final SoundEvent SOUL_ESSENCE_POPUP = registerSound("soul_essence_popup");
+    public static final SoundEvent FROST_AXE_FROST_LOGS = registerSound("frost_axe_frost_logs");
+    public static final SoundEvent FROST_ESSENCE_POPUP = registerSound("frost_essence_popup");
 
     private static SoundEvent registerSound(String id) {
         Identifier identifier = MysticalUtils.newId(id);

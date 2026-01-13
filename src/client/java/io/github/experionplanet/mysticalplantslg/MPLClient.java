@@ -18,6 +18,8 @@ import net.minecraft.client.particle.ParticleTextureSheet;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
 import net.minecraft.client.render.entity.EmptyEntityRenderer;
+import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
+import net.minecraft.entity.Entity;
 
 public class MPLClient implements ClientModInitializer {
 	@Override
@@ -115,6 +117,15 @@ public class MPLClient implements ClientModInitializer {
 						.targetScale(0,0)
 						.export()
 		));
+		factory.register(MPLParticles.SNOWDUST, (v1) -> new BasicMysticalParticle.Factory(v1,
+				new ParticleCreator(5, 20, 0.1f, 0.3f, ParticleTextureSheet.PARTICLE_SHEET_TRANSLUCENT)
+						.targetScale(0,0)
+						.veloX(0,0)
+						.veloY(0,0)
+						.veloZ(0,0)
+						.targetAngle(-1f, 1)
+						.export()
+		));
 
 		factory.register(MPLParticles.EXP_SPORE, (v1) -> new SporeParticle.Factory<>(v1, 1.5f, true));
 		factory.register(MPLParticles.BOG_SPORE, (v1) -> new SporeParticle.Factory<>(v1, 1f, false));
@@ -127,6 +138,7 @@ public class MPLClient implements ClientModInitializer {
 	private void entities() {
 		EntityRendererRegistry.register(MPLEntities.SPORES, EmptyEntityRenderer::new);
 		EntityRendererRegistry.register(MPLEntities.SOUL_ZOMBIE, SoulZombieEntityRenderer::new);
+		EntityRendererRegistry.register(MPLEntities.PERMAFROST_SNOWBALL, FlyingItemEntityRenderer::new);
 	}
 
 

@@ -16,6 +16,7 @@ public class MPLParticles {
     public static final SimpleParticleType EXP_DRIP_GREEN = FabricParticleTypes.simple();
     public static final SimpleParticleType SOUL_BELL_BLASTWAVE = FabricParticleTypes.simple();
     public static final SimpleParticleType SOUL_DUST = FabricParticleTypes.simple();
+    public static final SimpleParticleType SNOWDUST = FabricParticleTypes.simple();
 
     public static void bootstrap() {
         Registry.register(Registries.PARTICLE_TYPE, MysticalUtils.newId("exp_spore"), EXP_SPORE);
@@ -27,5 +28,7 @@ public class MPLParticles {
         Registry.register(Registries.PARTICLE_TYPE, MysticalUtils.newId("exp_drip_green"), EXP_DRIP_GREEN);
         Registry.register(Registries.PARTICLE_TYPE, MysticalUtils.newId("soul_bell_blastwave"),SOUL_BELL_BLASTWAVE);
         Registry.register(Registries.PARTICLE_TYPE, MysticalUtils.newId("soul_dust"),SOUL_DUST);
+        Registry.register(Registries.PARTICLE_TYPE, MysticalUtils.newId("snowdust"), SNOWDUST);
+
     }
 }

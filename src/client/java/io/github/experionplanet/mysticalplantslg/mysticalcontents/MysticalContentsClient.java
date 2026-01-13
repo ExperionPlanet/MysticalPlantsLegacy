@@ -4,6 +4,7 @@ import io.github.experionplanet.mysticalplantslg.init.MPLComponentTypes;
 import io.github.experionplanet.mysticalplantslg.init.MPLItems;
 import io.github.experionplanet.mysticalplantslg.items.tool.custom.BoggedShovelItem;
 import io.github.experionplanet.mysticalplantslg.items.tool.custom.ExperiencePickaxeItem;
+import io.github.experionplanet.mysticalplantslg.items.tool.custom.SoulHoeItem;
 import io.github.experionplanet.mysticalplantslg.mysticalcontents.content.HudProgressItem;
 import io.github.experionplanet.mysticalplantslg.mysticalcontents.content.RingedBloomingContent;
 import io.github.experionplanet.mysticalplantslg.mysticalcontent.MysticIdMapping;
@@ -23,14 +24,21 @@ public class MysticalContentsClient {
                 "experience_pickaxe_hud_fluid",
                 ExperiencePickaxeItem.EXP_FILLS,
                 ExperiencePickaxeItem.MAX_FILLS,
-                20
+                29
         ));
         HUD_PROGRESS_ITEM.registerItem(MPLItems.BOGGED_SHOVEL, new HudProgressItem(
                 "bogged_shovel_hud",
                 "bogged_fluid_progress",
                 MPLComponentTypes.SOIL_FILLINGS,
                 BoggedShovelItem.MAX_FILLS,
-                1
+                32
+        ));
+        HUD_PROGRESS_ITEM.registerItem(MPLItems.SOUL_HOE, new HudProgressItem(
+                "soul_hoe_hud",
+                "soul_hoe_hud_fluid",
+                MPLComponentTypes.SOULS,
+                SoulHoeItem.MAX_SOULS,
+                12
         ));
 
         // Ringed Blooming (Eg: Exbiscus, Glacier Passion Flower)

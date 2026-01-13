@@ -54,6 +54,7 @@ public class ModelDataGen extends FabricModelProvider {
         gen.registerSimpleCubeAll(MPLBlocks.MYSTICAL_ORE);
         gen.registerSimpleCubeAll(MPLBlocks.DEEPSLATE_MYSTICAL_ORE);
         registerBindingRock(gen);
+        gen.registerSimpleCubeAll(MPLBlocks.PERMAFROST_SNOW_BLOCK);
 
     }
 
@@ -83,6 +84,8 @@ public class ModelDataGen extends FabricModelProvider {
         gen.register(MPLItems.MYSTICAL_INGOT, Models.GENERATED);
         gen.register(MPLItems.MYSTICAL_DUST, Models.GENERATED);
         gen.register(MPLItems.RAW_MYSTICAL, Models.GENERATED);
+        gen.register(MPLItems.PERMAFROST_SNOWFLAKE, Models.GENERATED);
+        gen.register(MPLItems.PERMAFROST_SNOWBALL, Models.GENERATED);
 
     }
 

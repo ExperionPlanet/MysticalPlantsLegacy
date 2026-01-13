@@ -3,13 +3,21 @@ package io.github.experionplanet.mysticalplantslg.items.tool.custom;
 import io.github.experionplanet.mysticalplantslg.blocks.custom.PermafrostedLogBlock;
 import io.github.experionplanet.mysticalplantslg.blocks.entity.custom.PermafrostLogBlockEntity;
 import io.github.experionplanet.mysticalplantslg.init.MPLBlocks;
+import io.github.experionplanet.mysticalplantslg.init.MPLParticles;
+import io.github.experionplanet.mysticalplantslg.init.MPLSoundEvents;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.AxeItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.registry.tag.BlockTags;
+import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
 import java.util.ArrayList;
@@ -29,6 +37,15 @@ public class FrostAxeItem extends AxeItem {
 
     public FrostAxeItem(ToolMaterial toolMaterial, Settings settings) {
         super(toolMaterial, settings);
+    }
+
+    @Override
+    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+        tooltip.add(Text.empty());
+        tooltip.add(Text.literal("Permafrost Timber").formatted(Formatting.AQUA).formatted(Formatting.BOLD));
+        tooltip.add(Text.literal("20% chance to frost nearby logs and instantly break them"));
+
+        super.appendTooltip(stack, context, tooltip, type);
     }
 
     @Override
@@ -56,6 +73,8 @@ public class FrostAxeItem extends AxeItem {
                                 blockEntity.setStack(dropStack);
                                 blockEntity.startDefrost(world, miner);
                                 world.setBlockState(b, newState.with(PermafrostedLogBlock.DEFROSTING, true));
+                                Vec3d v = b.toCenterPos();
+                                ((ServerWorld) world).spawnParticles(MPLParticles.SNOWDUST, v.getX(), v.getY(), v.getZ(), 5, 0.5,0.5,0.5,0);
                                 succ = true;
                             }
                         }
@@ -66,6 +85,10 @@ public class FrostAxeItem extends AxeItem {
                         prev = List.copyOf(discovered);
                         discovered.clear();
                     }
+                }
+
+                if (total > 0) {
+                    world.playSound(null, pos, MPLSoundEvents.FROST_AXE_FROST_LOGS, SoundCategory.PLAYERS);
                 }
             }
 

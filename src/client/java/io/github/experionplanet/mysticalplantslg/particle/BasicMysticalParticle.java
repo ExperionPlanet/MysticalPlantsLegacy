@@ -65,7 +65,7 @@ public class BasicMysticalParticle extends SpriteBillboardParticle {
         if (this.isAlive()) {
             this.setSpriteForAge(sprite);
 
-            float alpha = ((float) this.age / (float) this.maxAge);
+            float alpha = Math.min(((float) this.age / (float) this.maxAge), 1);
 
             if (this.animAngle) {
                 this.prevAngle = this.angle;
@@ -77,7 +77,7 @@ public class BasicMysticalParticle extends SpriteBillboardParticle {
     @Override
     public float getSize(float tickDelta) {
         if (this.animScale) {
-            float alpha = (((float) this.age + tickDelta) / (float) this.maxAge);
+            float alpha = Math.min((((float) this.age + tickDelta) / (float) this.maxAge), 1);
             return MysticalUtils.tweenHandling(this.baseScale, this.targetScale, alpha);
         }
         return super.getSize(tickDelta);
@@ -85,7 +85,7 @@ public class BasicMysticalParticle extends SpriteBillboardParticle {
 
     @Override
     public ParticleTextureSheet getType() {
-        return ParticleTextureSheet.PARTICLE_SHEET_LIT;
+        return this.creator.particleTextureSheet;
     }
 
     @Override

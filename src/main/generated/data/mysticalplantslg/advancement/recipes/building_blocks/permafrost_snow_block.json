@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_permafrost_snowball": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mysticalplantslg:permafrost_snowball"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "mysticalplantslg:permafrost_snow_block"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_permafrost_snowball"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "mysticalplantslg:permafrost_snow_block"
+    ]
+  }
+}

@@ -3,6 +3,7 @@ package io.github.experionplanet.mysticalplantslg.blocks.custom;
 import io.github.experionplanet.mysticalplantslg.blocks.BloomingFlowerBlock;
 import io.github.experionplanet.mysticalplantslg.blocks.entity.custom.BloomingFlowerBlockEntity;
 import io.github.experionplanet.mysticalplantslg.init.MPLItems;
+import io.github.experionplanet.mysticalplantslg.init.MPLSoundEvents;
 import io.github.experionplanet.mysticalplantslg.init.MPLStatusEffects;
 import io.github.experionplanet.mysticalplantslg.utils.MysticalUtils;
 import io.github.experionplanet.mysticalplantslg.utils.SnowableBlockUtils;
@@ -16,6 +17,8 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
@@ -63,13 +66,24 @@ public class GlacierPassionFlowerBlock extends BloomingFlowerBlock {
 
     @Override
     protected void onHarvest(BlockState state, ServerWorld world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
-        Random rand =  world.getRandom();
+        Random rand = world.getRandom();
         Vec3d vec = MysticalUtils.v3dConvert(pos, true);
+        ItemStack stack;
         if (rand.nextFloat() <= 0.1f) {
-            ItemStack stack = new ItemStack(MPLItems.FROST_ESSENCE);
-            world.spawnEntity(new ItemEntity(world, vec.getX(), vec.getY(), vec.getZ(), stack));
+            stack = new ItemStack(MPLItems.FROST_ESSENCE);
+            world.playSound(null, pos, MPLSoundEvents.FROST_ESSENCE_POPUP, SoundCategory.BLOCKS);
         }else {
-            player.addStatusEffect(new StatusEffectInstance(MPLStatusEffects.FROST_RESISTANCE, 60 * 20, 0));
+            stack = new ItemStack(MPLItems.PERMAFROST_SNOWFLAKE);
         }
+        ItemEntity itemEntity = new ItemEntity(world, vec.getX(), vec.getY(), vec.getZ(), stack);
+        itemEntity.addVelocity(
+                MysticalUtils.doubleInRange(rand,-0.1, 0.1),
+                MysticalUtils.doubleInRange(rand,0, 0.2),
+                MysticalUtils.doubleInRange(rand,-0.1, 0.1)
+        );
+
+        world.spawnEntity(itemEntity);
+        world.playSound(null, pos, SoundEvents.BLOCK_SWEET_BERRY_BUSH_PICK_BERRIES, SoundCategory.BLOCKS);
+
     }
 }

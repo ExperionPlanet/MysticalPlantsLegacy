@@ -54,6 +54,8 @@ public class MPLBlocks {
     public static final Block BINDING_ROCK = register("binding_rock", BindingRockBlock::new, AbstractBlock.Settings.create().sounds(BlockSoundGroup.STONE).nonOpaque(), true);
     public static final Block PEDESTAL = register("pedestal", PedestalBlock::new, AbstractBlock.Settings.create().sounds(BlockSoundGroup.STONE).nonOpaque(), true);
 
+    public static final Block PERMAFROST_SNOW_BLOCK = register("permafrost_snow_block", Block::new, AbstractBlock.Settings.copy(Blocks.SNOW_BLOCK), true);
+
     public static final Block PERMAFROSTED_LOG = register("permafrosted_log", PermafrostedLogBlock::new, AbstractBlock.Settings.create()
             .instrument(NoteBlockInstrument.BASS)
             .nonOpaque()

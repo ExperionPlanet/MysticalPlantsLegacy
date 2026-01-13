@@ -62,6 +62,12 @@
       "mysticalplantslg:soul_essence_popup"
     ]
   },
+  "frost_essence_popup": {
+    "subtitle": "sound.mysticalplantslg.frost_essence_popup",
+    "sounds": [
+      "mysticalplantslg:frost_essence_popup"
+    ]
+  },
   "experience_pickaxe_burst": {
     "subtitle": "sound.mysticalplantslg.experience_pickaxe_burst",
     "sounds": [
@@ -84,6 +90,14 @@
     "subtitle": "sound.mysticalplantslg.soul_bell_stage_3",
     "sounds": [
       "mysticalplantslg:soul_bell_stage_3"
+    ]
+  },
+  "frost_axe_frost_logs": {
+    "subtitle": "sound.mysticalplantslg.frost_axe_frost_logs",
+    "sounds": [
+      "mysticalplantslg:frost_axe_frost_logs1",
+      "mysticalplantslg:frost_axe_frost_logs2",
+      "mysticalplantslg:frost_axe_frost_logs3"
     ]
   }
 }

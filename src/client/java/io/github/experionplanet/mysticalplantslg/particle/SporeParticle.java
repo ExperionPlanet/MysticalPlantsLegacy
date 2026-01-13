@@ -1,5 +1,6 @@
 package io.github.experionplanet.mysticalplantslg.particle;
 
+import io.github.experionplanet.mysticalplantslg.utils.ExperionLogger;
 import io.github.experionplanet.mysticalplantslg.utils.MysticalUtils;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -12,7 +13,8 @@ public class SporeParticle extends PlaneParticle {
     private static final double RangeVelo = 0.01;
 
     protected SporeParticle(ClientWorld clientWorld,  double x, double y, double z, double velX, double velY, double velZ, SpriteProvider sprites, float setScale, boolean glow) {
-        super(clientWorld, x, y, z, velX, velY, velZ, sprites, 0, 1, setScale, glow);
+        super(clientWorld, x, y, z, velX, velY, velZ, sprites, 20, 80, setScale, glow);
+
         Random rand = clientWorld.getRandom();
         this.setVelocity(
                 MysticalUtils.doubleInRange(rand,-0.1, 0.1),
@@ -21,7 +23,7 @@ public class SporeParticle extends PlaneParticle {
         );
         this.velocityMultiplier = 0.75f;
         this.ascending = true;
-        this.maxAge = rand.nextBetween(20, 80);
+        //this.maxAge = rand.nextBetween(20, 80);
     }
 
     @Override

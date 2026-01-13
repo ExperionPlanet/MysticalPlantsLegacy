@@ -87,7 +87,7 @@ public class MPLConfiguredFeatures {
                         OreFeatureConfig.createTarget(stoneReplaceables, MPLBlocks.MYSTICAL_ORE.getDefaultState()),
                         OreFeatureConfig.createTarget(deepslateReplaceables, MPLBlocks.DEEPSLATE_MYSTICAL_ORE.getDefaultState())
                 ),
-                6
+                12
         ));
 
         register(context, EXPERIENCE_PICKAXE_BINDING_ROCK_KEY, MPLFeatures.BINDING_ROCK, BindingRockFeatureConfig.of(1, MPLItems.BROKEN_EXPERIENCE_PICKAXE, 7, new WeightedBlockStateProvider(
