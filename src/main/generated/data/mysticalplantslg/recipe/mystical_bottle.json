@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "mystical_materials",
+  "key": {
+    "D": {
+      "item": "mysticalplantslg:mystical_dust"
+    },
+    "E": {
+      "tag": "mysticalplantslg:essences"
+    },
+    "G": {
+      "item": "minecraft:glass"
+    }
+  },
+  "pattern": [
+    " E ",
+    "DGD",
+    " D "
+  ],
+  "result": {
+    "count": 3,
+    "id": "mysticalplantslg:mystical_bottle"
+  }
+}

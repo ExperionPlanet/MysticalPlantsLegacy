@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "mysticalplantslg:void_splash"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_void_cap": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mysticalplantslg:void_cap"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_void_cap"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "mysticalplantslg:void_splash"
+    ]
+  }
+}

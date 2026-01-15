@@ -13,6 +13,7 @@ public class MPLDataGen implements DataGeneratorEntrypoint {
 	public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
 		FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
 		pack.addProvider(ModelDataGen::new);
+		pack.addProvider(AdvancementDataGen::new);
 		pack.addProvider(TranslateDataGen::new);
 		pack.addProvider(BlockLootableDataGen::new);
 		pack.addProvider(ItemTagsDataGen::new);
@@ -21,6 +22,7 @@ public class MPLDataGen implements DataGeneratorEntrypoint {
 		pack.addProvider(FabricRegistryDataGen::new);
 		pack.addProvider(RecipeDataGen::new);
 		pack.addProvider(ChestLootableDataGen::new);
+
 	}
 
 	@Override

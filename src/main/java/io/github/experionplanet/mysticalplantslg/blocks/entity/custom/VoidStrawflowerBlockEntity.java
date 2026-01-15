@@ -1,9 +1,7 @@
 package io.github.experionplanet.mysticalplantslg.blocks.entity.custom;
 
 import io.github.experionplanet.mysticalplantslg.blocks.entity.LastTickedBlockEntity;
-import io.github.experionplanet.mysticalplantslg.init.MPLBlockEntities;
-import io.github.experionplanet.mysticalplantslg.init.MPLItems;
-import io.github.experionplanet.mysticalplantslg.init.MPLStatusEffects;
+import io.github.experionplanet.mysticalplantslg.init.*;
 import io.github.experionplanet.mysticalplantslg.utils.MysticalUtils;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.ItemEntity;
@@ -11,6 +9,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
@@ -42,7 +41,7 @@ public class VoidStrawflowerBlockEntity extends LastTickedBlockEntity {
 
             victim = entity;
 
-            entity.addStatusEffect(new StatusEffectInstance(MPLStatusEffects.ROOTED, 200, 0, false, false));
+            entity.addStatusEffect(new StatusEffectInstance(MPLStatusEffects.ROOTED, 200, 0, false, true));
 
 
         }
@@ -63,10 +62,12 @@ public class VoidStrawflowerBlockEntity extends LastTickedBlockEntity {
                 blockEntity.victim.removeStatusEffect(MPLStatusEffects.ROOTED);
                 world.breakBlock(pos, false, blockEntity.victim);
 
-                if (world.getRandom().nextBetween(1, 10) <= 1) {
-
-
+                if (world.getRandom().nextFloat() <= .35f) {
                     world.spawnEntity(new ItemEntity(world, vec.getX(), vec.getY(), vec.getZ(), new ItemStack(MPLItems.VOID_ESSENCE)));
+                    world.playSound(null, pos, MPLSoundEvents.VOID_ESSENCE_POPUP, SoundCategory.BLOCKS);
+                    ((ServerWorld) world).spawnParticles(MPLParticles.VOID_SPORE, vec.getX(), vec.getY(), vec.getZ(), 5, 0.1, 0.1, 0.1, 0);
+                }else if (world.getRandom().nextBoolean()) {
+                    world.spawnEntity(new ItemEntity(world, vec.getX(), vec.getY(), vec.getZ(), new ItemStack(MPLItems.VOID_ROOT)));
                 }
             }
         }

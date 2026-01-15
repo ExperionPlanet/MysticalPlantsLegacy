@@ -75,7 +75,7 @@ public class MPLConfiguredFeatures {
         registerSingle(context, SOUL_BELL_KEY, MPLBlocks.SOUL_BELL.getDefaultState());
 
         registerPatch(context, VOID_PLANTS, poolBuildOf()
-                .add(MPLBlocks.VOID_CAP.getDefaultState(), 40)
+                .add(MPLBlocks.VOID_MUSHROOM.getDefaultState(), 40)
                 .add(MPLBlocks.VOID_STRAWFLOWER.getDefaultState(), 5)
                 .add(MPLBlocks.SHULKURA.getDefaultState(), 10)
                 .add(MPLBlocks.SHULKURA.getDefaultState().with(ShulkuraBlock.FLOWER_AMOUNT, 2), 10)
@@ -118,7 +118,7 @@ public class MPLConfiguredFeatures {
 
         register(context, VOID_SWORD_BINDING_ROCK_KEY, MPLFeatures.BINDING_ROCK, BindingRockFeatureConfig.of(3, MPLItems.BROKEN_VOID_SWORD, 7, new WeightedBlockStateProvider(
                 poolBuildOf()
-                        .add(MPLBlocks.VOID_CAP.getDefaultState())
+                        .add(MPLBlocks.VOID_MUSHROOM.getDefaultState())
                         .add(MPLBlocks.VOID_STRAWFLOWER.getDefaultState())
         )));
 

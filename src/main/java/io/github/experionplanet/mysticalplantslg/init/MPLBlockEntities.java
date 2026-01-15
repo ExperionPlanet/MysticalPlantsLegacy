@@ -14,7 +14,7 @@ public class MPLBlockEntities {
     public static final BlockEntityType<ExpMushroomBlockEntity> EXP_MUSHROOMS = register("exp_mushrooms", ExpMushroomBlockEntity::new, MPLBlocks.SMALL_EXP_MUSHROOMS, MPLBlocks.MEDIUM_EXP_MUSHROOMS, MPLBlocks.LARGE_EXP_MUSHROOMS);
     public static final BlockEntityType<BloomingFlowerBlockEntity> BLOOMING_FLOWER = register("blooming_flower", BloomingFlowerBlockEntity::new, MPLBlocks.EXBISCUS, MPLBlocks.GLACIER_PASSION_FLOWER, MPLBlocks.HUNGERBALM);
 
-    public static final BlockEntityType<BouncingPlantBlockEntity> BOUNCING_PLANT = register("bouncing_plant", (a, b) -> new BouncingPlantBlockEntity(a, b), MPLBlocks.PERMAFROST_SHROOM,MPLBlocks.FROST_UMBRELLA_FLOWER,MPLBlocks.BOGSPORE_CAP,MPLBlocks.VOID_CAP);
+    public static final BlockEntityType<BouncingPlantBlockEntity> BOUNCING_PLANT = register("bouncing_plant", (a, b) -> new BouncingPlantBlockEntity(a, b), MPLBlocks.PERMAFROST_SHROOM,MPLBlocks.FROST_UMBRELLA_FLOWER,MPLBlocks.BOGSPORE_CAP,MPLBlocks.VOID_MUSHROOM);
     public static final BlockEntityType<PermafrostLogBlockEntity> PERMAFROST_LOG = register("permafrost_log",PermafrostLogBlockEntity::new, MPLBlocks.PERMAFROSTED_LOG);
 
     public static final BlockEntityType<VoidStrawflowerBlockEntity> VOID_STRAWFLOWER = register("void_strawflower", VoidStrawflowerBlockEntity::new, MPLBlocks.VOID_STRAWFLOWER);

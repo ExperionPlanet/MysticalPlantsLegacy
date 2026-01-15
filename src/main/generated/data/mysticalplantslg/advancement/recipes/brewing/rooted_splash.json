@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "mysticalplantslg:rooted_splash"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_void_root": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mysticalplantslg:void_root"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_void_root"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "mysticalplantslg:rooted_splash"
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "mystical_materials",
+  "key": {
+    "D": {
+      "item": "mysticalplantslg:mystical_dust"
+    },
+    "E": {
+      "tag": "mysticalplantslg:essences"
+    },
+    "G": {
+      "item": "minecraft:glass"
+    },
+    "W": {
+      "tag": "minecraft:planks"
+    }
+  },
+  "pattern": [
+    " EW",
+    "GDG",
+    " G "
+  ],
+  "result": {
+    "count": 1,
+    "id": "mysticalplantslg:mystical_splash"
+  }
+}

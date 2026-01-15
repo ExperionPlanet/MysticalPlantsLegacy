@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "mystical_potions",
+  "ingredients": [
+    {
+      "item": "mysticalplantslg:mystical_splash"
+    },
+    {
+      "item": "mysticalplantslg:soul_essence"
+    },
+    {
+      "item": "mysticalplantslg:soul_pollen"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "mysticalplantslg:possession_splash"
+  }
+}

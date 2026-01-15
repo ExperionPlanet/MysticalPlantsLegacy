@@ -40,11 +40,16 @@ public class ExbiscusBlock extends BloomingFlowerBlock {
     protected void onHarvest(BlockState state, ServerWorld world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
         Random rand =  world.getRandom();
         Vec3d vec = MysticalUtils.v3dConvert(pos, true);
-        if (rand.nextBetween(1, 15) <= 1) {
+        if (rand.nextFloat() <= 0.1f) {
             world.spawnEntity(new ItemEntity(world, vec.getX(), vec.y, vec.z, new ItemStack(MPLItems.EXPERIENCE_ESSENCE, 1)));
             world.playSound(null, pos, MPLSoundEvents.EXBISCUS_BLOOMING_PICK_ESSENCE, SoundCategory.BLOCKS);
         }else {
-            ExperienceOrbEntity.spawn((ServerWorld) world, vec, rand.nextBetween(2, 5));
+            if (rand.nextBoolean()) {
+                ExperienceOrbEntity.spawn((ServerWorld) world, vec, rand.nextBetween(1, 3));
+            }else {
+                world.spawnEntity(new ItemEntity(world, vec.getX(), vec.getY(), vec.getZ(), new ItemStack(MPLItems.EXP_SPORE), MysticalUtils.doubleInRange(rand, -0.1,0.1), MysticalUtils.doubleInRange(rand, 0,0.15), MysticalUtils.doubleInRange(rand, -0.1,0.1)));
+            }
+
             world.playSound(null, pos, MPLSoundEvents.EXBISCUS_BLOOMING_PICK, SoundCategory.BLOCKS);
         }
     }

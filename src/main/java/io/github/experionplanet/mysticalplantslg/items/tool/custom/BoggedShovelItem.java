@@ -2,6 +2,7 @@ package io.github.experionplanet.mysticalplantslg.items.tool.custom;
 
 import io.github.experionplanet.mysticalplantslg.compat.MPLConfig;
 import io.github.experionplanet.mysticalplantslg.init.MPLBlockTags;
+import io.github.experionplanet.mysticalplantslg.init.MPLComponentTypes;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -16,6 +17,7 @@ import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.hit.BlockHitResult;
@@ -82,15 +84,16 @@ public class BoggedShovelItem extends ShovelItem {
         PlayerEntity plr = context.getPlayer();
         BlockState state = world.getBlockState(pos);
 
-        if (state.isIn(MPLBlockTags.SOIL_CHANGING) && !plr.isSneaking()) {
+        if (state.isIn(MPLBlockTags.SOIL_CHANGING) && !plr.isSneaking() && getSoilFillings(stack) > 0) {
 
             int mode = getMode(stack);
-            Block block= getModeAsBlock(mode);
+            Block block = getModeAsBlock(mode);
 
             if (!state.isOf(block)) {
                 if (!world.isClient()) {
                     world.breakBlock(pos, false);
                     world.setBlockState(pos, block.getDefaultState());
+                    stack.set(SOIL_FILLINGS, getSoilFillings(stack) - 1);
                 }
 
                 return ActionResult.SUCCESS;
@@ -100,7 +103,7 @@ public class BoggedShovelItem extends ShovelItem {
         return ActionResult.PASS;
     }
 
-    private static Block getModeAsBlock(int mode) {
+    public static Block getModeAsBlock(int mode) {
         Block block;
         if (mode == 2) {
             block = Blocks.GRASS_BLOCK;
@@ -214,8 +217,14 @@ public class BoggedShovelItem extends ShovelItem {
 
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-        tooltip.add(Text.literal("Soils: " + getSoilFillings(stack) + "/" + MAX_FILLS));
+        tooltip.add(Text.empty());
         tooltip.add(Text.literal("Mode: ").append(Text.translatable(getModeAsBlock(getMode(stack)).getTranslationKey())));
+        tooltip.add(Text.empty());
+        tooltip.add(Text.translatable("mysticalplantslg.tooltip.bogged_shovel_1").formatted(Formatting.GOLD).formatted(Formatting.BOLD));
+        tooltip.add(Text.translatable("mysticalplantslg.tooltip.bogged_shovel_2"));
+        tooltip.add(Text.empty());
+        tooltip.add(Text.translatable("mysticalplantslg.tooltip.bogged_shovel_3").formatted(Formatting.GOLD).formatted(Formatting.BOLD));
+        tooltip.add(Text.translatable("mysticalplantslg.tooltip.bogged_shovel_4"));
         super.appendTooltip(stack, context, tooltip, type);
     }
 }

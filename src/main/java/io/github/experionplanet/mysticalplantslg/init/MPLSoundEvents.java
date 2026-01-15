@@ -22,6 +22,11 @@ public class MPLSoundEvents {
     public static final SoundEvent SOUL_ESSENCE_POPUP = registerSound("soul_essence_popup");
     public static final SoundEvent FROST_AXE_FROST_LOGS = registerSound("frost_axe_frost_logs");
     public static final SoundEvent FROST_ESSENCE_POPUP = registerSound("frost_essence_popup");
+    public static final SoundEvent SPORE = registerSound("spore");
+    public static final SoundEvent SOUL_HOE_GROWING = registerSound("soul_hoe_growing");
+    public static final SoundEvent BOGGED_ESSENCE_POPUP = registerSound("bogged_essence_popup");
+    public static final SoundEvent VOID_SWORD_EFFECT = registerSound("void_sword_effect");
+    public static final SoundEvent VOID_ESSENCE_POPUP = registerSound("void_essence_popup");
 
     private static SoundEvent registerSound(String id) {
         Identifier identifier = MysticalUtils.newId(id);

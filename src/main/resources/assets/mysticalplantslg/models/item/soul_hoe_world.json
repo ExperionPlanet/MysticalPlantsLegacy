@@ -39,16 +39,16 @@
 		},
 		{
 			"name": "fire",
-			"from": [-0.31066, 8.68934, 8],
-			"to": [8.68934, 18.68934, 8],
-			"rotation": {"angle": 22.5, "axis": "z", "origin": [5.93934, 10.93934, 8]},
+			"from": [1.33727, 8.43712, 8],
+			"to": [7.33727, 14.43712, 8],
+			"rotation": {"angle": 22.5, "axis": "z", "origin": [7.33727, 11.43712, 8]},
 			"faces": {
-				"north": {"uv": [1.5, 0, 6, 5], "texture": "#1"},
-				"east": {"uv": [1.5, 1, 1.5, 4], "texture": "#1"},
-				"south": {"uv": [6, 0, 1.5, 5], "texture": "#1"},
-				"west": {"uv": [10.375, 1, 10.375, 4], "texture": "#1"},
-				"up": {"uv": [5, 1, 1.5, 1], "texture": "#1"},
-				"down": {"uv": [12.125, 1, 8.625, 1], "texture": "#1"}
+				"north": {"uv": [0, 0, 4, 4], "rotation": 90, "texture": "#1"},
+				"east": {"uv": [12.125, 1, 8.625, 1], "rotation": 270, "texture": "#1"},
+				"south": {"uv": [4, 0, 0, 4], "rotation": 270, "texture": "#1"},
+				"west": {"uv": [5, 1, 1.5, 1], "rotation": 270, "texture": "#1"},
+				"up": {"uv": [1.5, 1, 1.5, 4], "rotation": 270, "texture": "#1"},
+				"down": {"uv": [10.375, 1, 10.375, 4], "rotation": 270, "texture": "#1"}
 			}
 		},
 		{

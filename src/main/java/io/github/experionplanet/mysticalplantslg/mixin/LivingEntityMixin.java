@@ -22,7 +22,7 @@ public class LivingEntityMixin {
 
         if (attacker instanceof LivingEntity livingEntity) {
             if (livingEntity.hasStatusEffect(MPLStatusEffects.PROSPERITY)) {
-                res = (int)(((double) res) * (1 + (0.5 * livingEntity.getStatusEffect(MPLStatusEffects.PROSPERITY).getAmplifier())));
+                res = (int)(((double) res) * (1 + (0.25 * livingEntity.getStatusEffect(MPLStatusEffects.PROSPERITY).getAmplifier())));
                 cit.setReturnValue(res);
             }
         }
@@ -53,7 +53,7 @@ public class LivingEntityMixin {
 
         if (selfEntity.hasStatusEffect(MPLStatusEffects.VOID)) {
 
-            float multiplier = (1 + (0.5f * (selfEntity.getStatusEffect(MPLStatusEffects.VOID).getAmplifier() + 1)));
+            float multiplier = (1 + (0.2f * (selfEntity.getStatusEffect(MPLStatusEffects.VOID).getAmplifier() + 1)));
             float total = baseValue * multiplier;
 
             ExperionLogger.Print("BaseValue: " + baseValue);

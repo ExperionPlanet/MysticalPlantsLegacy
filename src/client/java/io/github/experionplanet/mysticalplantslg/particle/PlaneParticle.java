@@ -50,6 +50,14 @@ public class PlaneParticle extends SpriteBillboardParticle {
        return ParticleTextureSheet.PARTICLE_SHEET_OPAQUE;
     }
 
+    @Override
+    protected int getBrightness(float tint) {
+        if (this.isGlowing) {
+            return 0xE000E0;
+        }
+        return super.getBrightness(tint);
+    }
+
     // CREDIT: https://github.com/Superkat32/Explosive-Enhancement/blob/master/src/main/java/net/superkat/explosiveenhancement/particles/normal/BlastWaveParticle.java
     @Override
     public void buildGeometry(VertexConsumer buffer, Camera camera, float ticks) {

@@ -1,0 +1,33 @@
+{
+  "criteria": {
+    "picking_plant_first_time": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#mysticalplantslg:mystical_plants"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "background": "mysticalplantslg:textures/gui/advancement_background.png",
+    "description": {
+      "translate": "advancements.mysticalplantslg.mystical_plants_beginning.desc"
+    },
+    "icon": {
+      "count": 1,
+      "id": "mysticalplantslg:large_exp_mushroom"
+    },
+    "title": {
+      "translate": "advancements.mysticalplantslg.mystical_plants_beginning"
+    }
+  },
+  "requirements": [
+    [
+      "picking_plant_first_time"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

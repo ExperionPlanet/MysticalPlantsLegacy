@@ -15,6 +15,8 @@ import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.damage.DamageTypes;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
@@ -59,6 +61,7 @@ public class VoidStrawflowerBlock extends MysticalPlantBlockWithEntity {
             if (!entity.hasStatusEffect(MPLStatusEffects.ROOTED)) {
                 VoidStrawflowerBlockEntity blockEntity = (VoidStrawflowerBlockEntity) world.getBlockEntity(pos);
                 blockEntity.trapEntity(entity, pos, state, (ServerWorld) world);
+                entity.damage(entity.getDamageSources().magic(), 4.5f);
             }
         }
     }

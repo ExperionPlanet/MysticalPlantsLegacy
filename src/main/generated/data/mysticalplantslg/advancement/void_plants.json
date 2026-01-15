@@ -1,0 +1,33 @@
+{
+  "parent": "mysticalplantslg:mystical_plants_beginning",
+  "criteria": {
+    "found_void_plants": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#mysticalplantslg:void_plants"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.mysticalplantslg.void_plants.desc"
+    },
+    "icon": {
+      "count": 1,
+      "id": "mysticalplantslg:void_mushroom"
+    },
+    "title": {
+      "translate": "advancements.mysticalplantslg.void_plants"
+    }
+  },
+  "requirements": [
+    [
+      "found_void_plants"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

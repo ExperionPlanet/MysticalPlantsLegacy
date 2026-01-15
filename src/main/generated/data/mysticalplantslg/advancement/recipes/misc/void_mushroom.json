@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_bog_cap": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mysticalplantslg:bog_cap"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "mysticalplantslg:void_mushroom"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_bog_cap"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "mysticalplantslg:void_mushroom"
+    ]
+  }
+}

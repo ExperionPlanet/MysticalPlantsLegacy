@@ -1,6 +1,8 @@
 package io.github.experionplanet.mysticalplantslg.items.tool.custom;
 
 import io.github.experionplanet.mysticalplantslg.compat.MPLConfig;
+import io.github.experionplanet.mysticalplantslg.init.MPLParticles;
+import io.github.experionplanet.mysticalplantslg.init.MPLSoundEvents;
 import io.github.experionplanet.mysticalplantslg.utils.ExperionLogger;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.CropBlock;
@@ -10,14 +12,22 @@ import net.minecraft.item.HoeItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.item.ToolMaterial;
+import net.minecraft.item.tooltip.TooltipType;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ColorHelper;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+
+import java.util.List;
 
 import static io.github.experionplanet.mysticalplantslg.init.MPLComponentTypes.SOULS;
 import static io.github.experionplanet.mysticalplantslg.init.MPLBlockProperties.SOUL_NOT_ATTUNED;
@@ -37,6 +47,7 @@ public class SoulHoeItem extends HoeItem {
         return 0;
     }
 
+    /*
     @Override
     public ActionResult useOnBlock(ItemUsageContext context) {
         PlayerEntity player = context.getPlayer();
@@ -68,7 +79,7 @@ public class SoulHoeItem extends HoeItem {
         }
 
         return ActionResult.PASS;
-    }
+    }*/
 
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
@@ -77,7 +88,7 @@ public class SoulHoeItem extends HoeItem {
         if (!world.isClient() && user.isSneaking()) {
             int remaining = getSouls(stack);
 
-            if (remaining > 3) {
+            if (remaining > 1) {
                 boolean consume = false;
                 for (int x = -1; x <= 1; x++) {
                     for (int y = -1; y <= 1; y++) {
@@ -89,6 +100,8 @@ public class SoulHoeItem extends HoeItem {
                                 if (cropBlock.isFertilizable(world, targPos, state)) {
                                     if (cropBlock.canGrow(world, world.getRandom(), targPos, state)) {
                                         cropBlock.grow((ServerWorld) world, world.getRandom(), targPos, state);
+                                        Vec3d v = targPos.toCenterPos();
+                                        ((ServerWorld) world).spawnParticles(ParticleTypes.SCULK_SOUL, v.getX(), v.getY(), v.getZ(), 4, 0.25, 0.25, 0.25, 0);
                                         consume = true;
                                     }
                                 }
@@ -97,7 +110,9 @@ public class SoulHoeItem extends HoeItem {
                     }
                 }
                 if (consume) {
-                    stack.set(SOULS, remaining - 3);
+                    stack.set(SOULS, remaining - 1);
+                    world.playSound(null, user.getX(), user.getY(), user.getZ(), MPLSoundEvents.SOUL_HOE_GROWING, SoundCategory.PLAYERS);
+                    ((ServerWorld) world).spawnParticles(MPLParticles.SOUL_BELL_BLASTWAVE, user.getX(), user.getY() + 0.2d, user.getZ(), 1, 0, 0, 0, 0);
                 }
             }
         }
@@ -149,5 +164,13 @@ public class SoulHoeItem extends HoeItem {
         if (totalFuel > 0) {
             fuel.decrement(totalFuel);
         }
+    }
+
+    @Override
+    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+        tooltip.add(Text.empty());
+        tooltip.add(Text.translatable("mysticalplantslg.tooltip.soul_hoe_1").formatted(Formatting.BOLD).formatted(Formatting.AQUA));
+        tooltip.add(Text.translatable("mysticalplantslg.tooltip.soul_hoe_2"));
+        super.appendTooltip(stack, context, tooltip, type);
     }
 }

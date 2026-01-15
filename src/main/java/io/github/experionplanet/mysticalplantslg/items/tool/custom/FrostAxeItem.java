@@ -42,8 +42,8 @@ public class FrostAxeItem extends AxeItem {
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
         tooltip.add(Text.empty());
-        tooltip.add(Text.literal("Permafrost Timber").formatted(Formatting.AQUA).formatted(Formatting.BOLD));
-        tooltip.add(Text.literal("20% chance to frost nearby logs and instantly break them"));
+        tooltip.add(Text.translatable("mysticalplantslg.tooltip.frost_axe_1"));
+        tooltip.add(Text.translatable("mysticalplantslg.tooltip.frost_axe_2"));
 
         super.appendTooltip(stack, context, tooltip, type);
     }

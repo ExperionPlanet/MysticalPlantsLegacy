@@ -37,7 +37,7 @@ public class  MPLItemGroup {
             itemGroup.add(MPLBlocks.SOUL_POSSESSION_IRIS);
             itemGroup.add(MPLBlocks.SOUL_PITCHER);
             itemGroup.add(MPLBlocks.SOUL_BELL);
-            itemGroup.add(MPLBlocks.VOID_CAP);
+            itemGroup.add(MPLBlocks.VOID_MUSHROOM);
             itemGroup.add(MPLBlocks.SHULKURA);
             itemGroup.add(MPLBlocks.VOID_STRAWFLOWER);
 
@@ -57,15 +57,28 @@ public class  MPLItemGroup {
             itemGroup.add(MPLItems.RAW_MYSTICAL);
             itemGroup.add(MPLItems.MYSTICAL_INGOT);
             itemGroup.add(MPLItems.MYSTICAL_STAR_ESSENCE);
+            itemGroup.add(MPLItems.MYSTICAL_BOTTLE);
+            itemGroup.add(MPLItems.MYSTICAL_SPLASH);
             itemGroup.add(MPLBlocks.MYSTICAL_ORE);
             itemGroup.add(MPLBlocks.DEEPSLATE_MYSTICAL_ORE);
             itemGroup.add(MPLItems.EXP_SPORE);
-            itemGroup.add(MPLItems.SOUL);
-            itemGroup.add(MPLItems.SOUL_POLLEN);
-
             itemGroup.add(MPLItems.PERMAFROST_SNOWFLAKE);
             itemGroup.add(MPLItems.PERMAFROST_SNOWBALL);
             itemGroup.add(MPLBlocks.PERMAFROST_SNOW_BLOCK);
+            itemGroup.add(MPLItems.BOG_CAP);
+            itemGroup.add(MPLItems.BOG_FERTILIZER);
+            itemGroup.add(MPLItems.SOUL);
+            itemGroup.add(MPLItems.SOUL_POLLEN);
+            itemGroup.add(MPLItems.VOID_CAP);
+            itemGroup.add(MPLItems.VOID_ROOT);
+            itemGroup.add(MPLItems.PROSPERITY_POTION);
+            itemGroup.add(MPLItems.PROSPERITY_POTION_LONG);
+            itemGroup.add(MPLItems.FROST_RESISTANCE_POTION);
+            itemGroup.add(MPLItems.PERMAFROST_SPLASH);
+            itemGroup.add(MPLItems.POSSESSION_SPLASH);
+            itemGroup.add(MPLItems.VOID_SPLASH);
+            itemGroup.add(MPLItems.ROOTED_SPLASH);
+
             itemGroup.add(MPLBlocks.PEDESTAL);
 
             if (MPLConfig.show_debug_item) {

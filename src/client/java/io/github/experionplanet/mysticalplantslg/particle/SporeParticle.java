@@ -42,10 +42,7 @@ public class SporeParticle extends PlaneParticle {
         return ParticleTextureSheet.PARTICLE_SHEET_TRANSLUCENT;
     }
 
-    @Override
-    protected int getBrightness(float tint) {
-        return 0xE000E0;
-    }
+
 
     @Environment(EnvType.CLIENT)
     public record Factory<T extends ParticleEffect>(SpriteProvider sprites, float setScale, boolean glow) implements ParticleFactory<T> {

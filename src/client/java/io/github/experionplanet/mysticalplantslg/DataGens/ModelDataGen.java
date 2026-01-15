@@ -7,11 +7,13 @@ import io.github.experionplanet.mysticalplantslg.blocks.custom.VoidStrawflowerBl
 import io.github.experionplanet.mysticalplantslg.init.MPLBlockProperties;
 import io.github.experionplanet.mysticalplantslg.init.MPLBlocks;
 import io.github.experionplanet.mysticalplantslg.init.MPLItems;
+import io.github.experionplanet.mysticalplantslg.utils.MysticalUtils;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.data.client.*;
+import net.minecraft.item.Item;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.util.Identifier;
@@ -41,7 +43,7 @@ public class ModelDataGen extends FabricModelProvider {
         registerBlooming(MPLBlocks.SOUL_PITCHER, gen, true);
         registerSingleModel(MPLBlocks.SOUL_BELL, gen);
 
-        registerMultiShroom(MPLBlocks.VOID_CAP, gen, 5, false);
+        registerMultiShroom(MPLBlocks.VOID_MUSHROOM, gen, 5, false);
         registerShulkura(MPLBlocks.SHULKURA, gen);
         registerBlockShifting(MPLBlocks.VOID_STRAWFLOWER, gen, ModelIds.getBlockSubModelId(MPLBlocks.VOID_STRAWFLOWER, "_0"), ModelIds.getBlockSubModelId(MPLBlocks.VOID_STRAWFLOWER, "_1"), VoidStrawflowerBlock.IS_TRAPPED);
 
@@ -77,7 +79,7 @@ public class ModelDataGen extends FabricModelProvider {
         gen.register(MPLItems.SOUL_POLLEN, Models.GENERATED);
         gen.register(MPLBlocks.SOUL_PITCHER.asItem(), Models.GENERATED);
         gen.register(MPLItems.EXP_SPORE, Models.GENERATED);
-        gen.register(MPLBlocks.VOID_CAP.asItem(), Models.GENERATED);
+        gen.register(MPLBlocks.VOID_MUSHROOM.asItem(), Models.GENERATED);
         gen.register(MPLBlocks.SHULKURA.asItem(), Models.GENERATED);
         gen.register(MPLBlocks.VOID_STRAWFLOWER.asItem(), Models.GENERATED);
         gen.register(MPLBlocks.SOUL_BELL.asItem(), Models.GENERATED);
@@ -86,10 +88,27 @@ public class ModelDataGen extends FabricModelProvider {
         gen.register(MPLItems.RAW_MYSTICAL, Models.GENERATED);
         gen.register(MPLItems.PERMAFROST_SNOWFLAKE, Models.GENERATED);
         gen.register(MPLItems.PERMAFROST_SNOWBALL, Models.GENERATED);
-
+        registerItemSameTextures("prosperity_potion", gen, MPLItems.PROSPERITY_POTION, MPLItems.PROSPERITY_POTION_LONG);
+        gen.register(MPLItems.FROST_RESISTANCE_POTION, Models.GENERATED);
+        gen.register(MPLItems.MYSTICAL_BOTTLE, Models.GENERATED);
+        gen.register(MPLItems.MYSTICAL_SPLASH, Models.GENERATED);
+        gen.register(MPLItems.VOID_SPLASH, Models.GENERATED);
+        gen.register(MPLItems.POSSESSION_SPLASH, Models.GENERATED);
+        gen.register(MPLItems.ROOTED_SPLASH, Models.GENERATED);
+        gen.register(MPLItems.PERMAFROST_SPLASH, Models.GENERATED);
+        gen.register(MPLItems.BOG_CAP, Models.GENERATED);
+        gen.register(MPLItems.BOG_FERTILIZER, Models.GENERATED);
+        gen.register(MPLItems.VOID_CAP, Models.GENERATED);
+        gen.register(MPLItems.VOID_ROOT, Models.GENERATED);
     }
 
-    private void registerBlockShifting(Block block, BlockStateModelGenerator gen, Identifier model0, Identifier model1, BooleanProperty prop) {
+    private static void registerItemSameTextures(String texture, ItemModelGenerator gen, Item... items) {
+        for (Item v : items) {
+            Models.GENERATED.upload(ModelIds.getItemModelId(v), TextureMap.layer0(MysticalUtils.newId("item/" + texture)), gen.writer);
+        }
+    }
+
+    private static void registerBlockShifting(Block block, BlockStateModelGenerator gen, Identifier model0, Identifier model1, BooleanProperty prop) {
 
         gen.blockStateCollector.accept(MultipartBlockStateSupplier.create(block)
                 .with(When.create().set(prop, false), BlockStateVariant.create().put(VariantSettings.MODEL, model0))
@@ -97,11 +116,11 @@ public class ModelDataGen extends FabricModelProvider {
         );
     }
 
-    private void registerSingleModel(Block block, BlockStateModelGenerator gen) {
+    private static void registerSingleModel(Block block, BlockStateModelGenerator gen) {
         gen.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(block, ModelIds.getBlockModelId(block)));
     }
 
-    private void registerBlooming(Block block, BlockStateModelGenerator gen, boolean rotational) {
+    private static void registerBlooming(Block block, BlockStateModelGenerator gen, boolean rotational) {
         Identifier myModel0 = ModelIds.getBlockSubModelId(block, "0");
         Identifier myModel1 = ModelIds.getBlockSubModelId(block, "1");
 
@@ -112,13 +131,13 @@ public class ModelDataGen extends FabricModelProvider {
 
     }
 
-    private void registerVariantRotational(Block block, BlockStateModelGenerator gen) {
+    private static void registerVariantRotational(Block block, BlockStateModelGenerator gen) {
         Identifier myModel = ModelIds.getBlockModelId(block);
 
         gen.blockStateCollector.accept(VariantsBlockStateSupplier.create(block, getRotationalOrNot(myModel, true)));
     }
 
-    private void registerMultiShroom(Block block, BlockStateModelGenerator gen, int capAmount, boolean rotational) {
+    private static void registerMultiShroom(Block block, BlockStateModelGenerator gen, int capAmount, boolean rotational) {
         Identifier mainModel = ModelIds.getBlockModelId(block);
         final IntProperty prop = MPLBlockProperties.CAP_REMAINING;
         MultipartBlockStateSupplier supply = MultipartBlockStateSupplier.create(block).with(
@@ -133,7 +152,7 @@ public class ModelDataGen extends FabricModelProvider {
         gen.blockStateCollector.accept(supply);
     }
 
-    private BlockStateVariant[] getRotationalOrNot(Identifier myModel, boolean on) {
+    private  static BlockStateVariant[] getRotationalOrNot(Identifier myModel, boolean on) {
         if (!on) {
             return new BlockStateVariant[]{BlockStateVariant.create().put(VariantSettings.MODEL, myModel)};
         }
@@ -145,7 +164,7 @@ public class ModelDataGen extends FabricModelProvider {
         };
     }
 
-    private void registerBindingRock(BlockStateModelGenerator gen) {
+    private  static void registerBindingRock(BlockStateModelGenerator gen) {
         Block block = MPLBlocks.BINDING_ROCK;
 
         Identifier model1 = ModelIds.getBlockModelId(block);

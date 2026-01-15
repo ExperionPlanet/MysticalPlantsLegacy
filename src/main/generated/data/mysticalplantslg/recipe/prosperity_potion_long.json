@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "mystical_potions",
+  "ingredients": [
+    {
+      "item": "mysticalplantslg:prosperity_potion"
+    },
+    {
+      "item": "mysticalplantslg:experience_essence"
+    },
+    {
+      "item": "mysticalplantslg:experience_essence"
+    },
+    {
+      "item": "minecraft:experience_bottle"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "mysticalplantslg:prosperity_potion_long"
+  }
+}

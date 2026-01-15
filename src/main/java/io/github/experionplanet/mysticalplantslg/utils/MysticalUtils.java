@@ -2,6 +2,7 @@ package io.github.experionplanet.mysticalplantslg.utils;
 
 import io.github.experionplanet.mysticalplantslg.MPLMain;
 import net.minecraft.block.Block;
+import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
@@ -58,5 +59,9 @@ public class MysticalUtils {
         }
 
         return res;
+    }
+
+    public static StatusEffectInstance copyStatusEffect(StatusEffectInstance from) {
+        return new StatusEffectInstance(from.getEffectType(), from.getDuration(), from.getAmplifier(), from.isAmbient(), from.shouldShowParticles(), from.shouldShowIcon());
     }
 }

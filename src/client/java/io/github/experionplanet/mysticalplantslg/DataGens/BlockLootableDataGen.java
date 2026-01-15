@@ -37,7 +37,10 @@ public class BlockLootableDataGen extends FabricBlockLootTableProvider {
         addDrop(MPLBlocks.DISGUISE_ORCHID);
         addDrop(MPLBlocks.HUNGERBALM);
         addDrop(MPLBlocks.SOUL_PITCHER);
-        addDrop(MPLBlocks.VOID_CAP);
+        addDrop(MPLBlocks.SOUL_BELL);
+        addDrop(MPLBlocks.SOUL_PITCHER);
+        addDrop(MPLBlocks.SOUL_POSSESSION_IRIS);
+        addDrop(MPLBlocks.VOID_STRAWFLOWER);
         addDrop(MPLBlocks.PEDESTAL);
 
         addDrop(MPLBlocks.MYSTICAL_ORE, ore(MPLBlocks.MYSTICAL_ORE, MPLItems.MYSTICAL_DUST, 1, 1));

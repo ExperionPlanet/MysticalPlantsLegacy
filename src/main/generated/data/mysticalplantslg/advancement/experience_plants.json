@@ -1,0 +1,33 @@
+{
+  "parent": "mysticalplantslg:mystical_plants_beginning",
+  "criteria": {
+    "found_experience_plants": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#mysticalplantslg:experience_plants"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.mysticalplantslg.experience_plants.desc"
+    },
+    "icon": {
+      "count": 1,
+      "id": "mysticalplantslg:small_exp_mushrooms"
+    },
+    "title": {
+      "translate": "advancements.mysticalplantslg.experience_plants"
+    }
+  },
+  "requirements": [
+    [
+      "found_experience_plants"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

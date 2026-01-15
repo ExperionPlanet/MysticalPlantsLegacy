@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "mysticalplantslg:void_root"
+    },
+    {
+      "item": "mysticalplantslg:void_root"
+    },
+    {
+      "item": "mysticalplantslg:void_cap"
+    },
+    {
+      "item": "mysticalplantslg:void_cap"
+    },
+    {
+      "item": "mysticalplantslg:void_cap"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "mysticalplantslg:void_mushroom"
+  }
+}

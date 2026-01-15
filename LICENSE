@@ -1,13 +1,16 @@
-1. Code License
+Experion Planet License
+
+1. Definitions
 “Code” refers to all source code that I made
-
-All code in the project is licensed under the "MIT"
-
-2. Asset License (All Rights Reserved)
-“Assets” refers to all non-code content such as:
+"Sounds" refers to all sounds that can be found in "assets/mysticalplantslg/sounds/..."
+"Assets" refers to all non-code content that I made such as:
 - Models
 - Animations
 - Textures
-- Sounds
 
-All assets in the project is licensed under the "All Rights Reserved"
+2. MIT License
+All Code and Sounds in the project is licensed under the "MIT"
+
+3. Asset License
+All Assets in the project is licensed under the "All Rights Reserved"
+

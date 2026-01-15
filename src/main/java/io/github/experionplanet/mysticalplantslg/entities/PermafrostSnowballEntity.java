@@ -52,6 +52,7 @@ public class PermafrostSnowballEntity extends ThrownItemEntity {
     }
 
     @Environment(EnvType.CLIENT)
+    @Override
     public void handleStatus(byte status) { // Also not entirely sure, but probably also has to do with the particles. This method (as well as the previous one) are optional, so if you don't understand, don't include this one.
         if (status == 3) {
             ParticleEffect particleEffect = this.getParticleParameters();

@@ -1,0 +1,33 @@
+{
+  "parent": "mysticalplantslg:mystical_plants_beginning",
+  "criteria": {
+    "found_mystical_dust": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mysticalplantslg:mystical_dust"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.mysticalplantslg.mystical_dust.desc"
+    },
+    "icon": {
+      "count": 1,
+      "id": "mysticalplantslg:mystical_dust"
+    },
+    "title": {
+      "translate": "advancements.mysticalplantslg.mystical_dust"
+    }
+  },
+  "requirements": [
+    [
+      "found_mystical_dust"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

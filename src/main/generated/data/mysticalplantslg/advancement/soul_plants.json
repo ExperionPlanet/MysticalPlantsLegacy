@@ -1,0 +1,33 @@
+{
+  "parent": "mysticalplantslg:mystical_plants_beginning",
+  "criteria": {
+    "found_soul_plants": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#mysticalplantslg:soul_plants"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.mysticalplantslg.soul_plants.desc"
+    },
+    "icon": {
+      "count": 1,
+      "id": "mysticalplantslg:soul_possession_iris"
+    },
+    "title": {
+      "translate": "advancements.mysticalplantslg.soul_plants"
+    }
+  },
+  "requirements": [
+    [
+      "found_soul_plants"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

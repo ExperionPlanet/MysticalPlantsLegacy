@@ -13,6 +13,13 @@ public class MPLItemTags {
     public static final TagKey<Item> SOUL_FILLING = key("soul_filling");
     public static final TagKey<Item> ESSENCES = key("essences");
 
+    public static final TagKey<Item> MYSTICAL_PLANTS = key("mystical_plants");
+    public static final TagKey<Item> EXPERIENCE_PLANTS = key("experience_plants");
+    public static final TagKey<Item> FROST_PLANTS = key("frost_plants");
+    public static final TagKey<Item> BOGGED_PLANTS = key("bogged_plants");
+    public static final TagKey<Item> SOUL_PLANTS = key("soul_plants");
+    public static final TagKey<Item> VOID_PLANTS = key("void_plants");
+
     private static TagKey<Item> cKey(String str) {
         return TagKey.of(RegistryKeys.ITEM, Identifier.of("c",str));
     }

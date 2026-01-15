@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_frost_essence": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mysticalplantslg:frost_essence"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "mysticalplantslg:frost_resistance_potion"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_frost_essence"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "mysticalplantslg:frost_resistance_potion"
+    ]
+  }
+}

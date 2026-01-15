@@ -6,7 +6,7 @@
   "input1":{"item":"mysticalplantslg:bogged_essence"},
   "input2":{"item":"mysticalplantslg:bogged_essence"},
   "input3":{"item":"mysticalplantslg:bogged_essence"},
-  "input4":{"item":"minecraft:mud"},
+  "input4":{"item":"mysticalplantslg:bog_fertilizer"},
   "input5":{"item":"minecraft:vine"},
   "input6":{"item":"minecraft:diamond_shovel"},
   "input7":{"item":"mysticalplantslg:mystical_star_essence"},

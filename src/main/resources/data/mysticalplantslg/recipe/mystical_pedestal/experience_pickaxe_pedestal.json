@@ -1,6 +1,6 @@
 {
   "type":"mysticalplantslg:mystical_pedestal",
-  "last_ingredient":{"item":"minecraft:emerald"},
+  "last_ingredient":{"item":"mysticalplantslg:exp_spore"},
   "binded":{"id":"mysticalplantslg:broken_experience_pickaxe","count":1},
   "result_item":{"id":"mysticalplantslg:experience_pickaxe","count":1},
   "input1":{"item":"mysticalplantslg:experience_essence"},

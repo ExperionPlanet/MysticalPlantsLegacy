@@ -43,7 +43,7 @@ public class MPLBlocks {
     public static final Block SOUL_BELL = register("soul_bell", SoulBellBlock::new, AbstractBlock.Settings.create().sounds(BlockSoundGroup.WET_GRASS).nonOpaque().noCollision().emissiveLighting((state, world, pos) -> true).luminance(value -> 8), true);
 
     // VOID
-    public static final Block VOID_CAP = register("void_cap", VoidCapBlock::new, AbstractBlock.Settings.create().sounds(BlockSoundGroup.BAMBOO_SAPLING).noCollision().nonOpaque(), true);
+    public static final Block VOID_MUSHROOM = register("void_mushroom", VoidMushroomBlock::new, AbstractBlock.Settings.create().sounds(BlockSoundGroup.BAMBOO_SAPLING).noCollision().nonOpaque(), true);
     public static final Block SHULKURA = register("shulkura", ShulkuraBlock::new, AbstractBlock.Settings.create().sounds(BlockSoundGroup.BAMBOO_SAPLING).noCollision().nonOpaque(), true);
     public static final Block VOID_STRAWFLOWER = register("void_strawflower", VoidStrawflowerBlock::new, AbstractBlock.Settings.create().sounds(BlockSoundGroup.BAMBOO_SAPLING).noCollision().nonOpaque(), true);
 

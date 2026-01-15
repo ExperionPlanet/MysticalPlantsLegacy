@@ -1,5 +1,6 @@
 package io.github.experionplanet.mysticalplantslg.init;
 
+import io.github.experionplanet.mysticalplantslg.items.tool.custom.BoggedShovelItem;
 import io.github.experionplanet.mysticalplantslg.mysticalcontents.content.HudProgressItem;
 import io.github.experionplanet.mysticalplantslg.mysticalcontents.MysticalContentsClient;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
@@ -60,7 +61,18 @@ public class MPLProgressHud {
                         FrameHeight * progressHud.frames
                 );
 
+                if (holdingStack.isOf(MPLItems.BOGGED_SHOVEL)) {
+                    if (holdingStack.contains(MPLComponentTypes.SOIL_MODE)) {
+                        ItemStack stack = new ItemStack(BoggedShovelItem.getModeAsBlock(holdingStack.get(MPLComponentTypes.SOIL_MODE)));
+                        matrice.scale(0.5f, 0.5f, 0.5f);
+                        drawContext.drawItem(stack, 31,-15);
+                    }
+
+                }
+
                 matrice.pop();
+
+
             }
         }
     }

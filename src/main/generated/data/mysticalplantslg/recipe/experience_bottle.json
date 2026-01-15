@@ -1,0 +1,38 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "mystical_mats",
+  "ingredients": [
+    {
+      "item": "minecraft:glass_bottle"
+    },
+    {
+      "item": "mysticalplantslg:exp_spore"
+    },
+    {
+      "item": "mysticalplantslg:exp_spore"
+    },
+    {
+      "item": "mysticalplantslg:exp_spore"
+    },
+    {
+      "item": "mysticalplantslg:exp_spore"
+    },
+    {
+      "item": "mysticalplantslg:exp_spore"
+    },
+    {
+      "item": "mysticalplantslg:exp_spore"
+    },
+    {
+      "item": "mysticalplantslg:exp_spore"
+    },
+    {
+      "item": "mysticalplantslg:experience_essence"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:experience_bottle"
+  }
+}

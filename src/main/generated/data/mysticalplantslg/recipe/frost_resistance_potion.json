@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "mystical_potions",
+  "ingredients": [
+    {
+      "item": "mysticalplantslg:mystical_bottle"
+    },
+    {
+      "item": "mysticalplantslg:frost_essence"
+    },
+    {
+      "item": "mysticalplantslg:permafrost_snowflake"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "mysticalplantslg:frost_resistance_potion"
+  }
+}

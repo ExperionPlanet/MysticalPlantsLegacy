@@ -2,7 +2,7 @@
   "multipart": [
     {
       "apply": {
-        "model": "mysticalplantslg:block/void_cap"
+        "model": "mysticalplantslg:block/void_mushroom"
       },
       "when": {
         "cap_remaining": "5"
@@ -10,7 +10,7 @@
     },
     {
       "apply": {
-        "model": "mysticalplantslg:block/void_cap_1"
+        "model": "mysticalplantslg:block/void_mushroom_1"
       },
       "when": {
         "cap_remaining": "4"
@@ -18,7 +18,7 @@
     },
     {
       "apply": {
-        "model": "mysticalplantslg:block/void_cap_2"
+        "model": "mysticalplantslg:block/void_mushroom_2"
       },
       "when": {
         "cap_remaining": "3"
@@ -26,7 +26,7 @@
     },
     {
       "apply": {
-        "model": "mysticalplantslg:block/void_cap_3"
+        "model": "mysticalplantslg:block/void_mushroom_3"
       },
       "when": {
         "cap_remaining": "2"
@@ -34,7 +34,7 @@
     },
     {
       "apply": {
-        "model": "mysticalplantslg:block/void_cap_4"
+        "model": "mysticalplantslg:block/void_mushroom_4"
       },
       "when": {
         "cap_remaining": "1"
@@ -42,7 +42,7 @@
     },
     {
       "apply": {
-        "model": "mysticalplantslg:block/void_cap_5"
+        "model": "mysticalplantslg:block/void_mushroom_5"
       },
       "when": {
         "cap_remaining": "0"

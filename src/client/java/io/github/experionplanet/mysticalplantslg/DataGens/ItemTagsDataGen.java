@@ -1,5 +1,6 @@
 package io.github.experionplanet.mysticalplantslg.DataGens;
 
+import io.github.experionplanet.mysticalplantslg.init.MPLBlocks;
 import io.github.experionplanet.mysticalplantslg.init.MPLItemTags;
 import io.github.experionplanet.mysticalplantslg.init.MPLItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -45,6 +46,54 @@ public class ItemTagsDataGen extends FabricTagProvider<Item> {
                 MPLItems.VOID_ESSENCE,
                 MPLItems.BOGGED_ESSENCE
         );
+        getOrCreateTagBuilder(MPLItemTags.MYSTICAL_PLANTS)
+                .add(
+                        MPLBlocks.SMALL_EXP_MUSHROOMS.asItem(),
+                        MPLBlocks.MEDIUM_EXP_MUSHROOMS.asItem(),
+                        MPLBlocks.LARGE_EXP_MUSHROOMS.asItem(),
+                        MPLBlocks.EXBISCUS.asItem(),
+                        MPLBlocks.BLEEDING_EXP.asItem(),
+                        MPLBlocks.FROST_UMBRELLA_FLOWER.asItem(),
+                        MPLBlocks.PERMAFROST_SHROOM.asItem(),
+                        MPLBlocks.GLACIER_PASSION_FLOWER.asItem(),
+                        MPLBlocks.BOGSPORE_CAP.asItem(),
+                        MPLBlocks.HUNGERBALM.asItem(),
+                        MPLBlocks.DISGUISE_ORCHID.asItem(),
+                        MPLBlocks.SOUL_PITCHER.asItem(),
+                        MPLBlocks.SOUL_BELL.asItem(),
+                        MPLBlocks.SOUL_POSSESSION_IRIS.asItem(),
+                        MPLBlocks.VOID_STRAWFLOWER.asItem(),
+                        MPLBlocks.VOID_MUSHROOM.asItem(),
+                        MPLBlocks.SHULKURA.asItem()
+                )
+        ;
 
+        getOrCreateTagBuilder(MPLItemTags.EXPERIENCE_PLANTS).add(
+                MPLBlocks.SMALL_EXP_MUSHROOMS.asItem(),
+                MPLBlocks.MEDIUM_EXP_MUSHROOMS.asItem(),
+                MPLBlocks.LARGE_EXP_MUSHROOMS.asItem(),
+                MPLBlocks.EXBISCUS.asItem(),
+                MPLBlocks.BLEEDING_EXP.asItem()
+        );
+        getOrCreateTagBuilder(MPLItemTags.FROST_PLANTS).add(
+                MPLBlocks.FROST_UMBRELLA_FLOWER.asItem(),
+                MPLBlocks.PERMAFROST_SHROOM.asItem(),
+                MPLBlocks.GLACIER_PASSION_FLOWER.asItem()
+        );
+        getOrCreateTagBuilder(MPLItemTags.BOGGED_PLANTS).add(
+                MPLBlocks.BOGSPORE_CAP.asItem(),
+                MPLBlocks.HUNGERBALM.asItem(),
+                MPLBlocks.DISGUISE_ORCHID.asItem()
+        );
+        getOrCreateTagBuilder(MPLItemTags.SOUL_PLANTS).add(
+                MPLBlocks.SOUL_PITCHER.asItem(),
+                MPLBlocks.SOUL_BELL.asItem(),
+                MPLBlocks.SOUL_POSSESSION_IRIS.asItem()
+        );
+        getOrCreateTagBuilder(MPLItemTags.VOID_PLANTS).add(
+                MPLBlocks.VOID_STRAWFLOWER.asItem(),
+                MPLBlocks.VOID_MUSHROOM.asItem(),
+                MPLBlocks.SHULKURA.asItem()
+        );
     }
 }

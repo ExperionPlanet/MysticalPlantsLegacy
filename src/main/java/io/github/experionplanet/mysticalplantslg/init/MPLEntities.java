@@ -1,5 +1,6 @@
 package io.github.experionplanet.mysticalplantslg.init;
 
+import io.github.experionplanet.mysticalplantslg.entities.MysticalSplashEntity;
 import io.github.experionplanet.mysticalplantslg.entities.PermafrostSnowballEntity;
 import io.github.experionplanet.mysticalplantslg.entities.SoulZombieEntity;
 import io.github.experionplanet.mysticalplantslg.entities.SporeEntity;
@@ -15,7 +16,7 @@ public class MPLEntities {
     public static final EntityType<SporeEntity> SPORES = Registry.register(
             Registries.ENTITY_TYPE,
             MysticalUtils.newId("spores"),
-            EntityType.Builder.create(SporeEntity::new, SpawnGroup.MISC).dimensions(1.5f, 0.5f).build("spores")
+            EntityType.Builder.<SporeEntity>create(SporeEntity::new, SpawnGroup.MISC).dimensions(2f, 0.5f).build("spores")
     );
 
     public static final EntityType<SoulZombieEntity> SOUL_ZOMBIE = Registry.register(
@@ -29,9 +30,14 @@ public class MPLEntities {
             MysticalUtils.newId("permafrost_snowball"),
             EntityType.Builder.<PermafrostSnowballEntity>create(PermafrostSnowballEntity::new, SpawnGroup.MISC)
                     .dimensions(0.25f, 0.25f)
-                    .trackingTickInterval(4)
-
                     .build("permafrost_snowball")
+    );
+    public static final EntityType<MysticalSplashEntity> MYSTICAL_SPLASH = Registry.register(
+            Registries.ENTITY_TYPE,
+            MysticalUtils.newId("mystical_splash"),
+            EntityType.Builder.<MysticalSplashEntity>create(MysticalSplashEntity::new, SpawnGroup.MISC)
+                    .dimensions(0.25f, 0.25f)
+                    .build("mystical_splash")
     );
 
     public static void init() {}

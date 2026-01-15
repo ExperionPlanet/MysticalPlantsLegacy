@@ -47,8 +47,8 @@ public class ExperiencePickaxeItem extends PickaxeItem {
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
         tooltip.add(Text.empty());
-        tooltip.add(Text.literal("Exp Bursts").formatted(Formatting.GREEN).formatted(Formatting.BOLD));
-        tooltip.add(Text.literal("When bar is full, Right-Click to burst out the ").append(Text.literal("E").formatted(Formatting.GREEN).formatted(Formatting.BOLD)).append(Text.literal("X").formatted(Formatting.YELLOW).formatted(Formatting.BOLD)).append(Text.literal("P").formatted(Formatting.GREEN).formatted(Formatting.BOLD)));
+        tooltip.add(Text.translatable("mysticalplantslg.tooltip.experience_pickaxe_1").formatted(Formatting.GREEN).formatted(Formatting.BOLD));
+        tooltip.add(Text.translatable("mysticalplantslg.tooltip.experience_pickaxe_2"));
 
         super.appendTooltip(stack, context, tooltip, type);
     }

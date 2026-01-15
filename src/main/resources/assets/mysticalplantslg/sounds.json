@@ -62,6 +62,12 @@
       "mysticalplantslg:soul_essence_popup"
     ]
   },
+  "bogged_essence_popup": {
+    "subtitle": "sound.mysticalplantslg.bogged_essence_popup",
+    "sounds": [
+      "mysticalplantslg:bogged_essence_popup"
+    ]
+  },
   "frost_essence_popup": {
     "subtitle": "sound.mysticalplantslg.frost_essence_popup",
     "sounds": [
@@ -98,6 +104,30 @@
       "mysticalplantslg:frost_axe_frost_logs1",
       "mysticalplantslg:frost_axe_frost_logs2",
       "mysticalplantslg:frost_axe_frost_logs3"
+    ]
+  },
+  "spore": {
+    "subtitle": "sound.mysticalplantslg.spore",
+    "sounds": [
+      "mysticalplantslg:spore1",
+      "mysticalplantslg:spore2",
+      "mysticalplantslg:spore3"
+    ]
+  },
+  "soul_hoe_growing": {
+    "subtitle": "sound.mysticalplantslg.soul_hoe_growing",
+    "sounds": [
+      "mysticalplantslg:soul_hoe_growing1",
+      "mysticalplantslg:soul_hoe_growing2",
+      "mysticalplantslg:soul_hoe_growing3"
+    ]
+  },
+  "void_sword_effect": {
+    "subtitle": "sound.mysticalplantslg.void_sword_effect",
+    "sounds": [
+      "mysticalplantslg:void_sword_effect1",
+      "mysticalplantslg:void_sword_effect2",
+      "mysticalplantslg:void_sword_effect3"
     ]
   }
 }
