@@ -1,0 +1,35 @@
+{
+  "parent": "mysticalplantslg:experience_plants",
+  "criteria": {
+    "obtain_experience_essence": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mysticalplantslg:experience_essence"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.mysticalplantslg.experience_essence.desc"
+    },
+    "frame": "goal",
+    "hidden": true,
+    "icon": {
+      "count": 1,
+      "id": "mysticalplantslg:experience_essence"
+    },
+    "title": {
+      "translate": "advancements.mysticalplantslg.experience_essence"
+    }
+  },
+  "requirements": [
+    [
+      "obtain_experience_essence"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -22,9 +22,8 @@ repositories {
 		url = "https://maven.terraformersmc.com/"
 	}
 
-	maven {
-		url = "https://maven.midnightdust.eu/releases"
-	}
+	maven { url "https://maven.shedaniel.me" }
+
 
 }
 
@@ -55,9 +54,8 @@ dependencies {
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 	modImplementation "maven.modrinth:jade:${project.jade_version}"
-	modImplementation "com.terraformersmc:modmenu:${project.modmenu_version}"
-	modImplementation("eu.midnightdust:midnightlib:${project.midnightlib_version}")
-	include("eu.midnightdust:midnightlib:${project.midnightlib_version}")
+
+	modCompileOnly ("me.shedaniel:RoughlyEnoughItems-fabric:16.0.799")
 }
 
 

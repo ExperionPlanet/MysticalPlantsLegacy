@@ -163,5 +163,38 @@ public class TranslateDataGen extends FabricLanguageProvider {
         advTr.trBase("mystical_dust", "Dust");
         advTr.trBase("mystical_dust.desc", "Find mystical dust ore in caves");
 
+        advTr.trBase("mystical_star_essence", "Shiny purple star");
+        advTr.trBase("mystical_star_essence.desc", "Craft Mystical Star Essence");
+
+        advTr.trBase("experience_pickaxe", "Free exp while mining ores");
+        advTr.trBase("experience_pickaxe.desc", "Craft Experience Pickaxe");
+
+        advTr.trBase("frost_axe", "Freeze them up!");
+        advTr.trBase("frost_axe.desc", "Craft Frost Axe");
+
+        advTr.trBase("bogged_shovel", "Dirt shovel...");
+        advTr.trBase("bogged_shovel.desc", "Craft Bogged Shovel");
+
+        advTr.trBase("soul_hoe", "These souls helping my farms");
+        advTr.trBase("soul_hoe.desc", "Craft Soul Hoe");
+
+        advTr.trBase("void_sword", "V O I D");
+        advTr.trBase("void_sword.desc", "Craft Void Sword");
+
+        advTr.trBase("experience_essence", "ExperionPlanet (Creator of the mod)");
+        advTr.trBase("experience_essence.desc", "Obtain Experience Essence. Can be obtained from exbiscus when it's ready to harvest. Also the plant itself is farmable");
+
+        advTr.trBase("frost_essence", "Chilly aura");
+        advTr.trBase("frost_essence.desc", "Obtain Frost Essence. Can be obtained from glacier passion flower when it's ready to harvest. Also the plant itself is farmable");
+
+        advTr.trBase("bogged_essence", "You mean dirt essence?");
+        advTr.trBase("bogged_essence.desc", "Obtain Bogged Essence. Can be obtained from Hungerbalm when it's ready to harvest. Requires Bog Fertilizer to make the hungerbalm grow again.");
+
+        advTr.trBase("soul_essence", "Floating soul");
+        advTr.trBase("soul_essence.desc", "Obtain Soul Essence. Can be obtained from Soul Bell. Requires Soul Pollen to start a bell");
+
+        advTr.trBase("void_essence", "Purple & Golden ring");
+        advTr.trBase("void_essence.desc", "Obtain Void Essence. Can be obtained from Void Strawflower by simply stepping on them, it'll break itself but they rarely drop this.");
+
     }
 }

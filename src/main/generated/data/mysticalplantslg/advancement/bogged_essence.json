@@ -1,0 +1,34 @@
+{
+  "parent": "mysticalplantslg:bogged_plants",
+  "criteria": {
+    "obtain_bogged_essence": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mysticalplantslg:bogged_essence"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.mysticalplantslg.bogged_essence.desc"
+    },
+    "frame": "goal",
+    "icon": {
+      "count": 1,
+      "id": "mysticalplantslg:bogged_essence"
+    },
+    "title": {
+      "translate": "advancements.mysticalplantslg.bogged_essence"
+    }
+  },
+  "requirements": [
+    [
+      "obtain_bogged_essence"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

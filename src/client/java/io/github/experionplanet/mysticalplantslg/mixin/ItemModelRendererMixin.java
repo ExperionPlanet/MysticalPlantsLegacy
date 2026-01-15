@@ -1,7 +1,6 @@
 package io.github.experionplanet.mysticalplantslg.mixin;
 
 import com.llamalad7.mixinextras.sugar.Local;
-import io.github.experionplanet.mysticalplantslg.compat.MPLConfig;
 import io.github.experionplanet.mysticalplantslg.mysticalcontents.MysticalHoldableContentClient;
 import net.minecraft.client.render.item.ItemModels;
 import net.minecraft.client.render.item.ItemRenderer;
@@ -35,6 +34,7 @@ public abstract class ItemModelRendererMixin {
     public BakedModel renderItem(BakedModel bakedModel, @Local(argsOnly = true) ItemStack stack, @Local(argsOnly = true) ModelTransformationMode renderMode) {
         Identifier id = Registries.ITEM.getId(stack.getItem());
         if (MysticalHoldableContentClient.ITEM_3D_ABLE.containsKey(id)) {
+            /*
             if (MPLConfig.tool_model_type == MPLConfig.TOOL_MODEL_TYPE.DEFAULT) {
                 if (renderMode == ModelTransformationMode.GUI || renderMode == ModelTransformationMode.GROUND) {
                     return getModels().getModelManager().getModel(ModelIdentifier.ofInventoryVariant(id));
@@ -47,8 +47,12 @@ public abstract class ItemModelRendererMixin {
                 } else if (MPLConfig.tool_model_type == MPLConfig.TOOL_MODEL_TYPE.OPTION3) {
 
                 }return getModels().getModelManager().getModel(ModelIdentifier.ofInventoryVariant(MysticalHoldableContentClient.ITEM_3D_ABLE.get(id)));
+            }*/
+            if (renderMode == ModelTransformationMode.GUI || renderMode == ModelTransformationMode.GROUND) {
+                return getModels().getModelManager().getModel(ModelIdentifier.ofInventoryVariant(id));
+            }else if (renderMode == ModelTransformationMode.FIXED) {
+                return getModels().getModelManager().getModel(ModelIdentifier.ofInventoryVariant(MysticalHoldableContentClient.ITEM_3D_ABLE.get(id)));
             }
-
         }
         return bakedModel;
     }

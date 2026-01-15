@@ -48,7 +48,7 @@ public class AdvancementDataGen extends FabricAdvancementProvider {
 
         AdvancementBuilder builder = new AdvancementBuilder(consumer);
 
-        builder.create(
+        AdvancementEntry ExperiencePlants = builder.create(
                 MPLBlocks.SMALL_EXP_MUSHROOMS.asItem(),
                 "experience_plants",
                 Beginning,
@@ -59,7 +59,7 @@ public class AdvancementDataGen extends FabricAdvancementProvider {
                 "found_experience_plants",
                 invCriterion(ItemPredicate.Builder.create().tag(MPLItemTags.EXPERIENCE_PLANTS).build())
         );
-        builder.create(
+        AdvancementEntry FrostPlants = builder.create(
                 MPLBlocks.GLACIER_PASSION_FLOWER.asItem(),
                 "frost_plants",
                 Beginning,
@@ -70,7 +70,7 @@ public class AdvancementDataGen extends FabricAdvancementProvider {
                 "found_frost_plants",
                 invCriterion(ItemPredicate.Builder.create().tag(MPLItemTags.FROST_PLANTS).build())
         );
-        builder.create(
+        AdvancementEntry BoggedPlants = builder.create(
                 MPLBlocks.BOGSPORE_CAP.asItem(),
                 "bogged_plants",
                 Beginning,
@@ -81,7 +81,7 @@ public class AdvancementDataGen extends FabricAdvancementProvider {
                 "found_bogged_plants",
                 invCriterion(ItemPredicate.Builder.create().tag(MPLItemTags.BOGGED_PLANTS).build())
         );
-        builder.create(
+        AdvancementEntry SoulPlants = builder.create(
                 MPLBlocks.SOUL_POSSESSION_IRIS.asItem(),
                 "soul_plants",
                 Beginning,
@@ -92,7 +92,7 @@ public class AdvancementDataGen extends FabricAdvancementProvider {
                 "found_soul_plants",
                 invCriterion(ItemPredicate.Builder.create().tag(MPLItemTags.SOUL_PLANTS).build())
         );
-        builder.create(
+        AdvancementEntry VoidPlants = builder.create(
                 MPLBlocks.VOID_MUSHROOM.asItem(),
                 "void_plants",
                 Beginning,
@@ -103,8 +103,65 @@ public class AdvancementDataGen extends FabricAdvancementProvider {
                 "found_void_plants",
                 invCriterion(ItemPredicate.Builder.create().tag(MPLItemTags.VOID_PLANTS).build())
         );
-
+        // Obtain Essences
         builder.create(
+                MPLItems.EXPERIENCE_ESSENCE,
+                "experience_essence",
+                ExperiencePlants,
+                true,
+                true,
+                false,
+                AdvancementFrame.TASK,
+                "obtain_experience_essence",
+                invCriterion(MPLItems.EXPERIENCE_ESSENCE)
+        );
+        builder.create(
+                MPLItems.FROST_ESSENCE,
+                "frost_essence",
+                FrostPlants,
+                true,
+                true,
+                false,
+                AdvancementFrame.TASK,
+                "obtain_frost_essence",
+                invCriterion(MPLItems.FROST_ESSENCE)
+        );
+        builder.create(
+                MPLItems.BOGGED_ESSENCE,
+                "bogged_essence",
+                BoggedPlants,
+                true,
+                true,
+                false,
+                AdvancementFrame.TASK,
+                "obtain_bogged_essence",
+                invCriterion(MPLItems.BOGGED_ESSENCE)
+        );
+        builder.create(
+                MPLItems.SOUL_ESSENCE,
+                "soul_essence",
+                SoulPlants,
+                true,
+                true,
+                false,
+                AdvancementFrame.TASK,
+                "obtain_soul_essence",
+                invCriterion(MPLItems.SOUL_ESSENCE)
+        );
+        builder.create(
+                MPLItems.VOID_ESSENCE,
+                "void_essence",
+                VoidPlants,
+                true,
+                true,
+                false,
+                AdvancementFrame.TASK,
+                "obtain_void_essence",
+                invCriterion(MPLItems.VOID_ESSENCE)
+        );
+
+        // Crafting Mystical Tools
+        AdvancementEntry MysticalDust = builder.create(
                 MPLItems.MYSTICAL_DUST.asItem(),
                 "mystical_dust",
                 Beginning,
@@ -115,6 +172,79 @@ public class AdvancementDataGen extends FabricAdvancementProvider {
                 "found_mystical_dust",
                 invCriterion(MPLItems.MYSTICAL_DUST)
         );
+
+        AdvancementEntry StarEssence = builder.create(
+                MPLItems.MYSTICAL_STAR_ESSENCE.asItem(),
+                "mystical_star_essence",
+                MysticalDust,
+                true,
+                true,
+                false,
+                AdvancementFrame.CHALLENGE,
+                "craft_mystical_star_essence",
+                invCriterion(MPLItems.MYSTICAL_STAR_ESSENCE)
+        );
+
+        builder.create(
+                MPLItems.EXPERIENCE_PICKAXE.asItem(),
+                "experience_pickaxe",
+                StarEssence,
+                true,
+                true,
+                false,
+                AdvancementFrame.CHALLENGE,
+                "craft_experience_pickaxe",
+                invCriterion(MPLItems.EXPERIENCE_PICKAXE)
+        );
+
+        builder.create(
+                MPLItems.FROST_AXE.asItem(),
+                "frost_axe",
+                StarEssence,
+                true,
+                true,
+                false,
+                AdvancementFrame.CHALLENGE,
+                "craft_frost_axe",
+                invCriterion(MPLItems.FROST_AXE)
+        );
+
+        builder.create(
+                MPLItems.BOGGED_SHOVEL.asItem(),
+                "bogged_shovel",
+                StarEssence,
+                true,
+                true,
+                false,
+                AdvancementFrame.CHALLENGE,
+                "craft_bogged_shovel",
+                invCriterion(MPLItems.BOGGED_SHOVEL)
+        );
+
+        builder.create(
+                MPLItems.SOUL_HOE.asItem(),
+                "soul_hoe",
+                StarEssence,
+                true,
+                true,
+                false,
+                AdvancementFrame.CHALLENGE,
+                "craft_soul_hoe",
+                invCriterion(MPLItems.SOUL_HOE)
+        );
+
+        builder.create(
+                MPLItems.VOID_SWORD.asItem(),
+                "void_sword",
+                StarEssence,
+                true,
+                true,
+                false,
+                AdvancementFrame.CHALLENGE,
+                "craft_void_sword",
+                invCriterion(MPLItems.VOID_SWORD)
+        );
+
     }
 
     private static AdvancementCriterion<InventoryChangedCriterion.Conditions> invCriterion(ItemConvertible... itemPredicates) {

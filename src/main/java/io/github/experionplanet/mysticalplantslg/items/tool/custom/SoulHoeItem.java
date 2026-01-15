@@ -1,23 +1,19 @@
 package io.github.experionplanet.mysticalplantslg.items.tool.custom;
 
-import io.github.experionplanet.mysticalplantslg.compat.MPLConfig;
 import io.github.experionplanet.mysticalplantslg.init.MPLParticles;
 import io.github.experionplanet.mysticalplantslg.init.MPLSoundEvents;
 import io.github.experionplanet.mysticalplantslg.utils.ExperionLogger;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.CropBlock;
-import net.minecraft.block.FarmlandBlock;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.HoeItem;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemUsageContext;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.text.Text;
-import net.minecraft.util.ActionResult;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
@@ -30,7 +26,6 @@ import net.minecraft.world.World;
 import java.util.List;
 
 import static io.github.experionplanet.mysticalplantslg.init.MPLComponentTypes.SOULS;
-import static io.github.experionplanet.mysticalplantslg.init.MPLBlockProperties.SOUL_NOT_ATTUNED;
 
 public class SoulHoeItem extends HoeItem {
     public static final int MAX_SOULS = 50;
@@ -122,7 +117,7 @@ public class SoulHoeItem extends HoeItem {
 
     @Override
     public boolean isItemBarVisible(ItemStack stack) {
-        if (getSouls(stack) > 0 && MPLConfig.show_fillings_durability) {
+        if (getSouls(stack) > 0) {
             return true;
         }
         return super.isItemBarVisible(stack);
@@ -131,7 +126,7 @@ public class SoulHoeItem extends HoeItem {
     @Override
     public int getItemBarStep(ItemStack stack) {
         int curr = getSouls(stack);
-        if (curr > 0 && MPLConfig.show_fillings_durability) {
+        if (curr > 0) {
             return MathHelper.clamp(Math.round(13.0F - (float)(MAX_SOULS - curr) * 13.0F / (float) MAX_SOULS), 0, 13);
         }
         return super.getItemBarStep(stack);
@@ -139,7 +134,7 @@ public class SoulHoeItem extends HoeItem {
 
     @Override
     public int getItemBarColor(ItemStack stack) {
-        if (getSouls(stack) > 0 && MPLConfig.show_fillings_durability) {
+        if (getSouls(stack) > 0) {
             return ColorHelper.Argb.getArgb(75,246,242);
         }
         return super.getItemBarColor(stack);

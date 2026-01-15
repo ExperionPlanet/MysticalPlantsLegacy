@@ -1,8 +1,6 @@
 package io.github.experionplanet.mysticalplantslg;
 
 import com.mojang.serialization.JsonOps;
-import eu.midnightdust.lib.config.MidnightConfig;
-import io.github.experionplanet.mysticalplantslg.compat.MPLConfig;
 import io.github.experionplanet.mysticalplantslg.entities.SoulZombieEntity;
 import io.github.experionplanet.mysticalplantslg.init.*;
 import io.github.experionplanet.mysticalplantslg.mysticalcontent.MysticalContents;
@@ -60,7 +58,6 @@ public class MPLMain implements ModInitializer {
 			ExperionLogger.Print("Development Enviroment Detected!");
 		}
 
-		MPLConfig.init(MOD_ID, MPLConfig.class);
 
 		ExperionLogger.Print("Fully Initiated!");
 	}

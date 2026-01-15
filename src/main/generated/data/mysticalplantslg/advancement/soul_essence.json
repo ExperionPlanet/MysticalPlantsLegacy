@@ -1,0 +1,34 @@
+{
+  "parent": "mysticalplantslg:soul_plants",
+  "criteria": {
+    "obtain_soul_essence": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mysticalplantslg:soul_essence"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.mysticalplantslg.soul_essence.desc"
+    },
+    "frame": "goal",
+    "icon": {
+      "count": 1,
+      "id": "mysticalplantslg:soul_essence"
+    },
+    "title": {
+      "translate": "advancements.mysticalplantslg.soul_essence"
+    }
+  },
+  "requirements": [
+    [
+      "obtain_soul_essence"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

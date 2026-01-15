@@ -27,8 +27,8 @@
 		"jade": [
 			"io.github.experionplanet.mysticalplantslg.compat.MPLJade"
 		],
-		"modmenu": [
-			"io.github.experionplanet.mysticalplantslg.compat.MPLModMenu"
+		"rei_client": [
+			"io.github.experionplanet.mysticalplantslg.compat.MPLReiPlugin"
 		]
 	},
 	"mixins": [
@@ -44,7 +44,5 @@
 		"java": ">=21",
 		"fabric-api": "*"
 	},
-	"suggests": {
-		"another-mod": "*"
-	}
+	"suggests": {}
 }

@@ -1,0 +1,34 @@
+{
+  "parent": "mysticalplantslg:mystical_star_essence",
+  "criteria": {
+    "craft_bogged_shovel": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mysticalplantslg:bogged_shovel"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.mysticalplantslg.bogged_shovel.desc"
+    },
+    "frame": "challenge",
+    "icon": {
+      "count": 1,
+      "id": "mysticalplantslg:bogged_shovel"
+    },
+    "title": {
+      "translate": "advancements.mysticalplantslg.bogged_shovel"
+    }
+  },
+  "requirements": [
+    [
+      "craft_bogged_shovel"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

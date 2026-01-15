@@ -1,6 +1,5 @@
 package io.github.experionplanet.mysticalplantslg.init;
 
-import io.github.experionplanet.mysticalplantslg.compat.MPLConfig;
 import io.github.experionplanet.mysticalplantslg.utils.MysticalUtils;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
@@ -81,6 +80,7 @@ public class  MPLItemGroup {
 
             itemGroup.add(MPLBlocks.PEDESTAL);
 
+            /*
             if (MPLConfig.show_debug_item) {
                 itemGroup.add(MPLBlocks.PERMAFROSTED_LOG);
                 itemGroup.add(MPLItems.BROKEN_EXPERIENCE_PICKAXE);
@@ -90,7 +90,7 @@ public class  MPLItemGroup {
                 itemGroup.add(MPLItems.BROKEN_VOID_SWORD);
                 itemGroup.add(MPLItems.GUIDE_BOOK);
                 itemGroup.add(MPLBlocks.BINDING_ROCK);
-            }
+            }*/
         });
     }
 }

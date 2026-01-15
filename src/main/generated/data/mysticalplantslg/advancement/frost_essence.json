@@ -1,0 +1,34 @@
+{
+  "parent": "mysticalplantslg:frost_plants",
+  "criteria": {
+    "obtain_frost_essence": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mysticalplantslg:frost_essence"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.mysticalplantslg.frost_essence.desc"
+    },
+    "frame": "goal",
+    "icon": {
+      "count": 1,
+      "id": "mysticalplantslg:frost_essence"
+    },
+    "title": {
+      "translate": "advancements.mysticalplantslg.frost_essence"
+    }
+  },
+  "requirements": [
+    [
+      "obtain_frost_essence"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

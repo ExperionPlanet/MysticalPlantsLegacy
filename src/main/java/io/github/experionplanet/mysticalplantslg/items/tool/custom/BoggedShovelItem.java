@@ -1,8 +1,6 @@
 package io.github.experionplanet.mysticalplantslg.items.tool.custom;
 
-import io.github.experionplanet.mysticalplantslg.compat.MPLConfig;
 import io.github.experionplanet.mysticalplantslg.init.MPLBlockTags;
-import io.github.experionplanet.mysticalplantslg.init.MPLComponentTypes;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -190,7 +188,7 @@ public class BoggedShovelItem extends ShovelItem {
 
     @Override
     public int getItemBarColor(ItemStack stack) {
-        if (getSoilFillings(stack) > 0 && MPLConfig.show_fillings_durability) {
+        if (getSoilFillings(stack) > 0) {
             return ColorHelper.Argb.getArgb(137, 101, 77);
         }
         return super.getItemBarColor(stack);
@@ -198,7 +196,7 @@ public class BoggedShovelItem extends ShovelItem {
 
     @Override
     public boolean isItemBarVisible(ItemStack stack) {
-        if (getSoilFillings(stack) > 0 && MPLConfig.show_fillings_durability) {
+        if (getSoilFillings(stack) > 0) {
             return true;
         }
         return super.isItemBarVisible(stack);
@@ -208,7 +206,7 @@ public class BoggedShovelItem extends ShovelItem {
     public int getItemBarStep(ItemStack stack) {
         int curr = getSoilFillings(stack);
 
-        if (curr > 0 && MPLConfig.show_fillings_durability) {
+        if (curr > 0) {
             return MathHelper.clamp(Math.round(13.0F - (float)(MAX_FILLS - curr) * 13.0F / (float) MAX_FILLS), 0, 13);
         }
 

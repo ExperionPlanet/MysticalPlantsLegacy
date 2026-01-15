@@ -1,0 +1,34 @@
+{
+  "parent": "mysticalplantslg:mystical_star_essence",
+  "criteria": {
+    "craft_frost_axe": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mysticalplantslg:frost_axe"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.mysticalplantslg.frost_axe.desc"
+    },
+    "frame": "challenge",
+    "icon": {
+      "count": 1,
+      "id": "mysticalplantslg:frost_axe"
+    },
+    "title": {
+      "translate": "advancements.mysticalplantslg.frost_axe"
+    }
+  },
+  "requirements": [
+    [
+      "craft_frost_axe"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

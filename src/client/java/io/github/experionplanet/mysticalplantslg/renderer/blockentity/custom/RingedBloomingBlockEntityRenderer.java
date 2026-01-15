@@ -1,6 +1,5 @@
 package io.github.experionplanet.mysticalplantslg.renderer.blockentity.custom;
 
-import io.github.experionplanet.mysticalplantslg.compat.MPLConfig;
 import io.github.experionplanet.mysticalplantslg.init.MPLEntityModelLayers;
 import io.github.experionplanet.mysticalplantslg.blocks.entity.custom.BloomingFlowerBlockEntity;
 import io.github.experionplanet.mysticalplantslg.entitymodel.models.SquarePlaneModel;
@@ -38,7 +37,7 @@ public class RingedBloomingBlockEntityRenderer implements BlockEntityRenderer<Bl
         SnowableBlockEntityRenderer.render(entity, matrices, vertexConsumers, light, overlay, rendManager);
 
         if (entity.getCachedState().get(MPLBlockProperties.BLOOMING)) {
-            if (MPLConfig.show_flower_rings) {
+            if (true) { // MPLConfig.show_flower_rings
                 RingedBloomingContent content;
                 if (entity.CONTENT_TYPE.equals("null")) {
                     entity.CONTENT_TYPE = Registries.BLOCK.getId(entity.getCachedState().getBlock()).getPath();
@@ -59,7 +58,7 @@ public class RingedBloomingBlockEntityRenderer implements BlockEntityRenderer<Bl
                 double FloatNum = 0;
                 float angle = 0;
 
-                if (MPLConfig.animated_rings) {
+                if (true) { // MPLConfig.animated_rings
                     Random selfRand = Random.create(entity.getPos().asLong());
 
                     float offsetAnim = MysticalUtils.floatInRange(selfRand, 0, 199);
