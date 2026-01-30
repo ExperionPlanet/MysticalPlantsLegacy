@@ -2,6 +2,7 @@ package io.github.experionplanet.mysticalplantslg;
 
 import io.github.experionplanet.mysticalplantslg.init.*;
 import io.github.experionplanet.mysticalplantslg.mysticalcontents.MysticalContentsClient;
+import io.github.experionplanet.mysticalplantslg.mysticalcontents.MysticalHoldableContentClient;
 import io.github.experionplanet.mysticalplantslg.particle.BasicMysticalParticle;
 import io.github.experionplanet.mysticalplantslg.particle.ParticleCreator;
 import io.github.experionplanet.mysticalplantslg.particle.PlaneParticle;
@@ -12,6 +13,7 @@ import io.github.experionplanet.mysticalplantslg.utils.ExperionLogger;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
+import net.fabricmc.fabric.api.client.model.loading.v1.ModelLoadingPlugin;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.particle.ParticleTextureSheet;
@@ -19,6 +21,8 @@ import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
 import net.minecraft.client.render.entity.EmptyEntityRenderer;
 import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
+import net.minecraft.client.util.ModelIdentifier;
+import net.minecraft.util.Identifier;
 
 public class MPLClient implements ClientModInitializer {
 	@Override
@@ -54,9 +58,19 @@ public class MPLClient implements ClientModInitializer {
 		particle();
 		entities();
 
-		ItemTooltipCallback.EVENT.register((itemStack, tooltipContext, tooltipType, list) -> {
 
-		});
+		/*
+		ModelLoadingPlugin.register(context -> {
+
+			for (Identifier v : MysticalHoldableContentClient.ITEM_3D_ABLE.valueColl()) {
+				context.addModels(v.withPrefixedPath("item/"));
+				ExperionLogger.Print(v.toString());
+				ExperionLogger.Print("item/" + v.getPath());
+				//context.addModels(v);
+			}
+		});*/
+
+
 
 		ExperionLogger.Print("Client Initiated");
 

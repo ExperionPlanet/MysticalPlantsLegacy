@@ -1,8 +1,8 @@
-// 1.21.1	2026-01-30T00:32:56.2279268	Mystical Plants Legacy/Block Loot Tables
+// 1.21.1	2026-01-30T17:57:52.8757934	Mystical Plants Legacy/Block Loot Tables
 16ac22bcb2dbf1ff45b469086c20e9f5918c391c data\mysticalplantslg\loot_table\blocks\glacier_passion_flower.json
 88cfaf4ac13b7a4ea6ab42df7856175dabbcc6b0 data\mysticalplantslg\loot_table\blocks\permafrost_snow_block.json
-7f1c9b5522a6ed7c6326fe4862685f652c226bd0 data\mysticalplantslg\loot_table\blocks\small_exp_mushrooms.json
 81c785927c47377518109cd8d3bed8cc20424313 data\mysticalplantslg\loot_table\blocks\binding_rock.json
+7f1c9b5522a6ed7c6326fe4862685f652c226bd0 data\mysticalplantslg\loot_table\blocks\small_exp_mushrooms.json
 5f477e7881197f95b53df5b8ade32b0b50fd8165 data\mysticalplantslg\loot_table\blocks\large_exp_mushroom.json
 029ada3a6a7badf8b4010701a4618710037c4ff8 data\mysticalplantslg\loot_table\blocks\bogspore_cap.json
 3fba3b3f68f879adf38cadac3bc38621d727b039 data\mysticalplantslg\loot_table\blocks\exbiscus.json

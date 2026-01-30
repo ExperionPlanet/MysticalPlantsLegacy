@@ -87,7 +87,7 @@ public class PedestalBlock extends BlockWithEntity {
 
                 if (!stack.isEmpty()) {
                     blockEntity.setStack(stack.copyWithCount(1));
-                    stack.decrement(1);
+                    stack.decrementUnlessCreative(1, player);
                     succ = true;
                 }
 
