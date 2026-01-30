@@ -1,4 +1,4 @@
-// 1.21.1	2026-01-30T17:57:52.87429	Mystical Plants Legacy/Model Definitions
+// 1.21.1	2026-01-30T20:18:21.8228084	Mystical Plants Legacy/Model Definitions
 c10011acb48451c4360c1e6e81d1d61d070267e5 assets\mysticalplantslg\blockstates\hungerbalm.json
 6b5435a1499a963dd97be7719a09912fe1f5adb5 assets\mysticalplantslg\models\item\mystical_ore.json
 c423359e022e2fdcd9fd59c3506bb8d43626ea41 assets\mysticalplantslg\models\item\soul.json
@@ -25,8 +25,8 @@ d8cfcbd22f00a98ac432377ad34cca2a589aaa46 assets\mysticalplantslg\models\item\bog
 85b0c776a4982e9528fb39cfd2fd6f8228031d12 assets\mysticalplantslg\blockstates\permafrost_shroom.json
 43d2af859aaf5dbf2c922fcafcbad3f3aac00e7c assets\mysticalplantslg\models\item\large_exp_mushroom.json
 773ecf1d48a9a748c5511e8d0dc616cd35dcf803 assets\mysticalplantslg\models\item\bogspore_cap.json
-92ed29ac0285bd24a15d06f357b043b1927976ca assets\mysticalplantslg\models\item\rooted_splash.json
 cd1ea13f361a978e59d3d58bf384d21b7e447b92 assets\mysticalplantslg\models\item\small_exp_mushrooms.json
+92ed29ac0285bd24a15d06f357b043b1927976ca assets\mysticalplantslg\models\item\rooted_splash.json
 538253fe2e438cd12d9709f546ba6882b2cb96d9 assets\mysticalplantslg\models\item\void_strawflower.json
 3309b4cd4c709c726069dc7adef7da4b56a12053 assets\mysticalplantslg\blockstates\soul_bell.json
 9efcd572391f6e94b8da57c63d0cc73e252ab093 assets\mysticalplantslg\blockstates\shulkura.json
@@ -65,9 +65,9 @@ d3f9d056dfddd98c50a5736b3a52159a934cad6a assets\mysticalplantslg\blockstates\ped
 0f3b9306cfc1a33719acf8fa14e2c8e92234c498 assets\mysticalplantslg\models\item\soul_pollen.json
 dd15da8ce5a62168b8f93435f3fe274f59b75186 assets\mysticalplantslg\models\item\pedestal.json
 ade65ee009bdc450e5019def7ea7e511429427dd assets\mysticalplantslg\blockstates\small_exp_mushrooms.json
+33c58a340925b68d499f9d79c2753271d2752d68 assets\mysticalplantslg\models\item\mystical_bottle.json
 6094433159cbd3cfedba6183a011ed56d5350d2e assets\mysticalplantslg\models\item\hungerbalm.json
 d76e9454cc5e9e3de49b7cccc390b05c87382180 assets\mysticalplantslg\models\item\deepslate_mystical_ore.json
-33c58a340925b68d499f9d79c2753271d2752d68 assets\mysticalplantslg\models\item\mystical_bottle.json
 5f97b88e2cbf0613c5b8695e0bde4c7c19434919 assets\mysticalplantslg\models\item\soul_possession_iris.json
 ec2bac280d92a54f212390300b09e235a8a0290a assets\mysticalplantslg\blockstates\void_strawflower.json
 38eee9307c6bb1e2b0d76d4b8ebd1f441330d702 assets\mysticalplantslg\models\item\prosperity_potion.json

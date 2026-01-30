@@ -21,7 +21,6 @@ public class PlaneParticle extends SpriteBillboardParticle {
 
     protected PlaneParticle(ClientWorld clientWorld, double x, double y, double z, double velX, double velY, double velZ, SpriteProvider sprites, int minAge, int maxAge, float setScale, boolean glow) {
         super(clientWorld, x, y, z, velX, velY, velZ);
-        ExperionLogger.Print("a");
         Random rand = clientWorld.getRandom();
         this.sprite = sprites;
         this.maxAge = rand.nextBetween(minAge, maxAge);

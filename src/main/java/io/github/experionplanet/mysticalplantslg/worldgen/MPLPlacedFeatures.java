@@ -70,7 +70,7 @@ public class MPLPlacedFeatures {
         );
 
         register(context, FROST_AXE_BINDING_ROCK_KEY, configuredFeatures.getOrThrow(MPLConfiguredFeatures.FROST_AXE_BINDING_ROCK_KEY),
-                RarityFilterPlacementModifier.of(20),
+                RarityFilterPlacementModifier.of(32),
                 SquarePlacementModifier.of(),
                 BiomePlacementModifier.of(),
                 PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP
@@ -91,7 +91,7 @@ public class MPLPlacedFeatures {
         );
 
         register(context, VOID_SWORD_BINDING_ROCK_KEY, configuredFeatures.getOrThrow(MPLConfiguredFeatures.VOID_SWORD_BINDING_ROCK_KEY),
-                RarityFilterPlacementModifier.of(64),
+                RarityFilterPlacementModifier.of(400),
                 SquarePlacementModifier.of(),
                 BiomePlacementModifier.of(),
                 PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP
