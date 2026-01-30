@@ -8,6 +8,7 @@ import net.minecraft.block.Block;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.Item;
+import net.minecraft.item.Items;
 import net.minecraft.loot.LootTable;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.loot.function.ApplyBonusLootFunction;
@@ -46,6 +47,8 @@ public class BlockLootableDataGen extends FabricBlockLootTableProvider {
         addDrop(MPLBlocks.MYSTICAL_ORE, ore(MPLBlocks.MYSTICAL_ORE, MPLItems.MYSTICAL_DUST, 1, 1));
         addDrop(MPLBlocks.DEEPSLATE_MYSTICAL_ORE, ore(MPLBlocks.DEEPSLATE_MYSTICAL_ORE, MPLItems.MYSTICAL_DUST, 1, 1));
         addDrop(MPLBlocks.PERMAFROST_SNOW_BLOCK);
+
+        addDrop(MPLBlocks.BINDING_ROCK, Items.COBBLESTONE);
     }
 
     private LootTable.Builder ore(Block block, Item drop, int min, int max) {

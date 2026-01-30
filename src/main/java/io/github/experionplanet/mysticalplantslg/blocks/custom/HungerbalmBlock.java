@@ -7,6 +7,7 @@ import io.github.experionplanet.mysticalplantslg.init.MPLItems;
 import io.github.experionplanet.mysticalplantslg.init.MPLSoundEvents;
 import io.github.experionplanet.mysticalplantslg.utils.MysticalUtils;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -25,6 +26,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldView;
 import org.jetbrains.annotations.Nullable;
 
 public class HungerbalmBlock extends BloomingFlowerBlock {
@@ -40,6 +42,11 @@ public class HungerbalmBlock extends BloomingFlowerBlock {
     @Override
     protected boolean hasRandomTicks(BlockState state) {
         return false;
+    }
+
+    @Override
+    protected boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
+        return super.canPlaceAt(state, world, pos) || state.isOf(Blocks.MUD);
     }
 
     @Override

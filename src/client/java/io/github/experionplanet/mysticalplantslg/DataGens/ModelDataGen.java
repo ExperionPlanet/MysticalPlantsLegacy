@@ -100,6 +100,7 @@ public class ModelDataGen extends FabricModelProvider {
         gen.register(MPLItems.BOG_FERTILIZER, Models.GENERATED);
         gen.register(MPLItems.VOID_CAP, Models.GENERATED);
         gen.register(MPLItems.VOID_ROOT, Models.GENERATED);
+        gen.register(MPLItems.MYSTICAL_PLANTS_ITEM_TAB, Models.GENERATED);
     }
 
     private static void registerItemSameTextures(String texture, ItemModelGenerator gen, Item... items) {

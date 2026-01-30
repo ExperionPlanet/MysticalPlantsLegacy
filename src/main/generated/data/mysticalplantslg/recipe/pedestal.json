@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "minecraft:cobblestone"
+    },
+    "C": {
+      "item": "minecraft:vine"
+    },
+    "D": {
+      "item": "mysticalplantslg:mystical_ingot"
+    }
+  },
+  "pattern": [
+    "AAA",
+    "CDC",
+    "AAA"
+  ],
+  "result": {
+    "count": 1,
+    "id": "mysticalplantslg:pedestal"
+  }
+}

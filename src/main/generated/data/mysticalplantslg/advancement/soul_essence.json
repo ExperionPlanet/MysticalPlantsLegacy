@@ -16,7 +16,6 @@
     "description": {
       "translate": "advancements.mysticalplantslg.soul_essence.desc"
     },
-    "frame": "goal",
     "icon": {
       "count": 1,
       "id": "mysticalplantslg:soul_essence"

@@ -16,8 +16,6 @@
     "description": {
       "translate": "advancements.mysticalplantslg.experience_essence.desc"
     },
-    "frame": "goal",
-    "hidden": true,
     "icon": {
       "count": 1,
       "id": "mysticalplantslg:experience_essence"

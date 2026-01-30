@@ -16,7 +16,6 @@
     "description": {
       "translate": "advancements.mysticalplantslg.bogged_essence.desc"
     },
-    "frame": "goal",
     "icon": {
       "count": 1,
       "id": "mysticalplantslg:bogged_essence"

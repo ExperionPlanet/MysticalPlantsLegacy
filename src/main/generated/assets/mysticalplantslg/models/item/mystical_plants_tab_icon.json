@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "mysticalplantslg:item/mystical_plants_tab_icon"
+  }
+}

@@ -5,6 +5,7 @@ import io.github.experionplanet.mysticalplantslg.init.MPLItemTags;
 import io.github.experionplanet.mysticalplantslg.init.MPLItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
+import net.minecraft.block.Blocks;
 import net.minecraft.data.server.recipe.RecipeExporter;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
@@ -173,6 +174,16 @@ public class RecipeDataGen extends FabricRecipeProvider {
                 .input(MPLItems.VOID_ROOT)
                 .group("mystical_potions")
                 .criterion(FabricRecipeProvider.hasItem(MPLItems.VOID_ROOT), FabricRecipeProvider.conditionsFromItem(MPLItems.VOID_ROOT))
+                .offerTo(recipeExporter);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, MPLBlocks.PEDESTAL)
+                .input('A', Blocks.COBBLESTONE)
+                .input('C', Blocks.VINE)
+                .input('D', MPLItems.MYSTICAL_INGOT)
+                .pattern("AAA")
+                .pattern("CDC")
+                .pattern("AAA")
+                .criterion(FabricRecipeProvider.hasItem(Blocks.VINE), FabricRecipeProvider.conditionsFromItem(Blocks.VINE))
                 .offerTo(recipeExporter);
     }
 }

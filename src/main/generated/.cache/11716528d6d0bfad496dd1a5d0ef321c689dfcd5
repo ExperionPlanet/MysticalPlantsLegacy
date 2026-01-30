@@ -1,17 +1,17 @@
-// 1.21.1	2026-01-15T21:28:18.7630449	Mystical Plants Legacy/Tags for minecraft:item
-78f85751a456f69e85bb14bdbc8c8c5c6e47f22e data\mysticalplantslg\tags\item\soul_filling.json
+// 1.21.1	2026-01-30T00:32:56.2234279	Mystical Plants Legacy/Tags for minecraft:item
+512222334437aea9678701f2c0a93d9e46b67934 data\mysticalplantslg\tags\item\soul_plants.json
+1333eeddd63ba178c10dd2f829eb6f6af933ff0e data\minecraft\tags\item\pickaxes.json
+d614d5efc38cfc9363044cdb909b233458422ab6 data\minecraft\tags\item\enchantable\durability.json
+52968055627878d0a2c58d46ee9ebf0170693f33 data\mysticalplantslg\tags\item\experience_plants.json
 a7aaba40cd2604379911e0e8c5e77a7d00b1c946 data\mysticalplantslg\tags\item\soil_filling.json
-0c3c65635fe3467b188eee2bf6cae5e5ec44f463 data\mysticalplantslg\tags\item\void_plants.json
-24c5a33d6a21a3d7bcea8d56869bae1811fd2e70 data\mysticalplantslg\tags\item\frost_plants.json
+92bfa1703a0a30ce92ab2a5f51fbc7460d8255ec data\minecraft\tags\item\swords.json
 92bfa1703a0a30ce92ab2a5f51fbc7460d8255ec data\minecraft\tags\item\enchantable\sword.json
-1333eeddd63ba178c10dd2f829eb6f6af933ff0e data\minecraft\tags\item\enchantable\mining.json
 ab6546d56d873fdb03cf72772018197edaf74ce6 data\mysticalplantslg\tags\item\mystical_plants.json
+0c3c65635fe3467b188eee2bf6cae5e5ec44f463 data\mysticalplantslg\tags\item\void_plants.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data\c\tags\item\dirts.json
 1333eeddd63ba178c10dd2f829eb6f6af933ff0e data\minecraft\tags\item\enchantable\mining_loot.json
-d614d5efc38cfc9363044cdb909b233458422ab6 data\minecraft\tags\item\enchantable\durability.json
-1333eeddd63ba178c10dd2f829eb6f6af933ff0e data\minecraft\tags\item\pickaxes.json
-52968055627878d0a2c58d46ee9ebf0170693f33 data\mysticalplantslg\tags\item\experience_plants.json
+1333eeddd63ba178c10dd2f829eb6f6af933ff0e data\minecraft\tags\item\enchantable\mining.json
+24c5a33d6a21a3d7bcea8d56869bae1811fd2e70 data\mysticalplantslg\tags\item\frost_plants.json
+78f85751a456f69e85bb14bdbc8c8c5c6e47f22e data\mysticalplantslg\tags\item\soul_filling.json
 6be59597189e451b4c3ab06f71e8a48770da5b1d data\mysticalplantslg\tags\item\essences.json
-92bfa1703a0a30ce92ab2a5f51fbc7460d8255ec data\minecraft\tags\item\swords.json
 19905d63f661e7101d6a5d8fc9dfa41ab5f28ae6 data\mysticalplantslg\tags\item\bogged_plants.json
-512222334437aea9678701f2c0a93d9e46b67934 data\mysticalplantslg\tags\item\soul_plants.json

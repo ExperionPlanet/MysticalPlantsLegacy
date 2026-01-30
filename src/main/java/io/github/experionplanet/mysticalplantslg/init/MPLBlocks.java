@@ -51,8 +51,8 @@ public class MPLBlocks {
     public static final Block MYSTICAL_ORE = register("mystical_ore", new ExperienceDroppingBlock(UniformIntProvider.create(2, 10), AbstractBlock.Settings.create().mapColor(MapColor.STONE_GRAY).instrument(NoteBlockInstrument.BASEDRUM).requiresTool().strength(4.0F, 3.0F).emissiveLighting(MPLBlocks::emissiveLightning).luminance(value -> 8)), true);
     public static final Block DEEPSLATE_MYSTICAL_ORE = register("deepslate_mystical_ore", new ExperienceDroppingBlock(UniformIntProvider.create(2, 10), AbstractBlock.Settings.create().mapColor(MapColor.STONE_GRAY).instrument(NoteBlockInstrument.BASEDRUM).requiresTool().strength(4.5F, 3.0F).sounds(BlockSoundGroup.DEEPSLATE).emissiveLighting(MPLBlocks::emissiveLightning).luminance(value -> 8)), true);
 
-    public static final Block BINDING_ROCK = register("binding_rock", BindingRockBlock::new, AbstractBlock.Settings.create().sounds(BlockSoundGroup.STONE).nonOpaque(), true);
-    public static final Block PEDESTAL = register("pedestal", PedestalBlock::new, AbstractBlock.Settings.create().sounds(BlockSoundGroup.STONE).nonOpaque(), true);
+    public static final Block BINDING_ROCK = register("binding_rock", BindingRockBlock::new, AbstractBlock.Settings.create().sounds(BlockSoundGroup.STONE).nonOpaque().strength(8F, 20.0F), true);
+    public static final Block PEDESTAL = register("pedestal", PedestalBlock::new, AbstractBlock.Settings.create().sounds(BlockSoundGroup.STONE).nonOpaque().requiresTool().strength(1.5F, 6.0F), true);
 
     public static final Block PERMAFROST_SNOW_BLOCK = register("permafrost_snow_block", Block::new, AbstractBlock.Settings.copy(Blocks.SNOW_BLOCK), true);
 

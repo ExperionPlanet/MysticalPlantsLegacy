@@ -13,7 +13,7 @@ import net.minecraft.text.Text;
 public class  MPLItemGroup {
     public static final RegistryKey<ItemGroup> CUSTOM_ITEM_GROUP_KEY = RegistryKey.of(Registries.ITEM_GROUP.getKey(), MysticalUtils.newId("mystical_plants_tab"));
     public static final ItemGroup CUSTOM_ITEM_GROUP = FabricItemGroup.builder()
-            .icon(() -> new ItemStack(MPLBlocks.SMALL_EXP_MUSHROOMS))
+            .icon(() -> new ItemStack(MPLItems.MYSTICAL_PLANTS_ITEM_TAB))
             .displayName(Text.literal("Mystical Plants Legacy"))
             .build();
 

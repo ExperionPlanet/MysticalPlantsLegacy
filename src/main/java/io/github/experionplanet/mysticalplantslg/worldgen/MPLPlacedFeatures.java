@@ -37,7 +37,7 @@ public class MPLPlacedFeatures {
 
         registerMysticalPatches(context, FROST_PLANTS_KEY, configuredFeatures.getOrThrow(MPLConfiguredFeatures.FROST_PLANTS_KEY), 20);
 
-        registerMysticalPatches(context, BOGGED_PLANTS_KEY, configuredFeatures.getOrThrow(MPLConfiguredFeatures.BOGGED_PLANTS_KEY), 30);
+        registerMysticalPatches(context, BOGGED_PLANTS_KEY, configuredFeatures.getOrThrow(MPLConfiguredFeatures.BOGGED_PLANTS_KEY), 20);
         registerMysticalPatches(context, DISGUISE_ORCHIDS_KEY, configuredFeatures.getOrThrow(MPLConfiguredFeatures.DISGUISE_ORCHIDS_KEY), 32);
 
         register(context, SOUL_PLANTS_KEY, configuredFeatures.getOrThrow(MPLConfiguredFeatures.SOUL_PLANTS_KEY),
@@ -63,7 +63,7 @@ public class MPLPlacedFeatures {
                 BiomePlacementModifier.of()
         );
         register(context, EXPERIENCE_PICKAXE_BINDING_ROCK_KEY, configuredFeatures.getOrThrow(MPLConfiguredFeatures.EXPERIENCE_PICKAXE_BINDING_ROCK_KEY),
-                RarityFilterPlacementModifier.of(10),
+                RarityFilterPlacementModifier.of(5),
                 SquarePlacementModifier.of(),
                 BiomePlacementModifier.of(),
                 PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP

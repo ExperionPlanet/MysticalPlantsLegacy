@@ -1,6 +1,7 @@
 package io.github.experionplanet.mysticalplantslg.entities;
 
 import io.github.experionplanet.mysticalplantslg.init.MPLEntities;
+import io.github.experionplanet.mysticalplantslg.init.MPLStatusEffects;
 import io.github.experionplanet.mysticalplantslg.mysticalcontent.MysticalContents;
 import io.github.experionplanet.mysticalplantslg.utils.MysticalUtils;
 import net.minecraft.entity.Entity;
@@ -54,7 +55,9 @@ public class SporeEntity extends Entity {
                 List<LivingEntity> listLiving = world.getNonSpectatingEntities(LivingEntity.class, myBox);
                 if (!listLiving.isEmpty()) {
                     for (LivingEntity target : listLiving) {
-                        target.addStatusEffect(new StatusEffectInstance(statusInst.getEffectType(), statusInst.getDuration(), statusInst.getAmplifier()));
+                        if (!target.hasStatusEffect(statusInst.getEffectType())) {
+                            target.addStatusEffect(new StatusEffectInstance(statusInst.getEffectType(), statusInst.getDuration(), statusInst.getAmplifier()));
+                        }
                     }
                 }
             }

@@ -160,7 +160,7 @@ public class BoggedShovelItem extends ShovelItem {
                                         }
 
                                         if (consumeFill) {
-                                            stack.set(SOIL_FILLINGS, getSoilFillings(stack) - world.getRandom().nextBetween(1, 2));
+                                            stack.set(SOIL_FILLINGS, Math.max(getSoilFillings(stack) - world.getRandom().nextBetween(1, 2), 0));
                                         }
                                     }
                                 }

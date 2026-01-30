@@ -34,7 +34,7 @@ public class AdvancementDataGen extends FabricAdvancementProvider {
     public void generateAdvancement(RegistryWrapper.WrapperLookup wrapperLookup, Consumer<AdvancementEntry> consumer) {
         AdvancementEntry Beginning = Advancement.Builder.create()
                 .display(
-                        MPLBlocks.LARGE_EXP_MUSHROOMS.asItem(),
+                        MPLItems.MYSTICAL_PLANTS_ITEM_TAB,
                         textTranslate("mystical_plants_beginning"),
                         textTranslate("mystical_plants_beginning.desc"),
                         MysticalUtils.newId("textures/gui/advancement_background.png"),

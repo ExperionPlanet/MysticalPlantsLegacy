@@ -2,6 +2,7 @@ package io.github.experionplanet.mysticalplantslg.blocks.custom;
 
 import com.mojang.serialization.MapCodec;
 import io.github.experionplanet.mysticalplantslg.blocks.entity.custom.PedestalBlockEntity;
+import io.github.experionplanet.mysticalplantslg.utils.ExperionLogger;
 import io.github.experionplanet.mysticalplantslg.utils.MysticalUtils;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
@@ -11,6 +12,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.state.StateManager;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.util.ItemActionResult;
 import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
@@ -64,15 +66,8 @@ public class PedestalBlock extends BlockWithEntity {
     }
 
     @Override
-    protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
+    protected ItemActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (!world.isClient() && !state.get(ON_CRAFTING)) {
-            ItemStack stack = player.getStackInHand(Hand.MAIN_HAND);
-
-            if (stack.isEmpty()) {
-                stack = player.getStackInHand(Hand.OFF_HAND);
-            }
-
-            //ExperionLogger.Print(stack.toString());
 
             if (world.getBlockEntity(pos) instanceof PedestalBlockEntity) {
                 PedestalBlockEntity blockEntity = (PedestalBlockEntity) world.getBlockEntity(pos);
@@ -82,13 +77,12 @@ public class PedestalBlock extends BlockWithEntity {
                 if (!blockEntity.getCurrentStack().isEmpty()) {
                     Vec3d vec = MysticalUtils.v3dConvert(pos, true);
                     ItemStack copiedStack = blockEntity.getCurrentStack().copy();
-
                     world.spawnEntity(new ItemEntity(world, vec.x, vec.y, vec.z, copiedStack));
                     if (stack.isEmpty()) {
                         blockEntity.emptyStack();
                     }
-                    succ = true;
 
+                    succ = true;
                 }
 
                 if (!stack.isEmpty()) {
@@ -98,13 +92,14 @@ public class PedestalBlock extends BlockWithEntity {
                 }
 
                 if (succ) {
-                    return ActionResult.SUCCESS_NO_ITEM_USED;
+                    return ItemActionResult.SUCCESS;
                 }
             }
         }
 
-        return ActionResult.PASS;
+        return ItemActionResult.SUCCESS;
     }
+
 
     @Override
     protected float calcBlockBreakingDelta(BlockState state, PlayerEntity player, BlockView world, BlockPos pos) {

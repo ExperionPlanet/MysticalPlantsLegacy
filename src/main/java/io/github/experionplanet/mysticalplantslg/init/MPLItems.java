@@ -66,6 +66,7 @@ public class MPLItems {
     // MISC
     public static final Item SOUL_ZOMBIE_SPAWN_EGG = register("soul_zombie_spawn_egg", new SpawnEggItem(MPLEntities.SOUL_ZOMBIE, ColorHelper.Argb.getArgb(105, 229, 255), ColorHelper.Argb.getArgb(22, 105, 198), new Item.Settings()));
     public static final Item GUIDE_BOOK = register("guide_book", new Item(new Item.Settings().maxCount(1)));
+    public static final Item MYSTICAL_PLANTS_ITEM_TAB = registerBasic("mystical_plants_tab_icon", 1);
 
     private static Item registerBasic(String name) {
         return registerBasic(name, 64, Rarity.COMMON);

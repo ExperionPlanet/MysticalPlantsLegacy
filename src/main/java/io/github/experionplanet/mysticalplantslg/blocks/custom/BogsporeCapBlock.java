@@ -3,12 +3,14 @@ package io.github.experionplanet.mysticalplantslg.blocks.custom;
 import com.mojang.serialization.MapCodec;
 import io.github.experionplanet.mysticalplantslg.blocks.BouncingPlantBlock;
 import io.github.experionplanet.mysticalplantslg.entities.SporeEntity;
+import io.github.experionplanet.mysticalplantslg.init.MPLBlocks;
 import io.github.experionplanet.mysticalplantslg.init.MPLItems;
 import io.github.experionplanet.mysticalplantslg.init.MPLSoundEvents;
 import io.github.experionplanet.mysticalplantslg.utils.MysticalUtils;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.BlockWithEntity;
+import net.minecraft.block.Blocks;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LivingEntity;
@@ -29,6 +31,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldView;
 import org.jetbrains.annotations.Nullable;
 
 import static io.github.experionplanet.mysticalplantslg.init.MPLBlockProperties.CAP_REMAINING;
@@ -52,6 +55,11 @@ public class BogsporeCapBlock extends BouncingPlantBlock {
     @Override
     protected boolean allowStepped(BlockState state, ServerWorld world, Entity entity) {
         return state.get(CAP_REMAINING) > 0;
+    }
+
+    @Override
+    protected boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
+        return super.canPlaceAt(state, world, pos) || state.isOf(Blocks.MUD);
     }
 
     @Override
@@ -96,7 +104,9 @@ public class BogsporeCapBlock extends BouncingPlantBlock {
                 if (rand.nextBoolean()) {
                     onSpore(world,  pos, state);
                     bounceThePlant(world, pos);
-                    player.addStatusEffect(new StatusEffectInstance(StatusEffects.POISON, 40, 1));
+                    if (!player.hasStatusEffect(StatusEffects.POISON)) {
+                        player.addStatusEffect(new StatusEffectInstance(StatusEffects.POISON, 40, 1));
+                    }
                 }else {
                     Vec3d v = pos.toCenterPos();
                     world.setBlockState(pos, state.with(CAP_REMAINING,state.get(CAP_REMAINING) - 1));

@@ -34,5 +34,6 @@ public class BlockTagsDataGen extends FabricTagProvider<Block> {
         )) {
             getOrCreateTagBuilder(key).add(MPLBlocks.MYSTICAL_ORE).add(MPLBlocks.DEEPSLATE_MYSTICAL_ORE);
         }
+        getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(MPLBlocks.PEDESTAL).add(MPLBlocks.BINDING_ROCK);
     }
 }

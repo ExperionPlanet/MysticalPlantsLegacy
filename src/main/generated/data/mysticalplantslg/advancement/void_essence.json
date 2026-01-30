@@ -16,7 +16,6 @@
     "description": {
       "translate": "advancements.mysticalplantslg.void_essence.desc"
     },
-    "frame": "goal",
     "icon": {
       "count": 1,
       "id": "mysticalplantslg:void_essence"

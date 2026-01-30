@@ -79,7 +79,10 @@ public class MysticalSplashEntity extends ThrownItemEntity {
         super.onEntityHit(entityHitResult);
         if (entityHitResult.getEntity() instanceof LivingEntity livingEntity) {
             StatusEffectInstance inst = MysticalContents.SPORE_CONTENT.get(Identifier.of(this.dataTracker.get(SPORE_ID))).statusEffect();
-            livingEntity.addStatusEffect(MysticalUtils.copyStatusEffect(inst));
+            if (!livingEntity.hasStatusEffect(inst.getEffectType())) {
+                livingEntity.addStatusEffect(MysticalUtils.copyStatusEffect(inst));
+            }
+
         }
     }
 

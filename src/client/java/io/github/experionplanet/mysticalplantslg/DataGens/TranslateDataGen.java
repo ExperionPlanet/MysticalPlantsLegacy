@@ -122,8 +122,24 @@ public class TranslateDataGen extends FabricLanguageProvider {
         soundsTr.trBase("permafrost_shroom_explode", "Shroom Explodes");
         soundsTr.trBase("permafrost_shroom_explode_last", "Shroom Explodes Last");
         soundsTr.trBase("exbiscus_blooming_pick", "Blooming Pick");
-        soundsTr.trBase("exbiscus_blooming_pick_essence", "Essence Pick");
-        soundsTr.trBase("frost_umbrella_flower_boink", "BOINK");
+        soundsTr.trBase("exbiscus_blooming_pick_essence", "Experience Essence");
+        soundsTr.trBase("exp_mushrooms_bounce", "Mushroom Bounce");
+        soundsTr.trBase("experience_pickaxe_burst", "Exp burst");
+        soundsTr.trBase("soul_bell_stage_1", "Screaming Stage 1");
+        soundsTr.trBase("soul_bell_stage_2", "Screaming Stage 2");
+        soundsTr.trBase("soul_bell_stage_3", "Screaming Stage 3");
+        soundsTr.trBase("soul_possesion_iris_harvest", "Soul Harvesting");
+        soundsTr.trBase("soul_pitcher_harvest", "Soul Harvesting");
+        soundsTr.trBase("soul_essence_popup", "Soul Essence");
+        soundsTr.trBase("frost_axe_frost_logs", "Frost Ability");
+        soundsTr.trBase("frost_essence_popup", "Frost Essence");
+        soundsTr.trBase("spore", "Spores");
+        soundsTr.trBase("soul_hoe_growing", "Soul Hoe Ability");
+        soundsTr.trBase("bogged_essence_popup", "Bogged Essence");
+        soundsTr.trBase("void_sword_effect", "V o i d");
+        soundsTr.trBase("void_essence_popup", "Void Essence");
+
+
 
         ExperionTranslate configTr = new ExperionTranslate("mysticalplantslg.midnightconfig", gen);
         configTr.trBase("show_flower_rings", "Showing the flower rings (ex: Exbiscus), Turn off this might increase the performance");
